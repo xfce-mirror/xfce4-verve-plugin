@@ -90,33 +90,27 @@ verve_env_init (VerveEnv *env)
   verve_env_shells_init (env);
 }
 
-void 
-_verve_env_shutdown (void)
-{
-  VerveEnv *env = verve_env_get ();
-  
-  if (G_LIKELY (env != NULL))
-  {
-    g_object_unref (G_OBJECT (env));
-  }
-}
+static VerveEnv *env = NULL;  
 
 VerveEnv 
 *verve_env_get (void)
 {
-  static VerveEnv *env = NULL;
-  
   if (G_UNLIKELY (env == NULL))
   {
     env = g_object_new (VERVE_TYPE_ENV, NULL);
     g_object_add_weak_pointer (G_OBJECT (env), (gpointer) &env);
   }
   else
-  {
     g_object_ref (G_OBJECT (env));
-  }
   
   return env;
+}
+
+void 
+_verve_env_shutdown (void)
+{
+  if (G_LIKELY (env != NULL))
+    g_object_unref (G_OBJECT (env));
 }
 
 static void 
@@ -217,10 +211,8 @@ verve_env_get_path (VerveEnv *env)
 {
   static gchar **paths = NULL;
   
-  if (G_LIKELY (paths == NULL))
-  {
+  if (G_UNLIKELY (paths == NULL))
     paths = g_strsplit (g_getenv ("PATH"), ":", 0);
-  }
 
   return paths;
 }
@@ -230,7 +222,7 @@ verve_env_get_path_binaries (VerveEnv *env)
 {
   static GList *binaries = NULL;
 
-  if (G_LIKELY (binaries == NULL))
+  if (G_UNLIKELY (binaries == NULL))
   {
     GError *error = NULL;
     gchar **paths = verve_env_get_path (env);

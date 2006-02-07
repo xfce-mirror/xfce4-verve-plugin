@@ -84,7 +84,7 @@ static gboolean verve_plugin_buttonpress_cb (GtkWidget *entry, GdkEventButton *e
 	 {
 		  XClientMessageEvent xev;
 
-		  if (G_UNLIKELY (!atom))
+		  if (G_LIKELY (!atom))
 			   atom = XInternAtom (GDK_DISPLAY (), "_NET_ACTIVE_WINDOW", FALSE);
 
 		  xev.type = ClientMessage;
@@ -129,7 +129,7 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
       if (verve_history_is_empty ())
         return TRUE;
 
-      if (!verve->history_current)
+      if (G_UNLIKELY (!verve->history_current))
       {
         verve->history_current = verve_history_end();
         gtk_entry_set_text (GTK_ENTRY (entry), verve->history_current->data);
@@ -138,7 +138,7 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
       else
       {
         GList *tmp = verve_history_get_prev (verve->history_current);
-        if (!tmp)
+        if (G_UNLIKELY (!tmp))
         {
           verve->history_current = NULL;
           gtk_entry_set_text (GTK_ENTRY (entry), "");
@@ -164,7 +164,7 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
       else
       {
         GList *tmp = verve_history_get_next (verve->history_current);
-        if (!tmp)
+        if (G_UNLIKELY (!tmp))
         {
           verve->history_current = NULL;
           gtk_entry_set_text (GTK_ENTRY (entry), "");

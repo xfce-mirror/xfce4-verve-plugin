@@ -210,7 +210,8 @@ verve_db_has_script_command (VerveDb *db, const gchar *name)
 VerveSimpleCommand*
 verve_db_get_simple_command (VerveDb *db, const gchar *name)
 {
-  g_return_val_if_fail (verve_db_has_simple_command (db, name), NULL);
+  if (G_UNLIKELY (!verve_db_has_simple_command (db, name)))
+    return NULL;
   return (VerveSimpleCommand *)g_hash_table_lookup (db->simple_commands, name);
 }
 
@@ -218,7 +219,8 @@ verve_db_get_simple_command (VerveDb *db, const gchar *name)
 VerveScriptCommand*
 verve_db_get_script_command (VerveDb *db, const gchar *name)
 {
-  g_return_val_if_fail (verve_db_has_script_command (db, name), NULL);
+  if (G_UNLIKELY (!verve_db_has_script_command (db, name)))
+    return NULL;
   return (VerveScriptCommand *)g_hash_table_lookup (db->script_commands, name);
 }
 
@@ -257,6 +259,7 @@ void
 _verve_db_shutdown (void)
 {
   VerveDb *db = verve_db_get ();
+
   if (G_LIKELY (db != NULL))
   {
     g_object_unref (G_OBJECT (db));

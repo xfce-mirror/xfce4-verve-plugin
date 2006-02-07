@@ -4,7 +4,8 @@
 
 SUBDIRS =								\
 	panel-plugin							\
-	po
+	po								\
+	tests
 
 distclean-local:
 	rm -rf *.spec *.cache *~

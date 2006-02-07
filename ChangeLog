@@ -1,3 +1,8 @@
+2O06-02-07	Jannis Pohlmann <jannis@xfce.org>
+	
+	* Added a small test program in order to search for
+	  memory leaks
+
 2006-02-07	Jannis Pohlmann <jannis@xfce.org>
 
 	* Avoid the error dialog to appear twice

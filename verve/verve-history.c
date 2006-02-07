@@ -41,7 +41,7 @@ _verve_history_init (void)
 void
 _verve_history_shutdown (void)
 {
-  if (G_UNLIKELY (history == NULL))
+  if (G_LIKELY (history != NULL))
   {
     GList *iter = history;
     while (iter != NULL)
@@ -86,7 +86,7 @@ verve_history_get_next (const GList *current)
 gboolean
 verve_history_is_empty (void)
 {
-  if (G_LIKELY (history == NULL) || g_list_length (history) == 0)
+  if (G_UNLIKELY (history == NULL) || g_list_length (history) == 0)
     return TRUE;
   else
     return FALSE;
