@@ -1,0 +1,8 @@
+Required packages:
+	* exo (from SVN)
+	* libxfce4panel-1.0 (from SVN)
+	* libxfce4util-1.0 (from SVN)
+	* libpcre
+
+Optional dependencies:
+	* libstartup-notification-1.0 >= 0.4

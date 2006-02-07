@@ -1,0 +1,10 @@
+2006-02-07	Jannis Pohlmann <jannis@xfce.org>
+
+	* Initial import into Xfce Goodies SVN
+
+2006-02-06	Jannis Pohlmann <jannis@xfce.org>
+
+	* src/verve-history.{c,h}: Function for getting the last item
+	  of the list added
+	* src/verve-plugin.c: Use newly added history function when 
+	  pressing GDK_Down

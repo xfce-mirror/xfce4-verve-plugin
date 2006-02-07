@@ -1,0 +1,8 @@
+[Xfce Panel]
+Type=X-XFCE-PanelPlugin
+Encoding=UTF-8
+_Name=Verve Command Line
+_Comment=Command line interface with auto-completion and history browsing
+Icon=Terminal
+X-XFCE-Module=@INTERNAL_PLUGIN_PATH@/libverveplugin.so
+
