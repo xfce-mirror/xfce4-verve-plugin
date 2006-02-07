@@ -1,4 +1,9 @@
 2006-02-07	Jannis Pohlmann <jannis@xfce.org>
+	
+	* Don't trim before auto-completing, as this would make
+	  things just more complicated than necessary.
+
+2006-02-07	Jannis Pohlmann <jannis@xfce.org>
 
 	* Removed XFCE_PANEL_PLUGIN call from configure.in.in
 

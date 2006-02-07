@@ -196,7 +196,6 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
 
     case GDK_Tab:
 		  	 command = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
-      command = g_strstrip (command);
 			
 			   if ((len = g_utf8_strlen (command, -1)) == 0)
 			    	return TRUE;
