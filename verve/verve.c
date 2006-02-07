@@ -133,12 +133,8 @@ verve_execute (const gchar *input)
   }
   else
   {
-    gchar *command = g_strdup (input);
-    gboolean result = exec_command (command); /* let libxfcegui4 do the job */
-    g_free (command);
-    return result;
+    return FALSE;
   }
-  return FALSE;
 }
 
 /*********************************************************************
