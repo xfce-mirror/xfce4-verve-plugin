@@ -1,5 +1,10 @@
 2006-02-07	Jannis Pohlmann <jannis@xfce.org>
 	
+	* Added intltool-* scripts to DIST_EXTRA and DISTCLEAN
+	* Added po/Makefil.am added
+
+2006-02-07	Jannis Pohlmann <jannis@xfce.org>
+	
 	* Added intltool-* scripts
 
 2006-02-07	Jannis Pohlmann <jannis@xfce.org>

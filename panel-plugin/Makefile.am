@@ -15,7 +15,11 @@ libverveplugin_la_SOURCES =						\
 	../verve/verve.c						\
 	../verve/verve-db.c						\
 	../verve/verve-history.c					\
-	../verve/verve-env.c
+	../verve/verve-env.c						\
+	../verve/verve.h						\
+	../verve/verve-db.h						\
+	../verve/verve-history.h					\
+	../verve/verve-env.h
 
 libverveplugin_la_CFLAGS = 						\
 	@LIBEXO_CFLAGS@							\
