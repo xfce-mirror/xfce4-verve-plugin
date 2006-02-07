@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-02-07 02:06+0100\n"
+"PO-Revision-Date: 2006-02-07 HO:MI+ZONE\n"
+"Last-Translator: Jannis Pohlmann <jannis@xfce.org>\n"
+"Language-Team: de <jannis@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/verve-plugin.c:185
+msgid "Unkown command."
+msgstr "Unbekannter Befehl."
+
+#: ../panel-plugin/verve-plugin.c:365
+msgid "Verve Properties"
+msgstr "Verve-Konfiguration"
+
+#: ../panel-plugin/verve-plugin.c:379
+msgid "Verve"
+msgstr "Verve"
+
+#: ../panel-plugin/verve-plugin.c:384
+msgid "Appearance"
+msgstr "Erscheinungsbild"
+
+#: ../panel-plugin/verve-plugin.c:395
+msgid "Width (in chars):"
+msgstr "Breite (in Zeichen):"
+
+#. vim:set expandtab ts=1 sw=2:
+#: ../panel-plugin/verve.desktop.in.h:1
+msgid "Command line interface with auto-completion and history browsing"
+msgstr "Kommandozeile mit Autovervollständigung und Befehlsverlauf"
+
+#: ../panel-plugin/verve.desktop.in.h:2
+msgid "Verve Command Line"
+msgstr "Verve-Kommandozeile"
