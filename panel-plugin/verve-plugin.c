@@ -111,7 +111,7 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
   VervePlugin *verve = (VervePlugin *)user_data;
   GCompletion *completion = verve->completion;
 
-	 const gchar *cmd;
+  gchar *command;
 	 gboolean selected = FALSE;
 	 const gchar *prefix;
 	 GList *similar = NULL;
@@ -179,23 +179,26 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
       return TRUE;
 
 		  case GDK_Return:
-      cmd = gtk_entry_get_text (GTK_ENTRY (entry));
-      if (!verve_execute (cmd))
+      command = g_stdrup (gtk_entry_get_text (GTK_ENTRY (entry)));
+      command = g_strstrip (command);
+      if (!verve_execute (command))
       {
         show_error (_("Unkown command."));
 			   }
       else
       {
-        verve_history_add (g_strdup (cmd));
+        verve_history_add (g_strdup (command));
         verve->history_current = NULL;
         gtk_entry_set_text (GTK_ENTRY (entry), "");
       }
+      g_free (command);
 			   return TRUE;
 
     case GDK_Tab:
-		  	 cmd = gtk_entry_get_text (GTK_ENTRY (entry));
+		  	 command = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
+      command = g_strstrip (command);
 			
-			   if ((len = g_utf8_strlen (cmd, -1)) == 0)
+			   if ((len = g_utf8_strlen (command, -1)) == 0)
 			    	return TRUE;
 
 			   selected = gtk_editable_get_selection_bounds (GTK_EDITABLE (entry), &selstart, NULL);
@@ -203,12 +206,12 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
 			   if (selected && selstart != 0)
 			   {
 				    verve->n_complete++;
-				    prefix = g_strndup (cmd, selstart);
+				    prefix = g_strndup (command, selstart);
 			   }
 			   else
 			   {
 				    verve->n_complete = 0;
-				    prefix = cmd;
+				    prefix = command;
 			   }
 
 			   similar = g_completion_complete (completion, prefix, NULL);
@@ -238,6 +241,7 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
 				    gtk_entry_set_text (GTK_ENTRY (entry), similar->data);
 				    gtk_editable_select_region (GTK_EDITABLE (entry), (selstart == 0 ? len : selstart), -1);
 			   }
+      g_free (command);
 			   return TRUE;
 
 		  default:
