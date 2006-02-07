@@ -39,7 +39,7 @@ msgstr "Breite (in Zeichen):"
 #. vim:set expandtab ts=1 sw=2:
 #: ../panel-plugin/verve.desktop.in.h:1
 msgid "Command line interface with auto-completion and history browsing"
-msgstr "Kommandozeile mit Autovervollständigung und Befehlsverlauf"
+msgstr "Mit Autovervollständigung, Befehlsverlauf und URL-Erkennung"
 
 #: ../panel-plugin/verve.desktop.in.h:2
 msgid "Verve Command Line"
