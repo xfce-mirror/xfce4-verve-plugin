@@ -179,7 +179,7 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
       return TRUE;
 
 		  case GDK_Return:
-      command = g_stdrup (gtk_entry_get_text (GTK_ENTRY (entry)));
+      command = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
       command = g_strstrip (command);
       if (!verve_execute (command))
       {
