@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-07 02:08+0100\n"
+"POT-Creation-Date: 2006-02-07 02:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,10 +37,10 @@ msgid "Width (in chars):"
 msgstr ""
 
 #. vim:set expandtab ts=1 sw=2:
-#: ../panel-plugin/verve.desktop.in.h:1
+#: ../panel-plugin/verve.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and history browsing"
 msgstr ""
 
-#: ../panel-plugin/verve.desktop.in.h:2
+#: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
 msgstr ""

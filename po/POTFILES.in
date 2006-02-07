@@ -7,4 +7,4 @@ verve/verve-env.c
 verve/verve-history.h
 verve/verve-history.c
 panel-plugin/verve-plugin.c
-panel-plugin/verve.desktop.in
+panel-plugin/verve.desktop.in.in
