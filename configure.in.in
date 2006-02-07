@@ -73,11 +73,6 @@ AC_CHECK_LIB([pcre], [pcre_compile],
 AC_SUBST([LIBPCRE_CFLAGS])
 AC_SUBST([LIBPCRE_LIBS])
 
-dnl ******************************
-dnl *** Configure panel plugin ***
-dnl ******************************
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.3.0])
-
 dnl *************************************************
 dnl *** Optional support for startup notification ***
 dnl *************************************************

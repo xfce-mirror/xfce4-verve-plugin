@@ -1,5 +1,9 @@
 2006-02-07	Jannis Pohlmann <jannis@xfce.org>
 
+	* Removed XFCE_PANEL_PLUGIN call from configure.in.in
+
+2006-02-07	Jannis Pohlmann <jannis@xfce.org>
+
 	* Trim whitespaces before parsing the command. This fixes 
 	  bug #6311.
 	* Don't clear input if exec_command (libfcegui4). Bug #6310.
