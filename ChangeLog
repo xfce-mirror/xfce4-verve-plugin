@@ -1,5 +1,9 @@
 2006-02-07	Jannis Pohlmann <jannis@xfce.org>
 	
+	* Added intltool-* scripts
+
+2006-02-07	Jannis Pohlmann <jannis@xfce.org>
+	
 	* Moved src/ to verve/
 
 2006-02-07	Jannis Pohlmann <jannis@xfce.org>
