@@ -183,12 +183,10 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
       command = g_strstrip (command);
       if (!verve_execute (command))
       {
-        show_error (_("Unkown command."));
+        gchar *msg = g_strconcat (_("Could not execute command:"), " ", command, NULL);
+        show_error (msg);
+        g_free (msg);
 			   }
-      else if (!exec_command (command))
-      {
-        /* Do nothing, since libxfcegui4 already shows an error */
-      }
       else
       {
         verve_history_add (g_strdup (command));

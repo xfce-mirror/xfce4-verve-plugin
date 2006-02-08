@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-07 02:06+0100\n"
+"POT-Creation-Date: 2006-02-08 16:54+0100\n"
 "PO-Revision-Date: 2006-02-07 HO:MI+ZONE\n"
 "Last-Translator: Jannis Pohlmann <jannis@xfce.org>\n"
 "Language-Team: de <jannis@xfce.org>\n"
@@ -16,31 +16,34 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/verve-plugin.c:185
-msgid "Unkown command."
-msgstr "Unbekannter Befehl."
+#: ../panel-plugin/verve-plugin.c:186
+msgid "Could not execute command:"
+msgstr "Konnte den Befehl nicht ausführen:"
 
-#: ../panel-plugin/verve-plugin.c:365
+#: ../panel-plugin/verve-plugin.c:370
 msgid "Verve Properties"
 msgstr "Verve-Konfiguration"
 
-#: ../panel-plugin/verve-plugin.c:379
+#: ../panel-plugin/verve-plugin.c:384
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:384
+#: ../panel-plugin/verve-plugin.c:389
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: ../panel-plugin/verve-plugin.c:395
+#: ../panel-plugin/verve-plugin.c:400
 msgid "Width (in chars):"
 msgstr "Breite (in Zeichen):"
 
 #. vim:set expandtab ts=1 sw=2:
-#: ../panel-plugin/verve.desktop.in.h:1
+#: ../panel-plugin/verve.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and history browsing"
 msgstr "Mit Autovervollständigung, Befehlsverlauf und URL-Erkennung"
 
-#: ../panel-plugin/verve.desktop.in.h:2
+#: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
 msgstr "Verve-Kommandozeile"
+
+#~ msgid "Unkown command."
+#~ msgstr "Unbekannter Befehl."

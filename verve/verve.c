@@ -133,7 +133,10 @@ verve_execute (const gchar *input)
   }
   else
   {
-    return TRUE; /* And let libxfcegui4 do the rest */
+    if (verve_spawn_command_line (input))
+      return TRUE;
+    else
+      return FALSE;
   }
 }
 

@@ -43,6 +43,7 @@ GType verve_env_get_type (void) G_GNUC_CONST;
 VerveEnv *verve_env_get (void);
 gboolean verve_env_has_shell (VerveEnv *env, const gchar *name);
 const gchar *verve_env_shell_get_path (VerveEnv *env, const gchar *name);
+const gchar *verve_env_get_shell (void);
 GList *verve_env_get_shell_names (VerveEnv *env);
 GList *verve_env_get_shell_paths (VerveEnv *env);
 gchar **verve_env_get_path (VerveEnv *env);

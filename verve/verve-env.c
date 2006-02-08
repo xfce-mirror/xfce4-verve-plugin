@@ -122,6 +122,15 @@ verve_env_finalize (GObject *object)
   g_hash_table_destroy (env->shells);
 }
 
+const gchar *
+verve_env_get_shell (void)
+{
+  const gchar *shell = g_getenv ("SHELL");
+  if (G_UNLIKELY (shell == NULL))
+    shell = "/bin/sh";
+  return shell;
+}
+
 /*********************************************************************
  * 
  * Shell substitution and search. Supported shells/interpreters are 

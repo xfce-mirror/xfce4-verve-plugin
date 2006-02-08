@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-02-08 16:54+0100\n"
 "PO-Revision-Date: 2006-02-08 13:25+0100\n"
 "Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
 "Language-Team: \n"
@@ -10,32 +11,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: French\n"
 
-#: ../panel-plugin/verve-plugin.c:185
-msgid "Unkown command."
-msgstr "Commande inconnue."
+#: ../panel-plugin/verve-plugin.c:186
+msgid "Could not execute command:"
+msgstr ""
 
-#: ../panel-plugin/verve-plugin.c:365
+#: ../panel-plugin/verve-plugin.c:370
 msgid "Verve Properties"
 msgstr "Préférences Verve"
 
-#: ../panel-plugin/verve-plugin.c:379
+#: ../panel-plugin/verve-plugin.c:384
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:384
+#: ../panel-plugin/verve-plugin.c:389
 msgid "Appearance"
 msgstr "Apparence"
 
-#: ../panel-plugin/verve-plugin.c:395
+#: ../panel-plugin/verve-plugin.c:400
 msgid "Width (in chars):"
 msgstr "Largeur (en pixels)"
 
 #. vim:set expandtab ts=1 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and history browsing"
-msgstr "Interface de ligne de commande avec saisie auto-complétée et historique"
+msgstr ""
+"Interface de ligne de commande avec saisie auto-complétée et historique"
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
 msgstr "Ligne de Commande Verve"
 
+#~ msgid "Unkown command."
+#~ msgstr "Commande inconnue."

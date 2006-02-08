@@ -1,5 +1,9 @@
 2006-02-08	Jannis Pohlmann <jannis@xfce.org>
 
+	* Don't display an error when executing an URL
+
+2006-02-08	Jannis Pohlmann <jannis@xfce.org>
+
 	* Make libstartup-notification non-optional
 
 2O06-02-07	Jannis Pohlmann <jannis@xfce.org>
