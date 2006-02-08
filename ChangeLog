@@ -1,3 +1,8 @@
+2006-02-09	Jannis Pohlmann <jannis@xfce.org>
+
+	* Cache the last 25 commands on disk when closing the panel
+	  and restore them on the next start
+
 2006-02-08	Jannis Pohlmann <jannis@xfce.org>
 
 	* Don't display an error when executing an URL

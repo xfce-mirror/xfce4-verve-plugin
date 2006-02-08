@@ -1,9 +1,8 @@
 TODO
 =======================================================================
 
-  - Only launch URLs if they fill the whole command
   - Implement startup notification support
   - Implement terminal startup support
   - Add ThunarVFS support in order to monitor $PATH
   - Write script editor for ~/bin (using the favorite editor)
-  - Save/Restore the last 10-20 commands of the history
+  - Make number of cached history commands configurable

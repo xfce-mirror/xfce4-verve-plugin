@@ -261,7 +261,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
  	verve->plugin = plugin;
   
  	verve->commands = verve_db_get ();
-  verve->history_current = verve_history_begin();
+  verve->history_current = NULL;
  	verve->completion = verve_plugin_load_completion (verve->commands);
  	verve->n_complete = 0;
   verve->size = 20;
