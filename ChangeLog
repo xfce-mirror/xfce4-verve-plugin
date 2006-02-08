@@ -1,3 +1,7 @@
+2006-02-08	Jannis Pohlmann <jannis@xfce.org>
+
+	* Make libstartup-notification non-optional
+
 2O06-02-07	Jannis Pohlmann <jannis@xfce.org>
 	
 	* Added a small test program in order to search for

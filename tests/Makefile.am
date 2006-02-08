@@ -11,10 +11,10 @@ INCLUDES =								\
 	$(PLATFORM_CPPFLAGS)
 
 bin_PROGRAMS =								\
-	test
+	verve-test
 
 #test_built_sources =							\
-#	test.c
+#	verve-test.c
 
 test_SOURCES =								\
 	../verve/verve.c						\
@@ -25,7 +25,7 @@ test_SOURCES =								\
 	../verve/verve-env.h						\
 	../verve/verve-history.c					\
 	../verve/verve-history.h					\
-	test.c
+	verve-test.c
 
 test_CFLAGS =								\
 	$(LIBXFCE4PANEL_CFLAGS)						\
