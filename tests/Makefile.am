@@ -16,7 +16,7 @@ bin_PROGRAMS =								\
 #test_built_sources =							\
 #	verve-test.c
 
-test_SOURCES =								\
+verve_test_SOURCES =								\
 	../verve/verve.c						\
 	../verve/verve.h						\
 	../verve/verve-db.c						\
@@ -27,7 +27,7 @@ test_SOURCES =								\
 	../verve/verve-history.h					\
 	verve-test.c
 
-test_CFLAGS =								\
+verve_test_CFLAGS =								\
 	$(LIBXFCE4PANEL_CFLAGS)						\
 	$(LIBXFCE4UTIL_CFLAGS						\
 	$(LIBEXO_CFLAGS)						\
@@ -35,7 +35,7 @@ test_CFLAGS =								\
 	$(GLIB_CFLAGS)							\
 	$(GTHREAD_CFLAGS)						
 
-test_LDFLAGS =								\
+verve_test_LDFLAGS =								\
 	-no-undefined							\
 	$(PLATFORM_LDFLAGS)						\
 	$(LIBXFCE4PANEL_LDFLAGS)					\
@@ -45,7 +45,7 @@ test_LDFLAGS =								\
 	$(GLIB_LDFLAGS)							\
 	$(GTHREAD_LDFLAGS)
 
-test_LDADD =								\
+verve_test_LDADD =								\
 	$(LIBXFCE4PANEL_LIBS)						\
 	$(LIBXFCE4UTIL_LIBS)						\
 	$(LIBEXO_LIBS)							\
