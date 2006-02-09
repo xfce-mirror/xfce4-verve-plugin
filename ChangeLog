@@ -1,5 +1,10 @@
 2006-02-09	Jannis Pohlmann <jannis@xfce.org>
 
+	* Implement size-changed signal in order to keep the width
+	  defined in the properties dialog when the panel size changes
+
+2006-02-09	Jannis Pohlmann <jannis@xfce.org>
+
 	* Cache the last 25 commands on disk when closing the panel
 	  and restore them on the next start
 
