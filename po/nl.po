@@ -1,0 +1,48 @@
+# Verve Command Line plugin
+# Copyright (C) 2006 Jannis
+# This file is distributed under the same license as the Verve package.
+# Jannis <jannis@xfce.org>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-02-08 16:54+0100\n"
+"PO-Revision-Date: 2006-02-09 16:20+0100\n"
+"Last-Translator: Vincent <imnotb@gmail.com>\n"
+"Language-Team: Dutch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/verve-plugin.c:186
+msgid "Could not execute command:"
+msgstr ""
+
+#: ../panel-plugin/verve-plugin.c:370
+msgid "Verve Properties"
+msgstr "Verve eigenschappen"
+
+#: ../panel-plugin/verve-plugin.c:384
+msgid "Verve"
+msgstr "Verve"
+
+#: ../panel-plugin/verve-plugin.c:389
+msgid "Appearance"
+msgstr "Beeld"
+
+#: ../panel-plugin/verve-plugin.c:400
+msgid "Width (in chars):"
+msgstr "Breedte (in tekens):"
+
+#. vim:set expandtab ts=1 sw=2:
+#: ../panel-plugin/verve.desktop.in.in.h:1
+msgid "Command line interface with auto-completion and history browsing"
+msgstr "Commandoregel interface met auto-aanvulling en geschiedenis bladeren"
+
+#: ../panel-plugin/verve.desktop.in.in.h:2
+msgid "Verve Command Line"
+msgstr "Verve commandoregel"
+
+#~ msgid "Unkown command."
+#~ msgstr "Onbekend commando."
