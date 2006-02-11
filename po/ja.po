@@ -1,0 +1,45 @@
+# Japanese translations for verve-plugin package.
+# Copyright (C) 2006 Jannis Pohlmann.
+# This file is distributed under the same license as the verve-plugin package.
+# Daichi Kawahata <daichi@xfce.org>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: verve-plugin 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-02-08 16:54+0100\n"
+"PO-Revision-Date: 2006-02-12 00:33+0900\n"
+"Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
+"Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../panel-plugin/verve-plugin.c:186
+msgid "Could not execute command:"
+msgstr "コマンドを実行できませんでした:"
+
+#: ../panel-plugin/verve-plugin.c:370
+msgid "Verve Properties"
+msgstr "Verve プロパティ"
+
+#: ../panel-plugin/verve-plugin.c:384
+msgid "Verve"
+msgstr "Verve"
+
+#: ../panel-plugin/verve-plugin.c:389
+msgid "Appearance"
+msgstr "外観"
+
+#: ../panel-plugin/verve-plugin.c:400
+msgid "Width (in chars):"
+msgstr "幅 (文字単位):"
+
+#. vim:set expandtab ts=1 sw=2:
+#: ../panel-plugin/verve.desktop.in.in.h:1
+msgid "Command line interface with auto-completion and history browsing"
+msgstr "コマンドの自動補完や履歴を参照できるコマンド行インターフェイスです。"
+
+#: ../panel-plugin/verve.desktop.in.in.h:2
+msgid "Verve Command Line"
+msgstr "Verve"
