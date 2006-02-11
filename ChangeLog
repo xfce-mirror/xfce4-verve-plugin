@@ -1,4 +1,9 @@
 2006-02-11	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/verve-plugin.c, panel-plugin/configure.in.in: 
+	  Make plugin exteral. Patch provided by Jasper.
+
+2006-02-11	Jannis Pohlmann <jannis@xfce.org>
 	
 	* panel-plugin/Makefile.am: Applied another one of Daichi's 
 	  patches

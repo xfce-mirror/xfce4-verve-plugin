@@ -431,6 +431,6 @@ verve_plugin_construct (XfcePanelPlugin *plugin)
   g_signal_connect (plugin, "size-changed", G_CALLBACK (verve_plugin_update_size), verve);
 }
  
-XFCE_PANEL_PLUGIN_REGISTER_INTERNAL (verve_plugin_construct);
+XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (verve_plugin_construct);
 
 /* vim:set expandtab ts=1 sw=2: */
