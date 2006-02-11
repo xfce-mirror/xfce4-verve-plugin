@@ -1,3 +1,9 @@
+2006-02-11	Daichi Kawahata <daichi@xfce.org>
+
+	* Renamed POT file according to the GETTEXT_PACKAGE.
+	* All files are updated as well.
+	* Fixed an error in German translation file.
+
 2006-02-09	Jannis Pohlmann <jannis@xfce.org>
 
 	* Dutch (nl) translation by Vincent <imnotb@gmail.com> added

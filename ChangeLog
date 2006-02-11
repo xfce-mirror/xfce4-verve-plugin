@@ -1,3 +1,7 @@
+2006-02-11	Jannis Pohlmann <jannis@xfce.org>
+
+	* configure.in.in: Applied Daichi's AC_INIT patch
+
 2006-02-09	Jannis Pohlmann <jannis@xfce.org>
 
 	* Implement size-changed signal in order to keep the width

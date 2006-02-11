@@ -1,16 +1,16 @@
 # Verve Command Line plugin
-# Copyright (C) 2006 Jannis
+# Copyright (C) 2006 Jannis Pohlmann.
 # This file is distributed under the same license as the Verve package.
 # Jannis <jannis@xfce.org>, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.1.0\n"
+"Project-Id-Version: verve-plugin 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-02-08 16:54+0100\n"
 "PO-Revision-Date: 2006-02-09 16:20+0100\n"
 "Last-Translator: Vincent <imnotb@gmail.com>\n"
-"Language-Team: Dutch\n"
+"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
