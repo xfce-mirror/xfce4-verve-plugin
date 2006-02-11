@@ -1,6 +1,6 @@
 # $Id$
 
-plugindir = $(libdir)/xfce4/panel-plugins/
+plugindir = $(libdir)/xfce4/panel-plugins
 
 plugin_LTLIBRARIES =							\
 	libverveplugin.la
@@ -22,6 +22,7 @@ libverveplugin_la_SOURCES =						\
 	../verve/verve-env.h
 
 libverveplugin_la_CFLAGS = 						\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	@LIBEXO_CFLAGS@							\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@LIBXFCE4UTIL_CFLAGS@						\

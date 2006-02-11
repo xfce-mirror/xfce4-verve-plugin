@@ -1,4 +1,9 @@
 2006-02-11	Jannis Pohlmann <jannis@xfce.org>
+	
+	* panel-plugin/Makefile.am: Applied another one of Daichi's 
+	  patches
+
+2006-02-11	Jannis Pohlmann <jannis@xfce.org>
 
 	* configure.in.in: Applied Daichi's AC_INIT patch
 
