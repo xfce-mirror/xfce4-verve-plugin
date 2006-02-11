@@ -2,8 +2,8 @@
 
 plugindir = $(libexecdir)/xfce4/panel-plugins
 
-plugin_LTLIBRARIES =							\
-	libverveplugin.la
+plugin_PROGRAMS =							\
+	xfce4-verve-plugin
 
 xfce4_verve_plugin_SOURCES =						\
  	verve-plugin.c							\
