@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: verve-plugin 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-02-08 16:54+0100\n"
-"PO-Revision-Date: 2006-02-12 00:33+0900\n"
+"PO-Revision-Date: 2006-02-12 12:55+0900\n"
 "Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr "コマンドを実行できませんでした:"
 
 #: ../panel-plugin/verve-plugin.c:370
 msgid "Verve Properties"
-msgstr "Verve プロパティ"
+msgstr "Verveのプロパティ"
 
 #: ../panel-plugin/verve-plugin.c:384
 msgid "Verve"
@@ -42,4 +42,4 @@ msgstr "コマンドの自動補完や履歴を参照できるコマンド行イ
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
-msgstr "Verve"
+msgstr "Verve コマンドライン"
