@@ -1,5 +1,11 @@
 2006-02-12	Jannis Pohlmann <jannis@xfce.org>
 
+	* configure.in.in: Define libxfce4panel version more specific.
+	* panel-plugin/verve-plugin.c: Apply Jasper's patch in order to
+	  make use of the new focus grab method for external plugins.
+
+2006-02-12	Jannis Pohlmann <jannis@xfce.org>
+
 	* Fix use of unterminated supported_shells array. Use 
 	  G_N_ELEMENTS() instead of g_strv_length(). Thanks to
 	  Jasper for the patch.

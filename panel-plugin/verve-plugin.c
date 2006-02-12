@@ -82,25 +82,7 @@ static gboolean verve_plugin_buttonpress_cb (GtkWidget *entry, GdkEventButton *e
 
 	 if (event->button != 3 && toplevel && toplevel->window)
 	 {
-		  XClientMessageEvent xev;
-
-		  if (G_LIKELY (!atom))
-			   atom = XInternAtom (GDK_DISPLAY (), "_NET_ACTIVE_WINDOW", FALSE);
-
-		  xev.type = ClientMessage;
-	  	xev.window = GDK_WINDOW_XID (toplevel->window);
-		  xev.message_type = atom;
-		  xev.format = 32;
-		  xev.data.l[0] = 0;
-  		xev.data.l[1] = 0;
-    xev.data.l[2] = 0;
-		  xev.data.l[3] = 0;
-		  xev.data.l[4] = 0;
-
-		  XSendEvent (GDK_DISPLAY (), GDK_ROOT_WINDOW (), False,
-				            StructureNotifyMask, (XEvent *)&xev);
-
-		  gtk_widget_grab_focus (entry);
+    xfce_panel_plugin_focus_widget ((XfcePanelPlugin *)data, entry);
 	 }
 
 	 return FALSE;
@@ -277,7 +259,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
  	g_signal_connect (verve->input, "key-press-event", 
 	 		G_CALLBACK (verve_plugin_keypress_cb), verve);
  	g_signal_connect (verve->input, "button-press-event", 
- 			G_CALLBACK (verve_plugin_buttonpress_cb), NULL);
+ 			G_CALLBACK (verve_plugin_buttonpress_cb), plugin);
 	
  	return verve;
 }
