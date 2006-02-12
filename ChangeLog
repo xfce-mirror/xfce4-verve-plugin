@@ -1,3 +1,9 @@
+2006-02-12	Jannis Pohlmann <jannis@xfce.org>
+
+	* Fix use of unterminated supported_shells array. Use 
+	  G_N_ELEMENTS() instead of g_strv_length(). Thanks to
+	  Jasper for the patch.
+
 2006-02-11	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-plugin.c, panel-plugin/configure.in.in: 

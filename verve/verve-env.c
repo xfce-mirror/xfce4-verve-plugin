@@ -153,7 +153,7 @@ verve_env_shells_init (VerveEnv *env)
   
   /* Search shells in PATH and add existing ones to the hash table */
   int i;
-  for (i=0; i<g_strv_length (supported_shells); i++)
+  for (i=0; i<G_N_ELEMENTS (supported_shells); i++)
   {
     gchar *shell_path = g_find_program_in_path (supported_shells[i]);
     if (G_LIKELY (shell_path != NULL))
