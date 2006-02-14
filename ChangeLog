@@ -1,5 +1,11 @@
 2006-02-14	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/verve-plugin.c: Added config.h include. This 
+	  fixes translation problems (translations weren't displayed 
+	  before).
+
+2006-02-14	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugin/verve-plugin.c: Return TRUE in 
 	  verve_plugin_update_size.
 	* configure.in.in: Rename fr_CH to fr.
