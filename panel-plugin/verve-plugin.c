@@ -272,11 +272,13 @@ verve_plugin_free (XfcePanelPlugin *plugin, VervePlugin *verve)
  	verve_shutdown ();
 }
 
-static void
+static gboolean
 verve_plugin_update_size (XfcePanelPlugin *plugin, gint size, VervePlugin *verve)
 {
   verve->size = size;
   gtk_entry_set_width_chars (GTK_ENTRY (verve->input), size);
+
+  return TRUE;
 }
 
 static void

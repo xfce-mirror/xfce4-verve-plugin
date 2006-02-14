@@ -1,3 +1,9 @@
+2006-02-14	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/verve-plugin.c: Return TRUE in 
+	  verve_plugin_update_size.
+	* configure.in.in: Rename fr_CH to fr.
+
 2006-02-12	Jannis Pohlmann <jannis@xfce.org>
 
 	* configure.in.in: Define libxfce4panel version more specific.
