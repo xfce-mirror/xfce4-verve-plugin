@@ -1,0 +1,46 @@
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Phan Vĩnh Thịnh <teppi@vnlinux.org>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: verve-plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-02-15 15:38+0900\n"
+"PO-Revision-Date: 2006-02-19 22:50+0300\n"
+"Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
+"Language-Team: Vietnamese <none@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: ../panel-plugin/verve-plugin.c:172
+msgid "Could not execute command:"
+msgstr "Không thực hiện được câu lệnh:"
+
+#: ../panel-plugin/verve-plugin.c:358
+msgid "Verve Properties"
+msgstr "Thuộc tính Verve"
+
+#: ../panel-plugin/verve-plugin.c:372
+msgid "Verve"
+msgstr "Verve"
+
+#: ../panel-plugin/verve-plugin.c:377
+msgid "Appearance"
+msgstr "Vẻ ngoài"
+
+#: ../panel-plugin/verve-plugin.c:388
+msgid "Width (in chars):"
+msgstr "Rộng (theo ký tự):"
+
+#. vim:set expandtab ts=1 sw=2:
+#: ../panel-plugin/verve.desktop.in.in.h:1
+msgid "Command line interface with auto-completion and history browsing"
+msgstr ""
+"Giao diện dòng lệnh với khả năng tự động kết thúc dòng lệnh và duyệt lịch sử"
+
+#: ../panel-plugin/verve.desktop.in.in.h:2
+msgid "Verve Command Line"
+msgstr "Dòng lệnh Verve"
