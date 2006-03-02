@@ -280,8 +280,16 @@ static gboolean
 verve_plugin_update_size (XfcePanelPlugin *plugin, gint size, VervePlugin *verve)
 {
   verve->size = size;
+  g_printf("%d\n", verve->size);
   gtk_entry_set_width_chars (GTK_ENTRY (verve->input), size);
 
+  return TRUE;
+}
+
+static gboolean
+verve_plugin_size_changed_request (XfcePanelPlugin *plugin, gint size, VervePlugin *verve)
+{
+  verve_plugin_update_size (plugin, verve->size, verve);
   return TRUE;
 }
 
@@ -394,6 +402,8 @@ verve_plugin_properties (XfcePanelPlugin *plugin, VervePlugin *verve)
   gtk_widget_show (size_spin);
   gtk_box_pack_start (GTK_BOX (hbox), size_spin, TRUE, TRUE, 0);
 
+  gtk_spin_button_set_value (GTK_SPIN_BUTTON (size_spin), verve->size);
+
   g_signal_connect (size_spin, "value-changed", G_CALLBACK (verve_plugin_size_changed), verve);
 
   gtk_widget_show (dialog);
@@ -416,7 +426,7 @@ verve_plugin_construct (XfcePanelPlugin *plugin)
  	g_signal_connect (plugin, "save", G_CALLBACK (verve_plugin_write_rc_file), verve);
  	g_signal_connect (plugin, "free-data", G_CALLBACK (verve_plugin_free), verve);
   g_signal_connect (plugin, "configure-plugin", G_CALLBACK (verve_plugin_properties), verve);
-  g_signal_connect (plugin, "size-changed", G_CALLBACK (verve_plugin_update_size), verve);
+  g_signal_connect (plugin, "size-changed", G_CALLBACK (verve_plugin_size_changed_request), verve);
 }
  
 XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (verve_plugin_construct);
