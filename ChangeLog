@@ -1,3 +1,9 @@
+2006-03-02	Jannis Pohlmann <jannis@xfce.org>
+
+	* configure.in.in: Change package version to 0.2
+	* THANKS: Update translator credits
+	* po/*.po[t]: Update translation files
+
 2006-02-14	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-plugin.c: Added config.h include. This 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-08 16:54+0100\n"
+"POT-Creation-Date: 2006-03-02 22:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,23 +16,23 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/verve-plugin.c:186
+#: ../panel-plugin/verve-plugin.c:172
 msgid "Could not execute command:"
 msgstr ""
 
-#: ../panel-plugin/verve-plugin.c:370
+#: ../panel-plugin/verve-plugin.c:358
 msgid "Verve Properties"
 msgstr ""
 
-#: ../panel-plugin/verve-plugin.c:384
+#: ../panel-plugin/verve-plugin.c:372
 msgid "Verve"
 msgstr ""
 
-#: ../panel-plugin/verve-plugin.c:389
+#: ../panel-plugin/verve-plugin.c:377
 msgid "Appearance"
 msgstr ""
 
-#: ../panel-plugin/verve-plugin.c:400
+#: ../panel-plugin/verve-plugin.c:388
 msgid "Width (in chars):"
 msgstr ""
 

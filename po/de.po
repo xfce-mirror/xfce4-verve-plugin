@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: verve-plugin 0.1.0\n"
+"Project-Id-Version: verve-plugin 0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-11 16:11+0100\n"
+"POT-Creation-Date: 2006-03-02 22:28+0100\n"
 "PO-Revision-Date: 2006-02-07 17:07+0100\n"
 "Last-Translator: Jannis Pohlmann <jannis@xfce.org>\n"
 "Language-Team: German <jannis@xfce.org>\n"
@@ -15,23 +15,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/verve-plugin.c:186
+#: ../panel-plugin/verve-plugin.c:172
 msgid "Could not execute command:"
 msgstr "Konnte den Befehl nicht ausführen:"
 
-#: ../panel-plugin/verve-plugin.c:370
+#: ../panel-plugin/verve-plugin.c:358
 msgid "Verve Properties"
 msgstr "Verve-Konfiguration"
 
-#: ../panel-plugin/verve-plugin.c:384
+#: ../panel-plugin/verve-plugin.c:372
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:389
+#: ../panel-plugin/verve-plugin.c:377
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: ../panel-plugin/verve-plugin.c:400
+#: ../panel-plugin/verve-plugin.c:388
 msgid "Width (in chars):"
 msgstr "Breite (in Zeichen):"
 

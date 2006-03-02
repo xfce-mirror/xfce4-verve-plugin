@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: verve-plugin\n"
+"Project-Id-Version: verve-plugin 0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-02-15 15:38+0900\n"
 "PO-Revision-Date: 2006-02-19 22:50+0300\n"
