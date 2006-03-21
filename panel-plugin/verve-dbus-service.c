@@ -35,6 +35,8 @@
 #include <dbus/dbus-glib-lowlevel.h>
 #include <dbus/dbus.h>
 
+#include <libxfce4panel/xfce-panel-plugin.h>
+
 #include "verve-dbus-service.h"
 
 #define VERVE_DBUS_SERVICE_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), VERVE_TYPE_DBUS_SERVICE, VerveDBusServicePrivate))
@@ -43,7 +45,8 @@
 enum
 {
   PROP_0,
-  PROP_VERVE_PLUGIN,
+  PROP_INPUT,
+  PROP_PLUGIN,
 };
 
 static void verve_dbus_service_class_init (VerveDBusServiceClass *klass);
@@ -71,8 +74,12 @@ struct _VerveDBusService
 {
   GObject __parent__;
 
+  /* D-BUS connection */
   DBusGConnection *connection;
+
+  /* Properties */
   GtkWidget *input;
+  XfcePanelPlugin *plugin;
 };
 
 static GObjectClass *verve_dbus_service_parent_class;
@@ -119,12 +126,20 @@ verve_dbus_service_class_init (VerveDBusServiceClass *klass)
   gobject_class->get_property = verve_dbus_service_get_property;
   gobject_class->set_property = verve_dbus_service_set_property;
 
-  /* Install verve plugin property */
+  /* Install input property */
   g_object_class_install_property (gobject_class, 
-                                   PROP_VERVE_PLUGIN,
+                                   PROP_INPUT,
                                    g_param_spec_pointer ("input",
                                                          "input",
                                                          "input",
+                                                         G_PARAM_READABLE|G_PARAM_WRITABLE));
+
+  /* Install panel plugin property */
+  g_object_class_install_property (gobject_class,
+                                   PROP_PLUGIN,
+                                   g_param_spec_pointer ("plugin",
+                                                         "plugin",
+                                                         "plugin",
                                                          G_PARAM_READABLE|G_PARAM_WRITABLE));
 
   /* Install the D-BUS info */
@@ -177,8 +192,12 @@ verve_dbus_service_get_property (GObject *object,
 {
   switch (prop_id)
   {
-    case PROP_VERVE_PLUGIN:
+    case PROP_INPUT:
       g_value_set_pointer (value, (VERVE_DBUS_SERVICE (object))->input);
+      break;
+
+    case PROP_PLUGIN:
+      g_value_set_pointer (value, (VERVE_DBUS_SERVICE (object))->plugin);
       break;
       
     default:
@@ -193,15 +212,16 @@ verve_dbus_service_set_property (GObject *object,
                                  const GValue *value,
                                  GParamSpec *pspec)
 {
-  g_printf("%s, %s\n", value, g_value_get_pointer (value));
   VerveDBusService *dbus_service = VERVE_DBUS_SERVICE (object);
-  g_printf("%s, %s\n", value, g_value_get_pointer (value));
 
   switch (prop_id)
   {
-    case PROP_VERVE_PLUGIN:
-      g_printf("%s, %s\n", value, g_value_get_pointer (value));
+    case PROP_INPUT:
       dbus_service->input = g_value_get_pointer (value);
+      break;
+
+    case PROP_PLUGIN:
+      dbus_service->plugin = g_value_get_pointer (value);
       break;
 
     default:
@@ -216,8 +236,12 @@ verve_dbus_service_open_dialog (VerveDBusService *dbus_service,
                                 const gchar *display, 
                                 GError **error)
 {
-  gtk_entry_set_text (GTK_ENTRY (dbus_service->input), "test");
-  gtk_widget_grab_focus (GTK_WIDGET (dbus_service->input));
+  GtkWidget *toplevel = gtk_widget_get_toplevel (dbus_service->input);
+  
+  if (toplevel && toplevel->window)
+  {
+    xfce_panel_plugin_focus_widget (dbus_service->plugin, dbus_service->input);
+  }
   
   return TRUE;
 }

@@ -1,5 +1,12 @@
 2006-03-21  Jannis Pohlmann <jannis@xfce.org>
 
+  * panel-plugin/verve-dbus-service.c: Add "plugin" property and call
+    xfce_panel_focus_widget () when the "OpenDialog" method is called.
+  * panel-plugin/verve-plugin.c: Set "plugin" property of D-BUS 
+    service.
+
+2006-03-21  Jannis Pohlmann <jannis@xfce.org>
+
   * verve/*.{c,h}: Moved all source files to panel-plugin/.
   * panel-plugin/verve-dbus-services.*: Implemented org.xfce.RunDialog 
     D-BUS service. 

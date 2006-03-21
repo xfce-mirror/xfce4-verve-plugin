@@ -268,10 +268,21 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   g_printf ("%d\n", verve->input);
 
   /* Set input property */
-  GValue value = {0, };
-  g_value_init (&value, G_TYPE_POINTER);
-  g_value_set_pointer (&value, verve->input);
-  g_object_set_property (G_OBJECT (verve->dbus_service), "input", &value);
+  {
+    GValue value = {0, };
+    g_value_init (&value, G_TYPE_POINTER);
+    g_value_set_pointer (&value, verve->input);
+    g_object_set_property (G_OBJECT (verve->dbus_service), "input", &value);
+  }
+
+  /* Set plugin property */
+  {
+    GValue value = {0, };
+    g_value_init (&value, G_TYPE_POINTER);
+    g_value_set_pointer (&value, verve->plugin);
+    g_object_set_property (G_OBJECT (verve->dbus_service), "plugin", &value);
+  }
+
 #endif
 	
  	return verve;
