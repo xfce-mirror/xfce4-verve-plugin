@@ -1,7 +1,7 @@
 /***************************************************************************
  *            verve.c
  *
- *  $Id$
+ *  $Id: verve.c 1183 2006-03-21 13:48:42Z jpohlmann $
  *  Copyright  2006  Jannis Pohlmann
  *  info@sten-net.de
  ****************************************************************************/
@@ -25,6 +25,7 @@
 #include <glib-object.h>
 #include <pcre.h>
 #include <libxfcegui4/libxfcegui4.h>
+
 #include "verve.h"
 #include "verve-env.h"
 #include "verve-history.h"

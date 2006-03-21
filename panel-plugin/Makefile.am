@@ -7,14 +7,16 @@ plugin_PROGRAMS =							\
 
 xfce4_verve_plugin_SOURCES =						\
  	verve-plugin.c							\
-	../verve/verve.c						\
-	../verve/verve-history.c					\
-	../verve/verve-env.c						\
-	../verve/verve.h						\
-	../verve/verve-history.h					\
-	../verve/verve-env.h
+	verve.c								\
+	verve-history.c							\
+	verve-env.c							\
+	verve.h								\
+	verve-history.h							\
+	verve-env.h
 
 xfce4_verve_plugin_CFLAGS = 						\
+	-I$(top_builddir)						\
+	-I$(top_srcdir)							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	@LIBEXO_CFLAGS@							\
 	@LIBXFCE4PANEL_CFLAGS@						\
@@ -26,6 +28,20 @@ xfce4_verve_plugin_LDFLAGS = 						\
 	@LIBXFCE4PANEL_LIBS@						\
 	@LIBXFCE4UTIL_LIBS@						\
 	@LIBPCRE_LIBS@
+
+if HAVE_DBUS
+xfce4_verve_plugin_SOURCES += 						\
+	verve-dbus-service-infos.h					\
+	verve-dbus-service.h						\
+	verve-dbus-service.c						
+
+xfce4_verve_plugin_CFLAGS +=						\
+	-DDBUS_API_SUBJECT_TO_CHANGE					\
+	$(DBUS_CFLAGS)
+
+xfce4_verve_plugin_LDFLAGS += 						\
+	$(DBUS_LIBS)
+endif
 
 # .desktop file
 #
@@ -40,14 +56,22 @@ desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
 desktopdir = $(datadir)/xfce4/panel-plugins
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
+
+if HAVE_DBUS
+verve-dbus-service-infos.h: 
+	dbus-binding-tool --prefix=verve_dbus_service --mode=glib-server verve-dbus-service-infos.xml > verve-dbus-service-infos.h
+endif
  
 EXTRA_DIST = 								\
- 	$(desktop_in_in_files)
+ 	$(desktop_in_in_files)						\
+	verve-dbus-service-infos.xml
  
 DISTCLEANFILES =							\
-	$(desktop_DATA) $(desktop_in_files)
+	$(desktop_DATA) $(desktop_in_files)				
 	
 # get full path into .desktop file
 %.desktop.in: %.desktop.in.in
-	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
+	sed -e "s^@PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" 	\
 		$< > $@
+
+# vi:set ts=8 sw=8 noet ai nocindent syntax=automake:

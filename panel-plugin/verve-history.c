@@ -1,7 +1,7 @@
 /***************************************************************************
  *            verve-history.h
  *
- *  $Id$
+ *  $Id: verve-history.c 1183 2006-03-21 13:48:42Z jpohlmann $
  *  Copyright  2006  Jannis Pohlmann
  *  info@sten-net.de
  ****************************************************************************/
@@ -23,6 +23,7 @@
  */
 
 #include <libxfce4util/libxfce4util.h>
+
 #include "verve.h"
 #include "verve-history.h"
 

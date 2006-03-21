@@ -4,8 +4,7 @@
 
 SUBDIRS =								\
 	panel-plugin							\
-	po								\
-	tests
+	po
 
 distclean-local:
 	rm -rf *.spec *.cache *~
@@ -27,4 +26,4 @@ EXTRA_DIST =								\
 DISTCLEANFILES =							\
 	intltool-extract						\
 	intltool-merge							\
-	intltool-update	
+	intltool-update

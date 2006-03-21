@@ -1,7 +1,7 @@
 /***************************************************************************
- *            verve-history.h
+ *            verve.h
  *
- *  $Id$
+ *  $Id: verve.h 1183 2006-03-21 13:48:42Z jpohlmann $
  *  Copyright  2006  Jannis Pohlmann
  *  info@sten-net.de
  ****************************************************************************/
@@ -21,23 +21,21 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
+ 
+#ifndef __VERVE_H__
+#define __VERVE_H__
 
-#ifndef __VERVE_HISTORY_H__
-#define __VERVE_HISTORY_H__
+#include "verve-env.h"
+#include "verve-history.h"
 
-#include <glib-object.h>
+/* Init / Shutdown Verve */
+void verve_init (void);
+void verve_shutdown (void);
 
-/* Init / Shutdown history database */
-void _verve_history_init (void);
-void _verve_history_shutdown (void);
+/* Command line methods */
+gboolean verve_spawn_command_line (const gchar *cmdline);
+gboolean verve_execute (const gchar *input);
 
-void verve_history_add (gchar *input);
-GList *verve_history_begin (void);
-GList *verve_history_end (void);
-GList *verve_history_get_prev (const GList *current);
-GList *verve_history_get_next (const GList *current);
-gboolean verve_history_is_empty ();
-
-#endif /* !__VERVE_HISTORY_H__ */
+#endif /* !__VERVE_H__ */
 
 /* vim:set expandtab ts=1 sw=2: */

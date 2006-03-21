@@ -23,7 +23,7 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include "../config.h"
+#include <config.h>
 #endif 
 
 #include <glib.h>
@@ -34,9 +34,14 @@
 #include <libxfce4util/libxfce4util.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 #include <libxfcegui4/libxfcegui4.h>
-#include "../verve/verve.h"
-#include "../verve/verve-env.h"
-#include "../verve/verve-history.h"
+
+#include "verve.h"
+#include "verve-env.h"
+#include "verve-history.h"
+
+#ifdef HAVE_DBUS
+#include "verve-dbus-service.h"
+#endif
 
 typedef struct
 {
@@ -56,6 +61,10 @@ typedef struct
   /* Properties */
   gint size;
 
+#ifdef HAVE_DBUS
+  VerveDBusService *dbus_service;
+#endif
+
 } VervePlugin;
 
 GCompletion *
@@ -72,7 +81,6 @@ verve_plugin_load_completion ()
 
 static gboolean verve_plugin_buttonpress_cb (GtkWidget *entry, GdkEventButton *event, gpointer data)
 {
-	 static Atom atom = 0;
 	 GtkWidget *toplevel = gtk_widget_get_toplevel (entry);
 
 	 if (event->button != 3 && toplevel && toplevel->window)
@@ -250,6 +258,21 @@ verve_plugin_new (XfcePanelPlugin *plugin)
 	 		G_CALLBACK (verve_plugin_keypress_cb), verve);
  	g_signal_connect (verve->input, "button-press-event", 
  			G_CALLBACK (verve_plugin_buttonpress_cb), plugin);
+  
+#ifdef HAVE_DBUS
+  VerveDBusService *dbus_service;
+
+  /* Attach the D-BUS service */
+  verve->dbus_service = g_object_new (VERVE_TYPE_DBUS_SERVICE, NULL);
+
+  g_printf ("%d\n", verve->input);
+
+  /* Set input property */
+  GValue value = {0, };
+  g_value_init (&value, G_TYPE_POINTER);
+  g_value_set_pointer (&value, verve->input);
+  g_object_set_property (G_OBJECT (verve->dbus_service), "input", &value);
+#endif
 	
  	return verve;
 }
@@ -257,6 +280,10 @@ verve_plugin_new (XfcePanelPlugin *plugin)
 static void
 verve_plugin_free (XfcePanelPlugin *plugin, VervePlugin *verve)
 {
+#ifdef HAVE_DBUS
+  g_object_unref (G_OBJECT (verve->dbus_service));
+#endif
+
  	g_free (verve->completion);
  	g_free (verve);
  	verve_shutdown ();
