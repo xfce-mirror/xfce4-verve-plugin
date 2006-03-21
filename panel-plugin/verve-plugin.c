@@ -265,8 +265,6 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   /* Attach the D-BUS service */
   verve->dbus_service = g_object_new (VERVE_TYPE_DBUS_SERVICE, NULL);
 
-  g_printf ("%d\n", verve->input);
-
   /* Set input property */
   {
     GValue value = {0, };
@@ -304,7 +302,6 @@ static gboolean
 verve_plugin_update_size (XfcePanelPlugin *plugin, gint size, VervePlugin *verve)
 {
   verve->size = size;
-  g_printf("%d\n", verve->size);
   gtk_entry_set_width_chars (GTK_ENTRY (verve->input), size);
 
   return TRUE;
