@@ -36,7 +36,6 @@
 #include <libxfcegui4/libxfcegui4.h>
 #include "../verve/verve.h"
 #include "../verve/verve-env.h"
-#include "../verve/verve-db.h"
 #include "../verve/verve-history.h"
 
 typedef struct
@@ -47,9 +46,6 @@ typedef struct
   GtkWidget *event_box;
   GtkWidget *input;
   
-  /* Command database */
-  VerveDb *commands;
-
   /* Command history */
   GList *history_current;
   
@@ -63,14 +59,9 @@ typedef struct
 } VervePlugin;
 
 GCompletion *
-verve_plugin_load_completion (VerveDb *db)
+verve_plugin_load_completion ()
 {
-	 /* Load commands */
-	 GList *commands = verve_db_get_command_names (db);
 	 GCompletion *completion = g_completion_new (NULL);
-
-	 if (G_LIKELY (commands != NULL))
-		  g_completion_add_items (completion, commands);
 
 	 /* Load linux binaries from PATH */
 	 VerveEnv *env = verve_env_get ();
@@ -215,15 +206,12 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
 							       similar = similar->next;
 				    }
 
-				    if (!verve_db_has_command (verve->commands, similar->data))
-				    {
-          gchar *path = g_find_program_in_path (similar->data);
-					     if (G_LIKELY (path == NULL))
-					     {
-						      return TRUE;
-					     }
-					     g_free (path);
-				    }
+        gchar *path = g_find_program_in_path (similar->data);
+					   if (G_LIKELY (path == NULL))
+					   {
+						    return TRUE;
+					   }
+					   g_free (path);
     
 				    gtk_entry_set_text (GTK_ENTRY (entry), similar->data);
 				    gtk_editable_select_region (GTK_EDITABLE (entry), (selstart == 0 ? len : selstart), -1);
@@ -246,9 +234,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
  	VervePlugin *verve = g_new (VervePlugin, 1);
  	verve->plugin = plugin;
   
- 	verve->commands = verve_db_get ();
   verve->history_current = NULL;
- 	verve->completion = verve_plugin_load_completion (verve->commands);
  	verve->n_complete = 0;
   verve->size = 20;
 

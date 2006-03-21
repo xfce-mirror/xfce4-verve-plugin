@@ -1,126 +1,134 @@
-2006-03-02	Jannis Pohlmann <jannis@xfce.org>
+2006-03-02  Jannis Pohlmann <jannis@xfce.org>
 
-	* Fix version string (use 0.2.0 instead of 0.2).
+  * verve/verve-db.{c,h}, tests/Makefile.am, panel-plugin/Makefile.am, 
+    verve/verve.{c,h}: Removed unused verve command database.
+  * verve/verve-history.h: Include <libxfce4util/libxfce4util.h>.
+  * verve/verve.c: Fixed error handling which made the plugin crash on
+    shell errors (this fixes bug #6663).
 
-2006-03-02	Jannis Pohlmann <jannis@xfce.org>
+2006-03-02  Jannis Pohlmann <jannis@xfce.org>
 
-	* Fixed another resize bug. The user-defined width will now
-	  be used no matter how the panel behaves.
+  * Fix version string (use 0.2.0 instead of 0.2).
 
-2006-03-02	Jannis Pohlmann <jannis@xfce.org>
+2006-03-02  Jannis Pohlmann <jannis@xfce.org>
 
-	* Create 0.2 tag
+  * Fixed another resize bug. The user-defined width will now
+    be used no matter how the panel behaves.
 
-2006-03-02	Jannis Pohlmann <jannis@xfce.org>
+2006-03-02  Jannis Pohlmann <jannis@xfce.org>
 
-	* configure.in.in: Change package version to 0.2
-	* THANKS: Update translator credits
-	* po/*.po[t]: Update translation files
+  * Create 0.2 tag
 
-2006-02-14	Jannis Pohlmann <jannis@xfce.org>
+2006-03-02  Jannis Pohlmann <jannis@xfce.org>
 
-	* panel-plugin/verve-plugin.c: Added config.h include. This 
-	  fixes translation problems (translations weren't displayed 
-	  before).
+  * configure.in.in: Change package version to 0.2
+  * THANKS: Update translator credits
+  * po/*.po[t]: Update translation files
 
-2006-02-14	Jannis Pohlmann <jannis@xfce.org>
+2006-02-14  Jannis Pohlmann <jannis@xfce.org>
 
-	* panel-plugin/verve-plugin.c: Return TRUE in 
-	  verve_plugin_update_size.
-	* configure.in.in: Rename fr_CH to fr.
+  * panel-plugin/verve-plugin.c: Added config.h include. This 
+    fixes translation problems (translations weren't displayed 
+    before).
 
-2006-02-12	Jannis Pohlmann <jannis@xfce.org>
+2006-02-14  Jannis Pohlmann <jannis@xfce.org>
 
-	* configure.in.in: Define libxfce4panel version more specific.
-	* panel-plugin/verve-plugin.c: Apply Jasper's patch in order to
-	  make use of the new focus grab method for external plugins.
+  * panel-plugin/verve-plugin.c: Return TRUE in 
+    verve_plugin_update_size.
+  * configure.in.in: Rename fr_CH to fr.
 
-2006-02-12	Jannis Pohlmann <jannis@xfce.org>
+2006-02-12  Jannis Pohlmann <jannis@xfce.org>
 
-	* Fix use of unterminated supported_shells array. Use 
-	  G_N_ELEMENTS() instead of g_strv_length(). Thanks to
-	  Jasper for the patch.
+  * configure.in.in: Define libxfce4panel version more specific.
+  * panel-plugin/verve-plugin.c: Apply Jasper's patch in order to
+    make use of the new focus grab method for external plugins.
 
-2006-02-11	Jannis Pohlmann <jannis@xfce.org>
+2006-02-12  Jannis Pohlmann <jannis@xfce.org>
 
-	* panel-plugin/verve-plugin.c, panel-plugin/configure.in.in: 
-	  Make plugin exteral. Patch provided by Jasper.
+  * Fix use of unterminated supported_shells array. Use 
+    G_N_ELEMENTS() instead of g_strv_length(). Thanks to
+    Jasper for the patch.
 
-2006-02-11	Jannis Pohlmann <jannis@xfce.org>
-	
-	* panel-plugin/Makefile.am: Applied another one of Daichi's 
-	  patches
+2006-02-11  Jannis Pohlmann <jannis@xfce.org>
 
-2006-02-11	Jannis Pohlmann <jannis@xfce.org>
+  * panel-plugin/verve-plugin.c, panel-plugin/configure.in.in: 
+    Make plugin exteral. Patch provided by Jasper.
 
-	* configure.in.in: Applied Daichi's AC_INIT patch
+2006-02-11  Jannis Pohlmann <jannis@xfce.org>
+  
+  * panel-plugin/Makefile.am: Applied another one of Daichi's 
+    patches
 
-2006-02-09	Jannis Pohlmann <jannis@xfce.org>
+2006-02-11  Jannis Pohlmann <jannis@xfce.org>
 
-	* Implement size-changed signal in order to keep the width
-	  defined in the properties dialog when the panel size changes
+  * configure.in.in: Applied Daichi's AC_INIT patch
 
-2006-02-09	Jannis Pohlmann <jannis@xfce.org>
+2006-02-09  Jannis Pohlmann <jannis@xfce.org>
 
-	* Cache the last 25 commands on disk when closing the panel
-	  and restore them on the next start
+  * Implement size-changed signal in order to keep the width
+    defined in the properties dialog when the panel size changes
 
-2006-02-08	Jannis Pohlmann <jannis@xfce.org>
+2006-02-09  Jannis Pohlmann <jannis@xfce.org>
 
-	* Don't display an error when executing an URL
+  * Cache the last 25 commands on disk when closing the panel
+    and restore them on the next start
 
-2006-02-08	Jannis Pohlmann <jannis@xfce.org>
+2006-02-08  Jannis Pohlmann <jannis@xfce.org>
 
-	* Make libstartup-notification non-optional
+  * Don't display an error when executing an URL
 
-2O06-02-07	Jannis Pohlmann <jannis@xfce.org>
-	
-	* Added a small test program in order to search for
-	  memory leaks
+2006-02-08  Jannis Pohlmann <jannis@xfce.org>
 
-2006-02-07	Jannis Pohlmann <jannis@xfce.org>
+  * Make libstartup-notification non-optional
 
-	* Avoid the error dialog to appear twice
+2O06-02-07  Jannis Pohlmann <jannis@xfce.org>
+  
+  * Added a small test program in order to search for
+    memory leaks
 
-2006-02-07	Jannis Pohlmann <jannis@xfce.org>
-	
-	* Don't trim before auto-completing, as this would make
-	  things just more complicated than necessary.
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
 
-2006-02-07	Jannis Pohlmann <jannis@xfce.org>
+  * Avoid the error dialog to appear twice
 
-	* Removed XFCE_PANEL_PLUGIN call from configure.in.in
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
+  
+  * Don't trim before auto-completing, as this would make
+    things just more complicated than necessary.
 
-2006-02-07	Jannis Pohlmann <jannis@xfce.org>
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
 
-	* Trim whitespaces before parsing the command. This fixes 
-	  bug #6311.
-	* Don't clear input if exec_command (libfcegui4). Bug #6310.
+  * Removed XFCE_PANEL_PLUGIN call from configure.in.in
 
-2006-02-07	Jannis Pohlmann <jannis@xfce.org>
-	
-	* Added intltool-* scripts to DIST_EXTRA and DISTCLEAN
-	* Added po/Makefil.am added
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
 
-2006-02-07	Jannis Pohlmann <jannis@xfce.org>
-	
-	* Added intltool-* scripts
+  * Trim whitespaces before parsing the command. This fixes 
+    bug #6311.
+  * Don't clear input if exec_command (libfcegui4). Bug #6310.
 
-2006-02-07	Jannis Pohlmann <jannis@xfce.org>
-	
-	* Moved src/ to verve/
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
+  
+  * Added intltool-* scripts to DIST_EXTRA and DISTCLEAN
+  * Added po/Makefil.am added
 
-2006-02-07	Jannis Pohlmann <jannis@xfce.org>
-	
-	* Added missing NEWS file
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
+  
+  * Added intltool-* scripts
 
-2006-02-07	Jannis Pohlmann <jannis@xfce.org>
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
+  
+  * Moved src/ to verve/
 
-	* Initial import into Xfce Goodies SVN
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
+  
+  * Added missing NEWS file
 
-2006-02-06	Jannis Pohlmann <jannis@xfce.org>
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
 
-	* src/verve-history.{c,h}: Function for getting the last item
-	  of the list added
-	* src/verve-plugin.c: Use newly added history function when 
-	  pressing GDK_Down
+  * Initial import into Xfce Goodies SVN
+
+2006-02-06  Jannis Pohlmann <jannis@xfce.org>
+
+  * src/verve-history.{c,h}: Function for getting the last item
+    of the list added
+  * src/verve-plugin.c: Use newly added history function when 
+    pressing GDK_Down

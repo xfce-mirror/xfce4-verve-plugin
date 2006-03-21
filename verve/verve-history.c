@@ -22,6 +22,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <libxfce4util/libxfce4util.h>
 #include "verve.h"
 #include "verve-history.h"
 

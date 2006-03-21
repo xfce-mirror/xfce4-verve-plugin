@@ -27,7 +27,6 @@
 #include <libxfcegui4/libxfcegui4.h>
 #include "verve.h"
 #include "verve-env.h"
-#include "verve-db.h"
 #include "verve-history.h"
 
 /* Internal functions */
@@ -68,9 +67,6 @@ verve_shutdown (void)
   /* Free history database */
   _verve_history_shutdown ();
 
-  /* Shutdown command db */
-  _verve_db_shutdown ();
-  
   /* Shutdown environment */
   _verve_env_shutdown ();
 }
@@ -92,14 +88,25 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
   GError *error = NULL;
   
   success = g_shell_parse_argv (cmdline, &argc, &argv, &error);
-  
+
+  if (G_UNLIKELY (error != NULL))
+  {
+    return FALSE;
+  }
+
   const gchar *home_dir = xfce_get_homedir ();
+
   GSpawnFlags flags = G_SPAWN_STDOUT_TO_DEV_NULL;
   flags |= G_SPAWN_STDERR_TO_DEV_NULL;
   flags |= G_SPAWN_SEARCH_PATH;
   
   success = g_spawn_async (home_dir, argv, NULL, flags, NULL, NULL, NULL, &error);
-  
+
+  if (G_UNLIKELY (error != NULL)) 
+  {
+    return FALSE;
+  }
+
   g_strfreev (argv);
   
   return success;
@@ -118,18 +125,12 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
 gboolean
 verve_execute (const gchar *input)
 {
-  VerveDb *db = verve_db_get ();
-
   if (_verve_is_url (input) || _verve_is_email (input))
   {
     gchar *command = g_strconcat ("exo-open ", input, NULL);
     verve_spawn_command_line (command);
     g_free (command);
     return TRUE;
-  }
-  else if (verve_db_has_command (db, input))
-  {
-    return verve_db_exec_command (db, input);
   }
   else
   {

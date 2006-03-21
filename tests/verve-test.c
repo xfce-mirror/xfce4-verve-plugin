@@ -41,22 +41,18 @@ main (int argc, char **argv)
   /* Init Verve backend */
   verve_init ();
 
-  /* Init command database */
-  VerveDb *commands = verve_db_get ();
-
   /* Init environment */
   VerveEnv *env = verve_env_get ();
 
   /* Init command history */
   GList *history = verve_history_begin ();
  
-  /* Execute a command (URL)
-  gchar *cmd = g_strdup ("   http://xfce.org    ");
+  /* Execute a command */
+  gchar *cmd = g_strdup ("'");
   cmd = g_strstrip (cmd);
   verve_execute (cmd);
   verve_history_add (g_strdup (cmd));
   g_free (cmd);
-  */
 
   /* Execute another command
   cmd = g_strdup ("pdf");

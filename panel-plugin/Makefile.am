@@ -8,11 +8,9 @@ plugin_PROGRAMS =							\
 xfce4_verve_plugin_SOURCES =						\
  	verve-plugin.c							\
 	../verve/verve.c						\
-	../verve/verve-db.c						\
 	../verve/verve-history.c					\
 	../verve/verve-env.c						\
 	../verve/verve.h						\
-	../verve/verve-db.h						\
 	../verve/verve-history.h					\
 	../verve/verve-env.h
 

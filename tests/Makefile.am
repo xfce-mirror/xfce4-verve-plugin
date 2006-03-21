@@ -19,8 +19,6 @@ bin_PROGRAMS =								\
 verve_test_SOURCES =								\
 	../verve/verve.c						\
 	../verve/verve.h						\
-	../verve/verve-db.c						\
-	../verve/verve-db.h						\
 	../verve/verve-env.c						\
 	../verve/verve-env.h						\
 	../verve/verve-history.c					\

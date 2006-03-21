@@ -25,7 +25,6 @@
 #ifndef __VERVE_H__
 #define __VERVE_H__
 
-#include "verve-db.h"
 #include "verve-env.h"
 #include "verve-history.h"
 
@@ -35,7 +34,6 @@ void verve_shutdown (void);
 
 /* Command line methods */
 gboolean verve_spawn_command_line (const gchar *cmdline);
-
 gboolean verve_execute (const gchar *input);
 
 #endif /* !__VERVE_H__ */
