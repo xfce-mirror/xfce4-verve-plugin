@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# $Id: __init__.py 20400 2006-03-13 22:33:48Z jannis $
+# $Id$
 #
 # vi:set ts=4 sw=4 sts=4 et ai nocindent:
 #
