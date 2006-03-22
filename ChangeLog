@@ -1,3 +1,11 @@
+2006-03-22  Jannis Pohlmann <jannis@xfce.org>
+
+  * panel-plugin/verve-plugin.c: Fix completion loading. Re-add 
+    accidently removed line to create the completion at startup.
+    Add terminal exec feature using the <Control> key.
+    panel-plugin/verve.{c,h}: Add terminal exec feature. Open
+    directories with exo-open, just like URLs and eMail addresses.
+
 2006-03-21  Jannis Pohlmann <jannis@xfce.org>
 
   * panel-plugin/verve-plugin.c: Remove debug print statements.

@@ -33,6 +33,7 @@
 /* Internal functions */
 gboolean _verve_is_url (const gchar *str);
 gboolean _verve_is_email (const gchar *str);
+gboolean _verve_is_directory (const gchar *str);
 
 /* URL/eMail matching patterns */
 #define USERCHARS       "-A-Za-z0-9"
@@ -124,21 +125,38 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
  *********************************************************************/
 
 gboolean
-verve_execute (const gchar *input)
+verve_execute (const gchar *input, gboolean terminal)
 {
-  if (_verve_is_url (input) || _verve_is_email (input))
+  if (_verve_is_url (input) || _verve_is_email (input) || _verve_is_directory (input))
   {
+    /* Open URLs, eMail addresses and directories using exo-open */
     gchar *command = g_strconcat ("exo-open ", input, NULL);
-    verve_spawn_command_line (command);
+
+    gboolean result = FALSE;
+    
+    if (verve_spawn_command_line (command))
+      result = TRUE;
+      
     g_free (command);
-    return TRUE;
+
+    return result;
   }
   else
   {
-    if (verve_spawn_command_line (input))
-      return TRUE;
+    gchar *command;
+    gboolean result = FALSE;
+    
+    if (terminal)
+      command = g_strconcat ("xfterm4 -e ", input, NULL);
     else
-      return FALSE;
+      command = g_strdup (input);
+    
+    if (verve_spawn_command_line (command))
+      result = TRUE;
+
+    g_free (command);
+
+    return result;
   }
 }
 
@@ -204,6 +222,19 @@ _verve_is_email (const gchar *str)
   g_string_free (string, TRUE);
 
   return success;
+}
+
+gboolean
+_verve_is_directory (const gchar *str)
+{
+  /* Avoid opening directories with the same name as an existing executable. */
+  if (g_find_program_in_path (str))
+    return FALSE;
+
+  if (g_file_test (str, G_FILE_TEST_IS_DIR))
+    return TRUE;
+  else
+    return FALSE;
 }
 
 /* vim:set expandtab ts=1 sw=2: */

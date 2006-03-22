@@ -74,7 +74,10 @@ verve_plugin_load_completion ()
 
 	 /* Load linux binaries from PATH */
 	 VerveEnv *env = verve_env_get ();
-	 g_completion_add_items (completion, verve_env_get_path_binaries (env));
+  GList *binaries = verve_env_get_path_binaries (env);
+
+  if (G_LIKELY (binaries != NULL))
+	   g_completion_add_items (completion, binaries);
 	
 	 return completion;
 }
@@ -97,6 +100,8 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
   GCompletion *completion = verve->completion;
 
   gchar *command;
+  gboolean terminal;
+
 	 gboolean selected = FALSE;
 	 const gchar *prefix;
 	 GList *similar = NULL;
@@ -166,7 +171,13 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
 		  case GDK_Return:
       command = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
       command = g_strstrip (command);
-      if (!verve_execute (command))
+      
+      if ((event->state) & GDK_CONTROL_MASK)
+        terminal = TRUE;
+      else
+        terminal = FALSE;
+      
+      if (!verve_execute (command, terminal))
       {
         gchar *msg = g_strconcat (_("Could not execute command:"), " ", command, NULL);
         show_error (msg);
@@ -183,7 +194,7 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
 
     case GDK_Tab:
 		  	 command = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
-			
+
 			   if ((len = g_utf8_strlen (command, -1)) == 0)
 			    	return TRUE;
 
@@ -224,7 +235,9 @@ static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, 
 				    gtk_entry_set_text (GTK_ENTRY (entry), similar->data);
 				    gtk_editable_select_region (GTK_EDITABLE (entry), (selstart == 0 ? len : selstart), -1);
 			   }
+
       g_free (command);
+
 			   return TRUE;
 
 		  default:
@@ -243,6 +256,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
  	verve->plugin = plugin;
   
   verve->history_current = NULL;
+  verve->completion = verve_plugin_load_completion ();
  	verve->n_complete = 0;
   verve->size = 20;
 

@@ -34,7 +34,7 @@ void verve_shutdown (void);
 
 /* Command line methods */
 gboolean verve_spawn_command_line (const gchar *cmdline);
-gboolean verve_execute (const gchar *input);
+gboolean verve_execute (const gchar *input, gboolean terminal);
 
 #endif /* !__VERVE_H__ */
 
