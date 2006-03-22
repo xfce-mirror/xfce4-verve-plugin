@@ -1,6 +1,8 @@
 TODO
 =======================================================================
 
+  - Add timeout for flashing input field when org
+    .xfce.RunDialog/OpenDialog is called.
   - Add ThunarVFS support in order to monitor $PATH
   - Write script editor for ~/bin (using the favorite editor)
   - Make number of cached history commands configurable

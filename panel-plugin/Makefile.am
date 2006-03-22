@@ -41,6 +41,9 @@ xfce4_verve_plugin_CFLAGS +=						\
 
 xfce4_verve_plugin_LDFLAGS += 						\
 	$(DBUS_LIBS)
+
+verve-dbus-service-infos.h: 
+	dbus-binding-tool --prefix=verve_dbus_service --mode=glib-server verve-dbus-service-infos.xml > verve-dbus-service-infos.h
 endif
 
 # .desktop file
@@ -56,11 +59,6 @@ desktopdir = $(datadir)/xfce4/panel-plugins
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-if HAVE_DBUS
-verve-dbus-service-infos.h: 
-	dbus-binding-tool --prefix=verve_dbus_service --mode=glib-server verve-dbus-service-infos.xml > verve-dbus-service-infos.h
-endif
- 
 EXTRA_DIST = 								\
  	$(desktop_in_in_files)						\
 	verve-dbus-service-infos.xml
