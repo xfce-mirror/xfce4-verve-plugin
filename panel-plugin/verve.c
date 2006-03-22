@@ -125,7 +125,8 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
  *********************************************************************/
 
 gboolean
-verve_execute (const gchar *input, gboolean terminal)
+verve_execute (const gchar *input, 
+               gboolean terminal)
 {
   if (_verve_is_url (input) || _verve_is_email (input) || _verve_is_directory (input))
   {

@@ -28,8 +28,12 @@ static void verve_env_class_init (VerveEnvClass *klass);
 static void verve_env_init (VerveEnv *env);
 static void verve_env_finalize (GObject *object);
 static void verve_env_shells_init (VerveEnv *env);
-void verve_env_shell_add_name_to_list (gpointer key, gpointer val, GList **list);
-void verve_env_shell_add_path_to_list (gpointer key, gpointer val, GList **list);
+void verve_env_shell_add_name_to_list (gpointer key, 
+                                       gpointer val, 
+                                       GList **list);
+void verve_env_shell_add_path_to_list (gpointer key, 
+                                       gpointer val, 
+                                       GList **list);
 
 struct _VerveEnvClass
 {
@@ -164,7 +168,8 @@ verve_env_shells_init (VerveEnv *env)
 }
   
 gboolean 
-verve_env_has_shell (VerveEnv *env, const gchar *name)
+verve_env_has_shell (VerveEnv *env,
+                     const gchar *name)
 {
   return g_hash_table_lookup (env->shells, name) != NULL;
 }
@@ -173,7 +178,8 @@ verve_env_has_shell (VerveEnv *env, const gchar *name)
  *
  */
 const gchar*
-verve_env_shell_get_path (VerveEnv *env, const gchar *name)
+verve_env_shell_get_path (VerveEnv *env, 
+                          const gchar *name)
 {
   g_return_val_if_fail (verve_env_has_shell (env, name), name);
   return (const gchar *)g_hash_table_lookup (env->shells, name);
@@ -198,13 +204,17 @@ verve_env_get_shell_paths (VerveEnv *env)
 }
 
 void 
-verve_env_shell_add_name_to_list (gpointer key, gpointer val, GList **list)
+verve_env_shell_add_name_to_list (gpointer key, 
+                                  gpointer val, 
+                                  GList **list)
 {
   *list = g_list_prepend (*list, key);
 }
 
 void 
-verve_env_shell_add_path_to_list (gpointer key, gpointer val, GList **list)
+verve_env_shell_add_path_to_list (gpointer key, 
+                                  gpointer val, 
+                                  GList **list)
 {
   *list = g_list_prepend (*list, val);
 }

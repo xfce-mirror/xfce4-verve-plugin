@@ -39,27 +39,9 @@
 
 #include "verve-dbus-service.h"
 
-#define VERVE_DBUS_SERVICE_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), VERVE_TYPE_DBUS_SERVICE, VerveDBusServicePrivate))
-
-/* Property identifiers */
-enum
-{
-  PROP_0,
-  PROP_INPUT,
-  PROP_PLUGIN,
-};
-
 static void verve_dbus_service_class_init (VerveDBusServiceClass *klass);
 static void verve_dbus_service_init (VerveDBusService *dbus_service);
 static void verve_dbus_service_finalize (GObject *object);
-static void verve_dbus_service_get_property (GObject *object,
-                                             guint prop_id,
-                                             GValue *value,
-                                             GParamSpec *pspec);
-static void verve_dbus_service_set_property (GObject *object,
-                                             guint prop_id,
-                                             const GValue *value,
-                                             GParamSpec *pspec);
 static gboolean verve_dbus_service_open_dialog (VerveDBusService *dbus_service, 
                                                 const gchar *dir, 
                                                 const gchar *display,
@@ -68,6 +50,9 @@ static gboolean verve_dbus_service_open_dialog (VerveDBusService *dbus_service,
 struct _VerveDBusServiceClass
 {
   GObjectClass __parent__;
+
+  /* Signal identifiers */
+  guint open_dialog_signal_id;
 };
 
 struct _VerveDBusService
@@ -76,10 +61,6 @@ struct _VerveDBusService
 
   /* D-BUS connection */
   DBusGConnection *connection;
-
-  /* Properties */
-  GtkWidget *input;
-  XfcePanelPlugin *plugin;
 };
 
 static GObjectClass *verve_dbus_service_parent_class;
@@ -123,24 +104,18 @@ verve_dbus_service_class_init (VerveDBusServiceClass *klass)
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->finalize = verve_dbus_service_finalize;
-  gobject_class->get_property = verve_dbus_service_get_property;
-  gobject_class->set_property = verve_dbus_service_set_property;
 
-  /* Install input property */
-  g_object_class_install_property (gobject_class, 
-                                   PROP_INPUT,
-                                   g_param_spec_pointer ("input",
-                                                         "input",
-                                                         "input",
-                                                         G_PARAM_READABLE|G_PARAM_WRITABLE));
-
-  /* Install panel plugin property */
-  g_object_class_install_property (gobject_class,
-                                   PROP_PLUGIN,
-                                   g_param_spec_pointer ("plugin",
-                                                         "plugin",
-                                                         "plugin",
-                                                         G_PARAM_READABLE|G_PARAM_WRITABLE));
+  /* Register "open-dialog" signal */
+  klass->open_dialog_signal_id = g_signal_newv ("open-dialog",
+                                                G_TYPE_FROM_CLASS (gobject_class),
+                                                G_SIGNAL_RUN_LAST | G_SIGNAL_NO_RECURSE | G_SIGNAL_NO_HOOKS,
+                                                NULL,
+                                                NULL,
+                                                NULL,
+                                                g_cclosure_marshal_VOID__VOID,
+                                                G_TYPE_NONE,
+                                                0,
+                                                NULL);
 
   /* Install the D-BUS info */
   dbus_g_object_type_install_info (G_TYPE_FROM_CLASS (klass), &dbus_glib_verve_dbus_service_object_info);
@@ -184,65 +159,15 @@ verve_dbus_service_finalize (GObject *object)
   (*G_OBJECT_CLASS (verve_dbus_service_parent_class)->finalize) (object);
 }
 
-static void
-verve_dbus_service_get_property (GObject *object,
-                                guint prop_id,
-                                GValue *value,
-                                GParamSpec *pspec)
-{
-  switch (prop_id)
-  {
-    case PROP_INPUT:
-      g_value_set_pointer (value, (VERVE_DBUS_SERVICE (object))->input);
-      break;
-
-    case PROP_PLUGIN:
-      g_value_set_pointer (value, (VERVE_DBUS_SERVICE (object))->plugin);
-      break;
-      
-    default:
-      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      break;
-  }
-}
-
-static void
-verve_dbus_service_set_property (GObject *object,
-                                 guint prop_id,
-                                 const GValue *value,
-                                 GParamSpec *pspec)
-{
-  VerveDBusService *dbus_service = VERVE_DBUS_SERVICE (object);
-
-  switch (prop_id)
-  {
-    case PROP_INPUT:
-      dbus_service->input = g_value_get_pointer (value);
-      break;
-
-    case PROP_PLUGIN:
-      dbus_service->plugin = g_value_get_pointer (value);
-      break;
-
-    default:
-      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-      break;
-  }
-}
-
 static gboolean
 verve_dbus_service_open_dialog (VerveDBusService *dbus_service, 
                                 const gchar *dir, 
                                 const gchar *display, 
                                 GError **error)
 {
-  GtkWidget *toplevel = gtk_widget_get_toplevel (dbus_service->input);
-  
-  if (toplevel && toplevel->window)
-  {
-    xfce_panel_plugin_focus_widget (dbus_service->plugin, dbus_service->input);
-  }
-  
+  /* Emit "open-dialog" signal */
+  g_signal_emit (dbus_service, VERVE_DBUS_SERVICE_GET_CLASS (dbus_service)->open_dialog_signal_id, 0, NULL);
+
   return TRUE;
 }
   

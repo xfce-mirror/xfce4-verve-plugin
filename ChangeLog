@@ -1,5 +1,18 @@
 2006-03-22  Jannis Pohlmann <jannis@xfce.org>
 
+  * TODO: Remove startup notification, terminal startup support.
+  * scripts/verve-focus.py: Add helper script for focussing Verve
+    using the org.xfce.RunDialog D-BUS service.
+  * panel-plugin/verve-dbus-service.c, panel-plugin/verve-plugin.c: 
+    Use a signal ("open-dialog") callback for grabbing the focus rather 
+    than using VerveDBusService "plugin" and "input" properties. This
+    moves GUI stuff out of VerveDBusService again.
+  * panel-plugin/*.{c,h}: Wrap function parameters and clean up the 
+    code.
+  * configure.in.in: Remove libstartup-notification from dependencies.
+
+2006-03-22  Jannis Pohlmann <jannis@xfce.org>
+
   * panel-plugin/verve-plugin.c: Fix completion loading. Re-add 
     accidently removed line to create the completion at startup.
     Add terminal exec feature using the <Control> key.

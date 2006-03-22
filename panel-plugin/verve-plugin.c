@@ -76,25 +76,40 @@ verve_plugin_load_completion ()
 	 VerveEnv *env = verve_env_get ();
   GList *binaries = verve_env_get_path_binaries (env);
 
+  /* Add binaries to completion list */
   if (G_LIKELY (binaries != NULL))
 	   g_completion_add_items (completion, binaries);
 	
 	 return completion;
 }
 
-static gboolean verve_plugin_buttonpress_cb (GtkWidget *entry, GdkEventButton *event, gpointer data)
+static gboolean 
+verve_plugin_buttonpress_cb (GtkWidget *entry, 
+                             GdkEventButton *event, 
+                             gpointer data)
 {
 	 GtkWidget *toplevel = gtk_widget_get_toplevel (entry);
 
 	 if (event->button != 3 && toplevel && toplevel->window)
-	 {
     xfce_panel_plugin_focus_widget ((XfcePanelPlugin *)data, entry);
-	 }
 
 	 return FALSE;
 }
 
-static gboolean verve_plugin_keypress_cb (GtkWidget *entry, GdkEventKey *event, gpointer user_data)
+static void
+verve_plugin_open_dialog_cb (VerveDBusService *dbus_service, 
+                             VervePlugin *verve)
+{
+  GtkWidget *toplevel = gtk_widget_get_toplevel (verve->input);
+
+  if (toplevel && toplevel->window)
+    xfce_panel_plugin_focus_widget (verve->plugin, verve->input);
+}
+
+static gboolean 
+verve_plugin_keypress_cb (GtkWidget *entry, 
+                          GdkEventKey *event, 
+                          gpointer user_data)
 {
   VervePlugin *verve = (VervePlugin *)user_data;
   GCompletion *completion = verve->completion;
@@ -279,29 +294,16 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   /* Attach the D-BUS service */
   verve->dbus_service = g_object_new (VERVE_TYPE_DBUS_SERVICE, NULL);
 
-  /* Set input property */
-  {
-    GValue value = {0, };
-    g_value_init (&value, G_TYPE_POINTER);
-    g_value_set_pointer (&value, verve->input);
-    g_object_set_property (G_OBJECT (verve->dbus_service), "input", &value);
-  }
-
-  /* Set plugin property */
-  {
-    GValue value = {0, };
-    g_value_init (&value, G_TYPE_POINTER);
-    g_value_set_pointer (&value, verve->plugin);
-    g_object_set_property (G_OBJECT (verve->dbus_service), "plugin", &value);
-  }
-
+  /* Connect to open dialog signal */
+  g_signal_connect (G_OBJECT (verve->dbus_service), "open-dialog", G_CALLBACK (verve_plugin_open_dialog_cb), verve);
 #endif
 	
  	return verve;
 }
 
 static void
-verve_plugin_free (XfcePanelPlugin *plugin, VervePlugin *verve)
+verve_plugin_free (XfcePanelPlugin *plugin, 
+                   VervePlugin *verve)
 {
 #ifdef HAVE_DBUS
   g_object_unref (G_OBJECT (verve->dbus_service));
@@ -322,14 +324,17 @@ verve_plugin_update_size (XfcePanelPlugin *plugin, gint size, VervePlugin *verve
 }
 
 static gboolean
-verve_plugin_size_changed_request (XfcePanelPlugin *plugin, gint size, VervePlugin *verve)
+verve_plugin_size_changed_request (XfcePanelPlugin *plugin, 
+                                   gint size, 
+                                   VervePlugin *verve)
 {
   verve_plugin_update_size (plugin, verve->size, verve);
   return TRUE;
 }
 
 static void
-verve_plugin_read_rc_file (XfcePanelPlugin *plugin, VervePlugin *verve)
+verve_plugin_read_rc_file (XfcePanelPlugin *plugin, 
+                           VervePlugin *verve)
 {
   gchar *filename;
   XfceRc *rc;
@@ -354,7 +359,8 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin, VervePlugin *verve)
 }
 
 static void
-verve_plugin_write_rc_file (XfcePanelPlugin *plugin, VervePlugin *verve)
+verve_plugin_write_rc_file (XfcePanelPlugin *plugin, 
+                            VervePlugin *verve)
 {
   gchar *filename;
   XfceRc *rc;
@@ -374,13 +380,16 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin, VervePlugin *verve)
 }
 
 static void
-verve_plugin_size_changed (GtkSpinButton *spin, VervePlugin *verve)
+verve_plugin_size_changed (GtkSpinButton *spin, 
+                           VervePlugin *verve)
 {
   verve_plugin_update_size (NULL, gtk_spin_button_get_value_as_int (spin), verve);
 }
 
 static void
-verve_plugin_response (GtkWidget *dialog, int response, VervePlugin *verve)
+verve_plugin_response (GtkWidget *dialog, 
+                       int response, 
+                       VervePlugin *verve)
 {
   g_object_set_data (G_OBJECT (verve->plugin), "dialog", NULL);
 
@@ -391,7 +400,8 @@ verve_plugin_response (GtkWidget *dialog, int response, VervePlugin *verve)
 }
 
 static void
-verve_plugin_properties (XfcePanelPlugin *plugin, VervePlugin *verve)
+verve_plugin_properties (XfcePanelPlugin *plugin, 
+                         VervePlugin *verve)
 {
   GtkWidget *dialog, *header, *frame, *bin, *hbox, *size_label, *size_spin;
   GtkObject *adjustment;
