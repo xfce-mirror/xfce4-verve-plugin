@@ -1,5 +1,11 @@
 2006-03-22  Jannis Pohlmann <jannis@xfce.org>
 
+  * panel-plugin/Makefile.am: Add hints for building 
+    verve-dbus-service-infos.h from verve-dbus-service-infos.xml during
+    make.
+
+2006-03-22  Jannis Pohlmann <jannis@xfce.org>
+
   * TODO: Remove startup notification, terminal startup support.
   * scripts/verve-focus.py: Add helper script for focussing Verve
     using the org.xfce.RunDialog D-BUS service.

@@ -42,7 +42,7 @@ xfce4_verve_plugin_CFLAGS +=						\
 xfce4_verve_plugin_LDFLAGS += 						\
 	$(DBUS_LIBS)
 
-verve-dbus-service-infos.h: 
+verve-dbus-service-infos.h: $(srcdir)/verve-dbus-service-infos.xml Makefile
 	dbus-binding-tool --prefix=verve_dbus_service --mode=glib-server verve-dbus-service-infos.xml > verve-dbus-service-infos.h
 endif
 
