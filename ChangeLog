@@ -1,5 +1,9 @@
 2006-03-25  Jannis Pohlmann <jannis@xfce.org>
 
+  * panel-plugin/verve-plugin.c: Enhance flash highlighting.
+
+2006-03-25  Jannis Pohlmann <jannis@xfce.org>
+
   * panel-plugin/verve-plugin.c: Implement flash timeout in order to
     notify the user when Verve got the focus through the D-BUS service.
     Unregister the timeout as soon as a mouse button or key is pressed.

@@ -89,21 +89,25 @@ verve_plugin_load_completion ()
 static gboolean
 verve_plugin_focus_timeout (VervePlugin *verve)
 {
-  GtkStyle *style_default;
-  GtkStyle *style;
-
+  GtkStyle       *default_style;
+  GtkStyle       *style;
+  
   g_return_val_if_fail (verve != NULL, FALSE);
   g_return_val_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input), FALSE);
-
-  /* Get entry style and default style */
+  
   style = gtk_widget_get_style (verve->input);
-  style_default = gtk_widget_get_default_style ();
-
-  /* Make the entry flash (switch between STATE_SELECTED and STATE_NORMAL background color) */
-  if (gdk_color_equal (&style->bg[GTK_STATE_NORMAL], &style_default->bg[GTK_STATE_SELECTED]))
-    gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style_default->bg[GTK_STATE_NORMAL]);
+  default_style = gtk_widget_get_default_style ();
+  
+  if (gdk_color_equal (&style->base[GTK_STATE_NORMAL], &style->base[GTK_STATE_SELECTED]))
+    {
+      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &default_style->base[GTK_STATE_NORMAL]);
+      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &default_style->bg[GTK_STATE_NORMAL]);
+    }
   else
-    gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style_default->bg[GTK_STATE_SELECTED]);
+    {
+      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &style->base[GTK_STATE_SELECTED]);
+      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style->bg[GTK_STATE_SELECTED]);
+    }
   
   return TRUE;
 }
@@ -111,7 +115,7 @@ verve_plugin_focus_timeout (VervePlugin *verve)
 static void
 verve_plugin_focus_timeout_reset (VervePlugin *verve)
 {
-  GtkStyle *style_default;
+  GtkStyle *default_style;
 
   g_return_if_fail (verve != NULL);
   g_return_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input));
@@ -124,10 +128,11 @@ verve_plugin_focus_timeout_reset (VervePlugin *verve)
     }
   
   /* Get default style */
-  style_default = gtk_widget_get_default_style ();
+  default_style = gtk_widget_get_default_style ();
   
   /* Reset entry background */
-  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style_default->bg[GTK_STATE_NORMAL]);
+  gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &default_style->base[GTK_STATE_NORMAL]);
+  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &default_style->bg[GTK_STATE_NORMAL]);
 }
 
 static gboolean 
