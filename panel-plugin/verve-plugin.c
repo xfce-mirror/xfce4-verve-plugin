@@ -164,7 +164,7 @@ verve_plugin_open_dialog_cb (VerveDBusService *dbus_service,
       
       /* Make it flashy so chances are higher that the user notices the focus */
       if (verve->focus_timeout == 0) 
-        verve->focus_timeout = g_timeout_add_full (G_PRIORITY_DEFAULT_IDLE, 100, (GSourceFunc)verve_plugin_focus_timeout, verve, NULL);
+        verve->focus_timeout = g_timeout_add_full (G_PRIORITY_DEFAULT_IDLE, 250, (GSourceFunc)verve_plugin_focus_timeout, verve, NULL);
     }
 }
 
