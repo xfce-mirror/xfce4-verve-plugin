@@ -53,6 +53,9 @@ typedef struct
   
   /* Command history */
   GList *history_current;
+
+  /* Timeouts */
+  guint focus_timeout;
   
   /* Autocompletion */
   GCompletion *completion;
@@ -83,15 +86,62 @@ verve_plugin_load_completion ()
 	 return completion;
 }
 
+static gboolean
+verve_plugin_focus_timeout (VervePlugin *verve)
+{
+  GtkStyle *style_default;
+  GtkStyle *style;
+
+  g_return_val_if_fail (verve != NULL, FALSE);
+  g_return_val_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input), FALSE);
+
+  /* Get entry style and default style */
+  style = gtk_widget_get_style (verve->input);
+  style_default = gtk_widget_get_default_style ();
+
+  /* Make the entry flash (switch between STATE_SELECTED and STATE_NORMAL background color) */
+  if (gdk_color_equal (&style->bg[GTK_STATE_NORMAL], &style_default->bg[GTK_STATE_SELECTED]))
+    gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style_default->bg[GTK_STATE_NORMAL]);
+  else
+    gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style_default->bg[GTK_STATE_SELECTED]);
+  
+  return TRUE;
+}
+
+static void
+verve_plugin_focus_timeout_reset (VervePlugin *verve)
+{
+  GtkStyle *style_default;
+
+  g_return_if_fail (verve != NULL);
+  g_return_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input));
+
+  /* Unregister timeout */
+  if (G_LIKELY (verve->focus_timeout != 0))
+    {
+      g_source_remove (verve->focus_timeout);
+      verve->focus_timeout = 0;
+    }
+  
+  /* Get default style */
+  style_default = gtk_widget_get_default_style ();
+  
+  /* Reset entry background */
+  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style_default->bg[GTK_STATE_NORMAL]);
+}
+
 static gboolean 
 verve_plugin_buttonpress_cb (GtkWidget *entry, 
                              GdkEventButton *event, 
-                             gpointer data)
+                             VervePlugin *verve)
 {
 	 GtkWidget *toplevel = gtk_widget_get_toplevel (entry);
 
+  if (G_LIKELY (verve->focus_timeout != 0))
+    verve_plugin_focus_timeout_reset (verve);
+
 	 if (event->button != 3 && toplevel && toplevel->window)
-    xfce_panel_plugin_focus_widget ((XfcePanelPlugin *)data, entry);
+    xfce_panel_plugin_focus_widget (verve->plugin, entry);
 
 	 return FALSE;
 }
@@ -103,7 +153,14 @@ verve_plugin_open_dialog_cb (VerveDBusService *dbus_service,
   GtkWidget *toplevel = gtk_widget_get_toplevel (verve->input);
 
   if (toplevel && toplevel->window)
-    xfce_panel_plugin_focus_widget (verve->plugin, verve->input);
+    {
+      /* Focus the command entry */
+      xfce_panel_plugin_focus_widget (verve->plugin, verve->input);
+      
+      /* Make it flashy so chances are higher that the user notices the focus */
+      if (verve->focus_timeout == 0) 
+        verve->focus_timeout = g_timeout_add_full (G_PRIORITY_DEFAULT_IDLE, 100, (GSourceFunc)verve_plugin_focus_timeout, verve, NULL);
+    }
 }
 
 static gboolean 
@@ -123,6 +180,8 @@ verve_plugin_keypress_cb (GtkWidget *entry,
 	 gint selstart;
 	 gint i;
 	 gint len;
+
+  verve_plugin_focus_timeout_reset (verve);
 		
 	 switch (event->keyval)
 	 {
@@ -275,6 +334,8 @@ verve_plugin_new (XfcePanelPlugin *plugin)
  	verve->n_complete = 0;
   verve->size = 20;
 
+  verve->focus_timeout = 0;
+
  	verve->event_box = gtk_event_box_new ();
  	gtk_widget_show (verve->event_box);
 	
@@ -286,7 +347,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
  	g_signal_connect (verve->input, "key-press-event", 
 	 		G_CALLBACK (verve_plugin_keypress_cb), verve);
  	g_signal_connect (verve->input, "button-press-event", 
- 			G_CALLBACK (verve_plugin_buttonpress_cb), plugin);
+ 			G_CALLBACK (verve_plugin_buttonpress_cb), verve);
   
 #ifdef HAVE_DBUS
   VerveDBusService *dbus_service;
@@ -308,6 +369,9 @@ verve_plugin_free (XfcePanelPlugin *plugin,
 #ifdef HAVE_DBUS
   g_object_unref (G_OBJECT (verve->dbus_service));
 #endif
+
+  /* Unregister focus timeout */
+  verve_plugin_focus_timeout_reset (verve);
 
  	g_free (verve->completion);
  	g_free (verve);
