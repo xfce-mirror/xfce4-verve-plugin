@@ -1,190 +1,205 @@
+2006-04-03  Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/verve-env.{h,c}: Remove all the shell stuff. As I
+	  dropped the idea of user-defined commands this is just annoying
+	  overhead. Code cleaned up.
+	* panel-plugin/verve-plugin.c: Cleaned up the code. Avoid to add
+	  a command to the history if it's the same as the previously added
+	  command. This fixes bug #6900. Entries from the command history
+	  now appear in the auto-completion results.
+	* panel-plugin/verve-history.{c,h}: Another bug fixed: Don't write
+	  more than 25 commands to the cache. I'll add an option for this
+	  to the preferences dialog later, so that the user can choose
+	  how many commands he wants to have saved. Code cleaned up.
+	* panel-plugin/verve.c: Code cleaned up.
+
 2006-03-25  Jannis Pohlmann <jannis@xfce.org>
 
-  * panel-plugin/verve-plugin.c: Enhance flash highlighting.
+	* panel-plugin/verve-plugin.c: Enhance flash highlighting.
 
 2006-03-25  Jannis Pohlmann <jannis@xfce.org>
 
-  * panel-plugin/verve-plugin.c: Implement flash timeout in order to
-    notify the user when Verve got the focus through the D-BUS service.
-    Unregister the timeout as soon as a mouse button or key is pressed.
+	* panel-plugin/verve-plugin.c: Implement flash timeout in order to
+	  notify the user when Verve got the focus through the D-BUS service.
+	  Unregister the timeout as soon as a mouse button or key is pressed.
 
 2006-03-22  Jannis Pohlmann <jannis@xfce.org>
 
-  * panel-plugin/Makefile.am: Add hints for building 
-    verve-dbus-service-infos.h from verve-dbus-service-infos.xml during
-    make.
+	* panel-plugin/Makefile.am: Add hints for building 
+	  verve-dbus-service-infos.h from verve-dbus-service-infos.xml during
+	  make.
 
 2006-03-22  Jannis Pohlmann <jannis@xfce.org>
 
-  * TODO: Remove startup notification, terminal startup support.
-  * scripts/verve-focus.py: Add helper script for focussing Verve
-    using the org.xfce.RunDialog D-BUS service.
-  * panel-plugin/verve-dbus-service.c, panel-plugin/verve-plugin.c: 
-    Use a signal ("open-dialog") callback for grabbing the focus rather 
-    than using VerveDBusService "plugin" and "input" properties. This
-    moves GUI stuff out of VerveDBusService again.
-  * panel-plugin/*.{c,h}: Wrap function parameters and clean up the 
-    code.
-  * configure.in.in: Remove libstartup-notification from dependencies.
+	* TODO: Remove startup notification, terminal startup support.
+	* scripts/verve-focus.py: Add helper script for focussing Verve
+	  using the org.xfce.RunDialog D-BUS service.
+	* panel-plugin/verve-dbus-service.c, panel-plugin/verve-plugin.c: 
+	  Use a signal ("open-dialog") callback for grabbing the focus rather 
+	  than using VerveDBusService "plugin" and "input" properties. This
+	  moves GUI stuff out of VerveDBusService again.
+	* panel-plugin/*.{c,h}: Wrap function parameters and clean up the 
+	  code.
+	* configure.in.in: Remove libstartup-notification from dependencies.
 
 2006-03-22  Jannis Pohlmann <jannis@xfce.org>
 
-  * panel-plugin/verve-plugin.c: Fix completion loading. Re-add 
-    accidently removed line to create the completion at startup.
-    Add terminal exec feature using the <Control> key.
-    panel-plugin/verve.{c,h}: Add terminal exec feature. Open
-    directories with exo-open, just like URLs and eMail addresses.
+	* panel-plugin/verve-plugin.c: Fix completion loading. Re-add 
+	  accidently removed line to create the completion at startup.
+	  Add terminal exec feature using the <Control> key.
+	  panel-plugin/verve.{c,h}: Add terminal exec feature. Open
+	  directories with exo-open, just like URLs and eMail addresses.
 
 2006-03-21  Jannis Pohlmann <jannis@xfce.org>
 
-  * panel-plugin/verve-plugin.c: Remove debug print statements.
+	* panel-plugin/verve-plugin.c: Remove debug print statements.
 
 2006-03-21  Jannis Pohlmann <jannis@xfce.org>
 
-  * panel-plugin/verve-dbus-service.c: Add "plugin" property and call
-    xfce_panel_focus_widget () when the "OpenDialog" method is called.
-  * panel-plugin/verve-plugin.c: Set "plugin" property of D-BUS 
-    service.
+	* panel-plugin/verve-dbus-service.c: Add "plugin" property and call
+	  xfce_panel_focus_widget () when the "OpenDialog" method is called.
+	* panel-plugin/verve-plugin.c: Set "plugin" property of D-BUS 
+	  service.
 
 2006-03-21  Jannis Pohlmann <jannis@xfce.org>
 
-  * verve/*.{c,h}: Moved all source files to panel-plugin/.
-  * panel-plugin/verve-dbus-services.*: Implemented org.xfce.RunDialog 
-    D-BUS service. 
-  * tests/*.*: Removed test script.
-  * configure.in.in, Makefile.am: Add optional D-BUS support.
+	* verve/*.{c,h}: Moved all source files to panel-plugin/.
+	* panel-plugin/verve-dbus-services.*: Implemented org.xfce.RunDialog 
+	  D-BUS service. 
+	* tests/*.*: Removed test script.
+	* configure.in.in, Makefile.am: Add optional D-BUS support.
 
 2006-03-21  Jannis Pohlmann <jannis@xfce.org>
 
-  * verve/verve-db.{c,h}, tests/Makefile.am, panel-plugin/Makefile.am, 
-    verve/verve.{c,h}: Removed unused verve command database.
-  * verve/verve-history.h: Include <libxfce4util/libxfce4util.h>.
-  * verve/verve.c: Fixed error handling which made the plugin crash on
-    shell errors (this fixes bug #6663).
+	* verve/verve-db.{c,h}, tests/Makefile.am, panel-plugin/Makefile.am, 
+	  verve/verve.{c,h}: Removed unused verve command database.
+	* verve/verve-history.h: Include <libxfce4util/libxfce4util.h>.
+	* verve/verve.c: Fixed error handling which made the plugin crash on
+	  shell errors (this fixes bug #6663).
 
 2006-03-02  Jannis Pohlmann <jannis@xfce.org>
 
-  * Fix version string (use 0.2.0 instead of 0.2).
+	* Fix version string (use 0.2.0 instead of 0.2).
 
 2006-03-02  Jannis Pohlmann <jannis@xfce.org>
 
-  * Fixed another resize bug. The user-defined width will now
-    be used no matter how the panel behaves.
+	* Fixed another resize bug. The user-defined width will now
+	  be used no matter how the panel behaves.
 
 2006-03-02  Jannis Pohlmann <jannis@xfce.org>
 
-  * Create 0.2 tag
+	* Create 0.2 tag
 
 2006-03-02  Jannis Pohlmann <jannis@xfce.org>
 
-  * configure.in.in: Change package version to 0.2
-  * THANKS: Update translator credits
-  * po/*.po[t]: Update translation files
+	* configure.in.in: Change package version to 0.2
+	* THANKS: Update translator credits
+	* po/*.po[t]: Update translation files
 
 2006-02-14  Jannis Pohlmann <jannis@xfce.org>
 
-  * panel-plugin/verve-plugin.c: Added config.h include. This 
-    fixes translation problems (translations weren't displayed 
-    before).
+	* panel-plugin/verve-plugin.c: Added config.h include. This 
+	  fixes translation problems (translations weren't displayed 
+	  before).
 
 2006-02-14  Jannis Pohlmann <jannis@xfce.org>
 
-  * panel-plugin/verve-plugin.c: Return TRUE in 
-    verve_plugin_update_size.
-  * configure.in.in: Rename fr_CH to fr.
+	* panel-plugin/verve-plugin.c: Return TRUE in 
+	  verve_plugin_update_size.
+	* configure.in.in: Rename fr_CH to fr.
 
 2006-02-12  Jannis Pohlmann <jannis@xfce.org>
 
-  * configure.in.in: Define libxfce4panel version more specific.
-  * panel-plugin/verve-plugin.c: Apply Jasper's patch in order to
-    make use of the new focus grab method for external plugins.
+	* configure.in.in: Define libxfce4panel version more specific.
+	* panel-plugin/verve-plugin.c: Apply Jasper's patch in order to
+	  make use of the new focus grab method for external plugins.
 
 2006-02-12  Jannis Pohlmann <jannis@xfce.org>
 
-  * Fix use of unterminated supported_shells array. Use 
-    G_N_ELEMENTS() instead of g_strv_length(). Thanks to
-    Jasper for the patch.
+	* Fix use of unterminated supported_shells array. Use 
+	  G_N_ELEMENTS() instead of g_strv_length(). Thanks to
+	  Jasper for the patch.
 
 2006-02-11  Jannis Pohlmann <jannis@xfce.org>
 
-  * panel-plugin/verve-plugin.c, panel-plugin/configure.in.in: 
-    Make plugin exteral. Patch provided by Jasper.
+	* panel-plugin/verve-plugin.c, panel-plugin/configure.in.in: 
+	  Make plugin exteral. Patch provided by Jasper.
 
 2006-02-11  Jannis Pohlmann <jannis@xfce.org>
-  
-  * panel-plugin/Makefile.am: Applied another one of Daichi's 
-    patches
+	
+	* panel-plugin/Makefile.am: Applied another one of Daichi's 
+	  patches
 
 2006-02-11  Jannis Pohlmann <jannis@xfce.org>
 
-  * configure.in.in: Applied Daichi's AC_INIT patch
+	* configure.in.in: Applied Daichi's AC_INIT patch
 
 2006-02-09  Jannis Pohlmann <jannis@xfce.org>
 
-  * Implement size-changed signal in order to keep the width
-    defined in the properties dialog when the panel size changes
+	* Implement size-changed signal in order to keep the width
+	  defined in the properties dialog when the panel size changes
 
 2006-02-09  Jannis Pohlmann <jannis@xfce.org>
 
-  * Cache the last 25 commands on disk when closing the panel
-    and restore them on the next start
+	* Cache the last 25 commands on disk when closing the panel
+	  and restore them on the next start
 
 2006-02-08  Jannis Pohlmann <jannis@xfce.org>
 
-  * Don't display an error when executing an URL
+	* Don't display an error when executing an URL
 
 2006-02-08  Jannis Pohlmann <jannis@xfce.org>
 
-  * Make libstartup-notification non-optional
+	* Make libstartup-notification non-optional
 
 2O06-02-07  Jannis Pohlmann <jannis@xfce.org>
-  
-  * Added a small test program in order to search for
-    memory leaks
+	
+	* Added a small test program in order to search for
+	  memory leaks
 
 2006-02-07  Jannis Pohlmann <jannis@xfce.org>
 
-  * Avoid the error dialog to appear twice
+	* Avoid the error dialog to appear twice
 
 2006-02-07  Jannis Pohlmann <jannis@xfce.org>
-  
-  * Don't trim before auto-completing, as this would make
-    things just more complicated than necessary.
-
-2006-02-07  Jannis Pohlmann <jannis@xfce.org>
-
-  * Removed XFCE_PANEL_PLUGIN call from configure.in.in
+	
+	* Don't trim before auto-completing, as this would make
+	  things just more complicated than necessary.
 
 2006-02-07  Jannis Pohlmann <jannis@xfce.org>
 
-  * Trim whitespaces before parsing the command. This fixes 
-    bug #6311.
-  * Don't clear input if exec_command (libfcegui4). Bug #6310.
-
-2006-02-07  Jannis Pohlmann <jannis@xfce.org>
-  
-  * Added intltool-* scripts to DIST_EXTRA and DISTCLEAN
-  * Added po/Makefil.am added
-
-2006-02-07  Jannis Pohlmann <jannis@xfce.org>
-  
-  * Added intltool-* scripts
-
-2006-02-07  Jannis Pohlmann <jannis@xfce.org>
-  
-  * Moved src/ to verve/
-
-2006-02-07  Jannis Pohlmann <jannis@xfce.org>
-  
-  * Added missing NEWS file
+	* Removed XFCE_PANEL_PLUGIN call from configure.in.in
 
 2006-02-07  Jannis Pohlmann <jannis@xfce.org>
 
-  * Initial import into Xfce Goodies SVN
+	* Trim whitespaces before parsing the command. This fixes 
+	  bug #6311.
+	* Don't clear input if exec_command (libfcegui4). Bug #6310.
+
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
+	
+	* Added intltool-* scripts to DIST_EXTRA and DISTCLEAN
+	* Added po/Makefil.am added
+
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
+	
+	* Added intltool-* scripts
+
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
+	
+	* Moved src/ to verve/
+
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
+	
+	* Added missing NEWS file
+
+2006-02-07  Jannis Pohlmann <jannis@xfce.org>
+
+	* Initial import into Xfce Goodies SVN
 
 2006-02-06  Jannis Pohlmann <jannis@xfce.org>
 
-  * src/verve-history.{c,h}: Function for getting the last item
-    of the list added
-  * src/verve-plugin.c: Use newly added history function when 
-    pressing GDK_Down
+	* src/verve-history.{c,h}: Function for getting the last item
+	  of the list added
+	* src/verve-plugin.c: Use newly added history function when 
+	  pressing GDK_Down

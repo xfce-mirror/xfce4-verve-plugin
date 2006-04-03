@@ -28,16 +28,17 @@
 #include <glib-object.h>
 
 /* Init / Shutdown history database */
-void _verve_history_init (void);
-void _verve_history_shutdown (void);
+void         verve_history_init             (void);
+void         verve_history_shutdown         (void);
 
-void verve_history_add (gchar *input);
-GList *verve_history_begin (void);
-GList *verve_history_end (void);
-GList *verve_history_get_prev (const GList *current);
-GList *verve_history_get_next (const GList *current);
-gboolean verve_history_is_empty ();
+void         verve_history_add              (gchar *input);
+GList       *verve_history_begin            (void);
+GList       *verve_history_end              (void);
+GList       *verve_history_get_prev         (const GList *current);
+GList       *verve_history_get_next         (const GList *current);
+gboolean     verve_history_is_empty         (void);
+const gchar *verve_history_get_last_command (void);
 
 #endif /* !__VERVE_HISTORY_H__ */
 
-/* vim:set expandtab ts=1 sw=2: */
+/* vim:set expandtab sts=2 ts=2 sw=2: */

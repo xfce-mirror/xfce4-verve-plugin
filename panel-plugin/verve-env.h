@@ -30,7 +30,7 @@
 G_BEGIN_DECLS;
 
 typedef struct _VerveEnvClass VerveEnvClass;
-typedef struct _VerveEnv VerveEnv;
+typedef struct _VerveEnv      VerveEnv;
   
 #define VERVE_TYPE_ENV            (verve_env_get_type ())
 #define VERVE_ENV(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), VERVE_TYPE_ENV, VerveEnv))
@@ -39,22 +39,15 @@ typedef struct _VerveEnv VerveEnv;
 #define VERVE_IS_ENV_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VERVE_TYPE_ENV))
 #define VERVE_ENV_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), VERVE_TYPE_ENV, VerveEnvClass))
 
-GType verve_env_get_type (void) G_GNUC_CONST;
-VerveEnv *verve_env_get (void);
-gboolean verve_env_has_shell (VerveEnv *env, 
-                              const gchar *name);
-const gchar *verve_env_shell_get_path (VerveEnv *env, 
-                                       const gchar *name);
-const gchar *verve_env_get_shell (void);
-GList *verve_env_get_shell_names (VerveEnv *env);
-GList *verve_env_get_shell_paths (VerveEnv *env);
-gchar **verve_env_get_path (VerveEnv *env);
-GList *verve_env_get_path_binaries (VerveEnv *env);
+GType        verve_env_get_type          (void) G_GNUC_CONST;
+VerveEnv    *verve_env_get               (void);
+gchar      **verve_env_get_path          (VerveEnv *env);
+GList       *verve_env_get_path_binaries (VerveEnv *env);
 
-void _verve_env_shutdown (void);
+void         verve_env_shutdown          (void);
 
 G_END_DECLS;
 
 #endif /* __VERVE_ENV_H__ */
 
-/* vim:set expandtab ts=1 sw=2: */
+/* vim:set expandtab sts=2 ts=2 sw=2: */

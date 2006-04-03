@@ -22,29 +22,36 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
  
-#include <glib-object.h>
 #include <pcre.h>
+
+#include <glib-object.h>
+
 #include <libxfcegui4/libxfcegui4.h>
 
 #include "verve.h"
 #include "verve-env.h"
 #include "verve-history.h"
 
-/* Internal functions */
-gboolean _verve_is_url (const gchar *str);
-gboolean _verve_is_email (const gchar *str);
-gboolean _verve_is_directory (const gchar *str);
+
+
+static gboolean verve_is_url       (const gchar *str);
+static gboolean verve_is_email     (const gchar *str);
+static gboolean verve_is_directory (const gchar *str);
+
+
 
 /* URL/eMail matching patterns */
-#define USERCHARS       "-A-Za-z0-9"
-#define PASSCHARS       "-A-Za-z0-9,?;.:/!%$^*&~\"#'"
-#define HOSTCHARS       "-A-Za-z0-9"
-#define USER            "[" USERCHARS "]+(:["PASSCHARS "]+)?"
-#define MATCH_URL1      "^((file|https?|ftps?)://(" USER "@)?)[" HOSTCHARS ".]+(:[0-9]+)?" \
-                        "(/[-A-Za-z0-9_$.+!*(),;:@&=?/~#%]*[^]'.}>) \t\r\n,\\\"])?$"
-#define MATCH_URL2      "^(www|ftp)[" HOSTCHARS "]*\\.[" HOSTCHARS ".]+(:[0-9]+)?" \
-                        "(/[-A-Za-z0-9_$.+!*(),;:@&=?/~#%]*[^]'.}>) \t\r\n,\\\"])?$"
-#define MATCH_EMAIL     "^(mailto:)?[a-z0-9][a-z0-9.-]*@[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+#define USERCHARS   "-A-Za-z0-9"
+#define PASSCHARS   "-A-Za-z0-9,?;.:/!%$^*&~\"#'"
+#define HOSTCHARS   "-A-Za-z0-9"
+#define USER        "[" USERCHARS "]+(:["PASSCHARS "]+)?"
+#define MATCH_URL1  "^((file|https?|ftps?)://(" USER "@)?)[" HOSTCHARS ".]+(:[0-9]+)?" \
+                    "(/[-A-Za-z0-9_$.+!*(),;:@&=?/~#%]*[^]'.}>) \t\r\n,\\\"])?$"
+#define MATCH_URL2  "^(www|ftp)[" HOSTCHARS "]*\\.[" HOSTCHARS ".]+(:[0-9]+)?" \
+                    "(/[-A-Za-z0-9_$.+!*(),;:@&=?/~#%]*[^]'.}>) \t\r\n,\\\"])?$"
+#define MATCH_EMAIL "^(mailto:)?[a-z0-9][a-z0-9.-]*@[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+
+
 
 /*********************************************************************
  *
@@ -60,18 +67,22 @@ void
 verve_init (void)
 {
   /* Init history database */
-  _verve_history_init ();
+  verve_history_init ();
 }
+
+
 
 void
 verve_shutdown (void)
 {
   /* Free history database */
-  _verve_history_shutdown ();
+  verve_history_shutdown ();
 
   /* Shutdown environment */
-  _verve_env_shutdown ();
+  verve_env_shutdown ();
 }
+
+
 
 /*********************************************************************
  *
@@ -84,35 +95,49 @@ verve_shutdown (void)
  
 gboolean verve_spawn_command_line (const gchar *cmdline)
 {
-  gint argc;
-  gchar **argv;
-  gboolean success;
-  GError *error = NULL;
+  gint         argc;
+  gchar      **argv;
+  gboolean     success;
+  GError      *error = NULL;
+  const gchar *home_dir;
+  GSpawnFlags  flags;
   
+  /* Parse command line arguments */
   success = g_shell_parse_argv (cmdline, &argc, &argv, &error);
 
+  /* Return false if command line arguments failed to be arsed */
   if (G_UNLIKELY (error != NULL))
-  {
-    return FALSE;
-  }
+    {
+      g_error_free (error);
+      return FALSE;
+    }
 
-  const gchar *home_dir = xfce_get_homedir ();
+  /* Get user's home directory */
+  home_dir = xfce_get_homedir ();
 
-  GSpawnFlags flags = G_SPAWN_STDOUT_TO_DEV_NULL;
+  /* Set up spawn flags */
+  flags = G_SPAWN_STDOUT_TO_DEV_NULL;
   flags |= G_SPAWN_STDERR_TO_DEV_NULL;
   flags |= G_SPAWN_SEARCH_PATH;
   
+  /* Spawn subprocess */
   success = g_spawn_async (home_dir, argv, NULL, flags, NULL, NULL, NULL, &error);
 
+  /* Return false if subprocess could not be spawned */
   if (G_UNLIKELY (error != NULL)) 
-  {
-    return FALSE;
-  }
+    {
+      g_error_free (error);
+      return FALSE;
+    }
 
+  /* Free command line arguments */
   g_strfreev (argv);
   
+  /* Return whether process was spawned successfully */
   return success;
 }
+
+
 
 /*********************************************************************
  * 
@@ -128,38 +153,36 @@ gboolean
 verve_execute (const gchar *input, 
                gboolean terminal)
 {
-  if (_verve_is_url (input) || _verve_is_email (input) || _verve_is_directory (input))
-  {
-    /* Open URLs, eMail addresses and directories using exo-open */
-    gchar *command = g_strconcat ("exo-open ", input, NULL);
-
-    gboolean result = FALSE;
+  gchar   *command;
+  gboolean result = FALSE;
     
-    if (verve_spawn_command_line (command))
-      result = TRUE;
-      
-    g_free (command);
-
-    return result;
+  /* Open URLs, eMail addresses and directories using exo-open */
+  if (verve_is_url (input) || verve_is_email (input) || verve_is_directory (input))
+  {
+    /* Build exo-open command */
+    command = g_strconcat ("exo-open ", input, NULL);
   }
   else
   {
-    gchar *command;
-    gboolean result = FALSE;
-    
-    if (terminal)
+    /* Run command using the xfterm4 wrapper if the terminal flag was set */
+    if (G_UNLIKELY (terminal))
       command = g_strconcat ("xfterm4 -e ", input, NULL);
     else
       command = g_strdup (input);
-    
-    if (verve_spawn_command_line (command))
-      result = TRUE;
-
-    g_free (command);
-
-    return result;
   }
+    
+  /* Try to execute the exo-open command */
+  if (verve_spawn_command_line (command))
+    result = TRUE;
+    
+  /* Free command string */
+  g_free (command);
+
+  /* Return spawn result */
+  return result;
 }
+
+
 
 /*********************************************************************
  *
@@ -168,65 +191,84 @@ verve_execute (const gchar *input,
  *********************************************************************/
 
 gboolean
-_verve_is_url (const gchar *str)
+verve_is_url (const gchar *str)
 {
-  GString *string = g_string_new (str);
+  GString     *string = g_string_new (str);
+  pcre        *pattern;
   const gchar *error;
-  int error_offset;
-  int count;
-  int ovector[30];
-  pcre *pattern;
+  int          error_offset;
+  int          count;
+  int          ovector[30];
+  gboolean     success = FALSE;
 
-  gboolean success = FALSE;
-
-  /* Check first pattern */
+  /* Compile first pattern */
   pattern = pcre_compile (MATCH_URL1, 0, &error, &error_offset, NULL);
+  
+  /* Test whether the string matches this pattern */
   if (pcre_exec (pattern, NULL, string->str, string->len, 0, 0, ovector, 30) >= 0)
     success = TRUE;
 
+  /* Free pattern */
   pcre_free (pattern);
 
+  /* Free data and return true if string matched the first pattern */
   if (success)
-  {
-    g_string_free (string, TRUE);
-    return TRUE;
-  }
+    {
+      g_string_free (string, TRUE);
+      return TRUE;
+    }
 
-  /* Check second pattern */
+  /* Compile second pattern */
   pattern = pcre_compile (MATCH_URL2, 0, &error, &error_offset, NULL);
+
+  /* Test whether the string matches this pattern */
   if (pcre_exec (pattern, NULL, string->str, string->len, 0, 0, ovector, 30) >= 0)
     success = TRUE;
 
+  /* Free pattern */
   pcre_free (pattern);
+
+  /* Free string */
   g_string_free (string, TRUE);
 
+  /* Return whether the string matched any of the URL patterns */
   return success;
 }
 
+
+
 gboolean
-_verve_is_email (const gchar *str)
+verve_is_email (const gchar *str)
 {
-  GString *string = g_string_new (str);
+  GString     *string = g_string_new (str);
   const gchar *error;
-  int error_offset;
-  int count;
-  int ovector[30];
-  pcre *pattern;
+  pcre        *pattern;
+  int          error_offset;
+  int          count;
+  int          ovector[30];
+  gboolean     success = FALSE;
 
-  gboolean success = FALSE;
-
+  /* Compile the pattern */
   pattern = pcre_compile (MATCH_EMAIL, 0, &error, &error_offset, NULL);
+
+  /* Test whether the string matches this pattern */
   if (pcre_exec (pattern, NULL, string->str, string->len, 0, 0, ovector, 30) >= 0)
     success = TRUE;
 
+  /* Free pattern */
   pcre_free (pattern);
+
+  /* Free string data */
   g_string_free (string, TRUE);
 
+  /* Return whether the string matched any of the eMail patterns */
   return success;
 }
 
+
+
 gboolean
-_verve_is_directory (const gchar *str)
+verve_is_directory (const gchar *str)
 {
   /* Avoid opening directories with the same name as an existing executable. */
   if (g_find_program_in_path (str))
@@ -238,4 +280,6 @@ _verve_is_directory (const gchar *str)
     return FALSE;
 }
 
-/* vim:set expandtab ts=1 sw=2: */
+
+
+/* vim:set expandtab sts=2 ts=2 sw=2: */
