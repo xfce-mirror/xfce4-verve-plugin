@@ -1,5 +1,10 @@
 2006-04-03	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/verve-plugin.c: Fix compilation error without 
+	  D-BUS.
+
+2006-04-03	Jannis Pohlmann <jannis@xfce.org>
+
 	* scripts/Makefile.am, scripts/verve-focus, Makefile.am,
 	  configure.in.in: Added verve-focus script and a Makefile
 	  to install it into $(bindir). 

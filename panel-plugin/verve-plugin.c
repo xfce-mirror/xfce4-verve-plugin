@@ -186,6 +186,7 @@ verve_plugin_buttonpress_cb (GtkWidget *entry,
 
 
 
+#ifdef HAVE_DBUS
 static void
 verve_plugin_open_dialog_cb (VerveDBusService *dbus_service, 
                              VervePlugin *verve)
@@ -208,6 +209,7 @@ verve_plugin_open_dialog_cb (VerveDBusService *dbus_service,
         verve->focus_timeout = g_timeout_add_full (G_PRIORITY_DEFAULT_IDLE, 250, (GSourceFunc)verve_plugin_focus_timeout, verve, NULL);
     }
 }
+#endif
 
 
 
