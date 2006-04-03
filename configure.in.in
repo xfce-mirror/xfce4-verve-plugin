@@ -89,5 +89,6 @@ BM_DEBUG_SUPPORT()
 AC_OUTPUT([
 Makefile
 panel-plugin/Makefile
+scripts/Makefile
 po/Makefile.in
 ])

@@ -4,6 +4,7 @@
 
 SUBDIRS =								\
 	panel-plugin							\
+	scripts								\
 	po
 
 distclean-local:
