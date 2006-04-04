@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-02 22:28+0100\n"
+"POT-Creation-Date: 2006-04-04 22:13+0900\n"
 "PO-Revision-Date: 2006-02-12 12:55+0900\n"
 "Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
@@ -15,27 +15,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/verve-plugin.c:172
+#. Generate error message
+#: ../panel-plugin/verve-plugin.c:365
 msgid "Could not execute command:"
 msgstr "コマンドを実行できませんでした:"
 
-#: ../panel-plugin/verve-plugin.c:358
+#. Create properties dialog
+#: ../panel-plugin/verve-plugin.c:687
 msgid "Verve Properties"
 msgstr "Verveのプロパティ"
 
-#: ../panel-plugin/verve-plugin.c:372
+#. Header
+#: ../panel-plugin/verve-plugin.c:704
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:377
+#. Frame for appearance settings
+#: ../panel-plugin/verve-plugin.c:711
 msgid "Appearance"
 msgstr "外観"
 
-#: ../panel-plugin/verve-plugin.c:388
+#. Plugin size label
+#: ../panel-plugin/verve-plugin.c:722
 msgid "Width (in chars):"
 msgstr "幅 (文字単位):"
 
-#. vim:set expandtab ts=1 sw=2:
+#. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and history browsing"
 msgstr "コマンドの自動補完や履歴を参照できるコマンド行インターフェイスです。"

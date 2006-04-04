@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-15 15:38+0900\n"
+"POT-Creation-Date: 2006-04-04 22:13+0900\n"
 "PO-Revision-Date: 2006-02-19 22:50+0300\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@li.org>\n"
@@ -15,27 +15,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: ../panel-plugin/verve-plugin.c:172
+#. Generate error message
+#: ../panel-plugin/verve-plugin.c:365
 msgid "Could not execute command:"
 msgstr "Không thực hiện được câu lệnh:"
 
-#: ../panel-plugin/verve-plugin.c:358
+#. Create properties dialog
+#: ../panel-plugin/verve-plugin.c:687
 msgid "Verve Properties"
 msgstr "Thuộc tính Verve"
 
-#: ../panel-plugin/verve-plugin.c:372
+#. Header
+#: ../panel-plugin/verve-plugin.c:704
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:377
+#. Frame for appearance settings
+#: ../panel-plugin/verve-plugin.c:711
 msgid "Appearance"
 msgstr "Vẻ ngoài"
 
-#: ../panel-plugin/verve-plugin.c:388
+#. Plugin size label
+#: ../panel-plugin/verve-plugin.c:722
 msgid "Width (in chars):"
 msgstr "Rộng (theo ký tự):"
 
-#. vim:set expandtab ts=1 sw=2:
+#. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and history browsing"
 msgstr ""

@@ -1,3 +1,8 @@
+2006-04-04	Daichi Kawahata <daichi@xfce.org>
+
+	* Removed some files from POTFILES.in.
+	* Updated POT, PO files.
+
 2006-02-15	Daichi Kawahata <daichi@xfce.org>
 
 	* Basque translations by Piarres Beobide <pi@beobide.net> added.

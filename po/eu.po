@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-02 22:28+0100\n"
+"POT-Creation-Date: 2006-04-04 22:13+0900\n"
 "PO-Revision-Date: 2006-02-14 10:45+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Librezale <librezale@librezale.org>\n"
@@ -16,27 +16,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 0.6.3.20060126\n"
 
-#: ../panel-plugin/verve-plugin.c:172
+#. Generate error message
+#: ../panel-plugin/verve-plugin.c:365
 msgid "Could not execute command:"
 msgstr "Ezin da komandoa exekutatu:"
 
-#: ../panel-plugin/verve-plugin.c:358
+#. Create properties dialog
+#: ../panel-plugin/verve-plugin.c:687
 msgid "Verve Properties"
 msgstr "Verve Propietateak"
 
-#: ../panel-plugin/verve-plugin.c:372
+#. Header
+#: ../panel-plugin/verve-plugin.c:704
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:377
+#. Frame for appearance settings
+#: ../panel-plugin/verve-plugin.c:711
 msgid "Appearance"
 msgstr "Itxura"
 
-#: ../panel-plugin/verve-plugin.c:388
+#. Plugin size label
+#: ../panel-plugin/verve-plugin.c:722
 msgid "Width (in chars):"
 msgstr "Zabalera (karaktere):"
 
-#. vim:set expandtab ts=1 sw=2:
+#. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and history browsing"
 msgstr "Komando lerro interfazea auto-betetze eta historia nabigatzearekin"

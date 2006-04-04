@@ -1,10 +1,8 @@
-verve/verve.h
-verve/verve.c
-verve/verve-db.h
-verve/verve-db.c
-verve/verve-env.h
-verve/verve-env.c
-verve/verve-history.h
-verve/verve-history.c
+panel-plugin/verve.h
+panel-plugin/verve.c
+panel-plugin/verve-env.h
+panel-plugin/verve-env.c
+panel-plugin/verve-history.h
+panel-plugin/verve-history.c
 panel-plugin/verve-plugin.c
 panel-plugin/verve.desktop.in.in

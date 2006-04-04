@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-02 22:28+0100\n"
+"POT-Creation-Date: 2006-04-04 22:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,27 +16,32 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/verve-plugin.c:172
+#. Generate error message
+#: ../panel-plugin/verve-plugin.c:365
 msgid "Could not execute command:"
 msgstr ""
 
-#: ../panel-plugin/verve-plugin.c:358
+#. Create properties dialog
+#: ../panel-plugin/verve-plugin.c:687
 msgid "Verve Properties"
 msgstr ""
 
-#: ../panel-plugin/verve-plugin.c:372
+#. Header
+#: ../panel-plugin/verve-plugin.c:704
 msgid "Verve"
 msgstr ""
 
-#: ../panel-plugin/verve-plugin.c:377
+#. Frame for appearance settings
+#: ../panel-plugin/verve-plugin.c:711
 msgid "Appearance"
 msgstr ""
 
-#: ../panel-plugin/verve-plugin.c:388
+#. Plugin size label
+#: ../panel-plugin/verve-plugin.c:722
 msgid "Width (in chars):"
 msgstr ""
 
-#. vim:set expandtab ts=1 sw=2:
+#. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and history browsing"
 msgstr ""
