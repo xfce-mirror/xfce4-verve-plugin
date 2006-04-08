@@ -1,0 +1,50 @@
+# Polish translations for verve-plugin package.
+# Copyright (C) 2006 Jannis Pohlmann.
+# This file is distributed under the same license as the verve-plugin package.
+# Piotr Maliński <admin@rk.edu.pl>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: verve-plugin 0.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-04-04 22:13+0900\n"
+"PO-Revision-Date: 2006-04-08 12:19+0900\n"
+"Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
+"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Generate error message
+#: ../panel-plugin/verve-plugin.c:365
+msgid "Could not execute command:"
+msgstr "Nie mogę wykonać polecenia:"
+
+#. Create properties dialog
+#: ../panel-plugin/verve-plugin.c:687
+msgid "Verve Properties"
+msgstr "Ustawienia Verve"
+
+#. Header
+#: ../panel-plugin/verve-plugin.c:704
+msgid "Verve"
+msgstr "Verve"
+
+#. Frame for appearance settings
+#: ../panel-plugin/verve-plugin.c:711
+msgid "Appearance"
+msgstr "Wygląd"
+
+#. Plugin size label
+#: ../panel-plugin/verve-plugin.c:722
+msgid "Width (in chars):"
+msgstr "Długość (znaki):"
+
+#. vim:set expandtab sts=2 ts=2 sw=2:
+#: ../panel-plugin/verve.desktop.in.in.h:1
+msgid "Command line interface with auto-completion and history browsing"
+msgstr "Wiersz poleceń z autouzupełnianiem i historią"
+
+#: ../panel-plugin/verve.desktop.in.in.h:2
+msgid "Verve Command Line"
+msgstr "Wiersz Poleceń Verve"

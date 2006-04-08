@@ -1,3 +1,8 @@
+2006-04-08	Jannis Pohlmann <jannis@xfce.org>
+
+	* configure.in.in: Applied Daichi's patch (which adds pl to the
+	  translations).
+
 2006-04-03	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-plugin.c: Fix compilation error without 
