@@ -1,5 +1,10 @@
 2006-04-08	Jannis Pohlmann <jannis@xfce.org>
 
+	* configure.in.in, po/el.po: Greek translations by Stavros 
+	  Giannouris <stavrosg2002@freemail.gr> added.
+
+2006-04-08	Jannis Pohlmann <jannis@xfce.org>
+
 	* configure.in.in: Applied Daichi's patch (which adds pl to the
 	  translations).
 
