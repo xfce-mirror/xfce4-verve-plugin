@@ -1,3 +1,9 @@
+2006-04-19	Jannis Pohlmann <jannis@xfce.org>
+
+	* scripts/Makefile.am: Applied patch by Yves-Alexis Perez 
+	  <corsac@corsac.net>, which fixes an error during installation.
+	  of the scripts/ directory.
+
 2006-04-08	Jannis Pohlmann <jannis@xfce.org>
 
 	* configure.in.in, po/el.po: Greek translations by Stavros 
