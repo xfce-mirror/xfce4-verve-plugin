@@ -1,5 +1,9 @@
 2006-04-22	Jannis Pohlmann <jannis@xfce.org>
 
+	* configure.in.in: Bump version.
+
+2006-04-22	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugin/verve-plugin.c: Fix adding to command history when
 	  history is empty.
 
