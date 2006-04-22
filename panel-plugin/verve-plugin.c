@@ -344,7 +344,7 @@ verve_plugin_keypress_cb (GtkWidget *entry,
         if (G_LIKELY (verve_execute (command, terminal)))
           {
             /* Do not add command to history if it is the same as the one before */
-            if (g_utf8_collate (verve_history_get_last_command (), command) != 0)
+            if (verve_history_is_empty () || g_utf8_collate (verve_history_get_last_command (), command) != 0)
               {
                 /* Add command to history */
                 verve_history_add (g_strdup (command));
@@ -373,7 +373,6 @@ verve_plugin_keypress_cb (GtkWidget *entry,
 
         /* Free entry text copy */
         g_free (command);
-
 
         return TRUE;
 
