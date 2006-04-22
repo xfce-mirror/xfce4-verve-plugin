@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-04 22:13+0900\n"
+"POT-Creation-Date: 2006-04-22 19:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,22 +22,22 @@ msgid "Could not execute command:"
 msgstr ""
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:687
+#: ../panel-plugin/verve-plugin.c:686
 msgid "Verve Properties"
 msgstr ""
 
 #. Header
-#: ../panel-plugin/verve-plugin.c:704
+#: ../panel-plugin/verve-plugin.c:703
 msgid "Verve"
 msgstr ""
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:711
+#: ../panel-plugin/verve-plugin.c:710
 msgid "Appearance"
 msgstr ""
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:722
+#: ../panel-plugin/verve-plugin.c:721
 msgid "Width (in chars):"
 msgstr ""
 
