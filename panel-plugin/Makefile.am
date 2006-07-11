@@ -21,13 +21,17 @@ xfce4_verve_plugin_CFLAGS = 						\
 	@LIBEXO_CFLAGS@							\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@LIBXFCE4UTIL_CFLAGS@						\
-	@LIBPCRE_CFLAGS@						
+	@LIBPCRE_CFLAGS@						\
+	@GLIB_CFLAGS@							\
+	@GTHREAD_CFLAGS@						
 
 xfce4_verve_plugin_LDFLAGS = 						\
 	@LIBEXO_LIBS@							\
 	@LIBXFCE4PANEL_LIBS@						\
 	@LIBXFCE4UTIL_LIBS@						\
-	@LIBPCRE_LIBS@
+	@LIBPCRE_LIBS@							\
+	@GLIB_LIBS@							\
+	@GTHREAD_LIBS@
 
 if HAVE_DBUS
 xfce4_verve_plugin_SOURCES += 						\

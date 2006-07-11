@@ -1,3 +1,13 @@
+2006-07-11	Jannis Pohlmann <jannis@xfce.org>
+
+	* scripts/Makefile.am: Add verve-focus to EXTRA_DIST (it's missing in
+	  the 0.3.1 tarball.
+	* panel-plugin/verve-env.c, panel-plugin/verve-plugin.c: Implemented 
+	  threaded, asynchronous loading of $PATH entries. This avoids slower
+	  panel startup if $PATH includes slow media folders.
+	  Use more precise filters when loading the binaries (check for
+	  executable flag, avoid duplicate entries etc.).
+
 2006-06-17	Jannis Pohlmann <jannis@xfce.org>
 
 	* Added Italian translation to the XDT_I18N list.

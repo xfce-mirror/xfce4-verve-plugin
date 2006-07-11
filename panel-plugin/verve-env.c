@@ -30,28 +30,39 @@
 
 
 
-static void verve_env_class_init             (VerveEnvClass *klass);
-static void verve_env_init                   (VerveEnv      *env);
-static void verve_env_finalize               (GObject       *object);
+static void     verve_env_class_init             (VerveEnvClass *klass);
+static void     verve_env_init                   (VerveEnv      *env);
+static void     verve_env_finalize               (GObject       *object);
+static void     verve_env_load_binaries          (VerveEnv      *env);
+static gpointer verve_env_load_thread            (gpointer       user_data);
 
 
 
 struct _VerveEnvClass
 {
   GObjectClass __parent__;
+
+  guint        load_binaries_signal;
+
+  /* Signals */
+  void (*load_binaries) (VerveEnv *env);
 };
 
 
 
 struct _VerveEnv
 {
-  GObject __parent__;
+  GObject  __parent__;
 
   /* $PATH list */
-  gchar **paths;
+  gchar  **paths;
 
   /* Binaries in $PATH */
-  GList  *binaries;
+  GList   *binaries;
+
+  /* Thread used for loading $PATH binary names */
+  gboolean load_thread_cancelled;
+  GThread *load_thread;
 };
 
 
@@ -99,6 +110,18 @@ verve_env_class_init (VerveEnvClass *klass)
   
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->finalize = verve_env_finalize;
+
+  klass->load_binaries = verve_env_load_binaries;
+
+  /* Register "load-binaries" signal */
+  klass->load_binaries_signal = g_signal_new ("load-binaries", 
+                                              G_TYPE_FROM_CLASS (klass), 
+                                              G_SIGNAL_RUN_LAST,
+                                              G_STRUCT_OFFSET (VerveEnvClass, load_binaries),
+                                              NULL, NULL,
+                                              g_cclosure_marshal_VOID__VOID,
+                                              G_TYPE_NONE,
+                                              0);
 }
 
 
@@ -108,6 +131,9 @@ verve_env_init (VerveEnv *env)
 {
   env->paths = NULL;
   env->binaries = NULL;
+
+  /* Spawn the thread used to load the command completion data */
+  env->load_thread = g_thread_create_full (verve_env_load_thread, env, 0, TRUE, FALSE, G_THREAD_PRIORITY_LOW, NULL);
 }
 
 
@@ -146,6 +172,10 @@ verve_env_finalize (GObject *object)
 {
   VerveEnv *env = VERVE_ENV (object);
 
+  /* Join the load thread */
+  env->load_thread_cancelled = TRUE;
+  g_thread_join (env->load_thread);
+
   /* Free path list */
   if (G_LIKELY (env->paths != NULL))
     g_strfreev (env->paths);
@@ -175,7 +205,7 @@ gchar**
 verve_env_get_path (VerveEnv *env)
 {
   if (G_UNLIKELY (env->paths == NULL))
-    env->paths = g_strsplit (g_getenv ("PATH"), ":", 0);
+    env->paths = g_strsplit (g_getenv ("PATH"), G_SEARCHPATH_SEPARATOR_S, -1);
 
   return env->paths;
 }
@@ -185,45 +215,94 @@ verve_env_get_path (VerveEnv *env)
 GList *
 verve_env_get_path_binaries (VerveEnv *env)
 {
-  if (G_UNLIKELY (env->binaries == NULL))
-    {
-      gchar **paths;
-      int     i;
-      
-      /* Get $PATH directories */
-      paths = verve_env_get_path (env);
-      
-      /* Iterate over paths list */
-      for (i=0; i<g_strv_length (paths); i++)
+  return env->binaries;
+}
+
+
+
+static gpointer
+verve_env_load_thread (gpointer user_data)
+{
+  VerveEnv *env = VERVE_ENV (user_data);
+  gchar   **paths;
+  int       i;
+  
+  /* Get $PATH directories */
+  paths = verve_env_get_path (env);
+  
+  /* Iterate over paths list */
+  for (i=0; !env->load_thread_cancelled && i<g_strv_length (paths); i++)
+  {
+    /* Try opening the directory */
+    GDir *dir = g_dir_open (paths[i], 0, NULL);
+
+    /* Continue with next directory if this one cant' be opened */
+    if (G_UNLIKELY (dir == NULL)) 
+      continue;
+
+    g_debug ("Loading directory %s\n", g_dir_read_name (dir));
+
+    /* Skip directory when errors have occured */
+    const gchar *current;
+    gchar       *filename;
+    GList       *lp;
+
+    /* Iterate over files in this directory */
+    while (!env->load_thread_cancelled && (current = g_dir_read_name (dir)) != NULL)
       {
-        GError *error = NULL;
+        /* Convert to valid UTF-8 */
+        filename = g_filename_display_name (current);
 
-        /* Try opening the directory */
-        GDir *dir = g_dir_open (paths[i], 0, &error);
-
-        /* Skip directory when errors have occured */
-        if (G_LIKELY (error == NULL))
+        /* Avoid duplicates */
+        for (lp = g_list_first (env->binaries); lp != NULL; lp = lp->next)
+          if (g_ascii_strcasecmp (lp->data, filename) == 0)
+            break;
+       
+        /* Check details of file if it's not in the list already */
+        if (G_LIKELY (lp == NULL))
           {
-            const gchar *current;
+            /* Determine the absolute path to the file */
+            gchar *path = g_build_filename (paths[i], current, NULL);
 
-            /* Iterate over files in this directory */
-            while ((current = g_dir_read_name (dir)) != NULL)
+            /* Check if the path refers to an executable */
+            if (g_file_test (path, G_FILE_TEST_IS_EXECUTABLE))
               {
+                g_debug ("Loading file %s\n", path);
+
                 /* Add file filename to the list */
-                env->binaries = g_list_prepend (env->binaries, g_strdup (current));
+                env->binaries = g_list_prepend (env->binaries, g_strdup (filename));
+
+                /* No need to free the filename later in this function */
+                filename = NULL;
               }
 
-            /* Close directory */
-            g_dir_close (dir);
+            /* Free absolute path */
+            g_free (path);
           }
-        else
-          g_error_free (error);
+
+        /* Release filename if necessary */
+        g_free (filename);
       }
-    }
+
+    /* Close directory */
+    g_dir_close (dir);
+  }
+
+  g_debug ("Emitting load-binaries signal\n");
+
+  /* Emit 'load-binaries' signal */
+  g_signal_emit_by_name (env, "load-binaries");
 
   return env->binaries;
 }
 
+
+
+static void
+verve_env_load_binaries (VerveEnv *env)
+{
+  /* Do nothing */
+}
 
 
 /* vim:set expandtab sts=2 ts=2 sw=2: */

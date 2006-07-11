@@ -76,27 +76,28 @@ typedef struct
 
 
 
-GCompletion*
-verve_plugin_load_completion ()
+void
+verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 {
-  GCompletion *completion = g_completion_new (NULL);
+  VervePlugin *verve = (VervePlugin*) user_data;
+
+  g_debug ("Receiving load-binaries signal\n");
+
+  verve->completion = g_completion_new (NULL);
 
   /* Load command history */
   GList *history = verve_history_begin ();
 
   /* Load linux binaries from PATH */
-  VerveEnv *env = verve_env_get ();
   GList *binaries = verve_env_get_path_binaries (env);
 
   /* Add command history to completion */
   if (G_LIKELY (history != NULL)) 
-    g_completion_add_items (completion, history);
+    g_completion_add_items (verve->completion, history);
   
   /* Add binaries to completion list */
   if (G_LIKELY (binaries != NULL))
-    g_completion_add_items (completion, binaries);
-  
-  return completion;
+    g_completion_add_items (verve->completion, binaries);
 }
 
 
@@ -451,6 +452,9 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   /* Set application name */
   g_set_application_name ("Verve");
 
+  /* Init thread system */
+  g_thread_init (NULL);
+
   /* Init Verve mini-framework */
   verve_init ();
   
@@ -462,9 +466,12 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   
   /* Initialize completion variables */
   verve->history_current = NULL;
-  verve->completion = verve_plugin_load_completion ();
+  verve->completion = NULL;
   verve->n_complete = 0;
   verve->size = 20;
+
+  /* Connect to load-binaries signal of environment */
+  g_signal_connect (G_OBJECT (verve_env_get()), "load-binaries", G_CALLBACK (verve_plugin_load_completion), verve);
 
   /* Initialize focus timeout */
   verve->focus_timeout = 0;

@@ -4,4 +4,7 @@ install: verve-focus
 	test -z "$(bindir)" || $(mkdir_p) "$(DESTDIR)$(bindir)"
 	$(INSTALL) verve-focus $(DESTDIR)$(bindir)
 
+EXTRA_DIST = 						\
+	verve-focus
+
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:
