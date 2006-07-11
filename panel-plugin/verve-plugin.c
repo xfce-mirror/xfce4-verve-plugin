@@ -79,9 +79,9 @@ typedef struct
 void
 verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 {
-  VervePlugin *verve = (VervePlugin*) user_data;
+  gdk_threads_enter ();
 
-  g_debug ("Receiving load-binaries signal\n");
+  VervePlugin *verve = (VervePlugin*) user_data;
 
   verve->completion = g_completion_new (NULL);
 
@@ -91,6 +91,8 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
   /* Load linux binaries from PATH */
   GList *binaries = verve_env_get_path_binaries (env);
 
+  g_debug ("Receiving load-binaries signal\n");
+
   /* Add command history to completion */
   if (G_LIKELY (history != NULL)) 
     g_completion_add_items (verve->completion, history);
@@ -98,6 +100,8 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
   /* Add binaries to completion list */
   if (G_LIKELY (binaries != NULL))
     g_completion_add_items (verve->completion, binaries);
+
+  gdk_threads_leave ();
 }
 
 

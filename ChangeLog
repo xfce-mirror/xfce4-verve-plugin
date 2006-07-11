@@ -1,5 +1,11 @@
 2006-07-11	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/verve-plugin.c: Use gdk_threads_enter/leave to lock
+	  completion access (only one thread is allowed to access it at once).
+	* panel-plugin/verve-dbus-service.c: Remove C++ comment style.
+
+2006-07-11	Jannis Pohlmann <jannis@xfce.org>
+
 	* scripts/Makefile.am: Add verve-focus to EXTRA_DIST (it's missing in
 	  the 0.3.1 tarball.
 	* panel-plugin/verve-env.c, panel-plugin/verve-plugin.c: Implemented 

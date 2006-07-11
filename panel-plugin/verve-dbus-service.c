@@ -98,7 +98,9 @@ verve_dbus_service_class_init (VerveDBusServiceClass *klass)
   extern const DBusGObjectInfo dbus_glib_verve_dbus_service_object_info;
   GObjectClass *gobject_class;
 
-  // g_type_class_add_private (klass, sizeof (VerveDBusServicePrivate));
+#if 0
+  g_type_class_add_private (klass, sizeof (VerveDBusServicePrivate)); 
+#endif
   
   verve_dbus_service_parent_class = g_type_class_peek_parent (klass);
 
