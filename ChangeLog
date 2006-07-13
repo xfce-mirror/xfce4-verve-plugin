@@ -1,3 +1,11 @@
+2006-07-13	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/verve-plugin.c: Lock command completion using
+	  G_LOCK_DEFINE_STATIC. This replaces the global GDK locks and should
+	  avoid random crashes when the worker thread (which loads contents of 
+	  $PATH) and the panel plugin try to access the completion at the same
+	  time.
+
 2006-07-11	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-plugin.c: Use gdk_threads_enter/leave to lock

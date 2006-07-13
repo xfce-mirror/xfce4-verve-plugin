@@ -75,15 +75,16 @@ typedef struct
 } VervePlugin;
 
 
+/* Mutex lock used to avoid thread collisions when accessing the command
+ * completion 
+ */
+G_LOCK_DEFINE_STATIC (plugin_completion_mutex);
+
 
 void
 verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 {
-  gdk_threads_enter ();
-
   VervePlugin *verve = (VervePlugin*) user_data;
-
-  verve->completion = g_completion_new (NULL);
 
   /* Load command history */
   GList *history = verve_history_begin ();
@@ -93,6 +94,10 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 
   g_debug ("Receiving load-binaries signal\n");
 
+  G_LOCK (plugin_completion_mutex);
+
+  verve->completion = g_completion_new (NULL);
+
   /* Add command history to completion */
   if (G_LIKELY (history != NULL)) 
     g_completion_add_items (verve->completion, history);
@@ -101,7 +106,7 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
   if (G_LIKELY (binaries != NULL))
     g_completion_add_items (verve->completion, binaries);
 
-  gdk_threads_leave ();
+  G_UNLOCK (plugin_completion_mutex);
 }
 
 

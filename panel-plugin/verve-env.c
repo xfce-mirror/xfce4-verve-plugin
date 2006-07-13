@@ -172,7 +172,7 @@ verve_env_finalize (GObject *object)
 {
   VerveEnv *env = VERVE_ENV (object);
 
-  /* Join the load thread */
+  /* Cancel and join the loading thread */
   env->load_thread_cancelled = TRUE;
   g_thread_join (env->load_thread);
 
