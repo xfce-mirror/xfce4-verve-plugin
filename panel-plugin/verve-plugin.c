@@ -92,8 +92,6 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
   /* Load linux binaries from PATH */
   GList *binaries = verve_env_get_path_binaries (env);
 
-  g_debug ("Receiving load-binaries signal\n");
-
   G_LOCK (plugin_completion_mutex);
 
   verve->completion = g_completion_new (NULL);
@@ -699,12 +697,12 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   xfce_panel_plugin_block_menu (plugin);
 
   /* Create properties dialog */
-  dialog = gtk_dialog_new_with_buttons (_("Verve Properties"),
-                                        GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
-                                        GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
-                                        GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
-                                        NULL);
-  
+  dialog = xfce_titled_dialog_new_with_buttons (_("Verve Properties"),
+                                                GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
+                                                GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
+                                                GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
+                                                NULL);
+
   /* Set dialog property */
   g_object_set_data (G_OBJECT (plugin), "dialog", dialog);
 
@@ -712,15 +710,9 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   g_signal_connect (dialog, "response", G_CALLBACK (verve_plugin_response), verve);
 
   /* Basic dialog window setup */
+  gtk_window_set_icon_name (GTK_WINDOW (dialog), "utilities-terminal");
   gtk_window_set_position (GTK_WINDOW (dialog), GTK_WIN_POS_CENTER);
   gtk_container_set_border_width (GTK_CONTAINER (dialog), 2);
-
-  /* Header */
-  header = xfce_create_header (NULL, _("Verve"));
-  gtk_widget_set_size_request (GTK_BIN (header)->child, 200, 32);
-  gtk_container_set_border_width (GTK_CONTAINER (header), 6);
-  gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), header, FALSE, TRUE, 0);
-  gtk_widget_show (header);
 
   /* Frame for appearance settings */
   frame = xfce_create_framebox (_("Appearance"), &bin);

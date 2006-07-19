@@ -1,3 +1,12 @@
+2006-07-19	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/verve-env.c: Remove debug statements.
+	* panel-plugin/verve-plugin.c: Use XfceTitledDialog instead of the 
+	  old plain GTK one. 
+	* panel-plugin/verve.desktop.in.in, panel-plugin/verve-plugin.c:
+	  Use "utilities-terminal" icon instead of "Terminal". 
+	* configure.in.in, po/*.po: Version bump to 0.3.2. 
+
 2006-07-13	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-plugin.c: Lock command completion using

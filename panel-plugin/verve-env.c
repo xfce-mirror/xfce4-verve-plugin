@@ -240,8 +240,6 @@ verve_env_load_thread (gpointer user_data)
     if (G_UNLIKELY (dir == NULL)) 
       continue;
 
-    g_debug ("Loading directory %s\n", g_dir_read_name (dir));
-
     /* Skip directory when errors have occured */
     const gchar *current;
     gchar       *filename;
@@ -267,8 +265,6 @@ verve_env_load_thread (gpointer user_data)
             /* Check if the path refers to an executable */
             if (g_file_test (path, G_FILE_TEST_IS_EXECUTABLE))
               {
-                g_debug ("Loading file %s\n", path);
-
                 /* Add file filename to the list */
                 env->binaries = g_list_prepend (env->binaries, g_strdup (filename));
 
@@ -288,8 +284,6 @@ verve_env_load_thread (gpointer user_data)
     g_dir_close (dir);
   }
 
-  g_debug ("Emitting load-binaries signal\n");
-
   /* Emit 'load-binaries' signal */
   g_signal_emit_by_name (env, "load-binaries");
 
@@ -303,6 +297,7 @@ verve_env_load_binaries (VerveEnv *env)
 {
   /* Do nothing */
 }
+
 
 
 /* vim:set expandtab sts=2 ts=2 sw=2: */
