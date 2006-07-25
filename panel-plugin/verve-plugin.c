@@ -168,6 +168,22 @@ verve_plugin_focus_timeout_reset (VervePlugin *verve)
 
 
 
+static gboolean
+verve_plugin_focus_out (GtkWidget *entry,
+                        GdkEventFocus *event,
+                        VervePlugin *verve)
+{
+  g_return_val_if_fail (verve != NULL, FALSE);
+  g_return_val_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input), FALSE);
+
+  /* Stop blinking */
+  verve_plugin_focus_timeout_reset (verve);
+
+  return TRUE;
+}
+
+
+
 static gboolean 
 verve_plugin_buttonpress_cb (GtkWidget *entry, 
                              GdkEventButton *event, 
@@ -496,6 +512,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   /* Handle mouse button and key press events */
   g_signal_connect (verve->input, "key-press-event", G_CALLBACK (verve_plugin_keypress_cb), verve);
   g_signal_connect (verve->input, "button-press-event", G_CALLBACK (verve_plugin_buttonpress_cb), verve);
+  g_signal_connect (verve->input, "focus-out-event", G_CALLBACK (verve_plugin_focus_out), verve);
   
 #ifdef HAVE_DBUS
   /* Attach the D-BUS service */

@@ -21,6 +21,8 @@
 
 import os
 import dbus
+import pygtk
+pygtk.require("2.0")
 import gtk
 
 if __name__ == "__main__":

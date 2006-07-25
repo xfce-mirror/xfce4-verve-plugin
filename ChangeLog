@@ -1,3 +1,11 @@
+2006-07-25	Jannis Pohlmann <jannis@xfce.org>
+
+	* scripts/verve-focus: Call 'import pygtk; pygtk.require("2.0")' before
+	  importing the gtk module.
+	* panel-plugin/verve-plugin.c: Connect to "focus-out-event" of the input
+	  field in order to stop blinking whenever any other widget gains the
+	  focus (this fixes a bug reported by Nikolas Arend).
+
 2006-07-19	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-env.c: Remove debug statements.
