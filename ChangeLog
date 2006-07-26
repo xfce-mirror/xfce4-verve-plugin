@@ -1,5 +1,21 @@
 2006-07-25	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/verve-dbus-service-infos.xml: Add the same 'OpenDialog'
+	  method to the 'org.xfce.Verve' interface as we already support in
+	  'org.xfce.RunDialog'.
+	* scripts/verve-focus: Use 'OpenDialog' method of 'org.xfce.Verve'
+	  interface to make sure we actually target a Verve instance and no
+	  other 'org.xfce.RunDialog' providers.
+	* panel-plugin/verve-dbus-service.c: Add
+	  DBUS_NAME_FLAGS_ALLOW_REPLACEMENT to the 'org.xfce.Verve' name 
+	  request. I bet users expect the last created Verve instance to have 
+	  the ownership and to be focused when verve-focus is executed. Don't
+	  do this for 'org.xfce.RunDialog' (until someone complains), because
+	  I suppose a user using Verve doesn't want to use other RunDialog
+	  providers.
+
+2006-07-25	Jannis Pohlmann <jannis@xfce.org>
+
 	* scripts/verve-focus: Call 'import pygtk; pygtk.require("2.0")' before
 	  importing the gtk module.
 	* panel-plugin/verve-plugin.c: Connect to "focus-out-event" of the input

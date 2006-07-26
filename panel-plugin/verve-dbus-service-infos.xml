@@ -40,6 +40,18 @@
     
   <interface name="org.xfce.Verve">
     <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="verve_dbus_service" />
+
+    <!--
+      OpenDialog (dir : STRING, display : STRING) : VOID
+
+      dir     : either a file:-URI or an absolute path.
+      display : the screen on which to display the file properties
+                or "" to use the default screen of the current panel instance.
+    -->
+    <method name="OpenDialog">
+      <arg direction="in" name="dir" type="s" />
+      <arg direction="in" name="display" type="s" />
+    </method>
   </interface>
 </node>
 

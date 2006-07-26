@@ -136,7 +136,7 @@ verve_dbus_service_init (VerveDBusService *dbus_service)
     dbus_g_connection_register_g_object (dbus_service->connection, "/org/xfce/RunDialog", G_OBJECT (dbus_service));
 
     /* Request the org.xfce.Verve name for Verve */
-    dbus_bus_request_name (dbus_g_connection_get_connection (dbus_service->connection), "org.xfce.Verve", DBUS_NAME_FLAG_REPLACE_EXISTING, NULL);
+    dbus_bus_request_name (dbus_g_connection_get_connection (dbus_service->connection), "org.xfce.Verve", DBUS_NAME_FLAG_REPLACE_EXISTING|DBUS_NAME_FLAG_ALLOW_REPLACEMENT, NULL);
 
     /* Request the org.xfce.RunDialog name for Verve */
     dbus_bus_request_name (dbus_g_connection_get_connection (dbus_service->connection), "org.xfce.RunDialog", DBUS_NAME_FLAG_REPLACE_EXISTING, NULL);

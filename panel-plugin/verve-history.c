@@ -282,8 +282,6 @@ verve_history_cache_write (void)
         /* Save the last 25 commands */
         for (i = 0; i < 25 && current != NULL; i++)
           {
-            g_print ("%d\n", i);
-
             /* Build output line */
             gchar *line = g_strconcat ("", current->data, "\n", NULL);
 
