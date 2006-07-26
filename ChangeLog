@@ -1,4 +1,10 @@
-2006-07-25	Jannis Pohlmann <jannis@xfce.org>
+2006-07-26	Jannis Pohlmann <jannis@xfce.org>
+
+	* configure.in.in, panel-plugin/verve-dbus-service.c: Add switch to
+	  use different D-BUS flags when requesting a service name depending
+	  on the available D-BUS version (the flags changed with 0.60).
+
+2006-07-26	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-dbus-service-infos.xml: Add the same 'OpenDialog'
 	  method to the 'org.xfce.Verve' interface as we already support in

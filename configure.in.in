@@ -81,6 +81,15 @@ dnl *********************************
 XDT_CHECK_OPTIONAL_PACKAGE([DBUS], [dbus-glib-1],
                            [0.34], [dbus], [D-BUS support])
 
+dnl *******************************************************
+dnl ** Determine if D-BUS version is >= 0.60 in order to **
+dnl ** set correct flags when calling D-BUS functions    **
+dnl *******************************************************
+if $PKG_CONFIG --atleast-version=0.60 dbus-glib-1 >/dev/null 2>&1; then
+  AC_DEFINE([HAVE_DBUS_NEW_FLAGS], [1], [Define if D-BUS version >= 0.60])
+fi
+
+
 dnl ***********************************
 dnl *** Check for debugging support ***
 dnl ***********************************
