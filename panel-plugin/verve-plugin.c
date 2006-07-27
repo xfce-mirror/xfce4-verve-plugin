@@ -92,18 +92,28 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
   /* Load linux binaries from PATH */
   GList *binaries = verve_env_get_path_binaries (env);
 
+  /* Merged (and sorted) list */
+  GList *items = NULL;
+
+  /* Iterator */
+  GList *iter = NULL;
+
   G_LOCK (plugin_completion_mutex);
+
+  /* Build merged list */
+  items = g_list_concat (NULL, binaries);
+  for (iter = g_list_first (history); iter != NULL; iter = g_list_next (iter))
+    items = g_list_insert_sorted (items, iter->data, (GCompareFunc) g_utf8_collate);
 
   verve->completion = g_completion_new (NULL);
 
-  /* Add command history to completion */
+  /* Add merged items to completion */
   if (G_LIKELY (history != NULL)) 
-    g_completion_add_items (verve->completion, history);
-  
-  /* Add binaries to completion list */
-  if (G_LIKELY (binaries != NULL))
-    g_completion_add_items (verve->completion, binaries);
+    g_completion_add_items (verve->completion, items);
 
+  /* Free merged list */
+  g_list_free (items);
+  
   G_UNLOCK (plugin_completion_mutex);
 }
 
@@ -374,7 +384,7 @@ verve_plugin_keypress_cb (GtkWidget *entry,
                 verve_history_add (g_strdup (command));
 
                 /* Add command to completion */
-                verve->completion->items = g_list_prepend (verve->completion->items, g_strdup (command));
+                verve->completion->items = g_list_insert_sorted (verve->completion->items, g_strdup (command), (GCompareFunc) g_utf8_collate);
               }
       
             /* Reset current history entry */

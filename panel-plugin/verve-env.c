@@ -284,6 +284,9 @@ verve_env_load_thread (gpointer user_data)
     g_dir_close (dir);
   }
 
+  /* Sort binaries */
+  env->binaries = g_list_sort (env->binaries, (GCompareFunc) g_utf8_collate);
+
   /* Emit 'load-binaries' signal */
   g_signal_emit_by_name (env, "load-binaries");
 

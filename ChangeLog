@@ -1,5 +1,11 @@
 2006-07-26	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/verve-plugin.c, panel-plugin/verve-env.c: Properly sort
+	  items of the completion list and also insert new items using
+	  g_list_insert_sorted. This fixes bug #2074 (reported by Nick Arend).
+
+2006-07-26	Jannis Pohlmann <jannis@xfce.org>
+
 	* configure.in.in, panel-plugin/verve-dbus-service.c: Add switch to
 	  use different D-BUS flags when requesting a service name depending
 	  on the available D-BUS version (the flags changed with 0.60).
