@@ -362,6 +362,7 @@ verve_plugin_keypress_cb (GtkWidget *entry,
 
       /* Execute command entered by the user */
       case GDK_Return:
+      case GDK_KP_Enter:
         /* Retrieve a copy of the entry text */
         command = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
 

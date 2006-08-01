@@ -1,5 +1,10 @@
 2006-08-01	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/verve-plugin.c: Executes commands when GDK_KP_Enter 
+	  is pressed (in addition to GDK_Return). Fixes bug #2094.
+
+2006-08-01	Jannis Pohlmann <jannis@xfce.org>
+
 	* scripts/Makefile.am, scripts/verve-focus, scripts/verve-focus.c: 
 	  Added a C program to replace the old Python verve-focus script. 
 	  It's a lot faster than the old one and it calls 
