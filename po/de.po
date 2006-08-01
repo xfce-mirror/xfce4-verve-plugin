@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-22 19:44+0900\n"
+"POT-Creation-Date: 2006-08-01 15:43+0200\n"
 "PO-Revision-Date: 2006-02-07 17:07+0100\n"
 "Last-Translator: Jannis Pohlmann <jannis@xfce.org>\n"
 "Language-Team: German <jannis@xfce.org>\n"
@@ -16,38 +16,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:365
+#: ../panel-plugin/verve-plugin.c:399
 msgid "Could not execute command:"
 msgstr "Konnte den Befehl nicht ausführen:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:686
+#: ../panel-plugin/verve-plugin.c:728
 msgid "Verve Properties"
 msgstr "Verve-Konfiguration"
 
-#. Header
-#: ../panel-plugin/verve-plugin.c:703
-msgid "Verve"
-msgstr "Verve"
-
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:710
+#: ../panel-plugin/verve-plugin.c:746
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:721
+#: ../panel-plugin/verve-plugin.c:757
 msgid "Width (in chars):"
 msgstr "Breite (in Zeichen):"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
-msgid "Command line interface with auto-completion and history browsing"
+msgid "Command line interface with auto-completion and command history"
 msgstr "Mit Autovervollständigung, Befehlsverlauf und URL-Erkennung"
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
 msgstr "Verve-Kommandozeile"
 
-#~ msgid "Unkown command."
-#~ msgstr "Unbekannter Befehl."
+#. Print error message
+#: ../scripts/verve-focus.c:61
+msgid "Failed to connect to the D-BUS session bus."
+msgstr "Verbindung zu D-BUS konnte nicht hergestellt werden."
+
+#. Print error message
+#: ../scripts/verve-focus.c:83
+msgid "Failed to deliver the org.xfce.Verve#GrabFocus method."
+msgstr "Methodenaufruf org.xfce.Verve#GrabFocus konnte nicht gesendet werden"

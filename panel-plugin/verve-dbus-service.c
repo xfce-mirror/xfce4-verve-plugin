@@ -39,13 +39,18 @@
 
 #include "verve-dbus-service.h"
 
-static void verve_dbus_service_class_init (VerveDBusServiceClass *klass);
-static void verve_dbus_service_init (VerveDBusService *dbus_service);
-static void verve_dbus_service_finalize (GObject *object);
-static gboolean verve_dbus_service_open_dialog (VerveDBusService *dbus_service, 
-                                                const gchar *dir, 
-                                                const gchar *display,
-                                                GError **error);
+
+
+static void     verve_dbus_service_class_init  (VerveDBusServiceClass *klass);
+static void     verve_dbus_service_init        (VerveDBusService      *dbus_service);
+static void     verve_dbus_service_finalize    (GObject               *object);
+static gboolean verve_dbus_service_open_dialog (VerveDBusService      *dbus_service, 
+                                                const gchar           *dir, 
+                                                const gchar           *display,
+                                                GError               **error);
+static gboolean verve_dbus_service_grab_focus  (VerveDBusService      *dbus_service);
+
+
 
 struct _VerveDBusServiceClass
 {
@@ -53,6 +58,7 @@ struct _VerveDBusServiceClass
 
   /* Signal identifiers */
   guint open_dialog_signal_id;
+  guint grab_focus_signal_id;
 };
 
 struct _VerveDBusService
@@ -63,7 +69,11 @@ struct _VerveDBusService
   DBusGConnection *connection;
 };
 
+
+
 static GObjectClass *verve_dbus_service_parent_class;
+
+
 
 GType
 verve_dbus_service_get_type (void)
@@ -92,6 +102,8 @@ verve_dbus_service_get_type (void)
   return type;
 }
 
+
+  
 static void
 verve_dbus_service_class_init (VerveDBusServiceClass *klass)
 {
@@ -119,9 +131,23 @@ verve_dbus_service_class_init (VerveDBusServiceClass *klass)
                                                 0,
                                                 NULL);
 
+  /* Register "grab-focus" signal */
+  klass->grab_focus_signal_id = g_signal_newv ("grab-focus",
+                                               G_TYPE_FROM_CLASS (gobject_class),
+                                               G_SIGNAL_RUN_LAST | G_SIGNAL_NO_RECURSE | G_SIGNAL_NO_HOOKS,
+                                               NULL,
+                                               NULL,
+                                               NULL,
+                                               g_cclosure_marshal_VOID__VOID,
+                                               G_TYPE_NONE,
+                                               0,
+                                               NULL);
+
   /* Install the D-BUS info */
   dbus_g_object_type_install_info (G_TYPE_FROM_CLASS (klass), &dbus_glib_verve_dbus_service_object_info);
 }
+
+
 
 static void
 verve_dbus_service_init (VerveDBusService *dbus_service)
@@ -135,18 +161,14 @@ verve_dbus_service_init (VerveDBusService *dbus_service)
     /* Register the /org/xfce/RunDialog object for Verve */
     dbus_g_connection_register_g_object (dbus_service->connection, "/org/xfce/RunDialog", G_OBJECT (dbus_service));
 
-    /* Define D-BUS name request flags */
+    /* Request service names */
 #ifdef HAVE_DBUS_NEW_FLAGS
-#define VERVE_DBUS_SERVICE_REQUEST_NAME_FLAGS DBUS_NAME_FLAG_REPLACE_EXISTING|DBUS_NAME_FLAG_ALLOW_REPLACEMENT
+    dbus_bus_request_name (dbus_g_connection_get_connection (dbus_service->connection), "org.xfce.Verve", DBUS_NAME_FLAG_REPLACE_EXISTING|DBUS_NAME_FLAG_ALLOW_REPLACEMENT, NULL);
+    dbus_bus_request_name (dbus_g_connection_get_connection (dbus_service->connection), "org.xfce.RunDialog", DBUS_NAME_FLAG_REPLACE_EXISTING|DBUS_NAME_FLAG_ALLOW_REPLACEMENT, NULL);
 #else
-#define VERVE_DBUS_SERVICE_REQUEST_NAME_FLAGS DBUS_NAME_FLAG_REPLACE_EXISTING
-#endif
-
-    /* Request the org.xfce.Verve name for Verve */
-    dbus_bus_request_name (dbus_g_connection_get_connection (dbus_service->connection), "org.xfce.Verve", VERVE_DBUS_SERVICE_REQUEST_NAME_FLAGS, NULL);
-
-    /* Request the org.xfce.RunDialog name for Verve */
+    dbus_bus_request_name (dbus_g_connection_get_connection (dbus_service->connection), "org.xfce.Verve", DBUS_NAME_FLAG_REPLACE_EXISTING, NULL);
     dbus_bus_request_name (dbus_g_connection_get_connection (dbus_service->connection), "org.xfce.RunDialog", DBUS_NAME_FLAG_REPLACE_EXISTING, NULL);
+#endif /* !HAVE_DBUS_NEW_FLAGS */
   }
   else
   {
@@ -155,6 +177,8 @@ verve_dbus_service_init (VerveDBusService *dbus_service)
     g_error_free (error);
   }
 }
+
+
 
 static void
 verve_dbus_service_finalize (GObject *object)
@@ -168,6 +192,8 @@ verve_dbus_service_finalize (GObject *object)
   (*G_OBJECT_CLASS (verve_dbus_service_parent_class)->finalize) (object);
 }
 
+
+
 static gboolean
 verve_dbus_service_open_dialog (VerveDBusService *dbus_service, 
                                 const gchar *dir, 
@@ -179,7 +205,20 @@ verve_dbus_service_open_dialog (VerveDBusService *dbus_service,
 
   return TRUE;
 }
+
+
+
+static gboolean
+verve_dbus_service_grab_focus (VerveDBusService *dbus_service)
+{
+  /* Emit "grab-focus" signal */
+  g_signal_emit (dbus_service, VERVE_DBUS_SERVICE_GET_CLASS (dbus_service)->grab_focus_signal_id, 0, NULL);
+
+  return TRUE;
+}
   
+
+
 #include "verve-dbus-service-infos.h"
 
 /* vim:set expandtab ts=1 sw=2: */

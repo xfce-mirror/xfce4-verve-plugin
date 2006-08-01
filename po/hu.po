@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-verve-plugin\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2006-05-08 22:06+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-08-01 15:43+0200\n"
 "PO-Revision-Date: 2006-07-02 09:18+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -15,31 +15,46 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../panel-plugin/verve-plugin.c:172
+#. Generate error message
+#: ../panel-plugin/verve-plugin.c:399
 msgid "Could not execute command:"
 msgstr "A parancsot nem lehet végrehajtani:"
 
-#: ../panel-plugin/verve-plugin.c:366
+#. Create properties dialog
+#: ../panel-plugin/verve-plugin.c:728
 msgid "Verve Properties"
 msgstr "Verve tulajdonságai"
 
-#: ../panel-plugin/verve-plugin.c:380
-msgid "Verve"
-msgstr "Verve"
-
-#: ../panel-plugin/verve-plugin.c:385
+#. Frame for appearance settings
+#: ../panel-plugin/verve-plugin.c:746
 msgid "Appearance"
 msgstr "Megjelenés"
 
-#: ../panel-plugin/verve-plugin.c:396
+#. Plugin size label
+#: ../panel-plugin/verve-plugin.c:757
 msgid "Width (in chars):"
 msgstr "Szélesség (karakterben):"
 
+#. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
-msgid "Command line interface with auto-completion and history browsing"
-msgstr "Parancssoros felület automatikus kiegészítéssel és előzményböngészéssel"
+#, fuzzy
+msgid "Command line interface with auto-completion and command history"
+msgstr ""
+"Parancssoros felület automatikus kiegészítéssel és előzményböngészéssel"
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
 msgstr "Verve parancssor"
 
+#. Print error message
+#: ../scripts/verve-focus.c:61
+msgid "Failed to connect to the D-BUS session bus."
+msgstr ""
+
+#. Print error message
+#: ../scripts/verve-focus.c:83
+msgid "Failed to deliver the org.xfce.Verve#GrabFocus method."
+msgstr ""
+
+#~ msgid "Verve"
+#~ msgstr "Verve"

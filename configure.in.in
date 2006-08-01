@@ -89,7 +89,6 @@ if $PKG_CONFIG --atleast-version=0.60 dbus-glib-1 >/dev/null 2>&1; then
   AC_DEFINE([HAVE_DBUS_NEW_FLAGS], [1], [Define if D-BUS version >= 0.60])
 fi
 
-
 dnl ***********************************
 dnl *** Check for debugging support ***
 dnl ***********************************

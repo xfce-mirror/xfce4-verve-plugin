@@ -222,8 +222,8 @@ verve_plugin_buttonpress_cb (GtkWidget *entry,
 
 #ifdef HAVE_DBUS
 static void
-verve_plugin_open_dialog_cb (VerveDBusService *dbus_service, 
-                             VervePlugin *verve)
+verve_plugin_grab_focus (VerveDBusService *dbus_service, 
+                         VervePlugin *verve)
 {
   GtkWidget *toplevel;
  
@@ -528,8 +528,9 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   /* Attach the D-BUS service */
   verve->dbus_service = g_object_new (VERVE_TYPE_DBUS_SERVICE, NULL);
 
-  /* Connect to open dialog signal */
-  g_signal_connect (G_OBJECT (verve->dbus_service), "open-dialog", G_CALLBACK (verve_plugin_open_dialog_cb), verve);
+  /* Connect to D-BUS service signals */
+  g_signal_connect (G_OBJECT (verve->dbus_service), "open-dialog", G_CALLBACK (verve_plugin_grab_focus), verve);
+  g_signal_connect (G_OBJECT (verve->dbus_service), "grab-focus", G_CALLBACK (verve_plugin_grab_focus), verve);
 #endif
   
   return verve;

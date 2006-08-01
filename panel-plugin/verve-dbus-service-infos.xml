@@ -21,6 +21,7 @@
 -->
 
 <node name="/org/xfce/RunDialog">
+
   <interface name="org.xfce.RunDialog">
     <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="verve_dbus_service" />
 
@@ -52,6 +53,12 @@
       <arg direction="in" name="dir" type="s" />
       <arg direction="in" name="display" type="s" />
     </method>
+
+    <!--
+      GrabFocus : VOID
+    -->
+    <method name="GrabFocus" />
+
   </interface>
 </node>
 

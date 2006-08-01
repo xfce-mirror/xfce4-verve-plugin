@@ -1,3 +1,17 @@
+2006-08-01	Jannis Pohlmann <jannis@xfce.org>
+
+	* scripts/Makefile.am, scripts/verve-focus, scripts/verve-focus.c: 
+	  Added a C program to replace the old Python verve-focus script. 
+	  It's a lot faster than the old one and it calls 
+	  org.xfce.Verve#GrabFocus instead of the 'OpenDialog' method.
+	* panel-plugin/verve-dbus-service-infos.xml,
+	  panel-plugin/verve-dbus-service.c: Added 'GrabFocus' method to the
+	  org.xfce.Verve service. Also implemented a 'grab-focus' signal which
+	  is emitted when the 'GrabFocus' method is called.
+	* panel-plugin/verve-plugin.c: Connect to the 'grab-focus' signal of the
+	  D-BUS service. Use one method to handle both, 'open-dialog' and
+	  'grab-focus'.
+
 2006-07-26	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-plugin.c, panel-plugin/verve-env.c: Properly sort
