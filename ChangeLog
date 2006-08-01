@@ -1,3 +1,9 @@
+2006-08-02	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugins/verve.c: Add "/?" to the URL expressions. This
+	  way URIs with a trailing "/" are properly recognized as URIs.
+	  Fixes bug #2102.
+
 2006-08-01	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-plugin.c: Executes commands when GDK_KP_Enter 
@@ -331,3 +337,5 @@
 	  of the list added
 	* src/verve-plugin.c: Use newly added history function when 
 	  pressing GDK_Down
+
+# vi:set ts=8 sw=8 tw=72 noet ai nocindent:
