@@ -7,6 +7,9 @@ SUBDIRS =								\
 	scripts								\
 	po
 
+AUTOMAKE_OPTIONS =							\
+	dist-bzip2
+
 distclean-local:
 	rm -rf *.spec *.cache *~
 

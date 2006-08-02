@@ -46,8 +46,8 @@ xfce4_verve_plugin_CFLAGS +=						\
 xfce4_verve_plugin_LDFLAGS += 						\
 	$(DBUS_LIBS)
 
-verve-dbus-service-infos.h: $(srcdir)/verve-dbus-service-infos.xml Makefile
-	dbus-binding-tool --prefix=verve_dbus_service --mode=glib-server verve-dbus-service-infos.xml > verve-dbus-service-infos.h
+verve-dbus-service-infos.h: Makefile $(srcdir)/verve-dbus-service-infos.xml 
+	dbus-binding-tool --prefix=verve_dbus_service --mode=glib-server $(srcdir)/verve-dbus-service-infos.xml > verve-dbus-service-infos.h
 
 BUILT_SOURCES = 							\
 	verve-dbus-service-infos.h
@@ -71,7 +71,12 @@ EXTRA_DIST = 								\
 	verve-dbus-service-infos.xml
  
 DISTCLEANFILES =							\
-	$(desktop_DATA) $(desktop_in_files)				
+	$(desktop_DATA) $(desktop_in_files)
+
+if HAVE_DBUS
+DISTCLEANFILES +=							\
+	verve-dbus-service-infos.h
+endif
 	
 # get full path into .desktop file
 %.desktop.in: %.desktop.in.in
