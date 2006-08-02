@@ -1,5 +1,10 @@
 2006-08-02	Jannis Pohlmann <jannis@xfce.org>
 
+	* Preparing for 0.3.3 release
+	* configure.in.in, po/*.po: Bump version to 0.3.3.
+
+2006-08-02	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugins/verve.c: Add "/?" to the URL expressions. This
 	  way URIs with a trailing "/" are properly recognized as URIs.
 	  Fixes bug #2102.
