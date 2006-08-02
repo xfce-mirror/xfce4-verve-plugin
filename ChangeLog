@@ -1,4 +1,8 @@
 2006-08-02	Jannis Pohlmann <jannis@xfce.org>
+
+	* README: Add optional D-BUS dependency.
+
+2006-08-02	Jannis Pohlmann <jannis@xfce.org>
 	
 	* 0.3.3 released.
 
