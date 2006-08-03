@@ -1,5 +1,10 @@
 2006-08-02	Jannis Pohlmann <jannis@xfce.org>
 
+	* scripts/verve-focus.c: Fix segfault caused by a DBusError
+	  pointer not being initialized (bug #2113).
+
+2006-08-02	Jannis Pohlmann <jannis@xfce.org>
+
 	* README: Add optional D-BUS dependency.
 
 2006-08-02	Jannis Pohlmann <jannis@xfce.org>
