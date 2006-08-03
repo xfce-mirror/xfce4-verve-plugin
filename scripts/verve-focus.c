@@ -42,17 +42,17 @@ main (int     argc,
   DBusConnection *connection;
   DBusMessage    *method;
   DBusMessage    *result;
-  DBusError      *error;
+  DBusError       error;
   gint            exit_status;
 
   /* Configure gettext */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
   /* Initialize error structure */
-  dbus_error_init (error);
+  dbus_error_init (&error);
 
   /* Connect to the session bus */
-  connection = dbus_bus_get (DBUS_BUS_SESSION, error);
+  connection = dbus_bus_get (DBUS_BUS_SESSION, &error);
 
   /* Print error if connection failed */
   if (G_UNLIKELY (connection == NULL))
@@ -61,7 +61,7 @@ main (int     argc,
       g_error (_("Failed to connect to the D-BUS session bus."));
 
       /* Free error structure */
-      dbus_error_free (error);
+      dbus_error_free (&error);
 
       /* Exit with error code */
       return EXIT_FAILURE;
@@ -71,7 +71,7 @@ main (int     argc,
   method = dbus_message_new_method_call ("org.xfce.Verve", "/org/xfce/RunDialog", "org.xfce.Verve", "GrabFocus");
 
   /* Send message and wait for reply */
-  result = dbus_connection_send_with_reply_and_block (connection, method, 5000, error);
+  result = dbus_connection_send_with_reply_and_block (connection, method, 5000, &error);
 
   /* Destroy sent message */
   dbus_message_unref (method);
@@ -83,7 +83,7 @@ main (int     argc,
       g_debug (_("Failed to deliver the org.xfce.Verve#GrabFocus method."));
 
       /* Free error structure */
-      dbus_error_free (error);
+      dbus_error_free (&error);
 
       /* Set exit status */
       exit_status = EXIT_FAILURE;
