@@ -1,5 +1,10 @@
 2006-08-02	Jannis Pohlmann <jannis@xfce.org>
 
+	* configure.in.in, po/*.po: Version 0.3.4 released, which fixes
+	  a major verve-focus bug (#2113).
+
+2006-08-02	Jannis Pohlmann <jannis@xfce.org>
+
 	* scripts/verve-focus.c: Fix segfault caused by a DBusError
 	  pointer not being initialized (bug #2113).
 
