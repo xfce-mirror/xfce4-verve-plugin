@@ -38,9 +38,8 @@ msgstr "Zabalera (karaktere):"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
-#, fuzzy
 msgid "Command line interface with auto-completion and command history"
-msgstr "Komando lerro interfazea auto-betetze eta historia nabigatzearekin"
+msgstr "Komando lerro interfazea auto-betetze eta komando historiarekin"
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
@@ -49,12 +48,12 @@ msgstr "Verve Komando Lerroa"
 #. Print error message
 #: ../scripts/verve-focus.c:61
 msgid "Failed to connect to the D-BUS session bus."
-msgstr ""
+msgstr "Huts D-BUS saio bus-arekin konektatzerakoan."
 
 #. Print error message
 #: ../scripts/verve-focus.c:83
 msgid "Failed to deliver the org.xfce.Verve#GrabFocus method."
-msgstr ""
+msgstr "Huts org.xfce.Verve#GrabFocus metodoa erabiltzean."
 
 #~ msgid "Verve"
 #~ msgstr "Verve"
