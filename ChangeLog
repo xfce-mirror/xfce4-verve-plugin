@@ -1,3 +1,8 @@
+2006-08-09	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/verve-plugin.c, panel-plugin/verve-history.c:
+	  Make number of history items configurable. 
+
 2006-08-08	Jannis Pohlmann <jannis@xfce.org>
 
 	* scripts/verve-focus.c: Check if objects are != NULL before

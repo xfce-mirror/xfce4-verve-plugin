@@ -31,7 +31,8 @@
 void         verve_history_init             (void);
 void         verve_history_shutdown         (void);
 
-void         verve_history_add              (gchar *input);
+void         verve_history_set_length       (gint         length);
+void         verve_history_add              (gchar       *input);
 GList       *verve_history_begin            (void);
 GList       *verve_history_end              (void);
 GList       *verve_history_get_prev         (const GList *current);

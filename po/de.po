@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-01 15:43+0200\n"
-"PO-Revision-Date: 2006-02-07 17:07+0100\n"
+"POT-Creation-Date: 2006-08-09 00:20+0200\n"
+"PO-Revision-Date: 2006-08-09 00:21+0100\n"
 "Last-Translator: Jannis Pohlmann <jannis@xfce.org>\n"
 "Language-Team: German <jannis@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,24 +16,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:399
+#: ../panel-plugin/verve-plugin.c:407
 msgid "Could not execute command:"
 msgstr "Konnte den Befehl nicht ausführen:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:728
-msgid "Verve Properties"
-msgstr "Verve-Konfiguration"
+#: ../panel-plugin/verve-plugin.c:782
+msgid "Verve"
+msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:746
+#: ../panel-plugin/verve-plugin.c:800
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:757
+#: ../panel-plugin/verve-plugin.c:811
 msgid "Width (in chars):"
 msgstr "Breite (in Zeichen):"
+
+#. Frame for behaviour settings
+#: ../panel-plugin/verve-plugin.c:831
+msgid "Behaviour"
+msgstr "Verhalten"
+
+#. History length label
+#: ../panel-plugin/verve-plugin.c:842
+msgid "Number of saved history items:"
+msgstr "Gespeicherte Einträge im Verlauf:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
@@ -50,6 +60,9 @@ msgid "Failed to connect to the D-BUS session bus."
 msgstr "Verbindung zu D-BUS konnte nicht hergestellt werden."
 
 #. Print error message
-#: ../scripts/verve-focus.c:83
-msgid "Failed to deliver the org.xfce.Verve#GrabFocus method."
-msgstr "Methodenaufruf org.xfce.Verve#GrabFocus konnte nicht gesendet werden"
+#: ../scripts/verve-focus.c:84
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
+msgstr ""
+"Es scheint kein Verve D-BUS-Service (z.B. das Verve-Panel-Plugin) zu laufen."

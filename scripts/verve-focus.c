@@ -81,7 +81,7 @@ main (int     argc,
   if (G_UNLIKELY (result == NULL))
     {
       /* Print error message */
-      g_debug (_("Failed to deliver the org.xfce.Verve#GrabFocus method."));
+      g_debug (_("There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."));
 
       /* Free error structure */
       dbus_error_free (&error);

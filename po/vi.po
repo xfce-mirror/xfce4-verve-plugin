@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-01 15:43+0200\n"
+"POT-Creation-Date: 2006-08-09 00:20+0200\n"
 "PO-Revision-Date: 2006-02-19 22:50+0300\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@li.org>\n"
@@ -16,24 +16,34 @@ msgstr ""
 "X-Generator: KBabel 1.9.1\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:399
+#: ../panel-plugin/verve-plugin.c:407
 msgid "Could not execute command:"
 msgstr "Không thực hiện được câu lệnh:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:728
-msgid "Verve Properties"
-msgstr "Thuộc tính Verve"
+#: ../panel-plugin/verve-plugin.c:782
+msgid "Verve"
+msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:746
+#: ../panel-plugin/verve-plugin.c:800
 msgid "Appearance"
 msgstr "Vẻ ngoài"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:757
+#: ../panel-plugin/verve-plugin.c:811
 msgid "Width (in chars):"
 msgstr "Rộng (theo ký tự):"
+
+#. Frame for behaviour settings
+#: ../panel-plugin/verve-plugin.c:831
+msgid "Behaviour"
+msgstr ""
+
+#. History length label
+#: ../panel-plugin/verve-plugin.c:842
+msgid "Number of saved history items:"
+msgstr ""
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
@@ -52,9 +62,11 @@ msgid "Failed to connect to the D-BUS session bus."
 msgstr ""
 
 #. Print error message
-#: ../scripts/verve-focus.c:83
-msgid "Failed to deliver the org.xfce.Verve#GrabFocus method."
+#: ../scripts/verve-focus.c:84
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
 msgstr ""
 
-#~ msgid "Verve"
-#~ msgstr "Verve"
+#~ msgid "Verve Properties"
+#~ msgstr "Thuộc tính Verve"

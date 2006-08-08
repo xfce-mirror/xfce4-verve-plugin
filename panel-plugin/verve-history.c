@@ -46,6 +46,7 @@ static void  verve_history_append             (gchar *command);
  *
  *********************************************************************/
 
+static gint   history_length = 25;
 static GList *history = NULL;
 
 
@@ -78,6 +79,14 @@ verve_history_shutdown (void)
       /* Free list */
       g_list_free (history);
     }
+}
+
+
+
+void
+verve_history_set_length (gint length)
+{
+  history_length = length;
 }
 
 
@@ -280,7 +289,7 @@ verve_history_cache_write (void)
         current = verve_history_begin();
 
         /* Save the last 25 commands */
-        for (i = 0; i < 25 && current != NULL; i++)
+        for (i = 0; i < history_length && current != NULL; i++)
           {
             /* Build output line */
             gchar *line = g_strconcat ("", current->data, "\n", NULL);

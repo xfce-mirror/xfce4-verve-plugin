@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-01 15:43+0200\n"
+"POT-Creation-Date: 2006-08-09 00:20+0200\n"
 "PO-Revision-Date: 2006-02-14 10:45+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Librezale <librezale@librezale.org>\n"
@@ -17,24 +17,34 @@ msgstr ""
 "X-Generator: Pootle 0.6.3.20060126\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:399
+#: ../panel-plugin/verve-plugin.c:407
 msgid "Could not execute command:"
 msgstr "Ezin da komandoa exekutatu:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:728
-msgid "Verve Properties"
-msgstr "Verve Propietateak"
+#: ../panel-plugin/verve-plugin.c:782
+msgid "Verve"
+msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:746
+#: ../panel-plugin/verve-plugin.c:800
 msgid "Appearance"
 msgstr "Itxura"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:757
+#: ../panel-plugin/verve-plugin.c:811
 msgid "Width (in chars):"
 msgstr "Zabalera (karaktere):"
+
+#. Frame for behaviour settings
+#: ../panel-plugin/verve-plugin.c:831
+msgid "Behaviour"
+msgstr ""
+
+#. History length label
+#: ../panel-plugin/verve-plugin.c:842
+msgid "Number of saved history items:"
+msgstr ""
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
@@ -51,9 +61,14 @@ msgid "Failed to connect to the D-BUS session bus."
 msgstr "Huts D-BUS saio bus-arekin konektatzerakoan."
 
 #. Print error message
-#: ../scripts/verve-focus.c:83
-msgid "Failed to deliver the org.xfce.Verve#GrabFocus method."
-msgstr "Huts org.xfce.Verve#GrabFocus metodoa erabiltzean."
+#: ../scripts/verve-focus.c:84
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
+msgstr ""
 
-#~ msgid "Verve"
-#~ msgstr "Verve"
+#~ msgid "Verve Properties"
+#~ msgstr "Verve Propietateak"
+
+#~ msgid "Failed to deliver the org.xfce.Verve#GrabFocus method."
+#~ msgstr "Huts org.xfce.Verve#GrabFocus metodoa erabiltzean."

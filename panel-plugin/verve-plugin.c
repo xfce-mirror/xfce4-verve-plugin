@@ -67,6 +67,7 @@ typedef struct
 
   /* Properties */ 
   gint              size;
+  gint              history_length;
 
 #ifdef HAVE_DBUS
   VerveDBusService *dbus_service;
@@ -509,6 +510,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   verve->completion = NULL;
   verve->n_complete = 0;
   verve->size = 20;
+  verve->history_length = 25;
 
   /* Connect to load-binaries signal of environment */
   g_signal_connect (G_OBJECT (verve_env_get()), "load-binaries", G_CALLBACK (verve_plugin_load_completion), verve);
@@ -600,6 +602,24 @@ verve_plugin_size_changed_request (XfcePanelPlugin *plugin,
 
 
 
+static gboolean
+verve_plugin_update_history_length (XfcePanelPlugin *plugin,
+                                    gint             history_length,
+                                    VervePlugin     *verve)
+{
+  g_return_val_if_fail (verve != NULL, FALSE);
+
+  /* Set internal history length variable */
+  verve->history_length = history_length;
+
+  /* Apply length to history */
+  verve_history_set_length (history_length);
+
+  return TRUE;
+}
+
+
+
 static void
 verve_plugin_read_rc_file (XfcePanelPlugin *plugin, 
                            VervePlugin *verve)
@@ -609,6 +629,9 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
   
   /* Default size */
   gint    size = 20;
+
+  /* Default number of saved history entries */
+  gint    history_length = 25;
 
   g_return_if_fail (plugin != NULL);
   g_return_if_fail (verve != NULL);
@@ -628,9 +651,15 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
     {
       /* Read size value */
       size = xfce_rc_read_int_entry (rc, "size", size);
+
+      /* Read number of saved history entries */
+      history_length = xfce_rc_read_int_entry (rc, "history-length", history_length);
     
       /* Update plugin size */
       verve_plugin_update_size (NULL, size, verve);
+
+      /* Update history length */
+      verve_plugin_update_history_length (NULL, history_length, verve);
       
       /* Close handle */
       xfce_rc_close (rc);
@@ -666,6 +695,9 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin,
     {
       /* Write size value */
       xfce_rc_write_int_entry (rc, "size", verve->size);
+
+      /* Write number of saved history entries */
+      xfce_rc_write_int_entry (rc, "history-length", verve->history_length);
     
       /* Close handle */
       xfce_rc_close (rc);
@@ -685,6 +717,18 @@ verve_plugin_size_changed (GtkSpinButton *spin,
 
   /* Update plugin size */
   verve_plugin_update_size (NULL, gtk_spin_button_get_value_as_int (spin), verve);
+}
+
+
+
+static void
+verve_plugin_history_length_changed (GtkSpinButton *spin,
+                                     VervePlugin   *verve)
+{
+  g_return_if_fail (verve != NULL);
+
+  /* Update history length */
+  verve_plugin_update_history_length (NULL, gtk_spin_button_get_value_as_int (spin), verve);
 }
 
 
@@ -719,10 +763,13 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   GtkWidget *dialog;
   GtkWidget *header;
   GtkWidget *frame;
-  GtkWidget *bin;
+  GtkWidget *bin1;
+  GtkWidget *bin2;
   GtkWidget *hbox;
   GtkWidget *size_label;
   GtkWidget *size_spin;
+  GtkWidget *history_length_label;
+  GtkWidget *history_length_spin;
   GtkObject *adjustment;
 
   g_return_if_fail (plugin != NULL);
@@ -732,7 +779,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   xfce_panel_plugin_block_menu (plugin);
 
   /* Create properties dialog */
-  dialog = xfce_titled_dialog_new_with_buttons (_("Verve Properties"),
+  dialog = xfce_titled_dialog_new_with_buttons (_("Verve"),
                                                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                                                 GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
                                                 GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
@@ -750,19 +797,19 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_container_set_border_width (GTK_CONTAINER (dialog), 2);
 
   /* Frame for appearance settings */
-  frame = xfce_create_framebox (_("Appearance"), &bin);
+  frame = xfce_create_framebox (_("Appearance"), &bin1);
   gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
-  gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), frame, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), frame, TRUE, TRUE, 0);
   gtk_widget_show (frame);
 
   /* Plugin size container */
   hbox = gtk_hbox_new (FALSE, 8);
-  gtk_container_add (GTK_CONTAINER (bin), hbox);
+  gtk_container_add (GTK_CONTAINER (bin1), hbox);
   gtk_widget_show (hbox);
 
   /* Plugin size label */
   size_label = gtk_label_new (_("Width (in chars):"));
-  gtk_box_pack_start (GTK_BOX (hbox), size_label, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (hbox), size_label, FALSE, TRUE, 0);
   gtk_widget_show (size_label);
 
   /* Plugin size adjustment */
@@ -771,7 +818,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   /* Plugin size spin button */
   size_spin = gtk_spin_button_new (GTK_ADJUSTMENT (adjustment), 1, 0);
   gtk_widget_add_mnemonic_label (size_spin, size_label);
-  gtk_box_pack_start (GTK_BOX (hbox), size_spin, TRUE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (hbox), size_spin, FALSE, TRUE, 0);
   gtk_widget_show (size_spin);
 
   /* Assign current size to spin button */
@@ -779,6 +826,37 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
 
   /* Be notified when the user requests a different plugin size */
   g_signal_connect (size_spin, "value-changed", G_CALLBACK (verve_plugin_size_changed), verve);
+
+  /* Frame for behaviour settings */
+  frame = xfce_create_framebox (_("Behaviour"), &bin2);
+  gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
+  gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), frame, TRUE, TRUE, 0);
+  gtk_widget_show (frame);
+
+  /* Plugin history length container */
+  hbox = gtk_hbox_new (FALSE, 8);
+  gtk_container_add (GTK_CONTAINER (bin2), hbox);
+  gtk_widget_show (hbox);
+
+  /* History length label */
+  history_length_label = gtk_label_new (_("Number of saved history items:"));
+  gtk_box_pack_start (GTK_BOX (hbox), history_length_label, FALSE, TRUE, 0);
+  gtk_widget_show (history_length_label);
+
+  /* History length adjustment */
+  adjustment = gtk_adjustment_new (verve->history_length, 0, 1000, 1, 5, 10);
+
+  /* History length spin button */
+  history_length_spin = gtk_spin_button_new (GTK_ADJUSTMENT (adjustment), 1, 0);
+  gtk_widget_add_mnemonic_label (history_length_spin, history_length_label);
+  gtk_box_pack_start (GTK_BOX (hbox), history_length_spin, FALSE, TRUE, 0);
+  gtk_widget_show (history_length_spin);
+
+  /* Assign current length to the spin button */
+  gtk_spin_button_set_value (GTK_SPIN_BUTTON (history_length_spin), verve->history_length);
+
+  /* Be notified when the user requests a different history length */
+  g_signal_connect (history_length_spin, "value-changed", G_CALLBACK (verve_plugin_history_length_changed), verve);
 
   /* Show properties dialog */
   gtk_widget_show (dialog);
