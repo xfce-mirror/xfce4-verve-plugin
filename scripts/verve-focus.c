@@ -74,7 +74,8 @@ main (int     argc,
   result = dbus_connection_send_with_reply_and_block (connection, method, 5000, &error);
 
   /* Destroy sent message */
-  dbus_message_unref (method);
+  if (G_LIKELY (method != NULL))
+    dbus_message_unref (method);
 
   /* Handle method send error */
   if (G_UNLIKELY (result == NULL))
@@ -92,10 +93,12 @@ main (int     argc,
     exit_status = EXIT_SUCCESS;
 
   /* Destroy result */
-  dbus_message_unref (result);
+  if (G_LIKELY (result != NULL))
+    dbus_message_unref (result);
 
   /* Disconnect from session bus */
-  dbus_connection_unref (connection);
+  if (G_LIKELY (connection != NULL))
+    dbus_connection_unref (connection);
 
   return exit_status;
 }

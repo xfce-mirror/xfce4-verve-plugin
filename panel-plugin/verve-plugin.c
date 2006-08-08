@@ -235,6 +235,9 @@ verve_plugin_grab_focus (VerveDBusService *dbus_service,
 
   if (toplevel && toplevel->window)
     {
+      /* Unhide the panel */
+      xfce_panel_plugin_set_panel_hidden (verve->plugin, FALSE);
+
       /* Focus the command entry */
       xfce_panel_plugin_focus_widget (verve->plugin, verve->input);
       
@@ -248,7 +251,7 @@ verve_plugin_grab_focus (VerveDBusService *dbus_service,
 
 
 static gboolean 
-verve_plugin_keypress_cb (GtkWidget *entry, 
+verve_plugin_keypress_cb (GtkWidget   *entry, 
                           GdkEventKey *event, 
                           VervePlugin *verve)
 {
@@ -378,6 +381,9 @@ verve_plugin_keypress_cb (GtkWidget *entry,
         /* Try executing the command */
         if (G_LIKELY (verve_execute (command, terminal)))
           {
+            /* Hide the panel again */
+            xfce_panel_plugin_set_panel_hidden (verve->plugin, TRUE);
+
             /* Do not add command to history if it is the same as the one before */
             if (verve_history_is_empty () || g_utf8_collate (verve_history_get_last_command (), command) != 0)
               {

@@ -1,3 +1,14 @@
+2006-08-08	Jannis Pohlmann <jannis@xfce.org>
+
+	* scripts/verve-focus.c: Check if objects are != NULL before
+	  unref'ing them. This fixes bug #2125 as reported by
+	  huggie@earth.li.
+	* panel-plugin/verve-plugin.c: Unhide the panel when Verve grabs
+	  the focus. Re-hide it after a command was successfully
+	  started.
+	* configure.in.in: Depend on version 4.3.90.2svn-22691 of the
+	  panel when the xfce_panel_plugin_set_hidden was introduced.
+
 2006-08-02	Jannis Pohlmann <jannis@xfce.org>
 
 	* configure.in.in, po/*.po: Version 0.3.4 released, which fixes
