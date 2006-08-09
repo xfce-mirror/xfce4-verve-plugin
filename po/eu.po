@@ -39,12 +39,12 @@ msgstr "Zabalera (karaktere):"
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:831
 msgid "Behaviour"
-msgstr ""
+msgstr "Portaera"
 
 #. History length label
 #: ../panel-plugin/verve-plugin.c:842
 msgid "Number of saved history items:"
-msgstr ""
+msgstr "Gordeko diren historia elementu kopurua:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
@@ -66,6 +66,8 @@ msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
 msgstr ""
+"Dirudienez ez dago Verve D-BUS hornitzailerik (adib. Verve panel plugin-a) "
+"abiarazirik"
 
 #~ msgid "Verve Properties"
 #~ msgstr "Verve Propietateak"
