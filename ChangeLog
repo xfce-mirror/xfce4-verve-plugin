@@ -1,3 +1,10 @@
+2006-08-16	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/verve-plugin.c, panel-plugin/verve-history.c,
+	  panel-plugin/verve.c, panel-plugin/verve-env.c: Apply patch
+	  from Jasper, which removes several unused variables, evil
+	  C99-style and avoids a double-free'd GList. Bug #2175.
+
 2006-08-09	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-plugin.c, panel-plugin/verve-history.c:

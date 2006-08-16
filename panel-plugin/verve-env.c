@@ -183,13 +183,17 @@ verve_env_finalize (GObject *object)
   /* Free binaries list */
   if (G_LIKELY (env->binaries != NULL))
     {
+      g_list_foreach (env->binaries, (GFunc) g_free, NULL);
+#if 0
       GList *iter = g_list_first (env->binaries);
       while (iter != NULL)
         {
           g_free ((gchar *)iter->data);
           iter = g_list_next (iter);
         }
+#endif
       g_list_free (env->binaries);
+      env->binaries = NULL;
     }
 }
 
@@ -233,17 +237,15 @@ verve_env_load_thread (gpointer user_data)
   /* Iterate over paths list */
   for (i=0; !env->load_thread_cancelled && i<g_strv_length (paths); i++)
   {
+    const gchar *current;
+    gchar       *filename;
+    GList       *lp;
     /* Try opening the directory */
     GDir *dir = g_dir_open (paths[i], 0, NULL);
 
     /* Continue with next directory if this one cant' be opened */
     if (G_UNLIKELY (dir == NULL)) 
       continue;
-
-    /* Skip directory when errors have occured */
-    const gchar *current;
-    gchar       *filename;
-    GList       *lp;
 
     /* Iterate over files in this directory */
     while (!env->load_thread_cancelled && (current = g_dir_read_name (dir)) != NULL)
@@ -263,10 +265,11 @@ verve_env_load_thread (gpointer user_data)
             gchar *path = g_build_filename (paths[i], current, NULL);
 
             /* Check if the path refers to an executable */
-            if (g_file_test (path, G_FILE_TEST_IS_EXECUTABLE))
+            if (g_file_test (path, G_FILE_TEST_IS_EXECUTABLE) &&
+                !g_file_test (path, G_FILE_TEST_IS_DIR))
               {
                 /* Add file filename to the list */
-                env->binaries = g_list_prepend (env->binaries, g_strdup (filename));
+                env->binaries = g_list_prepend (env->binaries, filename);
 
                 /* No need to free the filename later in this function */
                 filename = NULL;

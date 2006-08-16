@@ -197,7 +197,6 @@ verve_is_url (const gchar *str)
   pcre        *pattern;
   const gchar *error;
   int          error_offset;
-  int          count;
   int          ovector[30];
   gboolean     success = FALSE;
 
@@ -244,7 +243,6 @@ verve_is_email (const gchar *str)
   const gchar *error;
   pcre        *pattern;
   int          error_offset;
-  int          count;
   int          ovector[30];
   gboolean     success = FALSE;
 

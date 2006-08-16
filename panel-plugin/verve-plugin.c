@@ -102,7 +102,7 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
   G_LOCK (plugin_completion_mutex);
 
   /* Build merged list */
-  items = g_list_concat (NULL, binaries);
+  items = g_list_copy (binaries);
   for (iter = g_list_first (history); iter != NULL; iter = g_list_next (iter))
     items = g_list_insert_sorted (items, iter->data, (GCompareFunc) g_utf8_collate);
 
@@ -761,7 +761,6 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
                          VervePlugin *verve)
 {
   GtkWidget *dialog;
-  GtkWidget *header;
   GtkWidget *frame;
   GtkWidget *bin1;
   GtkWidget *bin2;

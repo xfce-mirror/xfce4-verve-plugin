@@ -281,7 +281,6 @@ verve_history_cache_write (void)
       if (G_LIKELY (handle != NULL))
       {
         GList    *current;
-        GIOStatus status;
         gsize     bytes;
         int       i;
 
