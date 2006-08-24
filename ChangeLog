@@ -1,3 +1,7 @@
+2006-08-24	Jannis Pohlmann <jannis@xfce.org>
+
+	* configure.in.in: Finnish translations added.
+
 2006-08-16	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/verve-plugin.c, panel-plugin/verve-history.c,
