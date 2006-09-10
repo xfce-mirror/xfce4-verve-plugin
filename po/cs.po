@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-09 00:20+0200\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-08-26 20:53+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
@@ -22,34 +22,35 @@ msgid "Could not execute command:"
 msgstr "Nelze spustit příkaz:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:782
+#: ../panel-plugin/verve-plugin.c:781
 msgid "Verve"
 msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:800
+#: ../panel-plugin/verve-plugin.c:799
 msgid "Appearance"
 msgstr "Vzhled"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:811
+#: ../panel-plugin/verve-plugin.c:810
 msgid "Width (in chars):"
 msgstr "Šířka (počet znaků):"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:831
+#: ../panel-plugin/verve-plugin.c:830
 msgid "Behaviour"
 msgstr "Chování"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:842
+#: ../panel-plugin/verve-plugin.c:841
 msgid "Number of saved history items:"
 msgstr "Množství zapamatovaných položek:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
-msgstr "Prostředí příkazové řádky s automatickým doplňováním a historií příkazů"
+msgstr ""
+"Prostředí příkazové řádky s automatickým doplňováním a historií příkazů"
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
@@ -62,6 +63,9 @@ msgstr "Nepodařilo se připojení k sezení sběrnice D-BUS."
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
-msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
-msgstr "Zdá se, že neběží žádný zprostředkovatel sběrnice D-BUS pro Verve (například zásuvný modul panelu Verve)"
-
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
+msgstr ""
+"Zdá se, že neběží žádný zprostředkovatel sběrnice D-BUS pro Verve (například "
+"zásuvný modul panelu Verve)"

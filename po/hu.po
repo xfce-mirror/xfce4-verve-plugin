@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-verve-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-08-01 15:43+0200\n"
+"POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-08-12 15:54+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -21,27 +21,27 @@ msgid "Could not execute command:"
 msgstr "A parancsot nem lehet végrehajtani:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:782
+#: ../panel-plugin/verve-plugin.c:781
 msgid "Verve"
 msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:800
+#: ../panel-plugin/verve-plugin.c:799
 msgid "Appearance"
 msgstr "Megjelenés"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:811
+#: ../panel-plugin/verve-plugin.c:810
 msgid "Width (in chars):"
 msgstr "Szélesség (karakterben):"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:831
+#: ../panel-plugin/verve-plugin.c:830
 msgid "Behaviour"
 msgstr "Viselkedés"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:842
+#: ../panel-plugin/verve-plugin.c:841
 msgid "Number of saved history items:"
 msgstr "Történet mérete:"
 
@@ -61,6 +61,9 @@ msgstr "Nem tudtam kapcsolódni a D-BUS folyamat-buszhoz"
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
-msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
-msgstr "Úgy fest nem fut Verve D-BUS szolgáltató (mondjuk egy Verve panel beillesztés)"
-
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
+msgstr ""
+"Úgy fest nem fut Verve D-BUS szolgáltató (mondjuk egy Verve panel "
+"beillesztés)"
