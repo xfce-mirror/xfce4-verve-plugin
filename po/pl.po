@@ -47,9 +47,8 @@ msgstr "Liczba zapisanych elementów historii:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
-#, fuzzy
 msgid "Command line interface with auto-completion and command history"
-msgstr "Wiersz poleceń z autouzupełnianiem i historią"
+msgstr "Wiersz poleceń z autouzupełnianiem i historią komend"
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
