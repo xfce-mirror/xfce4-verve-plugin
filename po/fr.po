@@ -1,4 +1,4 @@
-# French translations for verve-plugin package.
+# French translations for the verve-plugin package.
 # Copyright (C) 2006 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
 # Maximilian Schleiss <maxschleiss@bluewin.ch>, 2006.
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: verve-plugin 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-08-19 16:19+0100\n"
+"PO-Revision-Date: 2006-09-16 22:57+0100\n"
 "Last-Translator: Maximilian Schleiss <maxschleiss@bluewin.ch>\n"
 "Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -48,12 +48,11 @@ msgstr "Commandes max. dans l'historique :"
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
-msgstr ""
-"Interface de ligne de commande avec saisie auto-complétée et historique"
+msgstr "Interface de ligne de commande avec saisie auto-complétée et historique"
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
-msgstr "Ligne de Commande Verve"
+msgstr "Ligne de commande Verve"
 
 #. Print error message
 #: ../scripts/verve-focus.c:61
@@ -62,15 +61,11 @@ msgstr "Impossible de se connecter à la session D-BUS."
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
-msgid ""
-"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
-"running."
-msgstr ""
-"Il semblerait qu'il n'y à pas de fournisseur D-BUS pour Verve (p.ex. le "
-"greffon verve pour le panneau) en cours."
+msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
+msgstr "Il semblerait qu'il n'y à pas de fournisseur D-BUS pour Verve (p.ex. le greffon verve pour le panneau) en cours."
 
 #~ msgid "Verve Properties"
 #~ msgstr "Préférences Verve"
-
 #~ msgid "Unkown command."
 #~ msgstr "Commande inconnue."
+
