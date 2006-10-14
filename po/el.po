@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-08-04 22:09+0200\n"
+"POT-Creation-Date: 2006-09-10 21:12+0200\n"
+"PO-Revision-Date: 2006-10-14 19:52+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -39,12 +39,12 @@ msgstr "Πλάτος (χαρακτήρες):"
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:830
 msgid "Behaviour"
-msgstr ""
+msgstr "Συμπεριφορά"
 
 #. History length label
 #: ../panel-plugin/verve-plugin.c:841
 msgid "Number of saved history items:"
-msgstr ""
+msgstr "Μέγεθος λίστας ιστορικού:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
@@ -65,7 +65,7 @@ msgstr "Η σύνδεση με το δίαυλο μηνυμάτων D-BUS απέ
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr ""
+msgstr "Δεν φαίνεται να εκτελείται πάροχος μέσω D-BUS για το Verve."
 
 #~ msgid "Verve Properties"
 #~ msgstr "Ιδιότητες Verve"
