@@ -1,6 +1,6 @@
-# Brazilian portuguese translations for the verve-plugin package.
-# Copyright (C) 2006 Jannis Pohlmann <jannis@xfce.org>
-# This file is distributed under the same license as the verve-plugin package.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # Tomas Acauan Schertel <tschertel@gmail.com>, 2006.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: verve plugin 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:12+0200\n"
-"PO-Revision-Date: 2006-11-06 15:34-0300\n"
+"PO-Revision-Date: 2006-11-07 13:11-0300\n"
 "Last-Translator: Tomas A. Schertel <tschertel@gmail.com>\n"
 "Language-Team: Brazilan Portuguese <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -47,9 +47,8 @@ msgstr "Número de itens salvos no histórico:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
-#, fuzzy
 msgid "Command line interface with auto-completion and command history"
-msgstr "Linha de comando com auto conclusão e histórico de comandos"
+msgstr "Linha de comando com auto-completar e histórico de comandos"
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
