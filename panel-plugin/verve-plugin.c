@@ -141,12 +141,14 @@ verve_plugin_focus_timeout (VervePlugin *verve)
       /* Make it look normal again */
       gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &default_style->base[GTK_STATE_NORMAL]);
       gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &default_style->bg[GTK_STATE_NORMAL]);
+      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &default_style->text[GTK_STATE_NORMAL]);
     }
   else
     {
       /* Highlight the entry by changing base and background colors */
       gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &style->base[GTK_STATE_SELECTED]);
       gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style->bg[GTK_STATE_SELECTED]);
+      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &style->text[GTK_STATE_SELECTED]);
     }
   
   return TRUE;
@@ -175,6 +177,7 @@ verve_plugin_focus_timeout_reset (VervePlugin *verve)
   /* Reset entry background */
   gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &default_style->base[GTK_STATE_NORMAL]);
   gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &default_style->bg[GTK_STATE_NORMAL]);
+  gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &default_style->text[GTK_STATE_NORMAL]);
 }
 
 

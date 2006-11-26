@@ -1,3 +1,9 @@
+2006-11-27	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/verve-plugin.c: Properly modify the foreground 
+	  color of the input entry while blinking - thanks to Mike 
+	  Massonnet (mmassonnet@gmail.com) for the patch.
+
 2006-08-24	Jannis Pohlmann <jannis@xfce.org>
 
 	* configure.in.in: Finnish translations added.
