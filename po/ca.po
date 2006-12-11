@@ -8,23 +8,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-04-17 19:32+0100\n"
+"POT-Creation-Date: 2006-09-10 21:12+0200\n"
+"PO-Revision-Date: 2006-12-03 15:54+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
-"Language-Team: catalan\n"
+"Language-Team: Catalan <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:407
 msgid "Could not execute command:"
 msgstr "No es pot executar l'ordre:"
 
+# Millor deixar el nom original del programari.
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:781
-#, fuzzy
 msgid "Verve"
 msgstr "Verve"
 
@@ -41,31 +42,29 @@ msgstr "Amplada en caràcters:"
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:830
 msgid "Behaviour"
-msgstr ""
+msgstr "Comportament"
 
 #. History length label
 #: ../panel-plugin/verve-plugin.c:841
 msgid "Number of saved history items:"
-msgstr ""
+msgstr "Nombre d'elements de l'històric:"
 
 # auto-completion = emplenament automàtic ?
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
-#, fuzzy
 msgid "Command line interface with auto-completion and command history"
 msgstr ""
 "Interfície de línia d'ordres amb emplenament automàtic i explorador de "
-"l'històric."
+"l'històric d'ordres."
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
-#, fuzzy
 msgid "Verve Command Line"
 msgstr "Línia d'ordres de «Verve»"
 
 #. Print error message
 #: ../scripts/verve-focus.c:61
 msgid "Failed to connect to the D-BUS session bus."
-msgstr ""
+msgstr "No s'ha pogut connectar amb el bus de la sessió D-BUS."
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
@@ -73,6 +72,8 @@ msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
 msgstr ""
+"Sembla que no hi ha pas cap proveïdor D-BUS per «Verve» (e.g.: El connector "
+"al quadre de «Verve»)."
 
 #, fuzzy
 #~ msgid "Verve Properties"
