@@ -1,5 +1,5 @@
 # Hungarian translation for xfce4-verve-plugin
-# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# Copyright (c) Jannis Pohlmann
 # This file is distributed under the same license as the xfce4-verve-plugin package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
 #
