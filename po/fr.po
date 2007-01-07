@@ -1,4 +1,4 @@
-# French translations for the verve-plugin package.
+# French translation of the verve-plugin package.
 # Copyright (C) 2006 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
 # Maximilian Schleiss <maxschleiss@bluewin.ch>, 2006.
