@@ -2,8 +2,8 @@
  *            verve-env.c
  *
  *  $Id$
- *  Copyright  2006  Jannis Pohlmann
- *  info@sten-net.de
+ *  Copyright  2006-2007  Jannis Pohlmann
+ *  jannis@xfce.org
  ****************************************************************************/
 
 /* 
