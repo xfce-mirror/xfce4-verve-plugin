@@ -394,8 +394,12 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
                 /* Add command to history */
                 verve_history_add (g_strdup (command));
 
+                G_LOCK (plugin_completion_mutex);
+
                 /* Add command to completion */
                 verve->completion->items = g_list_insert_sorted (verve->completion->items, g_strdup (command), (GCompareFunc) g_utf8_collate);
+
+                G_UNLOCK (plugin_completion_mutex);
               }
       
             /* Reset current history entry */
@@ -451,8 +455,12 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
             prefix = command;
           }
 
+        G_LOCK (plugin_completion_mutex);
+
         /* Get all completion results */
         similar = g_completion_complete (completion, prefix, NULL);
+
+        G_UNLOCK (plugin_completion_mutex);
 
         /* Check if there are any results */
         if (G_LIKELY (similar != NULL))
