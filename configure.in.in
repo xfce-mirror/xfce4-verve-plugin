@@ -6,8 +6,8 @@ dnl
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2006 - Jannis Pohlmann <jannis@xfce.org>])
-AC_INIT([verve-plugin], [0.3.4], [jannis@xfce.org], [verve-plugin])
+AC_COPYRIGHT([Copyright (c) 2006-2007 Jannis Pohlmann <jannis@xfce.org>])
+AC_INIT([verve-plugin], [0.3.5], [jannis@xfce.org], [verve-plugin])
 AC_REVISION([$Id$])
 AC_PREREQ([2.50])
 

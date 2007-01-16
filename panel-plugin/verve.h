@@ -2,8 +2,8 @@
  *            verve.h
  *
  *  $Id$
- *  Copyright  2006  Jannis Pohlmann
- *  info@sten-net.de
+ *  Copyright  2007  Jannis Pohlmann
+ *  jannis@xfce.org
  ****************************************************************************/
 
 /*

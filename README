@@ -3,7 +3,7 @@ Required packages:
   * xfce4-panel >= 4.3.28
   * libxfce4util >= 4.3.0
   * GLib >= 2.6.4
-  * libpcre
+  * pcre
 
-Optionall required packages:
+Optionally required packages:
   * D-BUS >= 0.34
