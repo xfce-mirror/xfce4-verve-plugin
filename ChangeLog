@@ -1,6 +1,10 @@
+2007-01-16	Jannis Pohlmann <jannis@xfce.org>
+
+	* 0.3.5 released - really!
+	* configure.in.in: Add missing languages.
+
 2007-01-16	Jannis Pohlmann <jannis@xce.org>
 
-	* 0.3.5 released!
 	* configure.in.in, po/*.po, panel-plugin/*.{c,h},
 	  scripts/verve-plugin.c: Update copyright years. 
 	* THANKS: Honour all translators for their great work.
