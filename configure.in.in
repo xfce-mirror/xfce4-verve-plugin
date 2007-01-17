@@ -47,7 +47,7 @@ AC_HEADER_STDC()
 dnl ******************************
 dnl *** Check for i18n support ***
 dnl ******************************
-XDT_I18N([ca cs de el eo eu fi fr hu it ja nl pa pl pt_BR ru vi zh_TW])
+XDT_I18N([@LINGUAS@])
 
 dnl ***********************************
 dnl *** Check for required packages ***
