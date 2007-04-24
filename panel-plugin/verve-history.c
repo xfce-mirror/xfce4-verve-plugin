@@ -46,7 +46,7 @@ static void  verve_history_append             (gchar *command);
  *
  *********************************************************************/
 
-static gint   history_length = 25;
+static gint   history_length = 50;
 static GList *history = NULL;
 
 

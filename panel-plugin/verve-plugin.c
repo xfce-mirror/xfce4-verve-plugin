@@ -106,8 +106,6 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
   for (iter = g_list_first (history); iter != NULL; iter = g_list_next (iter))
     items = g_list_insert_sorted (items, iter->data, (GCompareFunc) g_utf8_collate);
 
-  verve->completion = g_completion_new (NULL);
-
   /* Add merged items to completion */
   if (G_LIKELY (history != NULL)) 
     g_completion_add_items (verve->completion, items);
@@ -518,7 +516,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   
   /* Initialize completion variables */
   verve->history_current = NULL;
-  verve->completion = NULL;
+  verve->completion = g_completion_new (NULL);
   verve->n_complete = 0;
   verve->size = 20;
   verve->history_length = 25;

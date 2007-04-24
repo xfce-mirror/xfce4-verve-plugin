@@ -1,3 +1,11 @@
+2007-04-24	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/verve-plugin.c: This bug has been driving me
+	  crazy for months. It caused Verve to crash when entering
+	  a command before the completion was initialized. 
+	* panel-plugin/verve-history.c: Set the default history length
+	  to 50 instead of 25. 
+
 2007-01-17	Jannis Pohlmann <jannis@xfce.org>
 
 	* autogen.sh, configure.in.in, po/LINGUAS: Add LINGUAS support,
