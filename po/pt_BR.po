@@ -1,6 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Brazilian Portuguese translation of the verve-plugin package.
+# Copyright (C) 2006-2007 Jannis Pohlmann.
+# This file is distributed under the same license as the verve-plugin package.
 # Tomas Acauan Schertel <tschertel@gmail.com>, 2006.
 #
 msgid ""

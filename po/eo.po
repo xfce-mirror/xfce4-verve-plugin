@@ -1,19 +1,18 @@
-# Esperanto translations for verve-plugin package.
-# Copyright (C) 2006 Jannis Pohlmann.
+# Esperanto translation of the verve-plugin package.
+# Copyright (C) 2006-2007 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
 # Jarbas Araujo <jarbasaraujojr@yahoo.com.br>, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: verve-plugin 4.3.90.2\n"
+"Project-Id-Version: verve-plugin 0.3.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-09-04 12:14+0200\n"
 "Last-Translator: Jarbas Araujo Jr. <jarbasaraujojr@yahoo.com.br>\n"
-"Language-Team: Debian-l10n-esperanto <debian-l10n-esperanto@lists.debian."
-"org>\n"
+"Language-Team: Debian-l10n-esperanto <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 

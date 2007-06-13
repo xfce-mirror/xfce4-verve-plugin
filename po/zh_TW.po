@@ -1,5 +1,5 @@
-# Traditional Chinese translations for verve-plugin package.
-# Copyright (C) 2006 Jannis Pohlmann.
+# Traditional Chinese translation of the verve-plugin package.
+# Copyright (C) 2006-2007 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006.
 #
@@ -10,9 +10,9 @@ msgstr ""
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-08-12 11:41+0800\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
-"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
+"Language-Team: Chinese (traditional) <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Generate error message

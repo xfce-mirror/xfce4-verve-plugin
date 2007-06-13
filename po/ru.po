@@ -1,5 +1,5 @@
-# Russian translation of verve-plugin.
-# Copyright (C) 2006 Jannis Pohlmann.
+# Russian translation of the verve-plugin package.
+# Copyright (C) 2006-2007 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
 # Andrey Fedoseev <andrey.fedoseev@gmail.com>, 2006.
 #
@@ -10,9 +10,9 @@ msgstr ""
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-03-24 21:31+0500\n"
 "Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
-"Language-Team: Russian <ru@li.org>\n"
+"Language-Team: Russian <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Generate error message

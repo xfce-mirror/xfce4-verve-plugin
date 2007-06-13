@@ -1,7 +1,7 @@
-# Verve Command Line plugin
-# Copyright (C) 2006 Jannis Pohlmann.
-# This file is distributed under the same license as the Verve package.
-# Jannis <jannis@xfce.org>, 2006.
+# Dutch translation of the verve-plugin package.
+# Copyright (C) 2006-2007 Jannis Pohlmann.
+# This file is distributed under the same license as the verve-plugin package.
+# Stephan Arts <stephan@xfce.org>, 2006.
 #
 msgid ""
 msgstr ""
@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
 "PO-Revision-Date: 2006-02-09 16:20+0100\n"
 "Last-Translator: Stephan Arts <stephan@xfce.org>\n"
-"Language-Team: Dutch <vertaling@vrijschrift.org>\n"
+"Language-Team: Dutch <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
