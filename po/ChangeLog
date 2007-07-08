@@ -1,4 +1,11 @@
-2007-06-13  Maximilian Schleiss <maximilian@xfce.org>
+2007-07-08	Maximilian Schleiss <maximilian@xfce.org>
+
+	* nb_NO.po: Norwegian Bokmal translation added
+	by Terje Uriansrud <ter@operamail.com>
+	* pt_PT.po: European Protuguese translation added
+	by Nuno Miguel <nunis@netcabo.pt>
+
+2007-06-13	Maximilian Schleiss <maximilian@xfce.org>
 
 	* it.po: Updated the translation
 	by Roberto Pariset <robdebian@gmail.com>
@@ -6,7 +13,8 @@
 
 2007-03-31	Pau Rul-lan Ferragut <paurullan@bulma.net>
 
-	* gb.po: British translation by Jeff Bailes <thepizzaking@gmail.com>
+	* gb.po: British translation
+	by Jeff Bailes <thepizzaking@gmail.com>
 
 2007-03-31	Pau Rul-lan Ferragut <paurullan@bulma.net>
 
