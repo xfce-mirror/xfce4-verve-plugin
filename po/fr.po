@@ -18,7 +18,7 @@ msgstr ""
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:407
 msgid "Could not execute command:"
-msgstr "Échec à l'exécution de la commande :"
+msgstr "Échec à l'exécution de la commande :"
 
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:781
@@ -33,7 +33,7 @@ msgstr "Apparence"
 #. Plugin size label
 #: ../panel-plugin/verve-plugin.c:810
 msgid "Width (in chars):"
-msgstr "Largeur (en pixels) :"
+msgstr "Largeur (en caractères) :"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:830
@@ -43,7 +43,7 @@ msgstr "Comportement"
 #. History length label
 #: ../panel-plugin/verve-plugin.c:841
 msgid "Number of saved history items:"
-msgstr "Commandes max. dans l'historique :"
+msgstr "Commandes max. dans l'historique :"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
@@ -62,7 +62,7 @@ msgstr "Impossible de se connecter à la session D-BUS."
 #. Print error message
 #: ../scripts/verve-focus.c:84
 msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
-msgstr "Il semblerait qu'il n'y à pas de fournisseur D-BUS pour Verve (p.ex. le greffon verve pour le panneau) en cours."
+msgstr "Il semblerait qu'il n'y a pas de fournisseur D-BUS pour Verve (p.ex. le greffon verve pour le panneau) en cours."
 
 #~ msgid "Verve Properties"
 #~ msgstr "Préférences Verve"

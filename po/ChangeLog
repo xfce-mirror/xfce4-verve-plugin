@@ -1,3 +1,7 @@
+2007-10-11	Mike Massonnet <mmassonnet@xfce.org>
+
+	* fr.po: Apply patch from Cyril Brulebois (Debian bug 435477)
+
 2007-08-26	Og Maciel <ogmaciel@gnome.org>
 
 	* pt_BR.po: Brazilian Portuguese translation updated
