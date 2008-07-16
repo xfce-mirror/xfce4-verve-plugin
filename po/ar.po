@@ -57,6 +57,7 @@ msgstr ""
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
-msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
 msgstr ""
-
