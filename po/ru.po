@@ -1,3 +1,4 @@
+# translation of ru.po to ru_RU
 # Russian translation of the verve-plugin package.
 # Copyright (C) 2006-2007 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
@@ -5,15 +6,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: verve-plugin 0.3.5\n"
+"Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-03-24 21:31+0500\n"
-"Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
-"Language-Team: Russian <xfce-i18n@xfce.org>\n"
+"PO-Revision-Date: 2008-10-19 11:15+0400\n"
+"Last-Translator: Nikita Belobrov <qvzqvz@gmail.com>\n"
+"Language-Team: ru_RU <ru@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:407
@@ -38,12 +41,12 @@ msgstr "Ширина (в символах):"
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:830
 msgid "Behaviour"
-msgstr ""
+msgstr "Поведение"
 
 #. History length label
 #: ../panel-plugin/verve-plugin.c:841
 msgid "Number of saved history items:"
-msgstr ""
+msgstr "Количество запоминаемых записей истории:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
@@ -58,14 +61,12 @@ msgstr "Командная строка Verve"
 #. Print error message
 #: ../scripts/verve-focus.c:61
 msgid "Failed to connect to the D-BUS session bus."
-msgstr ""
+msgstr "Не удалось присоединиться к шине сессии D-BUS."
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr ""
+msgstr "Вероятно отсутствует запущенный источник Verve D-BUS (например, подключаемый модуль панели Verve)."
 
-#~ msgid "Verve Properties"
-#~ msgstr "Параметры Verve"
