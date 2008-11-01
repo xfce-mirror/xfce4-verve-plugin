@@ -1,14 +1,14 @@
 # Czech translation of the verve-plugin package.
 # Copyright (C) 2006-2007 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
-# Michal Várady  <miko.vaji@gmail.com>, 2006.
+# Michal Várady  <miko.vaji@gmail.com>, 2006-2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-09-10 21:29+0200\n"
-"PO-Revision-Date: 2006-08-26 20:53+0100\n"
+"PO-Revision-Date: 2008-11-01 22:29+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -44,13 +44,12 @@ msgstr "Chování"
 #. History length label
 #: ../panel-plugin/verve-plugin.c:841
 msgid "Number of saved history items:"
-msgstr "Množství zapamatovaných položek:"
+msgstr "Počet položek uložených v historii:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/verve.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
-msgstr ""
-"Prostředí příkazové řádky s automatickým doplňováním a historií příkazů"
+msgstr "Prostředí příkazové řádky s automatickým doplňováním a historií příkazů"
 
 #: ../panel-plugin/verve.desktop.in.in.h:2
 msgid "Verve Command Line"
@@ -59,13 +58,10 @@ msgstr "Příkazová řádka Verve"
 #. Print error message
 #: ../scripts/verve-focus.c:61
 msgid "Failed to connect to the D-BUS session bus."
-msgstr "Nepodařilo se připojení k sezení sběrnice D-BUS."
+msgstr "Nepodařilo se připojení k relaci sběrnice D-BUS."
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
-msgid ""
-"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
-"running."
-msgstr ""
-"Zdá se, že neběží žádný zprostředkovatel sběrnice D-BUS pro Verve (například "
-"zásuvný modul panelu Verve)"
+msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
+msgstr "Zřejmě neběží žádný zprostředkovatel sběrnice D-BUS pro Verve (například zásuvný modul panelu Verve)."
+
