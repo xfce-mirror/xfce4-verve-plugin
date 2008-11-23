@@ -1,5 +1,11 @@
 2008-11-23	Jannis Pohlmann <jannis@xfce.org>
 
+	* == 0.3.6 released! ==
+	* configure.in.in: Bump version to 0.3.6. Update copyright
+	  years.
+
+2008-11-23	Jannis Pohlmann <jannis@xfce.org>
+
 	* configure.in.in: Rename the plugin to xfce4-verve-plugin and
 	  depend on Xfce 4.4 libraries.
 	* panel-plugin/verve-plugin.c: Use xfce_err() instead of
