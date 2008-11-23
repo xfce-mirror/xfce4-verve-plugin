@@ -1,3 +1,14 @@
+2008-11-23	Jannis Pohlmann <jannis@xfce.org>
+
+	* configure.in.in: Rename the plugin to xfce4-verve-plugin and
+	  depend on Xfce 4.4 libraries.
+	* panel-plugin/verve-plugin.c: Use xfce_err() instead of
+	  show_error().
+	* panel-plugin/Makefile.am, 
+	  panel-plugin/verve-plugin.desktop.in.in,
+	  panel-plugin/xfce4-verve-plugin.desktop.in.in, po/POTFILES.in: 
+	  Rename the desktop file as well.
+
 2007-10-23	Jannis Pohlmann <jannis@xfce.org>
 
 	* configure.in.in: Depend on pcre 5.0 which has pkg-config

@@ -7,7 +7,7 @@ dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2006-2007 Jannis Pohlmann <jannis@xfce.org>])
-AC_INIT([verve-plugin], [0.3.5], [jannis@xfce.org], [verve-plugin])
+AC_INIT([xfce4-verve-plugin], [0.3.5], [jannis@xfce.org], [xfce4-verve-plugin])
 AC_REVISION([$Id$])
 AC_PREREQ([2.50])
 
@@ -53,8 +53,8 @@ dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************
 XDT_CHECK_PACKAGE([LIBEXO], [exo-0.3], [0.3.1.3])
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.3.90.2svn-22691])
-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.3.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.4.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
 XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.6.4])
 XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.6.4])
 XDT_CHECK_PACKAGE([LIBPCRE], [libpcre], [5.0])

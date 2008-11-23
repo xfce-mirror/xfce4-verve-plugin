@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pverve-plugin 0.3.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:12+0200\n"
+"POT-Creation-Date: 2008-11-23 16:23+0100\n"
 "PO-Revision-Date: 2007-11-11 21:08+0300\n"
 "Last-Translator: Rihards Priedītis <rprieditis@inbox.lv>\n"
 "Language-Team: Latvian <rprieditis@inbox.lv>\n"
@@ -16,41 +16,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:407
+#: ../panel-plugin/verve-plugin.c:412
 msgid "Could not execute command:"
 msgstr "Nevarēju izpildīt komandu:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:781
+#: ../panel-plugin/verve-plugin.c:790
 msgid "Verve"
 msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:799
+#: ../panel-plugin/verve-plugin.c:808
 msgid "Appearance"
 msgstr "Izskats"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:810
+#: ../panel-plugin/verve-plugin.c:819
 msgid "Width (in chars):"
 msgstr "Platums (rakstzīmēs)"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:830
+#: ../panel-plugin/verve-plugin.c:839
 msgid "Behaviour"
 msgstr "Uzvedība"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:841
+#: ../panel-plugin/verve-plugin.c:850
 msgid "Number of saved history items:"
 msgstr "Saglabāto vēstures vienumu skaits:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
-#: ../panel-plugin/verve.desktop.in.in.h:1
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
 msgstr "Komandu rindas interfeis ar auto-pabeigšanu un komandu vēsturi."
 
-#: ../panel-plugin/verve.desktop.in.in.h:2
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
 msgstr "Verve Komandu Rinda"
 
@@ -61,6 +61,9 @@ msgstr "Neizdevās savienoties ar D-BUS sesijas maģistrāli."
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
-msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
-msgstr "Liekas, ka neviens Verve D-BUS pakalpojuma sniedzējs (Verve paneļa spraudnis) neskrien."
-
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
+msgstr ""
+"Liekas, ka neviens Verve D-BUS pakalpojuma sniedzējs (Verve paneļa "
+"spraudnis) neskrien."

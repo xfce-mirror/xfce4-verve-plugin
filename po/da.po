@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.5\n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-23 16:23+0100\n"
 "PO-Revision-Date: 2008-09-30 08:23+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -18,41 +19,41 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:407
+#: ../panel-plugin/verve-plugin.c:412
 msgid "Could not execute command:"
 msgstr "Kunne ikke udføre kommandoen:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:781
+#: ../panel-plugin/verve-plugin.c:790
 msgid "Verve"
 msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:799
+#: ../panel-plugin/verve-plugin.c:808
 msgid "Appearance"
 msgstr "Udseende"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:810
+#: ../panel-plugin/verve-plugin.c:819
 msgid "Width (in chars):"
 msgstr "Bredde (i tegn):"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:830
+#: ../panel-plugin/verve-plugin.c:839
 msgid "Behaviour"
 msgstr "Opførsel"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:841
+#: ../panel-plugin/verve-plugin.c:850
 msgid "Number of saved history items:"
 msgstr "Antal gemte historikelementer:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
-#: ../panel-plugin/verve.desktop.in.in.h:1
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
 msgstr "Kommandolinjegrænseflade med autofuldførelse og kommandohistorik"
 
-#: ../panel-plugin/verve.desktop.in.in.h:2
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
 msgstr "Verve-kommandolinje"
 
@@ -63,6 +64,9 @@ msgstr "Kunne ikke tilslutte til D-BUS-sessions-bussen."
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
-msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
-msgstr "Det lader ikke til, at der er nogen kørende Verve D-BUS-leverandør (f.eks. Verve paneludvidelsesmodulet)."
-
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
+msgstr ""
+"Det lader ikke til, at der er nogen kørende Verve D-BUS-leverandør (f.eks. "
+"Verve paneludvidelsesmodulet)."

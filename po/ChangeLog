@@ -1,49 +1,54 @@
-2008-11-13 Og Maciel <ogmaciel@gnome.org>
+2008-11-23	Jannis Pohlmann <jannis@xfce.org>
+
+	* *.po: Update translation files. No new strings added though.
+	* verve-plugin.pot, xfce4-verve-plugin.pot: Rename .pot file.
+
+2008-11-13	Og Maciel <ogmaciel@gnome.org>
 
 	* pt_BR.po: Updated Brazilian Portuguese translation by
-	Vladimir Melo.
+	  Vladimir Melo.
 
-2008-11-09  Maximilian Schleiss <maximilian@xfce.org>
+2008-11-09	Maximilian Schleiss <maximilian@xfce.org>
 
 	* es.po; LINGUAS: Spanish translation added (Abel Martín)
 	* sq.po: Albanian translation update (Besnik Bleta)
 
-2008-11-01  Michal Várady <miko.vaji@gmail.com>
+2008-11-01	Michal Várady <miko.vaji@gmail.com>
 
 	* cs.po: Czech translation updated
 
-2008-10-28  Maximilian Schleiss <maximilian@xfce.org>
+2008-10-28	Maximilian Schleiss <maximilian@xfce.org>
 
 	* ru.po: Russian translation update (Nikita Belobrov)
 
-2008-10-12 Lars Nielsen <lars@mit-web.dk>
+2008-10-12	Lars Nielsen <lars@mit-web.dk>
 
 	* da.po: Danish translation update
 
-2008-10-07  Maximilian Schleiss <maximilian@xfce.org>
+2008-10-07	Maximilian Schleiss <maximilian@xfce.org>
 
 	* ja.po: Japanese translation update (Masato Hashimoto)
 
-2008-07-15 Mohamed Magdy <alnokta@xfce.org>
+2008-07-15	Mohamed Magdy <alnokta@xfce.org>
 
-        * ar.po: Add Arabic translation
+	* ar.po: Add Arabic translation
 
-2008-06-26  Maximilian Schleiss <maximilian@xfce.org>
+2008-06-26	Maximilian Schleiss <maximilian@xfce.org>
 
 	* gl.po, LINGUAS: Galician translation added (Leandro Regueiro)
 
-2008-06-22  Mike Massonnet <mmassonnet@xfce.org>
+2008-06-22	Mike Massonnet <mmassonnet@xfce.org>
 
 	* id.po, LINGUAS: Add Indonesian translation (Andhika Padmawan)
 
-2008-05-27  Mike Massonnet <mmassonnet@xfce.org>
+2008-05-27	Mike Massonnet <mmassonnet@xfce.org>
 
 	* da.po, LINGUAS: Add Danish translation (Jens Hyllegaard)
 
 2007-11-18	Maximilian Schleiss <maximilian@xfce.org>
 
 	* lv.po: Latvian translation added
-	by Rihards Priedītis <rprieditis@inbox.lv>
+	  by Rihards Priedītis <rprieditis@inbox.lv>
 
 2007-11-15	Mike Massonnet <mmassonnet@xfce.org>
 
@@ -95,7 +100,7 @@
 	* fr.po: Added the Albanian translation by
 	  Besnik Bleta <besnik@programeshqip.org>
 
-2007-01-05  Amanpreet Singh Alam <aalam@users.sf.net>
+2007-01-05	Amanpreet Singh Alam <aalam@users.sf.net>
 
 	* pa.po: Punjabi Translation added
 
@@ -114,7 +119,7 @@
 	* pt_BR.po: Updated brazilian portuguese translations thanks to
 	  Tomás Acauan Schertel <tschertel@gmail.com>
 
-2006-11-06	Adriano Winter Bess  <adriano@xfce.org>
+2006-11-06	Adriano Winter Bess	<adriano@xfce.org>
 
 	* pt_BR.po: Added brazilian portuguese translations thanks to
 	  Tomás Acauan Schertel <tschertel@gmail.com>
@@ -154,7 +159,7 @@
 	* fi.po: Finnish translations by Jari Rahkonen 
 	  <jari.rahkonen@pp1.inet.fi> added.
 
-2006-08-19 	Jean-François Wauthy <pollux@xfce.org>
+2006-08-19	Jean-François Wauthy <pollux@xfce.org>
 
 	* fr.po: Updated French translations by Max Schleiss
 

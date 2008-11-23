@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-09-10 21:12+0200\n"
+"POT-Creation-Date: 2008-11-23 16:23+0100\n"
 "PO-Revision-Date: 2007-01-05 20:46+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi <xfce-i1n@xfce.org>\n"
@@ -18,41 +18,41 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:407
+#: ../panel-plugin/verve-plugin.c:412
 msgid "Could not execute command:"
 msgstr "ਕਮਾਂਡ ਚਲਾਈ ਨਹੀਂ ਜਾ ਸਕੀ:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:781
+#: ../panel-plugin/verve-plugin.c:790
 msgid "Verve"
 msgstr "ਵੀਰਵੀ"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:799
+#: ../panel-plugin/verve-plugin.c:808
 msgid "Appearance"
 msgstr "ਦਿੱਖ"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:810
+#: ../panel-plugin/verve-plugin.c:819
 msgid "Width (in chars):"
 msgstr "ਚੌੜਾਈ (ਅੱਖਰਾਂ 'ਚ):"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:830
+#: ../panel-plugin/verve-plugin.c:839
 msgid "Behaviour"
 msgstr "ਰਵੱਈਆ"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:841
+#: ../panel-plugin/verve-plugin.c:850
 msgid "Number of saved history items:"
 msgstr "ਸੰਭਾਲੀਆਂ ਹਿਸਟਰੀ ਆਈਟਮਾਂ ਦੀ ਗਿਣਤੀ:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
-#: ../panel-plugin/verve.desktop.in.in.h:1
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
 msgstr "ਆਟੋ-ਕੰਪਲੀਸ਼ਨ ਅਤੇ ਕਮਾਂਡ ਹਿਸਟਰੀ ਨਾਲ ਕਮਾਂਡ ਲਾਇਨ ਇੰਟਰਫੇਸ"
 
-#: ../panel-plugin/verve.desktop.in.in.h:2
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
 msgstr "ਵੀਰਵੀ ਕਮਾਂਡ ਲਾਇਨ"
 
@@ -67,4 +67,3 @@ msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
 msgstr "ਕੋਈ ਵੀਰਵੀ D-BUS ਪਰਵਾਈਡਰ (ਵੀਰਵੀ ਪੈਨਲ ਪਲੱਗਇਨ) ਚੱਲਦਾ ਨਹੀਂ ਜਾਪਦਾ ਹੈ।"
-
