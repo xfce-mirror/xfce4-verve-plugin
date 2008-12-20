@@ -1,3 +1,7 @@
+2008-12-20  Alexander Toresson <eulex@xfce.org>
+
+	* sv.po, LINGUAS: Swedish translation added (Daniel Nylander)
+
 2008-11-23	Jannis Pohlmann <jannis@xfce.org>
 
 	* *.po: Update translation files. No new strings added though.
