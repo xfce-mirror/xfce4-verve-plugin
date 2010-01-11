@@ -2,7 +2,7 @@
 # Copyright (C) 2006-2007 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
 # Stephan Arts <stephan@xfce.org>, 2006.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.5\n"
@@ -49,7 +49,7 @@ msgstr "Aantal opgeslagen geschiedenis items."
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 #, fuzzy
 msgid "Command line interface with auto-completion and command history"
-msgstr "Commandoregel interface met auto-aanvulling en geschiedenis bladeren"
+msgstr "Command line interface met automatische voltooiing en commando geschiedenis"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
@@ -62,11 +62,8 @@ msgstr "Kan niet verbinden met de D-BUS sessie bus."
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
-msgid ""
-"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
-"running."
-msgstr ""
-"Er schijnt geen Verve D-BUS provider (de Verve paneel plugin) te draaien."
+msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
+msgstr "Er schijnt geen Verve D-BUS provider (de Verve paneel plugin) te draaien."
 
 #~ msgid "Verve Properties"
 #~ msgstr "Verve eigenschappen"
