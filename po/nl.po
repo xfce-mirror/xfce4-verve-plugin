@@ -47,7 +47,6 @@ msgstr "Aantal opgeslagen geschiedenis items."
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Command line interface with auto-completion and command history"
 msgstr "Command line interface met automatische voltooiing en commando geschiedenis"
 
