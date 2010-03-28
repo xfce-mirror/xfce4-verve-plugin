@@ -2,7 +2,7 @@
 # Copyright (C) 2006-2007 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
 # Jannis Pohlmann <jannis@xfce.org>, 2006.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.5\n"
@@ -57,12 +57,9 @@ msgstr "Verve-Kommandozeile"
 #. Print error message
 #: ../scripts/verve-focus.c:61
 msgid "Failed to connect to the D-BUS session bus."
-msgstr "Verbindung zu D-BUS konnte nicht hergestellt werden."
+msgstr "Verbindung zu D-Bus konnte nicht hergestellt werden."
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
-msgid ""
-"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
-"running."
-msgstr ""
-"Es scheint kein Verve D-BUS-Service (z.B. das Verve-Panel-Plugin) zu laufen."
+msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
+msgstr "Es scheint kein Verve D-Bus-Service (z.B. das Verve-Panel-Plugin) zu laufen."
