@@ -18,12 +18,12 @@ msgstr ""
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:412
 msgid "Could not execute command:"
-msgstr ""
+msgstr "بۇيرۇقنى ئىجرا قىلغىلى بولمىدى:"
 
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:790
 msgid "Verve"
-msgstr ""
+msgstr "Verve"
 
 #. Frame for appearance settings
 #: ../panel-plugin/verve-plugin.c:808
@@ -33,7 +33,7 @@ msgstr "كۆرۈنۈشى"
 #. Plugin size label
 #: ../panel-plugin/verve-plugin.c:819
 msgid "Width (in chars):"
-msgstr ""
+msgstr "كەڭلىك (ھەرپ):"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:839
@@ -43,25 +43,25 @@ msgstr "قىلمىش"
 #. History length label
 #: ../panel-plugin/verve-plugin.c:850
 msgid "Number of saved history items:"
-msgstr ""
+msgstr "ئىزدا ساقلانغان تۇرنىڭ سانى"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
-msgstr ""
+msgstr "コマンドの自動補完や履歴を参照できるコマンドラインインターフェイスです。"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
-msgstr ""
+msgstr "Verve بۇيرۇق قۇرى"
 
 #. Print error message
 #: ../scripts/verve-focus.c:61
 msgid "Failed to connect to the D-BUS session bus."
-msgstr ""
+msgstr "D-BUS ئەڭگىمە لىنىيىسىگە باغلىنىش مەغلۇپ بولدى"
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr ""
+msgstr "Verve D-BUSprovider يوقتەك قىلىدۇ (مەسىلەن: Verve panel قىستۇرمىسى) ئىجرا قىلىنمىغاندەك قىلىدۇ."
