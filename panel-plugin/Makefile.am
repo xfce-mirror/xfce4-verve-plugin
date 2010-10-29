@@ -21,14 +21,16 @@ xfce4_verve_plugin_CFLAGS = 						\
 	@LIBEXO_CFLAGS@							\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@LIBXFCE4UTIL_CFLAGS@						\
+	@LIBXFCEGUI4_CFLAGS@						\
 	@LIBPCRE_CFLAGS@						\
 	@GLIB_CFLAGS@							\
 	@GTHREAD_CFLAGS@						
 
-xfce4_verve_plugin_LDFLAGS = 						\
+xfce4_verve_plugin_LDADD = 						\
 	@LIBEXO_LIBS@							\
 	@LIBXFCE4PANEL_LIBS@						\
 	@LIBXFCE4UTIL_LIBS@						\
+	@LIBXFCEGUI4_LIBS@						\
 	@LIBPCRE_LIBS@							\
 	@GLIB_LIBS@							\
 	@GTHREAD_LIBS@
@@ -43,7 +45,7 @@ xfce4_verve_plugin_CFLAGS +=						\
 	-DDBUS_API_SUBJECT_TO_CHANGE					\
 	$(DBUS_CFLAGS)
 
-xfce4_verve_plugin_LDFLAGS += 						\
+xfce4_verve_plugin_LDADD += 						\
 	$(DBUS_LIBS)
 
 verve-dbus-service-infos.h: Makefile $(srcdir)/verve-dbus-service-infos.xml 
