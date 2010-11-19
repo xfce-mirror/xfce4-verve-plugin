@@ -2,7 +2,7 @@
 # Copyright (C) 2006-2007 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
 # Nuno Miguel <nunis@netcabo.pt>, 2007.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: verve plugin 0.3.5\n"
@@ -43,27 +43,23 @@ msgstr "Comportamento"
 #. History length label
 #: ../panel-plugin/verve-plugin.c:850
 msgid "Number of saved history items:"
-msgstr "Número de itens gravados no histórico:"
+msgstr "Número de itens a gravar no histórico:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
-msgstr "Linha de comando com completação automática e histórico de comandos"
+msgstr "Linha de comandos com conclusão automática e histórico de comandos"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
-msgstr "Linha de Comando Verve"
+msgstr "Linha de comandos Verve"
 
 #. Print error message
 #: ../scripts/verve-focus.c:61
 msgid "Failed to connect to the D-BUS session bus."
-msgstr "Falha ao ligar com a sessão D-BUS."
+msgstr "Falha ao ligar com à sessão D-BUS."
 
 #. Print error message
 #: ../scripts/verve-focus.c:84
-msgid ""
-"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
-"running."
-msgstr ""
-"Parece não existir um operador D-BUS Verve (ex. plugin de painel Verve) em "
-"execução."
+msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
+msgstr "Parece que não existe um operador D-BUS em execução (ex. \"plug-in\" de painel Verve)."
