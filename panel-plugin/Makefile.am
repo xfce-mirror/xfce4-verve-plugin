@@ -1,5 +1,3 @@
-# $Id$
-
 plugindir = $(libexecdir)/xfce4/panel-plugins
 
 plugin_PROGRAMS =							\

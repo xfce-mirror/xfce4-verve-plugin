@@ -1,5 +1,3 @@
-# $Id: Makefile.am 1196 2006-03-22 14:34:09Z jpohlmann $
-
 if HAVE_DBUS
 
 bin_PROGRAMS = verve-focus

@@ -1,5 +1,3 @@
-# $Id$
-
 @SET_MAKE@
 
 SUBDIRS =								\

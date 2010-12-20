@@ -1,4 +1,3 @@
-/* $Id$ */
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2006-2007 Jannis Pohlmann <jannis@xfce.org>
