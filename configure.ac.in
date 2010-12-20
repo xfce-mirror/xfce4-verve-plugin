@@ -1,11 +1,13 @@
 dnl Copyright (c) 2006 - Jannis Pohlmann <jannis@xfce.org>
+dnl Copyright (c) 2010 - Florian Rivoal <frivoal@xfce.org>
 dnl
 
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
-AC_COPYRIGHT([Copyright (c) 2006-2008 Jannis Pohlmann <jannis@xfce.org>])
-AC_INIT([xfce4-verve-plugin], [0.3.6], [jannis@xfce.org], [xfce4-verve-plugin])
+AC_COPYRIGHT([Copyright (c) 2006-2008 Jannis Pohlmann <jannis@xfce.org>
+Copyright (c) Florian Rivoal 2010 <frivoal@xfce.org>])
+AC_INIT([xfce4-verve-plugin], [1.0.0], [jannis@xfce.org], [xfce4-verve-plugin])
 AC_PREREQ([2.50])
 
 dnl ***************************
