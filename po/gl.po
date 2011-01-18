@@ -1,17 +1,17 @@
 # Galician translation of verve-plugin
 # Copyright (C) 2008-2009 Leandro Regueiro
 # This file is distributed under the same license as the xfce package.
-#
+# 
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008, 2009.
-#
+# 
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
 # colaborar connosco, podes atopar máis información en <http://trasno.net>
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-23 16:23+0100\n"
+"POT-Creation-Date: 2011-01-18 17:14+0000\n"
 "PO-Revision-Date: 2009-07-15 18:14+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -21,51 +21,50 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:412
+#: ../panel-plugin/verve-plugin.c:411
 msgid "Could not execute command:"
-msgstr "Non se puido executar o comando:"
+msgstr "Non se puido executar a orde:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:790
+#: ../panel-plugin/verve-plugin.c:789
 msgid "Verve"
 msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:808
+#: ../panel-plugin/verve-plugin.c:807
 msgid "Appearance"
 msgstr "Aparencia"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:819
+#: ../panel-plugin/verve-plugin.c:818
 msgid "Width (in chars):"
 msgstr "Ancho (en caracteres):"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:839
+#: ../panel-plugin/verve-plugin.c:838
 msgid "Behaviour"
 msgstr "Comportamento"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:850
+#: ../panel-plugin/verve-plugin.c:849
 msgid "Number of saved history items:"
 msgstr "Número de elementos gardados no historial:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
-msgstr "Interface de liña de comandos con completado automático e historial de comandos"
+msgstr "Interface de liña de ordes con completado automático e historial de ordes"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
-msgstr "Liña de Comandos Verve"
+msgstr "Liña de ordes Verve"
 
 #. Print error message
-#: ../scripts/verve-focus.c:61
+#: ../scripts/verve-focus.c:60
 msgid "Failed to connect to the D-BUS session bus."
 msgstr "Produciuse un erro ó conectar co bus de sesión de D-BUS"
 
 #. Print error message
-#: ../scripts/verve-focus.c:84
+#: ../scripts/verve-focus.c:83
 msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
 msgstr "Parece que non se está executando ningún provedor de D-BUS para Verve (é dicir, o engadido de panel Verve)"
-
