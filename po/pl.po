@@ -1,70 +1,77 @@
-# Polish translation of the verve-plugin package.
+# Polish translation for the verve-plugin package.
 # Copyright (C) 2006-2007 Jannis Pohlmann.
 # This file is distributed under the same license as the verve-plugin package.
 # Piotr Maliński <admin@rk.edu.pl>, 2006.
+# Piotr Sokół <psokol@jabster.pl>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: verve-plugin 0.3.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-23 16:23+0100\n"
-"PO-Revision-Date: 2006-04-08 12:19+0900\n"
-"Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
-"Language-Team: Polish <xfce-i18n@xfce.org>\n"
+"POT-Creation-Date: 2011-03-28 16:15+0000\n"
+"PO-Revision-Date: 2011-03-28 21:46+0200\n"
+"Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
+"Language-Team: Polish <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : ((n%10>=2 && n%10<=4 && (n"
+"%100<10 || n%100>=20)) ? 1 : 2));\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:412
+#: ../panel-plugin/verve-plugin.c:411
 msgid "Could not execute command:"
-msgstr "Nie mogę wykonać polecenia:"
+msgstr "Nie można wykonać polecenia:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:790
+#: ../panel-plugin/verve-plugin.c:789
 msgid "Verve"
-msgstr "Verve"
+msgstr "Wiersz poleceń Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:808
+#: ../panel-plugin/verve-plugin.c:807
 msgid "Appearance"
 msgstr "Wygląd"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:819
+#: ../panel-plugin/verve-plugin.c:818
 msgid "Width (in chars):"
-msgstr "Długość (znaki):"
+msgstr "Szerokość (znaki):"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:839
+#: ../panel-plugin/verve-plugin.c:838
 msgid "Behaviour"
 msgstr "Zachowanie"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:850
+#: ../panel-plugin/verve-plugin.c:849
 msgid "Number of saved history items:"
-msgstr "Liczba zapisanych elementów historii:"
+msgstr "Ilość przechowywanych elementów historii:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
-msgstr "Wiersz poleceń z autouzupełnianiem i historią komend"
+msgstr ""
+"Wprowadza polecenia wykorzystując automatyczne uzupełnianie i historię "
+"poleceń"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
-msgstr "Wiersz Poleceń Verve"
+msgstr "Wiersz poleceń Verve"
 
 #. Print error message
-#: ../scripts/verve-focus.c:61
+#: ../scripts/verve-focus.c:60
 msgid "Failed to connect to the D-BUS session bus."
-msgstr "Nie udało się połączyć z sesją D-BUSa."
+msgstr "Nie udało się połączyć z sesją systemu D-Bus."
 
 #. Print error message
-#: ../scripts/verve-focus.c:84
+#: ../scripts/verve-focus.c:83
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr "Wygląda na to że nie ma działającej obecnie wtyczki panelu Verve."
+msgstr ""
+"Nie odnaleziono uruchomionej usługi wiersza poleceń Verve systemu D-Bus (np. "
+"wtyczki panelu)."
 
 #~ msgid "Verve Properties"
 #~ msgstr "Ustawienia Verve"
