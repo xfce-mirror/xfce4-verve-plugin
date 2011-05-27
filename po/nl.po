@@ -1,13 +1,14 @@
 # Dutch translation of the verve-plugin package.
-# Copyright (C) 2006-2007 Jannis Pohlmann.
+# Copyright (C) The Xfce development team.
 # This file is distributed under the same license as the verve-plugin package.
 # Stephan Arts <stephan@xfce.org>, 2006.
+# Pjotr, 2011.
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: verve-plugin 0.3.5\n"
+"Project-Id-Version: verve-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-26 10:16+0000\n"
+"POT-Creation-Date: 2011-05-27 10:18+0000\n"
 "PO-Revision-Date: 2006-02-09 16:20+0100\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch <xfce-i18n@xfce.org>\n"
@@ -49,7 +50,8 @@ msgstr "Aantal opgeslagen geschiedenis-elementen:"
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
 msgstr ""
-"Opdrachtregel-werkomgeving met automatische aanvulling en opdrachtgeschiedenis"
+"Opdrachtregel-werkomgeving met automatische aanvulling en "
+"opdrachtgeschiedenis"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
@@ -66,8 +68,8 @@ msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
 msgstr ""
-"Er schijnt geen Verve D-BUS provider te draaien (zoals de Verve "
-"werkbalk-plugin)."
+"Er schijnt geen Verve D-BUS provider te draaien (zoals de Verve werkbalk-"
+"plugin)."
 
 #~ msgid "Verve Properties"
 #~ msgstr "Verve Eigenschappen"
