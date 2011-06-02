@@ -1,17 +1,17 @@
-# Dutch translation of the verve-plugin package.
+# Dutch translation of the xfce4-verve-plugin package.
 # Copyright (C) The Xfce development team.
-# This file is distributed under the same license as the verve-plugin package.
+# This file is distributed under the same license as the xfce4-verve-plugin package.
 # Stephan Arts <stephan@xfce.org>, 2006.
 # Pjotr, 2011.
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: verve-plugin\n"
+"Project-Id-Version: xfce4-verve-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-27 10:18+0000\n"
+"POT-Creation-Date: 2011-06-02 10:17+0000\n"
 "PO-Revision-Date: 2006-02-09 16:20+0100\n"
 "Last-Translator: Pjotr\n"
-"Language-Team: Dutch <xfce-i18n@xfce.org>\n"
+"Language-Team: Dutch (Flemish)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:411
 msgid "Could not execute command:"
-msgstr "Kan opdracht niet uitvoeren:"
+msgstr "Kon opdracht niet uitvoeren:"
 
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:789
