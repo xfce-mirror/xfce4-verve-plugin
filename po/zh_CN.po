@@ -1,11 +1,11 @@
 # Chinese translations for xfce package.
 # Copyright (C) 2009 THE xfce'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce package.
+# This file is distributed under the same license as the xfce4-verve-plugin.
 # Hunt Xu <huntxu@live.cn>, 2009.
 # Chipong Luo <chipong_l@yahoo.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce 4-verve-plugin\n"
+"Project-Id-Version: xfce4-verve-plugin\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-09 04:09+0000\n"
 "PO-Revision-Date: 2009-05-13 10:41+0800\n"
