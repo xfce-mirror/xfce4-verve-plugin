@@ -3,15 +3,15 @@
 # This file is distributed under the same license as
 # the xfce4-verve-plugin package.
 # Hunt Xu <huntxu@live.cn>, 2009.
-# Chipong Luo <chipong_l@yahoo.com>, 2011.
+# Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-verve-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-09 04:09+0000\n"
+"POT-Creation-Date: 2012-02-09 01:03+0000\n"
 "PO-Revision-Date: 2009-05-13 10:41+0800\n"
-"Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
+"Last-Translator: Chipong Luo <chipong.luo@yahoo.com>\n"
 "Language-Team: Chinese (Simplified) <xfce-i18n@xfce.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "未能执行命令："
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:789
 msgid "Verve"
-msgstr "Verve 命令行"
+msgstr "Verve"
 
 #. Frame for appearance settings
 #: ../panel-plugin/verve-plugin.c:807
@@ -51,7 +51,7 @@ msgstr "已保存的历史项目数量："
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
-msgstr "带自动补全和历史的命令行界面"
+msgstr "带自动补全和命令历史的命令行界面"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
@@ -67,4 +67,6 @@ msgstr "无法与 D-BUS 会话总线连接。"
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr "似乎没有 Verve D-BUS  提供者(如Verve的面板插件)在运行。"
+msgstr ""
+"似乎没有 Verve D-BUS 提供者(比如 Verve "
+"面板插件)在运行。"
