@@ -48,7 +48,7 @@ msgstr "동작"
 #. History length label
 #: ../panel-plugin/verve-plugin.c:849
 msgid "Number of saved history items:"
-msgstr "저장된 기록 요소 수:"
+msgstr "저장한 기록 요소 수:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
