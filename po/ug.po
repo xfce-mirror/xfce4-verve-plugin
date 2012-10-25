@@ -1,20 +1,20 @@
-# Uyghur translations of the verve-plugin package.
-# Copyright (C) 2006-2007 Jannis Pohlmann.
-# This file is distributed under the same license as the verve-plugin package.
-# Gheyret T.Kenji <gheyret@gmail.com>, 2010.
-# 
+# Uyghur translation for xfce4-verve-plugin.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Gheyret Kenji <gheyret@gmail.com>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: verve-plugin\n"
+"Project-Id-Version: xfce4-verve-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-06 22:54+0000\n"
-"PO-Revision-Date: 2008-10-07 12:55+0900\n"
-"Last-Translator: Gheyret T.Kenji <gheyret@gmail.com>\n"
+"POT-Creation-Date: 2012-10-24 04:45+0000\n"
+"PO-Revision-Date: 2011-11-09 16:10+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:411
@@ -65,6 +65,4 @@ msgstr "D-BUS ئەڭگىمە لىنىيىسىگە باغلىنىش مەغلۇپ 
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr ""
-"Verve D-BUSprovider يوقتەك قىلىدۇ (مەسىلەن: Verve تاختا قىستۇرمىسى) ئىجرا "
-"قىلىنمىغاندەك قىلىدۇ."
+msgstr "Verve D-BUSprovider يوقتەك قىلىدۇ (مەسىلەن: Verve تاختا قىستۇرمىسى) ئىجرا قىلىنمىغاندەك قىلىدۇ."
