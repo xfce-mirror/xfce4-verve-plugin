@@ -1,26 +1,31 @@
+# محمد الحرقان <malham1@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-verve-plugin\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-09 10:17+0000\n"
-"PO-Revision-Date: 2011-08-09 16:10-0000\n"
-"Last-Translator: كريم أولاد الشلحة <herr.linux88@gmail.com>\n"
-"Language-Team: Arabic Xfce Translation Team <herr.linux88@gmail.com>\n"
+"POT-Creation-Date: 2012-11-19 01:21+0000\n"
+"PO-Revision-Date: 2012-11-19 06:39+0300\n"
+"Last-Translator: محمد الحرقان <malham1@gmail.com>\n"
+"Language-Team: http://www.vertaal.com.ar/files/factory/ar/list/\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-Poedit-Language: Arabic\n"
 "X-Poedit-Country: Morocco\n"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:411
 msgid "Could not execute command:"
-msgstr "عجز عن تنفيذ الأمر:"
+msgstr "تعذر تنفيذ الأمر:"
 
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:789
 msgid "Verve"
-msgstr "فيرف"
+msgstr "Verve"
 
 #. Frame for appearance settings
 #: ../panel-plugin/verve-plugin.c:807
@@ -45,11 +50,11 @@ msgstr "عدد عناصر التاريخ المحفوظ:"
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
 msgid "Command line interface with auto-completion and command history"
-msgstr "واجهة سطر أوامر تدعم الاستكمال التلقائي وتاريخ للأوامر"
+msgstr "واجهة سطر أوامر تدعم الاستكمال التلقائي وتاريخ أوامر"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
 msgid "Verve Command Line"
-msgstr "سطر أوامر فيرف"
+msgstr "سطر أوامر Verve"
 
 #. Print error message
 #: ../scripts/verve-focus.c:60
@@ -58,6 +63,9 @@ msgstr "فشل في الاتصال ب D-BUS session bus. "
 
 #. Print error message
 #: ../scripts/verve-focus.c:83
-msgid "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) running."
-msgstr "يبدو أنه لا يوجد موفر D-BUS فيرف يعمل"
-
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
+msgstr ""
+"لا يوجد هناك، على ما يبدو موفر Verve D-BUS (مثلاً لوحة مساعد Verve) قيد "
+"التشغيل."
