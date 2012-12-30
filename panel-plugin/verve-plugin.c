@@ -822,7 +822,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (size_label);
 
   /* Plugin size adjustment */
-  adjustment = gtk_adjustment_new (verve->size, 5, 100, 1, 5, 10);
+  adjustment = gtk_adjustment_new (verve->size, 5, 100, 1, 5, 0);
 
   /* Plugin size spin button */
   size_spin = gtk_spin_button_new (GTK_ADJUSTMENT (adjustment), 1, 0);
@@ -853,7 +853,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (history_length_label);
 
   /* History length adjustment */
-  adjustment = gtk_adjustment_new (verve->history_length, 0, 1000, 1, 5, 10);
+  adjustment = gtk_adjustment_new (verve->history_length, 0, 1000, 1, 5, 0);
 
   /* History length spin button */
   history_length_spin = gtk_spin_button_new (GTK_ADJUSTMENT (adjustment), 1, 0);
