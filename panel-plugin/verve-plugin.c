@@ -411,7 +411,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
             gchar *msg = g_strconcat (_("Could not execute command:"), " ", command, NULL);
 
             /* Display error message dialog */
-            xfce_err (msg);
+            xfce_dialog_show_error (NULL, NULL, msg);
 
             /* Free message */
             g_free (msg);
@@ -501,8 +501,10 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   /* Set application name */
   g_set_application_name ("Verve");
 
+#if !GLIB_CHECK_VERSION (2, 30, 0)
   /* Init thread system */
   g_thread_init (NULL);
+#endif
 
   /* Init Verve mini-framework */
   verve_init ();
@@ -804,7 +806,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_container_set_border_width (GTK_CONTAINER (dialog), 2);
 
   /* Frame for appearance settings */
-  frame = xfce_create_framebox (_("Appearance"), &bin1);
+  frame = xfce_gtk_frame_box_new (_("Appearance"), &bin1);
   gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
   gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), frame, TRUE, TRUE, 0);
   gtk_widget_show (frame);
@@ -835,7 +837,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   g_signal_connect (size_spin, "value-changed", G_CALLBACK (verve_plugin_size_changed), verve);
 
   /* Frame for behaviour settings */
-  frame = xfce_create_framebox (_("Behaviour"), &bin2);
+  frame = xfce_gtk_frame_box_new (_("Behaviour"), &bin2);
   gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
   gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), frame, TRUE, TRUE, 0);
   gtk_widget_show (frame);

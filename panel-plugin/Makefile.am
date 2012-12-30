@@ -18,19 +18,17 @@ xfce4_verve_plugin_CFLAGS = 						\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	@LIBEXO_CFLAGS@							\
 	@LIBXFCE4PANEL_CFLAGS@						\
+	@LIBXFCE4UI_CFLAGS@						\
 	@LIBXFCE4UTIL_CFLAGS@						\
-	@LIBXFCEGUI4_CFLAGS@						\
 	@LIBPCRE_CFLAGS@						\
-	@GLIB_CFLAGS@							\
 	@GTHREAD_CFLAGS@						
 
 xfce4_verve_plugin_LDADD = 						\
 	@LIBEXO_LIBS@							\
 	@LIBXFCE4PANEL_LIBS@						\
+	@LIBXFCE4UI_LIBS@						\
 	@LIBXFCE4UTIL_LIBS@						\
-	@LIBXFCEGUI4_LIBS@						\
 	@LIBPCRE_LIBS@							\
-	@GLIB_LIBS@							\
 	@GTHREAD_LIBS@
 
 if HAVE_DBUS
