@@ -902,7 +902,7 @@ verve_plugin_construct (XfcePanelPlugin *plugin)
 
 
 /* Register exteral panel plugin */
-XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (verve_plugin_construct);
+XFCE_PANEL_PLUGIN_REGISTER (verve_plugin_construct);
 
 
 
