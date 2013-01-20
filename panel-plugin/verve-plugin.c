@@ -120,7 +120,6 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 static gboolean
 verve_plugin_focus_timeout (VervePlugin *verve)
 {
-  GtkStyle *default_style;
   GtkStyle *style;
   
   g_return_val_if_fail (verve != NULL, FALSE);
@@ -129,16 +128,13 @@ verve_plugin_focus_timeout (VervePlugin *verve)
   /* Determine current entry style */
   style = gtk_widget_get_style (verve->input);
 
-  /* Get default style for widgets */
-  default_style = gtk_widget_get_default_style ();
-  
   /* Check whether the entry already is highlighted */
   if (gdk_color_equal (&style->base[GTK_STATE_NORMAL], &style->base[GTK_STATE_SELECTED]))
     {
       /* Make it look normal again */
-      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &default_style->base[GTK_STATE_NORMAL]);
-      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &default_style->bg[GTK_STATE_NORMAL]);
-      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &default_style->text[GTK_STATE_NORMAL]);
+      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &style->base[GTK_STATE_NORMAL]);
+      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style->bg[GTK_STATE_NORMAL]);
+      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &style->text[GTK_STATE_NORMAL]);
     }
   else
     {
@@ -156,7 +152,7 @@ verve_plugin_focus_timeout (VervePlugin *verve)
 static void
 verve_plugin_focus_timeout_reset (VervePlugin *verve)
 {
-  GtkStyle *default_style;
+  GtkStyle *style;
 
   g_return_if_fail (verve != NULL);
   g_return_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input));
@@ -168,13 +164,13 @@ verve_plugin_focus_timeout_reset (VervePlugin *verve)
       verve->focus_timeout = 0;
     }
   
-  /* Get default style */
-  default_style = gtk_widget_get_default_style ();
+  /* Determine current entry style */
+  style = gtk_widget_get_style (verve->input);
   
   /* Reset entry background */
-  gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &default_style->base[GTK_STATE_NORMAL]);
-  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &default_style->bg[GTK_STATE_NORMAL]);
-  gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &default_style->text[GTK_STATE_NORMAL]);
+  gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &style->base[GTK_STATE_NORMAL]);
+  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style->bg[GTK_STATE_NORMAL]);
+  gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &style->text[GTK_STATE_NORMAL]);
 }
 
 
