@@ -1,76 +1,71 @@
-# Spanish translation of the verve-plugin package.
-# Copyright (C) 2006-2007 Jannis Pohlmann.
-# This file is distributed under the same license as the verve-plugin package.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
 # Abel Martín <abel.martin.ruiz@gmail.com>, 2008
-#
+# Pablo Lezaeta <prflr88@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: verve-plugin 0.3.5\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-23 16:23+0100\n"
-"PO-Revision-Date: 2008-11-02 23:28+0100\n"
-"Last-Translator: Abel Martín <abel.martin.ruiz@gmail.com>\n"
-"Language-Team: Spanish <xfce-i18n@xfce.org>\n"
+"POT-Creation-Date: 2013-07-03 21:26+0200\n"
+"PO-Revision-Date: 2013-11-12 19:17+0000\n"
+"Last-Translator: Pablo Lezaeta <prflr88@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/xfce/language/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:412
+#: ../panel-plugin/verve-plugin.c:407
 msgid "Could not execute command:"
-msgstr "No se pudo ejecutar el comando:"
+msgstr "No se pudo ejecutar la orden:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:790
+#: ../panel-plugin/verve-plugin.c:787
 msgid "Verve"
 msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:808
+#: ../panel-plugin/verve-plugin.c:805
 msgid "Appearance"
 msgstr "Apariencia"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:819
+#: ../panel-plugin/verve-plugin.c:816
 msgid "Width (in chars):"
 msgstr "Anchura (en caracteres):"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:839
+#: ../panel-plugin/verve-plugin.c:836
 msgid "Behaviour"
 msgstr "Comportamiento"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:850
+#: ../panel-plugin/verve-plugin.c:847
 msgid "Number of saved history items:"
 msgstr "Numero de elementos guardados en el historial:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
-msgid "Command line interface with auto-completion and command history"
-msgstr ""
-"Interfaz de línea de comandos con auto-completado e historial de comandos"
-
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
 msgid "Verve Command Line"
-msgstr "Línea de comandos Verve"
+msgstr "Línea de órdenes Verve"
+
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
+msgid "Command line interface with auto-completion and command history"
+msgstr "Interfaz de línea de órdenes con autocompletado e historial de órdenes"
 
 #. Print error message
-#: ../scripts/verve-focus.c:61
+#: ../scripts/verve-focus.c:60
 msgid "Failed to connect to the D-BUS session bus."
 msgstr "Fallo al conectar al bus de sesión D-BUS."
 
 #. Print error message
-#: ../scripts/verve-focus.c:84
+#: ../scripts/verve-focus.c:83
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr ""
-"Parece que no hay ningún proveedor de Verve D-BUS (i.e. el complemento de "
-"panel Verve) ejecutándose."
-
-#~ msgid "Verve Properties"
-#~ msgstr "Préférences Verve"
-
-#~ msgid "Unkown command."
-#~ msgstr "Commande inconnue."
+msgstr "Parece que no hay ningún proveedor D-BUS de Verve (i.e. el complemento de panel Verve) ejecutándose."
