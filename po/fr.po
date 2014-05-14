@@ -5,14 +5,15 @@
 # Translators:
 # jc1 <jc1.quebecos@gmail.com>, 2013
 # Maximilian Schleiss <maximilian@xfce.org>, 2006
+# Urides <urien.desterres@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 21:26+0200\n"
-"PO-Revision-Date: 2013-08-03 13:26+0000\n"
-"Last-Translator: jc1 <jc1.quebecos@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/xfce/language/fr/)\n"
+"PO-Revision-Date: 2014-05-14 11:29+0000\n"
+"Last-Translator: Urides <urien.desterres@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +23,7 @@ msgstr ""
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:407
 msgid "Could not execute command:"
-msgstr "Échec à l'exécution de la commande :"
+msgstr "Impossible d’exécuter la commande :"
 
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:787
@@ -47,7 +48,7 @@ msgstr "Comportement"
 #. History length label
 #: ../panel-plugin/verve-plugin.c:847
 msgid "Number of saved history items:"
-msgstr "Nombre d'éléments sauvegardés dans l'historique :"
+msgstr "Nombre d’éléments enregistrés dans l'historique :"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
@@ -56,7 +57,7 @@ msgstr "Ligne de commande Verve"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
 msgid "Command line interface with auto-completion and command history"
-msgstr "Interface de ligne de commande avec l'auto-complétion et l'historique des commandes"
+msgstr "Interface de ligne de commande avec autocomplétion et historique des commandes"
 
 #. Print error message
 #: ../scripts/verve-focus.c:60
@@ -68,4 +69,4 @@ msgstr "Impossible de se connecter au bus de session D-BUS."
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr "Il semble n'y avoir aucun fournisseur D-BUS Verve (par exemple, le plugin panneau de Verve) en fonctionnement."
+msgstr "Il semble n’y avoir aucun fournisseur D-BUS Verve (comme le greffon de tableau de bord Verve) en fonctionnement."
