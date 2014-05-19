@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-03 21:26+0200\n"
-"PO-Revision-Date: 2014-05-14 11:29+0000\n"
+"PO-Revision-Date: 2014-05-19 18:13+0000\n"
 "Last-Translator: Urides <urien.desterres@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgstr "Comportement"
 #. History length label
 #: ../panel-plugin/verve-plugin.c:847
 msgid "Number of saved history items:"
-msgstr "Nombre d’éléments enregistrés dans l'historique :"
+msgstr "Nombre d’éléments enregistrés dans l’historique :"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
