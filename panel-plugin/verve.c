@@ -165,7 +165,7 @@ verve_execute (const gchar *input,
   {
     /* Run command using the xfterm4 wrapper if the terminal flag was set */
     if (G_UNLIKELY (terminal))
-      command = g_strconcat ("xfterm4 -e ", input, NULL);
+      command = g_strconcat ("exo-open --launch TerminalEmulator '", input, "'", NULL);
     else
       command = g_strdup (input);
   }
