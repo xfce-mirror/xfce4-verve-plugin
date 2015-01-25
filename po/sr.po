@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Саша Петровић <salepetronije@gmail.com>, 2013.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-06 12:03+0000\n"
+"PO-Revision-Date: 2013-01-30 15:50+0100\n"
+"Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
+"Language-Team: српски <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#. Generate error message
+#: ../panel-plugin/verve-plugin.c:407
+msgid "Could not execute command:"
+msgstr "Нисам успео да извршим наредбу:"
+
+#. Create properties dialog
+#: ../panel-plugin/verve-plugin.c:787
+msgid "Verve"
+msgstr "Полет"
+
+#. Frame for appearance settings
+#: ../panel-plugin/verve-plugin.c:805
+msgid "Appearance"
+msgstr "Изглед"
+
+#. Plugin size label
+#: ../panel-plugin/verve-plugin.c:816
+msgid "Width (in chars):"
+msgstr "Ширина (у знацима)"
+
+#. Frame for behaviour settings
+#: ../panel-plugin/verve-plugin.c:836
+msgid "Behaviour"
+msgstr "Понашање"
+
+#. History length label
+#: ../panel-plugin/verve-plugin.c:847
+msgid "Number of saved history items:"
+msgstr "Број ставки које се чувају у историји:"
+
+#. vim:set expandtab sts=2 ts=2 sw=2:
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
+msgid "Command line interface with auto-completion and command history"
+msgstr "Сучеље наредбене линије са самосталном допуном и историјом наредби"
+
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
+msgid "Verve Command Line"
+msgstr "Полетна наредбена линија"
+
+#. Print error message
+#: ../scripts/verve-focus.c:60
+msgid "Failed to connect to the D-BUS session bus."
+msgstr "Нисам успео да се повежем на сабирницу сесије Д-сабирнице."
+
+#. Print error message
+#: ../scripts/verve-focus.c:83
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
+msgstr ""
+"Изгледа да нема достављача Полета Д-сабирнице (тј. нема прикључка на плочи) "
+"у погону. "
