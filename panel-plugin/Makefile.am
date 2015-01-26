@@ -1,4 +1,4 @@
-plugindir = $(libexecdir)/xfce4/panel/plugins
+plugindir = $(libdir)/xfce4/panel/plugins
 
 plugin_LTLIBRARIES = libverve.la
 
