@@ -1,3 +1,11 @@
+1.0.1 (2015/01/26):
+-------------------
+ * Use exo-open instead of the deprecated xfterm4 to launch commands in a term via ctrl-enter (bug #9978)
+ * Fix style when the entry loses focus (bug #3525)
+ * Build the plugin as a module
+ * Port to libxfce4ui
+ * Tons of translation updates !
+
 1.0.0 (2010/12/23):
 -------------------
  * Translated into 7 more languages, for a total of 37, 36 of which are full translations

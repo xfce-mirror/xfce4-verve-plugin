@@ -7,7 +7,7 @@ dnl *** Initialize autoconf ***
 dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2006-2008 Jannis Pohlmann <jannis@xfce.org>
 Copyright (c) Florian Rivoal 2010 <frivoal@xfce.org>])
-AC_INIT([xfce4-verve-plugin], [1.0.0], [jannis@xfce.org], [xfce4-verve-plugin])
+AC_INIT([xfce4-verve-plugin], [1.0.1], [jannis@xfce.org], [xfce4-verve-plugin])
 AC_PREREQ([2.50])
 
 dnl ***************************
