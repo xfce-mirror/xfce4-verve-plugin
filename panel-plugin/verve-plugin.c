@@ -52,6 +52,7 @@ typedef struct
 
   /* User interface */
   GtkWidget        *event_box;
+  GtkWidget        *label;
   GtkWidget        *input;
   
   /* Command history */
@@ -518,6 +519,9 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   verve->size = 20;
   verve->history_length = 25;
 
+  /* Initialize label */
+  verve->label = gtk_label_new ("");
+
   /* Connect to load-binaries signal of environment */
   g_signal_connect (G_OBJECT (verve_env_get()), "load-binaries", G_CALLBACK (verve_plugin_load_completion), verve);
 
@@ -528,11 +532,20 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   verve->event_box = gtk_event_box_new ();
   gtk_widget_show (verve->event_box);
   
+  /* Create a container for the label and input */
+  GtkWidget *hbox = gtk_hbox_new (FALSE, 0);
+  gtk_container_add (GTK_CONTAINER (verve->event_box), hbox);
+  gtk_widget_show (hbox);
+
+  /* Add the label */
+  gtk_widget_show (verve->label);
+  gtk_container_add (GTK_CONTAINER (hbox), verve->label);
+  
   /* Create the input entry */
   verve->input = gtk_entry_new ();
   gtk_entry_set_width_chars (GTK_ENTRY (verve->input), 20);
   gtk_widget_show (verve->input);
-  gtk_container_add (GTK_CONTAINER (verve->event_box), verve->input);
+  gtk_container_add (GTK_CONTAINER (hbox), verve->input);
 
   /* Handle mouse button and key press events */
   g_signal_connect (verve->input, "key-press-event", G_CALLBACK (verve_plugin_keypress_cb), verve);
@@ -609,6 +622,21 @@ verve_plugin_size_changed_request (XfcePanelPlugin *plugin,
 
 
 static gboolean
+verve_plugin_update_label (XfcePanelPlugin *plugin,
+                           const gchar     *label,
+                           VervePlugin     *verve)
+{
+  g_return_val_if_fail (verve != NULL, FALSE);
+
+  /* Set text in internal label object */
+  gtk_label_set_text(verve->label, label);
+
+  return TRUE;
+}
+
+
+
+static gboolean
 verve_plugin_update_history_length (XfcePanelPlugin *plugin,
                                     gint             history_length,
                                     VervePlugin     *verve)
@@ -636,6 +664,9 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
   /* Default size */
   gint    size = 20;
 
+  /* Default label */
+  gchar  *label = "";
+
   /* Default number of saved history entries */
   gint    history_length = 25;
 
@@ -658,11 +689,17 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
       /* Read size value */
       size = xfce_rc_read_int_entry (rc, "size", size);
 
+      /* Read label text */
+      label = xfce_rc_read_entry (rc, "label", label);
+
       /* Read number of saved history entries */
       history_length = xfce_rc_read_int_entry (rc, "history-length", history_length);
     
       /* Update plugin size */
       verve_plugin_update_size (NULL, size, verve);
+    
+      /* Update label */
+      verve_plugin_update_label (NULL, label, verve);
 
       /* Update history length */
       verve_plugin_update_history_length (NULL, history_length, verve);
@@ -702,6 +739,9 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin,
       /* Write size value */
       xfce_rc_write_int_entry (rc, "size", verve->size);
 
+      /* Write label value */
+      xfce_rc_write_entry (rc, "label", gtk_label_get_text(verve->label));
+
       /* Write number of saved history entries */
       xfce_rc_write_int_entry (rc, "history-length", verve->history_length);
     
@@ -723,6 +763,21 @@ verve_plugin_size_changed (GtkSpinButton *spin,
 
   /* Update plugin size */
   verve_plugin_update_size (NULL, gtk_spin_button_get_value_as_int (spin), verve);
+}
+
+
+
+static void
+verve_plugin_label_changed (GtkEntry *box, 
+                            VervePlugin *verve)
+{
+  g_return_if_fail (verve != NULL);
+
+  /* Get the entered URL */
+  const gchar *label = gtk_entry_get_text (box);
+
+  /* Update search engine ID */
+  verve_plugin_update_label (NULL, label, verve);
 }
 
 
@@ -771,8 +826,11 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   GtkWidget *bin1;
   GtkWidget *bin2;
   GtkWidget *hbox;
+  GtkWidget *vbox;
   GtkWidget *size_label;
   GtkWidget *size_spin;
+  GtkWidget *label_label;
+  GtkWidget *label_box;
   GtkWidget *history_length_label;
   GtkWidget *history_length_spin;
   GtkObject *adjustment;
@@ -807,9 +865,14 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), frame, TRUE, TRUE, 0);
   gtk_widget_show (frame);
 
+  /* Plugin size & label vertical container */
+  vbox = gtk_vbox_new (FALSE, 8);
+  gtk_container_add (GTK_CONTAINER(bin1), vbox);
+  gtk_widget_show(vbox);
+
   /* Plugin size container */
   hbox = gtk_hbox_new (FALSE, 8);
-  gtk_container_add (GTK_CONTAINER (bin1), hbox);
+  gtk_container_add (GTK_CONTAINER (vbox), hbox);
   gtk_widget_show (hbox);
 
   /* Plugin size label */
@@ -818,7 +881,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (size_label);
 
   /* Plugin size adjustment */
-  adjustment = gtk_adjustment_new (verve->size, 5, 100, 1, 5, 0);
+  adjustment = gtk_adjustment_new (verve->size, 5, 300, 1, 5, 0);
 
   /* Plugin size spin button */
   size_spin = gtk_spin_button_new (GTK_ADJUSTMENT (adjustment), 1, 0);
@@ -831,6 +894,28 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
 
   /* Be notified when the user requests a different plugin size */
   g_signal_connect (size_spin, "value-changed", G_CALLBACK (verve_plugin_size_changed), verve);
+
+  /* Plugin label container */
+  hbox = gtk_hbox_new (FALSE, 8);
+  gtk_container_add (GTK_CONTAINER (vbox), hbox);
+  gtk_widget_show (hbox);
+
+  /* Plugin label label */
+  label_label = gtk_label_new (_("Label:"));
+  gtk_box_pack_start (GTK_BOX (hbox), label_label, FALSE, TRUE, 0);
+  gtk_widget_show (label_label);
+
+  /* Plugin label entry field */
+  label_box = gtk_entry_new();
+
+  /* Set text to current plugin label */
+  gtk_entry_set_text(label_box, gtk_label_get_text(verve->label));
+  gtk_widget_add_mnemonic_label (label_box, label_label);
+  gtk_box_pack_start (GTK_BOX (hbox), label_box, FALSE, TRUE, 0);
+  gtk_widget_show (label_box);
+
+  /* Be notified when the user requests a different search engine setting */
+  g_signal_connect (label_box, "changed", G_CALLBACK (verve_plugin_label_changed), verve);
 
   /* Frame for behaviour settings */
   frame = xfce_gtk_frame_box_new (_("Behaviour"), &bin2);
