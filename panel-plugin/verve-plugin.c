@@ -69,6 +69,9 @@ typedef struct
   gint              size;
   gint              history_length;
 
+  /* Default GTK style - to restore after blinking upon verve-focus */
+  GtkStyle         *default_style;
+
 #ifdef HAVE_DBUS
   VerveDBusService *dbus_service;
 #endif
@@ -133,9 +136,9 @@ verve_plugin_focus_timeout (VervePlugin *verve)
   if (gdk_color_equal (&style->base[GTK_STATE_NORMAL], &style->base[GTK_STATE_SELECTED]))
     {
       /* Make it look normal again */
-      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &style->base[GTK_STATE_NORMAL]);
-      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style->bg[GTK_STATE_NORMAL]);
-      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &style->text[GTK_STATE_NORMAL]);
+      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &verve->default_style->base[GTK_STATE_NORMAL]);
+      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &verve->default_style->bg[GTK_STATE_NORMAL]);
+      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &verve->default_style->text[GTK_STATE_NORMAL]);
     }
   else
     {
@@ -165,13 +168,10 @@ verve_plugin_focus_timeout_reset (VervePlugin *verve)
       verve->focus_timeout = 0;
     }
   
-  /* Determine current entry style */
-  style = gtk_widget_get_style (verve->input);
-  
   /* Reset entry background */
-  gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &style->base[GTK_STATE_NORMAL]);
-  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style->bg[GTK_STATE_NORMAL]);
-  gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &style->text[GTK_STATE_NORMAL]);
+  gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &verve->default_style->base[GTK_STATE_NORMAL]);
+  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &verve->default_style->bg[GTK_STATE_NORMAL]);
+  gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &verve->default_style->text[GTK_STATE_NORMAL]);
 }
 
 
@@ -551,6 +551,11 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   g_signal_connect (verve->input, "key-press-event", G_CALLBACK (verve_plugin_keypress_cb), verve);
   g_signal_connect (verve->input, "button-press-event", G_CALLBACK (verve_plugin_buttonpress_cb), verve);
   g_signal_connect (verve->input, "focus-out-event", G_CALLBACK (verve_plugin_focus_out), verve);
+
+  /* Copy the default GTK style into the plugin structure, for restoring after verve-focus */
+  GtkStyle *style = gtk_widget_get_style (verve->input);
+  verve->default_style = g_new (GtkStyle, 1);
+  memcpy(verve->default_style, style, sizeof (GtkStyle));
   
 #ifdef HAVE_DBUS
   /* Attach the D-BUS service */
@@ -579,7 +584,10 @@ verve_plugin_free (XfcePanelPlugin *plugin,
 
   /* Unload completion */
   g_completion_free (verve->completion);
-  
+
+  /* Unload default GTK style */
+  g_free (verve->default_style);
+
   /* Free plugin data structure */
   g_free (verve);
 
