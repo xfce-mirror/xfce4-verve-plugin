@@ -1,8 +1,8 @@
 /***************************************************************************
  *            verve.c
  *
- *  Copyright  2006-2007  Jannis Pohlmann
- *  jannis@xfce.org
+ *  Copyright © 2006-2007 Jannis Pohlmann <jannis@xfce.org>
+ *  Copyright © 2015 Isaac Schemm <isaacschemm@gmail.com>
  ****************************************************************************/
 
 /*
@@ -50,7 +50,44 @@ static gboolean verve_is_directory (const gchar *str);
                     "(/[-A-Za-z0-9_$.+!*(),;:@&=?/~#%]*[^]'.}>) \t\r\n,\\\"])?/?$"
 #define MATCH_EMAIL "^(mailto:)?[a-z0-9][a-z0-9.-]*@[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
 
+/*********************************************************************
+ *
+ * Smart bookmark and DuckDuckGo settings
+ * -------------------------
+ *
+ * These static variables store the settings for DuckDuckGo and/or smartbookmark functionality.
+ *
+ *********************************************************************/
 
+static gboolean use_bang = TRUE;
+static gboolean use_backslash = FALSE;
+static gboolean use_smartbookmark = FALSE;
+static gchar *smartbookmark_url = NULL;
+
+void
+verve_set_bang_setting (gboolean bang)
+{
+  use_bang = bang;
+}
+
+void
+verve_set_backslash_setting (gboolean backslash)
+{
+  use_backslash = backslash;
+}
+
+void
+verve_set_smartbookmark_setting (gboolean smartbookmark)
+{
+  use_smartbookmark = smartbookmark;
+}
+
+void
+verve_set_smartbookmark_url (gchar* engine)
+{
+  g_free(smartbookmark_url);
+  smartbookmark_url = g_strdup(engine);
+}
 
 /*********************************************************************
  *
@@ -160,6 +197,20 @@ verve_execute (const gchar *input,
   {
     /* Build exo-open command */
     command = g_strconcat ("exo-open ", input, NULL);
+  }
+  else if ((use_bang && input[0] == '!') || (use_backslash && input[0] == '\\'))
+  {
+    /* Launch DuckDuckGo */
+    gchar *esc_input = g_uri_escape_string(input, NULL, TRUE);
+    command = g_strconcat ("exo-open https://duckduckgo.com/?q=", esc_input, NULL);
+    g_free(esc_input);
+  }
+  else if (use_smartbookmark)
+  {
+    /* Launch user-defined search engine */
+    gchar *esc_input = g_uri_escape_string(input, NULL, TRUE);
+    command = g_strconcat ("exo-open ", smartbookmark_url, esc_input, NULL);
+    g_free(esc_input);
   }
   else
   {
