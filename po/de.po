@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-29 06:31+0100\n"
-"PO-Revision-Date: 2015-01-31 15:39+0000\n"
+"POT-Creation-Date: 2015-02-01 00:31+0100\n"
+"PO-Revision-Date: 2015-02-01 18:02+0000\n"
 "Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,39 +20,61 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:408
+#: ../panel-plugin/verve-plugin.c:412
 msgid "Could not execute command:"
 msgstr "Der Befehl konnte nicht ausführen werden:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:845
+#: ../panel-plugin/verve-plugin.c:1043
 msgid "Verve"
 msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:863
+#: ../panel-plugin/verve-plugin.c:1061
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:879
+#: ../panel-plugin/verve-plugin.c:1077
 msgid "Width (in chars):"
 msgstr "Breite (in Zeichen):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:904
+#: ../panel-plugin/verve-plugin.c:1102
 msgid "Label:"
 msgstr "Beschriftung:"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:921
+#: ../panel-plugin/verve-plugin.c:1119
 msgid "Behaviour"
 msgstr "Verhalten"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:932
+#: ../panel-plugin/verve-plugin.c:1130
 msgid "Number of saved history items:"
 msgstr "Gespeicherte Einträge im Verlauf:"
+
+#. Frame for DuckDuckGo settings
+#: ../panel-plugin/verve-plugin.c:1150
+msgid "DuckDuckGo"
+msgstr "DuckDuckGo"
+
+#. DuckDuckGo redirect options label
+#: ../panel-plugin/verve-plugin.c:1161
+msgid "Search DuckDuckGo if command starts with:"
+msgstr "DuckDuckGo durchsuchen, wenn Befehl beginnt mit:"
+
+#. Frame for smart bookmark settings
+#: ../panel-plugin/verve-plugin.c:1193
+msgid "Smart Bookmark"
+msgstr "Intelligente Lesezeichen"
+
+#. smartbookmark check box
+#: ../panel-plugin/verve-plugin.c:1204
+msgid ""
+"Instead of launching commands,\n"
+"use this smart bookmark URL:"
+msgstr "Anstelle Befehle zu starten, diese\nintelligente Lesezeichenadresse benutzen:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
