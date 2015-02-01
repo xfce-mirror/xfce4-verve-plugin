@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# RacerBG <georgiev_1994@abv.bg>, 2014
+# Georgi Georgiev <georgiev_1994@abv.bg>, 2014
+# Kiril Kirilov <cybercop_montana@abv.bg>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:26+0200\n"
-"PO-Revision-Date: 2014-02-05 09:48+0000\n"
-"Last-Translator: RacerBG <georgiev_1994@abv.bg>\n"
-"Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce/language/bg/)\n"
+"POT-Creation-Date: 2015-02-01 00:31+0100\n"
+"PO-Revision-Date: 2015-02-01 12:13+0000\n"
+"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
+"Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,34 +20,61 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:407
+#: ../panel-plugin/verve-plugin.c:412
 msgid "Could not execute command:"
 msgstr "Не може да се изпълни команда:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:787
+#: ../panel-plugin/verve-plugin.c:1043
 msgid "Verve"
 msgstr "Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:805
+#: ../panel-plugin/verve-plugin.c:1061
 msgid "Appearance"
 msgstr "Външен вид"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:816
+#: ../panel-plugin/verve-plugin.c:1077
 msgid "Width (in chars):"
 msgstr "Ширина (в символи):"
 
+#. Plugin label label
+#: ../panel-plugin/verve-plugin.c:1102
+msgid "Label:"
+msgstr "Етикет:"
+
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:836
+#: ../panel-plugin/verve-plugin.c:1119
 msgid "Behaviour"
 msgstr "Поведение"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:847
+#: ../panel-plugin/verve-plugin.c:1130
 msgid "Number of saved history items:"
 msgstr "Брой на записаните елементи от историята:"
+
+#. Frame for DuckDuckGo settings
+#: ../panel-plugin/verve-plugin.c:1150
+msgid "DuckDuckGo"
+msgstr "DuckDuckGo"
+
+#. DuckDuckGo redirect options label
+#: ../panel-plugin/verve-plugin.c:1161
+msgid "Search DuckDuckGo if command starts with:"
+msgstr "Търси с  DuckDuckGo, ако командата стартира с:"
+
+#. Frame for smart bookmark settings
+#: ../panel-plugin/verve-plugin.c:1193
+msgid "Smart Bookmark"
+msgstr "Умен списък с отметки"
+
+#. smartbookmark check box
+#: ../panel-plugin/verve-plugin.c:1204
+msgid ""
+"Instead of launching commands,\n"
+"use this smart bookmark URL:"
+msgstr "Вместо стартиране на команди,\nизползвайте този списък с адрес:"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
