@@ -120,6 +120,11 @@ verve_shutdown (void)
 
 
 
+static void verve_setsid (gpointer p)
+{
+	setsid();
+}
+
 /*********************************************************************
  *
  * Verve command line execution function
@@ -157,7 +162,7 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
   flags |= G_SPAWN_SEARCH_PATH;
   
   /* Spawn subprocess */
-  success = g_spawn_async (home_dir, argv, NULL, flags, NULL, NULL, NULL, &error);
+  success = g_spawn_async (home_dir, argv, NULL, flags, verve_setsid, NULL, NULL, &error);
 
   /* Return false if subprocess could not be spawned */
   if (G_UNLIKELY (error != NULL)) 
