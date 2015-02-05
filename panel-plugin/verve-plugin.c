@@ -412,7 +412,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
             gchar *msg = g_strconcat (_("Could not execute command:"), " ", command, NULL);
 
             /* Display error message dialog */
-            xfce_dialog_show_error (NULL, NULL, msg);
+            xfce_dialog_show_error (NULL, NULL, "%s", msg);
 
             /* Free message */
             g_free (msg);
