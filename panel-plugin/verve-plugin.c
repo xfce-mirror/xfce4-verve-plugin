@@ -68,10 +68,7 @@ typedef struct
   /* Properties */ 
   gint              size;
   gint              history_length;
-  gboolean          use_bang;
-  gboolean          use_backslash;
-  gboolean          use_smartbookmark;
-  gchar            *smartbookmark_url;
+  VerveLaunchParams launch_params;
 
   /* Default GTK style - to restore after blinking upon verve-focus */
   GtkStyle         *default_style;
@@ -381,7 +378,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
           terminal = FALSE;
         
         /* Try executing the command */
-        if (G_LIKELY (verve_execute (command, terminal)))
+        if (G_LIKELY (verve_execute (command, terminal, verve->launch_params)))
           {
             /* Hide the panel again */
             xfce_panel_plugin_set_panel_hidden (verve->plugin, TRUE);
@@ -522,10 +519,10 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   verve->n_complete = 0;
   verve->size = 20;
   verve->history_length = 25;
-  verve->use_bang = FALSE;
-  verve->use_backslash = FALSE;
-  verve->use_smartbookmark = FALSE;
-  verve->smartbookmark_url = "";
+  verve->launch_params.use_bang = FALSE;
+  verve->launch_params.use_backslash = FALSE;
+  verve->launch_params.use_smartbookmark = FALSE;
+  verve->launch_params.smartbookmark_url = g_strdup("");
 
   /* Initialize label */
   verve->label = gtk_label_new ("");
@@ -678,10 +675,7 @@ verve_plugin_update_bang (XfcePanelPlugin *plugin,
   g_return_val_if_fail (verve != NULL, FALSE);
 
   /* Set internal !bang setting variable */
-  verve->use_bang = use_bang;
-
-  /* Update panel */
-  verve_set_bang_setting (use_bang);
+  verve->launch_params.use_bang = use_bang;
 
   return TRUE;
 }
@@ -697,10 +691,7 @@ verve_plugin_update_backslash (XfcePanelPlugin *plugin,
   g_return_val_if_fail (verve != NULL, FALSE);
 
   /* Set internal backslash setting variable */
-  verve->use_backslash = use_backslash;
-
-  /* Update panel */
-  verve_set_backslash_setting (use_backslash);
+  verve->launch_params.use_backslash = use_backslash;
 
   return TRUE;
 }
@@ -715,10 +706,7 @@ verve_plugin_update_smartbookmark (XfcePanelPlugin *plugin,
   g_return_val_if_fail (verve != NULL, FALSE);
 
   /* Set internal smartbookmark setting variable */
-  verve->use_smartbookmark = use_smartbookmark;
-
-  /* Update panel */
-  verve_set_smartbookmark_setting (use_smartbookmark);
+  verve->launch_params.use_smartbookmark = use_smartbookmark;
 
   return TRUE;
 }
@@ -733,10 +721,8 @@ verve_plugin_update_smartbookmark_url (XfcePanelPlugin *plugin,
   g_return_val_if_fail (verve != NULL, FALSE);
 
   /* Set internal search engine URL variable */
-  verve->smartbookmark_url = g_strdup(url);
-
-  /* Update panel */
-  verve_set_smartbookmark_url (url);
+  g_free (verve->launch_params.smartbookmark_url);
+  verve->launch_params.smartbookmark_url = g_strdup(url);
 
   return TRUE;
 }
@@ -871,16 +857,16 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin,
       xfce_rc_write_int_entry (rc, "history-length", verve->history_length);
 
       /* Write !bang setting */
-      xfce_rc_write_bool_entry (rc, "use-bang", verve->use_bang);
+      xfce_rc_write_bool_entry (rc, "use-bang", verve->launch_params.use_bang);
 
       /* Write backslash setting */
-      xfce_rc_write_bool_entry (rc, "use-backslash", verve->use_backslash);
+      xfce_rc_write_bool_entry (rc, "use-backslash", verve->launch_params.use_backslash);
 
       /* Write smartbookmark setting */
-      xfce_rc_write_bool_entry (rc, "use-smartbookmark", verve->use_smartbookmark);
+      xfce_rc_write_bool_entry (rc, "use-smartbookmark", verve->launch_params.use_smartbookmark);
 
       /* Write smartbookmark URL */
-      xfce_rc_write_entry (rc, "smartbookmark-url", verve->smartbookmark_url);
+      xfce_rc_write_entry (rc, "smartbookmark-url", verve->launch_params.smartbookmark_url);
     
       /* Close handle */
       xfce_rc_close (rc);
@@ -1173,7 +1159,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (bang_button);
 
   /* Assign current setting to !bang check box */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (bang_button), verve->use_bang);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (bang_button), verve->launch_params.use_bang);
 
   /* Be notified when the user requests a different !bang setting */
   g_signal_connect (bang_button, "toggled", G_CALLBACK (verve_plugin_bang_changed), verve);
@@ -1184,7 +1170,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (backslash_button);
 
   /* Assign current setting to backslash check box */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (backslash_button), verve->use_backslash);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (backslash_button), verve->launch_params.use_backslash);
 
   /* Be notified when the user requests a different backslash setting */
   g_signal_connect (backslash_button, "toggled", G_CALLBACK (verve_plugin_backslash_changed), verve);
@@ -1206,7 +1192,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (smartbookmark_button);
 
   /* Assign current setting to smartbookmark check box */
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (smartbookmark_button), verve->use_smartbookmark);
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (smartbookmark_button), verve->launch_params.use_smartbookmark);
 
   /* Be notified when the user requests a different smartbookmark setting */
   g_signal_connect (smartbookmark_button, "toggled", G_CALLBACK (verve_plugin_smartbookmark_changed), verve);
@@ -1215,7 +1201,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   engine_box = gtk_entry_new();
 
   /* Set text to search engine URL */
-  gtk_entry_set_text(engine_box, verve->smartbookmark_url);
+  gtk_entry_set_text(engine_box, verve->launch_params.smartbookmark_url);
 
   gtk_widget_add_mnemonic_label (engine_box, engine_label);
   gtk_box_pack_start (GTK_BOX (hbox), engine_box, FALSE, TRUE, 0);

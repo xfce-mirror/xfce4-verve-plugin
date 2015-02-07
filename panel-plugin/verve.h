@@ -27,13 +27,21 @@
 #include "verve-env.h"
 #include "verve-history.h"
 
+typedef struct
+{
+  gboolean          use_bang;
+  gboolean          use_backslash;
+  gboolean          use_smartbookmark;
+  gchar            *smartbookmark_url;
+} VerveLaunchParams;
+
 /* Init / Shutdown Verve */
 void verve_init (void);
 void verve_shutdown (void);
 
 /* Command line methods */
 gboolean verve_spawn_command_line (const gchar *cmdline);
-gboolean verve_execute (const gchar *input, gboolean terminal);
+gboolean verve_execute (const gchar *input, gboolean terminal, VerveLaunchParams params);
 
 #endif /* !__VERVE_H__ */
 

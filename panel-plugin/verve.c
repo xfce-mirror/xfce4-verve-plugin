@@ -52,45 +52,6 @@ static gboolean verve_is_directory (const gchar *str);
 
 /*********************************************************************
  *
- * Smart bookmark and DuckDuckGo settings
- * -------------------------
- *
- * These static variables store the settings for DuckDuckGo and/or smartbookmark functionality.
- *
- *********************************************************************/
-
-static gboolean use_bang = TRUE;
-static gboolean use_backslash = FALSE;
-static gboolean use_smartbookmark = FALSE;
-static gchar *smartbookmark_url = NULL;
-
-void
-verve_set_bang_setting (gboolean bang)
-{
-  use_bang = bang;
-}
-
-void
-verve_set_backslash_setting (gboolean backslash)
-{
-  use_backslash = backslash;
-}
-
-void
-verve_set_smartbookmark_setting (gboolean smartbookmark)
-{
-  use_smartbookmark = smartbookmark;
-}
-
-void
-verve_set_smartbookmark_url (gchar* engine)
-{
-  g_free(smartbookmark_url);
-  smartbookmark_url = g_strdup(engine);
-}
-
-/*********************************************************************
- *
  * Initialize/shutdown Verve
  * -------------------------
  *
@@ -192,7 +153,8 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
 
 gboolean
 verve_execute (const gchar *input, 
-               gboolean terminal)
+               gboolean terminal,
+               VerveLaunchParams launch_params)
 {
   gchar   *command;
   gboolean result = FALSE;
@@ -203,18 +165,18 @@ verve_execute (const gchar *input,
     /* Build exo-open command */
     command = g_strconcat ("exo-open ", input, NULL);
   }
-  else if ((use_bang && input[0] == '!') || (use_backslash && input[0] == '\\'))
+  else if ((launch_params.use_bang && input[0] == '!') || (launch_params.use_backslash && input[0] == '\\'))
   {
     /* Launch DuckDuckGo */
     gchar *esc_input = g_uri_escape_string(input, NULL, TRUE);
     command = g_strconcat ("exo-open https://duckduckgo.com/?q=", esc_input, NULL);
     g_free(esc_input);
   }
-  else if (use_smartbookmark)
+  else if (launch_params.use_smartbookmark)
   {
     /* Launch user-defined search engine */
     gchar *esc_input = g_uri_escape_string(input, NULL, TRUE);
-    command = g_strconcat ("exo-open ", smartbookmark_url, esc_input, NULL);
+    command = g_strconcat ("exo-open ", launch_params.smartbookmark_url, esc_input, NULL);
     g_free(esc_input);
   }
   else
