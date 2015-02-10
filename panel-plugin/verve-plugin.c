@@ -211,7 +211,7 @@ verve_plugin_buttonpress_cb (GtkWidget *entry,
     verve_plugin_focus_timeout_reset (verve);
 
   /* Grab entry focus if possible */
-  if (event->button != 3 && toplevel && toplevel->window)
+  if (event->button != 3 && toplevel && toplevel->window && !GTK_WIDGET_HAS_FOCUS(entry))
     xfce_panel_plugin_focus_widget (verve->plugin, entry);
 
   return FALSE;
