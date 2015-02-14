@@ -1,63 +1,90 @@
-# Polish translation for the verve-plugin package.
-# Copyright (C) 2006-2007 Jannis Pohlmann.
-# This file is distributed under the same license as the verve-plugin package.
-# Piotr Maliński <admin@rk.edu.pl>, 2006.
-# Piotr Sokół <psokol@jabster.pl>, 2011.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Dawid <hoek@hoek.pl>, 2015
+# Piotr Maliński <admin@rk.edu.pl>, 2006
+# Piotr Sokół <psokol@jabster.pl>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: verve-plugin 0.3.5\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-28 16:15+0000\n"
-"PO-Revision-Date: 2011-03-28 21:46+0200\n"
-"Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
-"Language-Team: Polish <>\n"
+"POT-Creation-Date: 2015-02-01 00:31+0100\n"
+"PO-Revision-Date: 2015-02-14 15:44+0000\n"
+"Last-Translator: Dawid <hoek@hoek.pl>\n"
+"Language-Team: Polish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : ((n%10>=2 && n%10<=4 && (n"
-"%100<10 || n%100>=20)) ? 1 : 2));\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:411
+#: ../panel-plugin/verve-plugin.c:412
 msgid "Could not execute command:"
 msgstr "Nie można wykonać polecenia:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:789
+#: ../panel-plugin/verve-plugin.c:1043
 msgid "Verve"
 msgstr "Wiersz poleceń Verve"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:807
+#: ../panel-plugin/verve-plugin.c:1061
 msgid "Appearance"
 msgstr "Wygląd"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:818
+#: ../panel-plugin/verve-plugin.c:1077
 msgid "Width (in chars):"
 msgstr "Szerokość (znaki):"
 
+#. Plugin label label
+#: ../panel-plugin/verve-plugin.c:1102
+msgid "Label:"
+msgstr "Etykieta:"
+
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:838
+#: ../panel-plugin/verve-plugin.c:1119
 msgid "Behaviour"
 msgstr "Zachowanie"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:849
+#: ../panel-plugin/verve-plugin.c:1130
 msgid "Number of saved history items:"
 msgstr "Ilość przechowywanych elementów historii:"
 
-#. vim:set expandtab sts=2 ts=2 sw=2:
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
-msgid "Command line interface with auto-completion and command history"
-msgstr ""
-"Wprowadza polecenia wykorzystując automatyczne uzupełnianie i historię "
-"poleceń"
+#. Frame for DuckDuckGo settings
+#: ../panel-plugin/verve-plugin.c:1150
+msgid "DuckDuckGo"
+msgstr "DuckDuckGo"
 
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
+#. DuckDuckGo redirect options label
+#: ../panel-plugin/verve-plugin.c:1161
+msgid "Search DuckDuckGo if command starts with:"
+msgstr "Wyszukaj DuckDuckGo jeśli polecenie zaczyna się od:"
+
+#. Frame for smart bookmark settings
+#: ../panel-plugin/verve-plugin.c:1193
+msgid "Smart Bookmark"
+msgstr "Sprytna Zakładka"
+
+#. smartbookmark check box
+#: ../panel-plugin/verve-plugin.c:1204
+msgid ""
+"Instead of launching commands,\n"
+"use this smart bookmark URL:"
+msgstr "Zamiast uruchamiania polecenia,\nużyj adresu tej sprytnej zakładki:"
+
+#. vim:set expandtab sts=2 ts=2 sw=2:
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
 msgid "Verve Command Line"
 msgstr "Wiersz poleceń Verve"
+
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
+msgid "Command line interface with auto-completion and command history"
+msgstr "Wprowadza polecenia wykorzystując automatyczne uzupełnianie i historię poleceń"
 
 #. Print error message
 #: ../scripts/verve-focus.c:60
@@ -69,9 +96,4 @@ msgstr "Nie udało się połączyć z sesją systemu D-Bus."
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr ""
-"Nie odnaleziono uruchomionej usługi wiersza poleceń Verve systemu D-Bus (np. "
-"wtyczki panelu)."
-
-#~ msgid "Verve Properties"
-#~ msgstr "Ustawienia Verve"
+msgstr "Nie odnaleziono uruchomionej usługi wiersza poleceń Verve systemu D-Bus (np. wtyczki panelu)."
