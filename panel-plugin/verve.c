@@ -25,6 +25,8 @@
 
 #include <glib-object.h>
 
+#include <wordexp.h>
+
 #include <libxfce4ui/libxfce4ui.h>
 
 #include "verve.h"
@@ -35,7 +37,7 @@
 
 static gboolean verve_is_url       (const gchar *str);
 static gboolean verve_is_email     (const gchar *str);
-static gboolean verve_is_directory (const gchar *str);
+static gchar *verve_is_directory   (const gchar *str);
 
 
 
@@ -83,7 +85,7 @@ verve_shutdown (void)
 
 static void verve_setsid (gpointer p)
 {
-	setsid();
+    setsid();
 }
 
 /*********************************************************************
@@ -157,13 +159,20 @@ verve_execute (const gchar *input,
                VerveLaunchParams launch_params)
 {
   gchar   *command;
+  gchar   *directory_exp;
   gboolean result = FALSE;
     
   /* Open URLs, eMail addresses and directories using exo-open */
-  if (verve_is_url (input) || verve_is_email (input) || verve_is_directory (input))
+  if (verve_is_url (input) || verve_is_email (input))
   {
     /* Build exo-open command */
     command = g_strconcat ("exo-open ", input, NULL);
+  }
+  else if (directory_exp = verve_is_directory (input))
+  {
+    /* Build exo-open command */
+    command = g_strconcat ("exo-open ", directory_exp, NULL);
+    g_free (directory_exp);
   }
   else if ((launch_params.use_bang && input[0] == '!') || (launch_params.use_backslash && input[0] == '\\'))
   {
@@ -282,17 +291,27 @@ verve_is_email (const gchar *str)
 
 
 
-gboolean
+gchar *
 verve_is_directory (const gchar *str)
 {
+  wordexp_t w;
+  int result;
+
   /* Avoid opening directories with the same name as an existing executable. */
   if (g_find_program_in_path (str))
-    return FALSE;
+    return NULL;
 
-  if (g_file_test (str, G_FILE_TEST_IS_DIR))
-    return TRUE;
+  /* Run wordexp with command substitution turned off */
+  result = wordexp(str, &w, WRDE_NOCMD);
+  /* Only use result if it expanded successfully to exactly one "word" and the result is a directory */
+  if (result != 0)
+    return NULL;
+  else if (w.we_wordc != 1)
+    return NULL;
+  else if (g_file_test (w.we_wordv[0], G_FILE_TEST_IS_DIR))
+    return g_strdup (w.we_wordv[0]);
   else
-    return FALSE;
+    return NULL;
 }
 
 
