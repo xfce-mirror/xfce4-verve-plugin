@@ -1,13 +1,15 @@
 dnl Copyright (c) 2006 - Jannis Pohlmann <jannis@xfce.org>
 dnl Copyright (c) 2010 - Florian Rivoal <frivoal@xfce.org>
+dnl Copyright (c) 2015 - Isaac Schemm <isaacschemm@gmail.com>
 dnl
 
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2006-2008 Jannis Pohlmann <jannis@xfce.org>
-Copyright (c) Florian Rivoal 2010 <frivoal@xfce.org>])
-AC_INIT([xfce4-verve-plugin], [1.0.1], [jannis@xfce.org], [xfce4-verve-plugin])
+Copyright (c) Florian Rivoal 2010 <frivoal@xfce.org>
+Copyright (c) Isaac Schemm 2015 <isaacschemm@gmail.com>])
+AC_INIT([xfce4-verve-plugin], [1.0.2], [isaacschemm@gmail.com], [xfce4-verve-plugin])
 AC_PREREQ([2.50])
 
 dnl ***************************
@@ -71,6 +73,12 @@ dnl *******************************************************
 if $PKG_CONFIG --atleast-version=0.60 dbus-glib-1 >/dev/null 2>&1; then
   AC_DEFINE([HAVE_DBUS_NEW_FLAGS], [1], [Define if D-BUS version >= 0.60])
 fi
+
+dnl *******************************************************
+dnl ** Determine if wordexp is available for expanding   **
+dnl ** pathnames entered into the verve input box        **
+dnl *******************************************************
+AC_CHECK_FUNCS(wordexp)
 
 dnl ***********************************
 dnl *** Check for debugging support ***

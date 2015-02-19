@@ -20,12 +20,16 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
- 
+
+#include "config.h"
+
 #include <pcre.h>
 
 #include <glib-object.h>
 
+#ifdef HAVE_WORDEXP
 #include <wordexp.h>
+#endif
 
 #include <libxfce4ui/libxfce4ui.h>
 
@@ -294,6 +298,7 @@ verve_is_email (const gchar *str)
 gchar *
 verve_is_directory (const gchar *str)
 {
+#ifdef HAVE_WORDEXP
   wordexp_t w;
   int result;
 
@@ -312,6 +317,12 @@ verve_is_directory (const gchar *str)
     return g_strdup (w.we_wordv[0]);
   else
     return NULL;
+#else
+  if (g_file_test (str, G_FILE_TEST_IS_DIR))
+    return g_strdup (str);
+  else
+    return NULL;
+#endif
 }
 
 
