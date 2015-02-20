@@ -1016,7 +1016,6 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   GtkWidget *bang_button;
   GtkWidget *backslash_button;
   GtkWidget *smartbookmark_button;
-  GtkWidget *engine_label;
   GtkWidget *engine_box;
 
   g_return_if_fail (plugin != NULL);
@@ -1203,7 +1202,6 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   /* Set text to search engine URL */
   gtk_entry_set_text(engine_box, verve->launch_params.smartbookmark_url);
 
-  gtk_widget_add_mnemonic_label (engine_box, engine_label);
   gtk_box_pack_start (GTK_BOX (hbox), engine_box, FALSE, TRUE, 0);
   gtk_widget_show (engine_box);
 
