@@ -1,9 +1,24 @@
 Required packages:
-  * exo >= 0.3.1.3
-  * xfce4-panel >= 4.3.28
-  * libxfce4util >= 4.3.0
-  * GLib >= 2.6.4
-  * pcre
+  * GTK 2
+  * GLib
+  * Xfce:
+    * libexo
+    * libxfce4ui
+    * libxfce4util
+    * xfce4-panel
+  * libpcre
 
-Optionally required packages:
-  * D-BUS >= 0.34
+Optional packages:
+  * dbus (for the verve-focus command)
+  * wordexp (for tilde and variable expansion in directory paths)
+
+Build tools required:
+  * xfce4-dev-tools
+  * autoconf
+  * automake
+
+Compile by running:
+  ./autogen.sh --prefix=/usr
+(Xfce4 panel plugins may not work when installed in /usr/local.)
+If the output says "required file ./ltmain.sh not found", run libtoolize and then run the same autogen.sh command again.
+After that, use "make" to compile and "make install" to install.
