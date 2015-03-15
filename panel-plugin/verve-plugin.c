@@ -703,9 +703,11 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
   verve->launch_params.use_url = TRUE;
   verve->launch_params.use_email = TRUE;
   verve->launch_params.use_dir = TRUE;
+  verve->launch_params.use_wordexp = TRUE;
   verve->launch_params.use_bang = FALSE;
   verve->launch_params.use_backslash = FALSE;
   verve->launch_params.use_smartbookmark = FALSE;
+  verve->launch_params.use_shell = TRUE;
 
   /* Default search engine URL */
   gchar *smartbookmark_url = "";
@@ -739,9 +741,11 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
       verve->launch_params.use_url = xfce_rc_read_bool_entry (rc, "use-url", verve->launch_params.use_url);
       verve->launch_params.use_email = xfce_rc_read_bool_entry (rc, "use-email", verve->launch_params.use_email);
       verve->launch_params.use_dir = xfce_rc_read_bool_entry (rc, "use-dir", verve->launch_params.use_dir);
+      verve->launch_params.use_wordexp = xfce_rc_read_bool_entry (rc, "use-wordexp", verve->launch_params.use_wordexp);
       verve->launch_params.use_bang = xfce_rc_read_bool_entry (rc, "use-bang", verve->launch_params.use_bang);
       verve->launch_params.use_backslash = xfce_rc_read_bool_entry (rc, "use-backslash", verve->launch_params.use_backslash);
       verve->launch_params.use_smartbookmark = xfce_rc_read_bool_entry (rc, "use-smartbookmark", verve->launch_params.use_smartbookmark);
+      verve->launch_params.use_shell = xfce_rc_read_bool_entry (rc, "use-shell", verve->launch_params.use_shell);
 
       /* Read smartbookmark URL */
       smartbookmark_url = xfce_rc_read_entry (rc, "smartbookmark-url", smartbookmark_url);
@@ -803,9 +807,11 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin,
       xfce_rc_write_bool_entry (rc, "use-url", verve->launch_params.use_url);
       xfce_rc_write_bool_entry (rc, "use-email", verve->launch_params.use_email);
       xfce_rc_write_bool_entry (rc, "use-dir", verve->launch_params.use_dir);
+      xfce_rc_write_bool_entry (rc, "use-wordexp", verve->launch_params.use_wordexp);
       xfce_rc_write_bool_entry (rc, "use-bang", verve->launch_params.use_bang);
       xfce_rc_write_bool_entry (rc, "use-backslash", verve->launch_params.use_backslash);
       xfce_rc_write_bool_entry (rc, "use-smartbookmark", verve->launch_params.use_smartbookmark);
+      xfce_rc_write_bool_entry (rc, "use-shell", verve->launch_params.use_shell);
 
       /* Write smartbookmark URL */
       xfce_rc_write_entry (rc, "smartbookmark-url", verve->launch_params.smartbookmark_url);
@@ -890,6 +896,16 @@ verve_plugin_use_dir_changed (GtkToggleButton *button,
 
 
 static void
+verve_plugin_use_wordexp_changed (GtkToggleButton *button, 
+                                  VervePlugin     *verve)
+{
+  g_return_if_fail (verve != NULL);
+  verve->launch_params.use_wordexp = gtk_toggle_button_get_active (button);
+}
+
+
+
+static void
 verve_plugin_use_bang_changed (GtkToggleButton *button, 
                                VervePlugin     *verve)
 {
@@ -915,6 +931,16 @@ verve_plugin_use_smartbookmark_changed (GtkToggleButton *button,
 {
   g_return_if_fail (verve != NULL);
   verve->launch_params.use_smartbookmark = gtk_toggle_button_get_active (button);
+}
+
+
+
+static void
+verve_plugin_use_shell_changed (GtkToggleButton *button, 
+                                VervePlugin     *verve)
+{
+  g_return_if_fail (verve != NULL);
+  verve->launch_params.use_shell = gtk_toggle_button_get_active (button);
 }
 
 
@@ -980,18 +1006,20 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   GtkObject *adjustment;
 
   GtkWidget *bin3;
+  GtkWidget *alignment;
   GtkWidget *command_types_vbox;
   GtkWidget *command_types_label1;
   GtkWidget *command_types_label2;
   GtkWidget *command_type_url;
   GtkWidget *command_type_email;
   GtkWidget *command_type_dir;
+  GtkWidget *command_type_use_wordexp;
   GtkWidget *command_type_bang;
   GtkWidget *command_type_backslash;
   GtkWidget *command_type_smartbookmark;
-  GtkWidget *command_type_executable;
   GtkWidget *engine_box;
-  GtkWidget *engine_alignment;
+  GtkWidget *command_type_executable;
+  GtkWidget *command_type_use_shell;
 
   g_return_if_fail (plugin != NULL);
   g_return_if_fail (verve != NULL);
@@ -1086,7 +1114,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   g_signal_connect (label_box, "changed", G_CALLBACK (verve_plugin_label_changed), verve);
 
   /* Frame for behaviour settings */
-  frame = xfce_gtk_frame_box_new (_("Behaviour"), &bin2);
+  frame = xfce_gtk_frame_box_new (_("History"), &bin2);
   gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
   gtk_box_pack_start (GTK_BOX (general_vbox), frame, FALSE, FALSE, 0);
   gtk_widget_show (frame);
@@ -1121,12 +1149,12 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   /* Be notified when the user requests a different history length */
   g_signal_connect (history_length_spin, "value-changed", G_CALLBACK (verve_plugin_history_length_changed), verve);
   
-  /* Search tab */
-  frame = xfce_gtk_frame_box_new (_("Command Types"), &bin3);
+  /* Second tab */
+  frame = xfce_gtk_frame_box_new (_("Behaviour"), &bin3);
   gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
   gtk_widget_show (frame);
   
-  notebook_tab_label_current = gtk_label_new (_("Command Types"));
+  notebook_tab_label_current = gtk_label_new (_("Behaviour"));
   gtk_notebook_append_page (GTK_NOTEBOOK (notebook), frame, notebook_tab_label_current);
   gtk_widget_show (frame);
   
@@ -1134,8 +1162,8 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_container_add (GTK_CONTAINER (bin3), command_types_vbox);
   gtk_widget_show (command_types_vbox);
 
-  /* DuckDuckGo redirect options label */
-  command_types_label1 = gtk_label_new(_("Check for these types of commands:"));
+  /* Pattern types frame label */
+  command_types_label1 = gtk_label_new(_("Enable support for:"));
   gtk_misc_set_alignment (GTK_MISC (command_types_label1), 0, 0.5);
   gtk_box_pack_start (GTK_BOX (command_types_vbox), command_types_label1, FALSE, TRUE, 8);
   gtk_widget_show (command_types_label1);
@@ -1163,6 +1191,21 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (command_type_dir), verve->launch_params.use_dir);
   g_signal_connect (command_type_dir, "toggled", G_CALLBACK (verve_plugin_use_dir_changed), verve);
+
+  /* wordexp checkbox */
+  alignment = gtk_alignment_new (1, 1, 1, 1);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 24, 0);
+  gtk_box_pack_start (GTK_BOX (command_types_vbox), alignment, FALSE, TRUE, 0);
+  gtk_widget_show (alignment);
+  
+  command_type_use_wordexp = gtk_check_button_new_with_label(_("Expand variables with wordexp"));
+  gtk_container_add (GTK_CONTAINER (alignment), command_type_use_wordexp);
+#ifdef HAVE_WORDEXP
+  gtk_widget_show (command_type_use_wordexp);
+#endif
+  
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (command_type_use_wordexp), verve->launch_params.use_wordexp);
+  g_signal_connect (command_type_use_wordexp, "toggled", G_CALLBACK (verve_plugin_use_wordexp_changed), verve);
   
   /* Command type: !bang */
   command_type_bang = gtk_check_button_new_with_label(_("DuckDuckGo queries (starting with !)"));
@@ -1196,11 +1239,11 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
 
   /* Smart bookmark entry box */
   engine_box = gtk_entry_new();
-  engine_alignment = gtk_alignment_new (1, 1, 1, 1);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (engine_alignment), 8, 8, 24, 0);
-  gtk_box_pack_start (GTK_BOX (command_types_vbox), engine_alignment, FALSE, TRUE, 0);
-  gtk_widget_show (engine_alignment);
-  gtk_container_add (GTK_CONTAINER (engine_alignment), engine_box);
+  alignment = gtk_alignment_new (1, 1, 1, 1);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 8, 8, 24, 0);
+  gtk_box_pack_start (GTK_BOX (command_types_vbox), alignment, FALSE, TRUE, 0);
+  gtk_widget_show (alignment);
+  gtk_container_add (GTK_CONTAINER (alignment), engine_box);
   gtk_widget_show (engine_box);
 
   /* Set text to search engine URL */
@@ -1215,6 +1258,19 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (command_type_executable);
 
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (command_type_executable), !verve->launch_params.use_smartbookmark);
+
+  /* Use shell checkbox */
+  alignment = gtk_alignment_new (1, 1, 1, 1);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 24, 0);
+  gtk_box_pack_start (GTK_BOX (command_types_vbox), alignment, FALSE, TRUE, 0);
+  //gtk_widget_show (alignment); - not implemented yet
+  
+  command_type_use_shell = gtk_check_button_new_with_label(_("Run command with $SHELL -i -c\n(enables alias and variable expansion)"));
+  gtk_container_add (GTK_CONTAINER (alignment), command_type_use_shell);
+  gtk_widget_show (command_type_use_shell);
+  
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (command_type_use_shell), verve->launch_params.use_shell);
+  g_signal_connect (command_type_use_shell, "toggled", G_CALLBACK (verve_plugin_use_shell_changed), verve);
 
   /* Show properties dialog */
   gtk_notebook_set_current_page (GTK_NOTEBOOK (notebook), 0);

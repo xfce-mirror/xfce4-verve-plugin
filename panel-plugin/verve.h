@@ -32,10 +32,12 @@ typedef struct
   gboolean          use_url;
   gboolean          use_email;
   gboolean          use_dir;
+  gboolean          use_wordexp;
   gboolean          use_bang;
   gboolean          use_backslash;
   gboolean          use_smartbookmark;
   gchar            *smartbookmark_url;
+  gboolean          use_shell;
 } VerveLaunchParams;
 
 /* Init / Shutdown Verve */

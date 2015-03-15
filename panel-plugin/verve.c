@@ -41,7 +41,7 @@
 
 static gboolean verve_is_url       (const gchar *str);
 static gboolean verve_is_email     (const gchar *str);
-static gchar *verve_is_directory   (const gchar *str);
+static gchar *verve_is_directory   (const gchar *str, gboolean use_wordexp);
 
 
 
@@ -172,7 +172,7 @@ verve_execute (const gchar *input,
     /* Build exo-open command */
     command = g_strconcat ("exo-open ", input, NULL);
   }
-  else if (launch_params.use_dir && (directory_exp = verve_is_directory (input)))
+  else if (launch_params.use_dir && (directory_exp = verve_is_directory (input, launch_params.use_wordexp)))
   {
     /* Build exo-open command */
     command = g_strconcat ("exo-open ", directory_exp, NULL);
@@ -296,33 +296,42 @@ verve_is_email (const gchar *str)
 
 
 gchar *
-verve_is_directory (const gchar *str)
+verve_is_directory (const gchar *str,
+                    gboolean use_wordexp)
 {
 #ifdef HAVE_WORDEXP
-  wordexp_t w;
-  int result;
+  if (use_wordexp) {
+    wordexp_t w;
+    int result;
 
-  /* Avoid opening directories with the same name as an existing executable. */
-  if (g_find_program_in_path (str))
-    return NULL;
+    /* Avoid opening directories with the same name as an existing executable. */
+    if (g_find_program_in_path (str))
+      return NULL;
 
-  /* Run wordexp with command substitution turned off */
-  result = wordexp(str, &w, WRDE_NOCMD);
-  /* Only use result if it expanded successfully to exactly one "word" and the result is a directory */
-  if (result != 0)
-    return NULL;
-  else if (w.we_wordc != 1)
-    return NULL;
-  else if (g_file_test (w.we_wordv[0], G_FILE_TEST_IS_DIR))
-    return g_strdup (w.we_wordv[0]);
-  else
-    return NULL;
-#else
+    /* Run wordexp with command substitution turned off */
+    result = wordexp(str, &w, WRDE_NOCMD);
+
+    /* Only use result if it expanded successfully to exactly one "word" and the result is a directory */
+    if (result == 0) {
+      const char* to_return;
+      if (w.we_wordc != 1)
+        to_return = NULL;
+      else if (g_file_test (w.we_wordv[0], G_FILE_TEST_IS_DIR))
+        to_return = g_strdup (w.we_wordv[0]);
+      else
+        to_return = NULL;
+
+      wordfree (&w);
+      if (to_return)
+        return to_return;
+    }
+  }
+#endif
+
   if (g_file_test (str, G_FILE_TEST_IS_DIR))
     return g_strdup (str);
   else
     return NULL;
-#endif
 }
 
 
