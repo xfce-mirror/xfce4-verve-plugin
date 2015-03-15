@@ -29,6 +29,9 @@
 
 typedef struct
 {
+  gboolean          use_url;
+  gboolean          use_email;
+  gboolean          use_dir;
   gboolean          use_bang;
   gboolean          use_backslash;
   gboolean          use_smartbookmark;

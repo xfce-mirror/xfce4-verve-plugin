@@ -167,12 +167,12 @@ verve_execute (const gchar *input,
   gboolean result = FALSE;
     
   /* Open URLs, eMail addresses and directories using exo-open */
-  if (verve_is_url (input) || verve_is_email (input))
+  if ((launch_params.use_email && verve_is_email (input)) || (launch_params.use_url && verve_is_url (input)))
   {
     /* Build exo-open command */
     command = g_strconcat ("exo-open ", input, NULL);
   }
-  else if (directory_exp = verve_is_directory (input))
+  else if (launch_params.use_dir && (directory_exp = verve_is_directory (input)))
   {
     /* Build exo-open command */
     command = g_strconcat ("exo-open ", directory_exp, NULL);
