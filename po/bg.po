@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-01 00:31+0100\n"
-"PO-Revision-Date: 2015-02-01 12:13+0000\n"
+"POT-Creation-Date: 2015-03-16 06:31+0100\n"
+"PO-Revision-Date: 2015-03-16 13:15+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -20,61 +20,104 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:412
+#: ../panel-plugin/verve-plugin.c:409
 msgid "Could not execute command:"
 msgstr "Не може да се изпълни команда:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1043
+#: ../panel-plugin/verve-plugin.c:1031
 msgid "Verve"
 msgstr "Verve"
 
+#: ../panel-plugin/verve-plugin.c:1054
+msgid "General"
+msgstr "Общи"
+
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1061
+#: ../panel-plugin/verve-plugin.c:1059
 msgid "Appearance"
 msgstr "Външен вид"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1077
+#: ../panel-plugin/verve-plugin.c:1075
 msgid "Width (in chars):"
 msgstr "Ширина (в символи):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1102
+#: ../panel-plugin/verve-plugin.c:1100
 msgid "Label:"
 msgstr "Етикет:"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1119
-msgid "Behaviour"
-msgstr "Поведение"
+#: ../panel-plugin/verve-plugin.c:1117
+msgid "History"
+msgstr "История"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1130
+#: ../panel-plugin/verve-plugin.c:1133
 msgid "Number of saved history items:"
 msgstr "Брой на записаните елементи от историята:"
 
-#. Frame for DuckDuckGo settings
-#: ../panel-plugin/verve-plugin.c:1150
-msgid "DuckDuckGo"
-msgstr "DuckDuckGo"
+#. Second tab
+#: ../panel-plugin/verve-plugin.c:1153 ../panel-plugin/verve-plugin.c:1157
+msgid "Behaviour"
+msgstr "Поведение"
 
-#. DuckDuckGo redirect options label
-#: ../panel-plugin/verve-plugin.c:1161
-msgid "Search DuckDuckGo if command starts with:"
-msgstr "Търси с  DuckDuckGo, ако командата стартира с:"
+#. Pattern types frame label
+#: ../panel-plugin/verve-plugin.c:1166
+msgid "Enable support for:"
+msgstr "Включи поддръжка за:"
 
-#. Frame for smart bookmark settings
-#: ../panel-plugin/verve-plugin.c:1193
-msgid "Smart Bookmark"
-msgstr "Умен списък с отметки"
+#. Command type: URL
+#: ../panel-plugin/verve-plugin.c:1172
+msgid "URLs (http/https/ftp/ftps)"
+msgstr "Адреси (http/https/ftp/ftps)"
 
-#. smartbookmark check box
-#: ../panel-plugin/verve-plugin.c:1204
+#. Command type: email address
+#: ../panel-plugin/verve-plugin.c:1180
+msgid "Email addresses"
+msgstr "Email адреси"
+
+#. Command type: directory path
+#: ../panel-plugin/verve-plugin.c:1188
+msgid "Directory paths"
+msgstr "Пътища до директория"
+
+#: ../panel-plugin/verve-plugin.c:1201
+msgid "Expand variables with wordexp"
+msgstr "Разширяване на променливите с wordexp"
+
+#. Command type: !bang
+#: ../panel-plugin/verve-plugin.c:1211
+msgid "DuckDuckGo queries (starting with !)"
+msgstr "DuckDuckGo въпроси (стартиране с !)"
+
+#. Command type: I'm feeling ducky (\)
+#: ../panel-plugin/verve-plugin.c:1219
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr "DuckDuckGo въпроси (стартиране с \\)"
+
+#. Fallback if the above don't match
+#: ../panel-plugin/verve-plugin.c:1227
+msgid "If the above patterns don't match:"
+msgstr "Ако горните модели не съвпадат:"
+
+#. Smart bookmark radio button
+#: ../panel-plugin/verve-plugin.c:1233
+msgid "Use smart bookmark URL"
+msgstr "Използвай интелигентно отмятане на адрес"
+
+#. Executable command radio button (smart bookmark off)
+#: ../panel-plugin/verve-plugin.c:1256
+msgid "Run as executable command"
+msgstr "Изпълни като команда"
+
+#. gtk_widget_show (alignment); - not implemented yet
+#: ../panel-plugin/verve-plugin.c:1268
 msgid ""
-"Instead of launching commands,\n"
-"use this smart bookmark URL:"
-msgstr "Вместо стартиране на команди,\nизползвайте този списък с адрес:"
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr "Изпълни команда с $SHELL -i -c\n(позволява синоними и променливо разширяване)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
