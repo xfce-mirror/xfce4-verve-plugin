@@ -6,13 +6,14 @@
 # Dawid <hoek@hoek.pl>, 2015
 # Piotr Maliński <admin@rk.edu.pl>, 2006
 # Piotr Sokół <psokol@jabster.pl>, 2011
+# Piotr Strębski <strebski@o2.pl>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-01 00:31+0100\n"
-"PO-Revision-Date: 2015-02-14 15:44+0000\n"
-"Last-Translator: Dawid <hoek@hoek.pl>\n"
+"POT-Creation-Date: 2015-03-16 06:31+0100\n"
+"PO-Revision-Date: 2015-03-16 13:14+0000\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,61 +22,104 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:412
+#: ../panel-plugin/verve-plugin.c:409
 msgid "Could not execute command:"
 msgstr "Nie można wykonać polecenia:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1043
+#: ../panel-plugin/verve-plugin.c:1031
 msgid "Verve"
 msgstr "Wiersz poleceń Verve"
 
+#: ../panel-plugin/verve-plugin.c:1054
+msgid "General"
+msgstr "Ogólne"
+
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1061
+#: ../panel-plugin/verve-plugin.c:1059
 msgid "Appearance"
 msgstr "Wygląd"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1077
+#: ../panel-plugin/verve-plugin.c:1075
 msgid "Width (in chars):"
 msgstr "Szerokość (znaki):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1102
+#: ../panel-plugin/verve-plugin.c:1100
 msgid "Label:"
 msgstr "Etykieta:"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1119
-msgid "Behaviour"
-msgstr "Zachowanie"
+#: ../panel-plugin/verve-plugin.c:1117
+msgid "History"
+msgstr "Historia"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1130
+#: ../panel-plugin/verve-plugin.c:1133
 msgid "Number of saved history items:"
 msgstr "Ilość przechowywanych elementów historii:"
 
-#. Frame for DuckDuckGo settings
-#: ../panel-plugin/verve-plugin.c:1150
-msgid "DuckDuckGo"
-msgstr "DuckDuckGo"
+#. Second tab
+#: ../panel-plugin/verve-plugin.c:1153 ../panel-plugin/verve-plugin.c:1157
+msgid "Behaviour"
+msgstr "Zachowanie"
 
-#. DuckDuckGo redirect options label
-#: ../panel-plugin/verve-plugin.c:1161
-msgid "Search DuckDuckGo if command starts with:"
-msgstr "Wyszukaj DuckDuckGo jeśli polecenie zaczyna się od:"
+#. Pattern types frame label
+#: ../panel-plugin/verve-plugin.c:1166
+msgid "Enable support for:"
+msgstr "Włącz obsługę:"
 
-#. Frame for smart bookmark settings
-#: ../panel-plugin/verve-plugin.c:1193
-msgid "Smart Bookmark"
-msgstr "Sprytna Zakładka"
+#. Command type: URL
+#: ../panel-plugin/verve-plugin.c:1172
+msgid "URLs (http/https/ftp/ftps)"
+msgstr "Adresy URL (http/https/ftp/ftps)"
 
-#. smartbookmark check box
-#: ../panel-plugin/verve-plugin.c:1204
+#. Command type: email address
+#: ../panel-plugin/verve-plugin.c:1180
+msgid "Email addresses"
+msgstr "Adresy e-mail"
+
+#. Command type: directory path
+#: ../panel-plugin/verve-plugin.c:1188
+msgid "Directory paths"
+msgstr "Ścieżki katalogów"
+
+#: ../panel-plugin/verve-plugin.c:1201
+msgid "Expand variables with wordexp"
+msgstr ""
+
+#. Command type: !bang
+#: ../panel-plugin/verve-plugin.c:1211
+msgid "DuckDuckGo queries (starting with !)"
+msgstr ""
+
+#. Command type: I'm feeling ducky (\)
+#: ../panel-plugin/verve-plugin.c:1219
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr ""
+
+#. Fallback if the above don't match
+#: ../panel-plugin/verve-plugin.c:1227
+msgid "If the above patterns don't match:"
+msgstr ""
+
+#. Smart bookmark radio button
+#: ../panel-plugin/verve-plugin.c:1233
+msgid "Use smart bookmark URL"
+msgstr ""
+
+#. Executable command radio button (smart bookmark off)
+#: ../panel-plugin/verve-plugin.c:1256
+msgid "Run as executable command"
+msgstr ""
+
+#. gtk_widget_show (alignment); - not implemented yet
+#: ../panel-plugin/verve-plugin.c:1268
 msgid ""
-"Instead of launching commands,\n"
-"use this smart bookmark URL:"
-msgstr "Zamiast uruchamiania polecenia,\nużyj adresu tej sprytnej zakładki:"
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr ""
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
