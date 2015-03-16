@@ -5,14 +5,15 @@
 # Translators:
 # Abel Martín <abel.martin.ruiz@gmail.com>, 2008
 # gabrieltandil <gabriel.tandil@gmail.com>, 2015
+# gabrieltandil <gabriel.tandil@gmail.com>, 2015
 # Pablo Roberto Francisco Lezaeta Reyes <prflr88@gmail.com>, 2013-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-16 06:31+0100\n"
-"PO-Revision-Date: 2015-03-16 12:36+0000\n"
-"Last-Translator: gabrieltandil <gabriel.tandil@gmail.com>\n"
+"PO-Revision-Date: 2015-03-16 19:28+0000\n"
+"Last-Translator: Manolo Díaz <diaz.manolo@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,43 +83,43 @@ msgstr "Direcciones de correo electronico"
 #. Command type: directory path
 #: ../panel-plugin/verve-plugin.c:1188
 msgid "Directory paths"
-msgstr ""
+msgstr "Rutas de carpetas"
 
 #: ../panel-plugin/verve-plugin.c:1201
 msgid "Expand variables with wordexp"
-msgstr ""
+msgstr "Expandir variables con «wordexp»"
 
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1211
 msgid "DuckDuckGo queries (starting with !)"
-msgstr ""
+msgstr "Búsquedas con «DuckDuckGo» (comenzando con !)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1219
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr ""
+msgstr "Búsquedas con «DuckDuckGo» (comenzando con \\)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1227
 msgid "If the above patterns don't match:"
-msgstr ""
+msgstr "Si no coincide con los patrones mostrados arriba:"
 
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1233
 msgid "Use smart bookmark URL"
-msgstr ""
+msgstr "Usar marcadores de URL inteligentes"
 
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1256
 msgid "Run as executable command"
-msgstr ""
+msgstr "Lanzar como orden ejecutable"
 
 #. gtk_widget_show (alignment); - not implemented yet
 #: ../panel-plugin/verve-plugin.c:1268
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr ""
+msgstr "Ejecutar orden con $SHELL -i -c\n(activa alias y expansión de variable)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
