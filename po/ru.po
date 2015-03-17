@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-16 06:31+0100\n"
-"PO-Revision-Date: 2015-03-16 23:31+0000\n"
+"PO-Revision-Date: 2015-03-16 23:35+0000\n"
 "Last-Translator: Alex Bigdai\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -82,11 +82,11 @@ msgstr "Адрес электронной почты"
 #. Command type: directory path
 #: ../panel-plugin/verve-plugin.c:1188
 msgid "Directory paths"
-msgstr ""
+msgstr "Путь к каталогу"
 
 #: ../panel-plugin/verve-plugin.c:1201
 msgid "Expand variables with wordexp"
-msgstr ""
+msgstr "Расширение переменных с wordexp"
 
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1211
