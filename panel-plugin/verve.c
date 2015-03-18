@@ -194,11 +194,26 @@ verve_execute (const gchar *input,
   }
   else
   {
-    /* Run command using the xfterm4 wrapper if the terminal flag was set */
-    if (G_UNLIKELY (terminal))
-      command = g_strconcat ("exo-open --launch TerminalEmulator '", input, "'", NULL);
+    if (launch_params.use_shell)
+    {
+      /* Find current shell */
+      char *shell = getenv("SHELL");
+      if (shell == NULL) shell = "/bin/sh";
+
+      /* Run command using the xfterm4 wrapper if the terminal flag was set */
+      if (G_UNLIKELY (terminal))
+        command = g_strconcat ("exo-open --launch TerminalEmulator '", shell, " -i -c ", input, "'", NULL);
+      else
+        command = g_strconcat (shell, " -i -c ", input, NULL);
+    }
     else
-      command = g_strdup (input);
+    {
+      /* Run command using the xfterm4 wrapper if the terminal flag was set */
+      if (G_UNLIKELY (terminal))
+        command = g_strconcat ("exo-open --launch TerminalEmulator '", input, "'", NULL);
+      else
+        command = g_strdup (input);
+    }
   }
     
   /* Try to execute the exo-open command */

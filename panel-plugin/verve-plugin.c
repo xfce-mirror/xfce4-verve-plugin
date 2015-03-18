@@ -1263,7 +1263,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   alignment = gtk_alignment_new (1, 1, 1, 1);
   gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 24, 0);
   gtk_box_pack_start (GTK_BOX (command_types_vbox), alignment, FALSE, TRUE, 0);
-  //gtk_widget_show (alignment); - not implemented yet
+  gtk_widget_show (alignment);
   
   command_type_use_shell = gtk_check_button_new_with_label(_("Run command with $SHELL -i -c\n(enables alias and variable expansion)"));
   gtk_container_add (GTK_CONTAINER (alignment), command_type_use_shell);
