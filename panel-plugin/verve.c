@@ -199,20 +199,25 @@ verve_execute (const gchar *input,
       /* Find current shell */
       char *shell = getenv("SHELL");
       if (shell == NULL) shell = "/bin/sh";
-
-      /* Run command using the xfterm4 wrapper if the terminal flag was set */
-      if (G_UNLIKELY (terminal))
-        command = g_strconcat ("exo-open --launch TerminalEmulator '", shell, " -i -c ", input, "'", NULL);
-      else
-        command = g_strconcat (shell, " -i -c ", input, NULL);
+      
+      gchar *quoted_input = g_shell_quote (input);
+      command = g_strconcat (shell, " -i -c ", quoted_input, NULL);
+      g_free (quoted_input);
     }
     else
     {
-      /* Run command using the xfterm4 wrapper if the terminal flag was set */
-      if (G_UNLIKELY (terminal))
-        command = g_strconcat ("exo-open --launch TerminalEmulator '", input, "'", NULL);
-      else
-        command = g_strdup (input);
+      command = g_strdup (input);
+    }
+    
+    /* Run command using the xfterm4 wrapper if the terminal flag was set */
+    if (G_UNLIKELY (terminal))
+    {
+      gchar *quoted_command = g_shell_quote (command);
+      
+      g_free (command);
+      command = g_strconcat ("exo-open --launch TerminalEmulator ", quoted_command, NULL);
+      
+      g_free (quoted_command);
     }
   }
     
