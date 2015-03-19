@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-16 06:31+0100\n"
-"PO-Revision-Date: 2015-03-18 20:57+0000\n"
+"PO-Revision-Date: 2015-03-19 09:22+0000\n"
 "Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/xfce-panel-plugins/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Verve"
 
 #: ../panel-plugin/verve-plugin.c:1054
 msgid "General"
-msgstr ""
+msgstr "Γενικά"
 
 #. Frame for appearance settings
 #: ../panel-plugin/verve-plugin.c:1059
@@ -66,22 +66,22 @@ msgstr "Συμπεριφορά"
 #. Pattern types frame label
 #: ../panel-plugin/verve-plugin.c:1166
 msgid "Enable support for:"
-msgstr ""
+msgstr "Ενεργοποίηση υποστήριξης για:"
 
 #. Command type: URL
 #: ../panel-plugin/verve-plugin.c:1172
 msgid "URLs (http/https/ftp/ftps)"
-msgstr ""
+msgstr "URLs (http/https/ftp/ftps)"
 
 #. Command type: email address
 #: ../panel-plugin/verve-plugin.c:1180
 msgid "Email addresses"
-msgstr ""
+msgstr "Διευθύνσεις ηλεκτρονικής αλληλογραφίας"
 
 #. Command type: directory path
 #: ../panel-plugin/verve-plugin.c:1188
 msgid "Directory paths"
-msgstr ""
+msgstr "Διαδρομές καταλόγων"
 
 #: ../panel-plugin/verve-plugin.c:1201
 msgid "Expand variables with wordexp"
@@ -90,34 +90,34 @@ msgstr ""
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1211
 msgid "DuckDuckGo queries (starting with !)"
-msgstr ""
+msgstr "Ερωτήματα DuckDuckGo (ξεκινούν με !)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1219
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr ""
+msgstr "Ερωτήματα DuckDuckGo (ξεκινούν με \\)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1227
 msgid "If the above patterns don't match:"
-msgstr ""
+msgstr "Εάν δεν ταιριάζουν τα παραπάνω μοτίβα:"
 
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1233
 msgid "Use smart bookmark URL"
-msgstr ""
+msgstr "Χρήση έξυπνων σελιδοδεικτών URL"
 
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1256
 msgid "Run as executable command"
-msgstr ""
+msgstr "Εκτέλεση ως εκτελέσιμης εντολής"
 
 #. gtk_widget_show (alignment); - not implemented yet
 #: ../panel-plugin/verve-plugin.c:1268
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr ""
+msgstr "Εκτέλεση εντολής με $SHELL -i -c\n(ενεργοποίηση alias και μεταβλητής επέκτασης)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
