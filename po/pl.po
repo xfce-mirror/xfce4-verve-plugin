@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-16 06:31+0100\n"
-"PO-Revision-Date: 2015-03-16 13:14+0000\n"
+"PO-Revision-Date: 2015-03-25 09:20+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -92,27 +92,27 @@ msgstr ""
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1211
 msgid "DuckDuckGo queries (starting with !)"
-msgstr ""
+msgstr "Zapytania do DuckDuckGo (rozpoczynane z !)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1219
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr ""
+msgstr "Zapytania do DuckDuckGo (rozpoczynane z \\)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1227
 msgid "If the above patterns don't match:"
-msgstr ""
+msgstr "Jeśli powyższe wzorce nie pasują:"
 
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1233
 msgid "Use smart bookmark URL"
-msgstr ""
+msgstr "Użyj URL sprytnych zakładek"
 
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1256
 msgid "Run as executable command"
-msgstr ""
+msgstr "Uruchom jako polecenie wykonalne"
 
 #. gtk_widget_show (alignment); - not implemented yet
 #: ../panel-plugin/verve-plugin.c:1268
