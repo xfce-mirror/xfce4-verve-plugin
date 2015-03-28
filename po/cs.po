@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-16 06:31+0100\n"
-"PO-Revision-Date: 2015-03-24 15:06+0000\n"
+"PO-Revision-Date: 2015-03-28 09:43+0000\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/xfce-panel-plugins/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -104,19 +104,19 @@ msgstr "Pokud vzorek výše neodpovídá:"
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1233
 msgid "Use smart bookmark URL"
-msgstr ""
+msgstr "Použít umístění URL chytré záložky"
 
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1256
 msgid "Run as executable command"
-msgstr ""
+msgstr "Spustit jako příkaz"
 
 #. gtk_widget_show (alignment); - not implemented yet
 #: ../panel-plugin/verve-plugin.c:1268
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr ""
+msgstr "Spustit příkaz v podobě $SHELL -i -c\n(povolí aliasy a rozšíření proměnných)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
