@@ -87,6 +87,21 @@ verve_shutdown (void)
 
 
 
+void
+verve_command_callback (GPid pid,
+                        gint status,
+                        gpointer data)
+{
+  status >>= 8;
+  if (status == 126 || status == 127)
+  {
+    xfce_dialog_show_error (NULL, NULL, _("Could not execute command (exit status %d)"), status);
+  }
+  g_spawn_close_pid (pid);
+}
+
+
+
 static void verve_setsid (gpointer p)
 {
     setsid();
@@ -106,6 +121,7 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
   gint         argc;
   gchar      **argv;
   gboolean     success;
+  GPid         child_pid;
   GError      *error = NULL;
   const gchar *home_dir;
   GSpawnFlags  flags;
@@ -127,9 +143,10 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
   flags = G_SPAWN_STDOUT_TO_DEV_NULL;
   flags |= G_SPAWN_STDERR_TO_DEV_NULL;
   flags |= G_SPAWN_SEARCH_PATH;
+  flags |= G_SPAWN_DO_NOT_REAP_CHILD;
   
   /* Spawn subprocess */
-  success = g_spawn_async (home_dir, argv, NULL, flags, verve_setsid, NULL, NULL, &error);
+  success = g_spawn_async (home_dir, argv, NULL, flags, verve_setsid, NULL, &child_pid, &error);
 
   /* Return false if subprocess could not be spawned */
   if (G_UNLIKELY (error != NULL)) 
@@ -140,7 +157,9 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
 
   /* Free command line arguments */
   g_strfreev (argv);
-  
+
+  g_child_watch_add(child_pid, (GChildWatchFunc)verve_command_callback, NULL);
+
   /* Return whether process was spawned successfully */
   return success;
 }
