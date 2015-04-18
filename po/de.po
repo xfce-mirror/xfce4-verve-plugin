@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 06:31+0100\n"
-"PO-Revision-Date: 2015-03-16 17:04+0000\n"
+"POT-Creation-Date: 2015-04-17 06:31+0200\n"
+"PO-Revision-Date: 2015-04-18 16:46+0000\n"
 "Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -19,10 +19,15 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../panel-plugin/verve.c:98
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "Befehl konnte nicht ausgeführt werden (Beendigungsstatus %d)"
+
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:409
 msgid "Could not execute command:"
-msgstr "Der Befehl konnte nicht ausführen werden:"
+msgstr "Befehl konnte nicht ausgeführt werden:"
 
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:1031
@@ -112,7 +117,6 @@ msgstr "»Intelligente-Lesezeichen«-Adresse benutzen"
 msgid "Run as executable command"
 msgstr "Als ausführbaren Befehl starten"
 
-#. gtk_widget_show (alignment); - not implemented yet
 #: ../panel-plugin/verve-plugin.c:1268
 msgid ""
 "Run command with $SHELL -i -c\n"
