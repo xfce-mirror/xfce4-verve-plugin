@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 06:31+0100\n"
-"PO-Revision-Date: 2015-03-18 17:23+0000\n"
+"POT-Creation-Date: 2015-04-17 06:31+0200\n"
+"PO-Revision-Date: 2015-04-21 09:01+0000\n"
 "Last-Translator: Urien Desterres <urien.desterres@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/xfce-panel-plugins/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../panel-plugin/verve.c:98
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "Impossible d’exécuter la commande (état de sortie %d)"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:409
@@ -115,7 +120,6 @@ msgstr "Utiliser des signets URL intelligents"
 msgid "Run as executable command"
 msgstr "Lancer comme une commande exécutable"
 
-#. gtk_widget_show (alignment); - not implemented yet
 #: ../panel-plugin/verve-plugin.c:1268
 msgid ""
 "Run command with $SHELL -i -c\n"
