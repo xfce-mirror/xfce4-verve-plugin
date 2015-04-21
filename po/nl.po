@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-01 00:31+0100\n"
-"PO-Revision-Date: 2015-02-01 11:52+0000\n"
+"POT-Creation-Date: 2015-04-17 06:31+0200\n"
+"PO-Revision-Date: 2015-04-21 10:06+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/xfce-panel-plugins/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -19,62 +19,109 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../panel-plugin/verve.c:98
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "Kon opdracht niet uitvoeren (exit status %d)"
+
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:412
+#: ../panel-plugin/verve-plugin.c:409
 msgid "Could not execute command:"
 msgstr "Kon opdracht niet uitvoeren:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1043
+#: ../panel-plugin/verve-plugin.c:1031
 msgid "Verve"
 msgstr "Verve"
 
+#: ../panel-plugin/verve-plugin.c:1054
+msgid "General"
+msgstr "Algemeen"
+
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1061
+#: ../panel-plugin/verve-plugin.c:1059
 msgid "Appearance"
 msgstr "Uiterlijk"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1077
+#: ../panel-plugin/verve-plugin.c:1075
 msgid "Width (in chars):"
 msgstr "Breedte (in tekens):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1102
+#: ../panel-plugin/verve-plugin.c:1100
 msgid "Label:"
 msgstr "Etiket:"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1119
-msgid "Behaviour"
-msgstr "Gedrag"
+#: ../panel-plugin/verve-plugin.c:1117
+msgid "History"
+msgstr "Geschiedenis"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1130
+#: ../panel-plugin/verve-plugin.c:1133
 msgid "Number of saved history items:"
 msgstr "Aantal opgeslagen geschiedenis-elementen:"
 
-#. Frame for DuckDuckGo settings
-#: ../panel-plugin/verve-plugin.c:1150
-msgid "DuckDuckGo"
-msgstr "DuckDuckGo"
+#. Second tab
+#: ../panel-plugin/verve-plugin.c:1153 ../panel-plugin/verve-plugin.c:1157
+msgid "Behaviour"
+msgstr "Gedrag"
 
-#. DuckDuckGo redirect options label
-#: ../panel-plugin/verve-plugin.c:1161
-msgid "Search DuckDuckGo if command starts with:"
-msgstr "Doorzoek met DuckDuckGo indien opdracht begint met:"
+#. Pattern types frame label
+#: ../panel-plugin/verve-plugin.c:1166
+msgid "Enable support for:"
+msgstr "Ondersteuning inschakelen voor:"
 
-#. Frame for smart bookmark settings
-#: ../panel-plugin/verve-plugin.c:1193
-msgid "Smart Bookmark"
-msgstr "Slimme bladwijzer"
+#. Command type: URL
+#: ../panel-plugin/verve-plugin.c:1172
+msgid "URLs (http/https/ftp/ftps)"
+msgstr "Webadressen (http/https/ftp/ftps)"
 
-#. smartbookmark check box
-#: ../panel-plugin/verve-plugin.c:1204
+#. Command type: email address
+#: ../panel-plugin/verve-plugin.c:1180
+msgid "Email addresses"
+msgstr "E-mailadressen"
+
+#. Command type: directory path
+#: ../panel-plugin/verve-plugin.c:1188
+msgid "Directory paths"
+msgstr "Mappaden"
+
+#: ../panel-plugin/verve-plugin.c:1201
+msgid "Expand variables with wordexp"
+msgstr "Variabelen uitvouwen met wordexp"
+
+#. Command type: !bang
+#: ../panel-plugin/verve-plugin.c:1211
+msgid "DuckDuckGo queries (starting with !)"
+msgstr "Zoekopdrachten met DuckDuckGo (beginnend met !)"
+
+#. Command type: I'm feeling ducky (\)
+#: ../panel-plugin/verve-plugin.c:1219
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr "DuckDuckGo-zoekopdrachten (beginnend met \\)"
+
+#. Fallback if the above don't match
+#: ../panel-plugin/verve-plugin.c:1227
+msgid "If the above patterns don't match:"
+msgstr "Indien bovenstaande patronen niet overeenkomen:"
+
+#. Smart bookmark radio button
+#: ../panel-plugin/verve-plugin.c:1233
+msgid "Use smart bookmark URL"
+msgstr "Gebruik webadres van slimme bladwijzer"
+
+#. Executable command radio button (smart bookmark off)
+#: ../panel-plugin/verve-plugin.c:1256
+msgid "Run as executable command"
+msgstr "Draaien als uitvoerbare opdracht"
+
+#: ../panel-plugin/verve-plugin.c:1268
 msgid ""
-"Instead of launching commands,\n"
-"use this smart bookmark URL:"
-msgstr "Gebruik het webadres van deze slimme bladwijzer\nin plaats van het uitvoeren van opdrachten:"
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr "Opdracht uitvoeren met $SHELL -i -c\n(schakelt alias en variabele expansie in)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
