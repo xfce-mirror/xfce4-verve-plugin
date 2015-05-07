@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-01 00:31+0100\n"
-"PO-Revision-Date: 2015-02-18 13:17+0000\n"
+"POT-Creation-Date: 2015-04-17 06:31+0200\n"
+"PO-Revision-Date: 2015-05-06 13:24+0000\n"
 "Last-Translator: Masato HASHIMOTO <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/xfce-panel-plugins/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -18,62 +18,109 @@ msgstr ""
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../panel-plugin/verve.c:98
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "コマンドを実行できませんでした (終了ステータス %d)"
+
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:412
+#: ../panel-plugin/verve-plugin.c:409
 msgid "Could not execute command:"
 msgstr "コマンドを実行できませんでした:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1043
+#: ../panel-plugin/verve-plugin.c:1031
 msgid "Verve"
 msgstr "Verve"
 
+#: ../panel-plugin/verve-plugin.c:1054
+msgid "General"
+msgstr "一般"
+
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1061
+#: ../panel-plugin/verve-plugin.c:1059
 msgid "Appearance"
 msgstr "外観"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1077
+#: ../panel-plugin/verve-plugin.c:1075
 msgid "Width (in chars):"
 msgstr "幅 (文字単位):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1102
+#: ../panel-plugin/verve-plugin.c:1100
 msgid "Label:"
 msgstr "ラベル:"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1119
-msgid "Behaviour"
+#: ../panel-plugin/verve-plugin.c:1117
+msgid "History"
 msgstr "履歴"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1130
+#: ../panel-plugin/verve-plugin.c:1133
 msgid "Number of saved history items:"
 msgstr "保存する履歴アイテム数"
 
-#. Frame for DuckDuckGo settings
-#: ../panel-plugin/verve-plugin.c:1150
-msgid "DuckDuckGo"
-msgstr "DuckDuckGo"
+#. Second tab
+#: ../panel-plugin/verve-plugin.c:1153 ../panel-plugin/verve-plugin.c:1157
+msgid "Behaviour"
+msgstr "履歴"
 
-#. DuckDuckGo redirect options label
-#: ../panel-plugin/verve-plugin.c:1161
-msgid "Search DuckDuckGo if command starts with:"
-msgstr "コマンドが次の文字列で始まっている場合 DuckDuckGo で検索:"
+#. Pattern types frame label
+#: ../panel-plugin/verve-plugin.c:1166
+msgid "Enable support for:"
+msgstr "有効にするパターン:"
 
-#. Frame for smart bookmark settings
-#: ../panel-plugin/verve-plugin.c:1193
-msgid "Smart Bookmark"
-msgstr "スマートブックマーク"
+#. Command type: URL
+#: ../panel-plugin/verve-plugin.c:1172
+msgid "URLs (http/https/ftp/ftps)"
+msgstr "URLs (http/https/ftp/ftps)"
 
-#. smartbookmark check box
-#: ../panel-plugin/verve-plugin.c:1204
+#. Command type: email address
+#: ../panel-plugin/verve-plugin.c:1180
+msgid "Email addresses"
+msgstr "E メールアドレス"
+
+#. Command type: directory path
+#: ../panel-plugin/verve-plugin.c:1188
+msgid "Directory paths"
+msgstr "ディレクトリパス"
+
+#: ../panel-plugin/verve-plugin.c:1201
+msgid "Expand variables with wordexp"
+msgstr "環境変数を wordexp で展開する"
+
+#. Command type: !bang
+#: ../panel-plugin/verve-plugin.c:1211
+msgid "DuckDuckGo queries (starting with !)"
+msgstr "DuckDuckGo で検索 (先頭に ! をつける)"
+
+#. Command type: I'm feeling ducky (\)
+#: ../panel-plugin/verve-plugin.c:1219
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr "DuckDuckGo で検索 (先頭に \\ をつける)"
+
+#. Fallback if the above don't match
+#: ../panel-plugin/verve-plugin.c:1227
+msgid "If the above patterns don't match:"
+msgstr "上記パターンにマッチしなかった場合:"
+
+#. Smart bookmark radio button
+#: ../panel-plugin/verve-plugin.c:1233
+msgid "Use smart bookmark URL"
+msgstr "スマートブックマーク URL を使用"
+
+#. Executable command radio button (smart bookmark off)
+#: ../panel-plugin/verve-plugin.c:1256
+msgid "Run as executable command"
+msgstr "実行可能コマンドとして実行"
+
+#: ../panel-plugin/verve-plugin.c:1268
 msgid ""
-"Instead of launching commands,\n"
-"use this smart bookmark URL:"
-msgstr "コマンドを起動するのではなく、\nスマートブックマーク URL を使用:"
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr "コマンドを $SHELL -i -c で実行する\n(エイリアスと変数展開が利用できます)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
