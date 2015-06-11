@@ -3,50 +3,124 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# k3lt01 <keltoiboy@gmail.com>, 2013
+# Michael Findlay <keltoiboy@gmail.com>, 2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 21:26+0200\n"
-"PO-Revision-Date: 2013-07-29 09:40+0000\n"
-"Last-Translator: k3lt01 <keltoiboy@gmail.com>\n"
-"Language-Team: English (Australia) (http://www.transifex.com/projects/p/xfce/language/en_AU/)\n"
+"POT-Creation-Date: 2015-04-17 06:31+0200\n"
+"PO-Revision-Date: 2015-06-11 05:46+0000\n"
+"Last-Translator: Michael Findlay <keltoiboy@gmail.com>\n"
+"Language-Team: English (Australia) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_AU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../panel-plugin/verve.c:98
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "Could not execute command (exit status %d)"
+
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:407
+#: ../panel-plugin/verve-plugin.c:409
 msgid "Could not execute command:"
 msgstr "Could not execute command:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:787
+#: ../panel-plugin/verve-plugin.c:1031
 msgid "Verve"
 msgstr "Verve"
 
+#: ../panel-plugin/verve-plugin.c:1054
+msgid "General"
+msgstr "General"
+
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:805
+#: ../panel-plugin/verve-plugin.c:1059
 msgid "Appearance"
 msgstr "Appearance"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:816
+#: ../panel-plugin/verve-plugin.c:1075
 msgid "Width (in chars):"
 msgstr "Width (in chars):"
 
+#. Plugin label label
+#: ../panel-plugin/verve-plugin.c:1100
+msgid "Label:"
+msgstr "Label:"
+
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:836
+#: ../panel-plugin/verve-plugin.c:1117
+msgid "History"
+msgstr "History"
+
+#. History length label
+#: ../panel-plugin/verve-plugin.c:1133
+msgid "Number of saved history items:"
+msgstr "Number of saved history items:"
+
+#. Second tab
+#: ../panel-plugin/verve-plugin.c:1153 ../panel-plugin/verve-plugin.c:1157
 msgid "Behaviour"
 msgstr "Behaviour"
 
-#. History length label
-#: ../panel-plugin/verve-plugin.c:847
-msgid "Number of saved history items:"
-msgstr "Number of saved history items:"
+#. Pattern types frame label
+#: ../panel-plugin/verve-plugin.c:1166
+msgid "Enable support for:"
+msgstr "Enable support for:"
+
+#. Command type: URL
+#: ../panel-plugin/verve-plugin.c:1172
+msgid "URLs (http/https/ftp/ftps)"
+msgstr "URLs (http/https/ftp/ftps)"
+
+#. Command type: email address
+#: ../panel-plugin/verve-plugin.c:1180
+msgid "Email addresses"
+msgstr "Email addresses"
+
+#. Command type: directory path
+#: ../panel-plugin/verve-plugin.c:1188
+msgid "Directory paths"
+msgstr "Directory paths"
+
+#: ../panel-plugin/verve-plugin.c:1201
+msgid "Expand variables with wordexp"
+msgstr "Expand variables with wordexp"
+
+#. Command type: !bang
+#: ../panel-plugin/verve-plugin.c:1211
+msgid "DuckDuckGo queries (starting with !)"
+msgstr "DuckDuckGo queries (starting with !)"
+
+#. Command type: I'm feeling ducky (\)
+#: ../panel-plugin/verve-plugin.c:1219
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr "DuckDuckGo queries (starting with \\)"
+
+#. Fallback if the above don't match
+#: ../panel-plugin/verve-plugin.c:1227
+msgid "If the above patterns don't match:"
+msgstr "If the above patterns don't match:"
+
+#. Smart bookmark radio button
+#: ../panel-plugin/verve-plugin.c:1233
+msgid "Use smart bookmark URL"
+msgstr "Use smart bookmark URL"
+
+#. Executable command radio button (smart bookmark off)
+#: ../panel-plugin/verve-plugin.c:1256
+msgid "Run as executable command"
+msgstr "Run as executable command"
+
+#: ../panel-plugin/verve-plugin.c:1268
+msgid ""
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr "Run command with $SHELL -i -c\n(enables alias and variable expansion)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
