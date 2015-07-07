@@ -1,3 +1,12 @@
+1.1.0 (2015/07/07):
+-------------------
+ * Add the ability to use xfce4-verve-plugin as a smartbookmark plugin
+ * Add the ability to direct commands beginning in ! or \ to DuckDuckGo
+ * Run commands through shell by default, to allow aliases, variables, etc.
+ * Use wordexp to expand directory names (when available), to allow variables, etc.
+ * Add an optional label on the left side of the plugin
+ * Increase maximum width of plugin
+
 1.0.1 (2015/01/26):
 -------------------
  * Use exo-open instead of the deprecated xfterm4 to launch commands in a term via ctrl-enter (bug #9978)
