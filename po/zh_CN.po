@@ -6,19 +6,25 @@
 # Chipong Luo <chipong.luo@yahoo.com>, 2011-2012
 # Hunt Xu <huntxu@live.cn>, 2009
 # 玉堂白鹤 <yjwork@qq.com>, 2015
+# 白铭骢 <jeffbaichina@members.fsf.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 06:31+0100\n"
-"PO-Revision-Date: 2015-04-08 15:29+0000\n"
-"Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/xfce-panel-plugins/language/zh_CN/)\n"
+"POT-Creation-Date: 2015-04-17 06:31+0200\n"
+"PO-Revision-Date: 2015-08-05 12:24+0000\n"
+"Last-Translator: 白铭骢 <jeffbaichina@members.fsf.org>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/xfce/xfce-panel-plugins/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../panel-plugin/verve.c:98
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "无法执行命令 (退出状态 %d)"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:409
@@ -86,22 +92,22 @@ msgstr "目录路径"
 
 #: ../panel-plugin/verve-plugin.c:1201
 msgid "Expand variables with wordexp"
-msgstr ""
+msgstr "使用 wordexp 展开变量"
 
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1211
 msgid "DuckDuckGo queries (starting with !)"
-msgstr ""
+msgstr "DuckDuckGo 查询项 (使用 ! 开头)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1219
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr ""
+msgstr "DuckDuckGo 查询项 (使用 \\ 开头)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1227
 msgid "If the above patterns don't match:"
-msgstr ""
+msgstr "如上述格式没有匹配项："
 
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1233
@@ -113,12 +119,11 @@ msgstr "使用智能书签 URL"
 msgid "Run as executable command"
 msgstr "作为可执行命令运行"
 
-#. gtk_widget_show (alignment); - not implemented yet
 #: ../panel-plugin/verve-plugin.c:1268
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr ""
+msgstr "使用 $SHELL -i -c 运行命令\n(开启别名和变量展开)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
