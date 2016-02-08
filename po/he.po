@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Elishai Eliyahu <e1907@mm.st>, 2016
 # GenghisKhan <genghiskhan@gmx.ca>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2016-02-07 19:29+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2016-02-08 12:33+0000\n"
+"Last-Translator: Elishai Eliyahu <e1907@mm.st>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-panel-plugins/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 #: ../panel-plugin/verve.c:98
 #, c-format
 msgid "Could not execute command (exit status %d)"
-msgstr ""
+msgstr "לא יכול לבצע פקודה (סטטוס יציאה %d) "
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:409
@@ -31,7 +32,7 @@ msgstr "לא היתה אפשרות לבצע פקודה:"
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:1031
 msgid "Verve"
-msgstr ""
+msgstr "Verve"
 
 #: ../panel-plugin/verve-plugin.c:1054
 msgid "General"
@@ -89,7 +90,7 @@ msgstr "נתיבי ספרייה"
 
 #: ../panel-plugin/verve-plugin.c:1201
 msgid "Expand variables with wordexp"
-msgstr ""
+msgstr "הרחב משתנים עם wordexp "
 
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1211
@@ -104,7 +105,7 @@ msgstr "שאילתות DuckDuckGo (מתחילות עם \\)"
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1227
 msgid "If the above patterns don't match:"
-msgstr ""
+msgstr "אם הדוגמאות מעלה לא תואמות:"
 
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1233
@@ -114,13 +115,13 @@ msgstr "השתמש בסימניית URL חכמה"
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1256
 msgid "Run as executable command"
-msgstr ""
+msgstr "הפעל כפקודה הניתנת לביצוע"
 
 #: ../panel-plugin/verve-plugin.c:1268
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr ""
+msgstr "הפעל פקודה עם $SHELL -i -c \n(מאפשר כינוי והרחבת משתנים)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
@@ -134,11 +135,11 @@ msgstr "ממשק שורת פקודה עם השלמה אוטומטית והיסט
 #. Print error message
 #: ../scripts/verve-focus.c:60
 msgid "Failed to connect to the D-BUS session bus."
-msgstr ""
+msgstr "נכשל להתחבר ל-bus סשן D-BUS. "
 
 #. Print error message
 #: ../scripts/verve-focus.c:83
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr ""
+msgstr "נראה שאין ספק Verver D-BUS פועל (למשל תוסף פאנל Verve)."
