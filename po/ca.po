@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2016-05-01 18:47+0000\n"
+"PO-Revision-Date: 2016-05-03 10:58+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -95,7 +95,7 @@ msgstr "Expandeix les variables amb wordexp"
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1211
 msgid "DuckDuckGo queries (starting with !)"
-msgstr "Cerques de DuckDuckGo (començades per !)"
+msgstr "Cerques de DuckDuckGo (que comencen amb !)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1219
