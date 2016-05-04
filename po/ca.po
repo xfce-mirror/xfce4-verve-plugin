@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2016-05-03 10:58+0000\n"
+"PO-Revision-Date: 2016-05-04 07:42+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "No s'ha pogut executar l'ordre (estat de sortida %d)"
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:409
 msgid "Could not execute command:"
-msgstr "No es pot executar l'ordre:"
+msgstr "No s'ha pogut executar l'ordre:"
 
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:1031
@@ -61,7 +61,7 @@ msgstr "Historial"
 #. History length label
 #: ../panel-plugin/verve-plugin.c:1133
 msgid "Number of saved history items:"
-msgstr "Nombre d'ítems desats a l'historial:"
+msgstr "Nombre d'elements desats a l'històric:"
 
 #. Second tab
 #: ../panel-plugin/verve-plugin.c:1153 ../panel-plugin/verve-plugin.c:1157
@@ -71,12 +71,12 @@ msgstr "Comportament"
 #. Pattern types frame label
 #: ../panel-plugin/verve-plugin.c:1166
 msgid "Enable support for:"
-msgstr "Habilita el suport per a:"
+msgstr "Habilita la compatibilitat per a:"
 
 #. Command type: URL
 #: ../panel-plugin/verve-plugin.c:1172
 msgid "URLs (http/https/ftp/ftps)"
-msgstr "URL (http/https/ftp/ftps)"
+msgstr "Les URL (http/https/ftp/ftps)"
 
 #. Command type: email address
 #: ../panel-plugin/verve-plugin.c:1180
@@ -86,7 +86,7 @@ msgstr "Adreces electròniques"
 #. Command type: directory path
 #: ../panel-plugin/verve-plugin.c:1188
 msgid "Directory paths"
-msgstr "Camins de directoris"
+msgstr "Camins als directoris"
 
 #: ../panel-plugin/verve-plugin.c:1201
 msgid "Expand variables with wordexp"
@@ -100,7 +100,7 @@ msgstr "Cerques de DuckDuckGo (que comencen amb !)"
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1219
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr "Cerques de DuckDuckGo (començades per \\)"
+msgstr "Cerques de DuckDuckGo (que comencen amb \\)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1227
@@ -121,7 +121,7 @@ msgstr "Executa com a ordre executable"
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr "Executa l'ordre amb $SHELL -i -c\n(habilita l'àlies i l'expansió variable)"
+msgstr "Executa l'ordre amb $SHELL -i -c\n(habilita l'àlies i l'expansió de la variable)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
@@ -135,11 +135,11 @@ msgstr "Interfície de línia d'ordres amb compleció automàtica i històric d'
 #. Print error message
 #: ../scripts/verve-focus.c:60
 msgid "Failed to connect to the D-BUS session bus."
-msgstr "No s'ha pogut connectar al bus de la sessió del D-BUS."
+msgstr "No s'ha pogut connectar al bus de sessió D-BUS."
 
 #. Print error message
 #: ../scripts/verve-focus.c:83
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr "Sembla que no hi ha cap proveïdor de D-BUS de Verve (p. ex. el connector del plafó del Verve) executant-se."
+msgstr "Sembla que no hi ha cap proveïdor D-BUS de Verve (p. ex. el connector del plafó de Verve) en execució."
