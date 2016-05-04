@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2016-05-04 07:42+0000\n"
+"PO-Revision-Date: 2016-05-04 13:14+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "Habilita la compatibilitat per a:"
 #. Command type: URL
 #: ../panel-plugin/verve-plugin.c:1172
 msgid "URLs (http/https/ftp/ftps)"
-msgstr "Les URL (http/https/ftp/ftps)"
+msgstr "Els URL (http/https/ftp/ftps)"
 
 #. Command type: email address
 #: ../panel-plugin/verve-plugin.c:1180
@@ -126,7 +126,7 @@ msgstr "Executa l'ordre amb $SHELL -i -c\n(habilita l'àlies i l'expansió de la
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
 msgid "Verve Command Line"
-msgstr "Línia d'ordres de Verve"
+msgstr "Línia d'ordres Verve"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
 msgid "Command line interface with auto-completion and command history"
