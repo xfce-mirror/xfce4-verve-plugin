@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2016-05-04 13:14+0000\n"
+"PO-Revision-Date: 2016-05-05 10:59+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-panel-plugins/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Historial"
 #. History length label
 #: ../panel-plugin/verve-plugin.c:1133
 msgid "Number of saved history items:"
-msgstr "Nombre d'elements desats a l'històric:"
+msgstr "Nombre d'elements desats a l'historial:"
 
 #. Second tab
 #: ../panel-plugin/verve-plugin.c:1153 ../panel-plugin/verve-plugin.c:1157
@@ -130,7 +130,7 @@ msgstr "Línia d'ordres Verve"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
 msgid "Command line interface with auto-completion and command history"
-msgstr "Interfície de línia d'ordres amb compleció automàtica i històric d'ordres"
+msgstr "Interfície de línia d'ordres amb compleció automàtica i historial d'ordres"
 
 #. Print error message
 #: ../scripts/verve-focus.c:60
