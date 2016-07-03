@@ -15,18 +15,14 @@ libverve_la_CFLAGS =	 						\
 	-I$(top_builddir)						\
 	-I$(top_srcdir)							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
-	@LIBEXO_CFLAGS@							\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@LIBXFCE4UI_CFLAGS@						\
-	@LIBXFCE4UTIL_CFLAGS@						\
 	@LIBPCRE_CFLAGS@						\
 	@GTHREAD_CFLAGS@						
 
 libverve_la_LIBADD = 							\
-	@LIBEXO_LIBS@							\
 	@LIBXFCE4PANEL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
-	@LIBXFCE4UTIL_LIBS@						\
 	@LIBPCRE_LIBS@							\
 	@GTHREAD_LIBS@
 

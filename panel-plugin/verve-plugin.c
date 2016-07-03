@@ -236,7 +236,7 @@ verve_plugin_buttonpress_cb (GtkWidget *entry,
     verve_plugin_focus_timeout_reset (verve);
 
   /* Grab entry focus if possible */
-  if (event->button != 3 && toplevel && toplevel->window && !GTK_WIDGET_HAS_FOCUS(entry))
+  if (event->button != 3 && toplevel && gtk_widget_get_window(toplevel) && !gtk_widget_has_focus(entry))
     xfce_panel_plugin_focus_widget (verve->plugin, entry);
 
   return FALSE;
@@ -301,12 +301,12 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
   switch (event->keyval)
     {
       /* Reset entry value when ESC is pressed */
-      case GDK_Escape:
+      case GDK_KEY_Escape:
          gtk_entry_set_text (GTK_ENTRY (entry), "");
          return TRUE;
 
       /* Browse backwards through the command history */
-      case GDK_Down:
+      case GDK_KEY_Down:
         /* Do nothing if history is empty */
         if (verve_history_is_empty ())
           return TRUE;
@@ -347,7 +347,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         return TRUE;
 
       /* Browse forwards through the command history */
-      case GDK_Up:
+      case GDK_KEY_Up:
         /* Do nothing if the history is empty */
         if (verve_history_is_empty ())
           return TRUE;
@@ -388,8 +388,8 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         return TRUE;
 
       /* Execute command entered by the user */
-      case GDK_Return:
-      case GDK_KP_Enter:
+      case GDK_KEY_Return:
+      case GDK_KEY_KP_Enter:
         /* Retrieve a copy of the entry text */
         command = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
 
@@ -446,7 +446,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         return TRUE;
 
       /* Cycle through completion results */
-      case GDK_Tab:
+      case GDK_KEY_Tab:
         /* Retrieve a copy of the entry text */
         command = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
 
@@ -1123,7 +1123,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   GtkWidget *label_box;
   GtkWidget *history_length_label;
   GtkWidget *history_length_spin;
-  GtkObject *adjustment;
+  GObject *adjustment;
 
   GtkWidget *bin3;
   GtkWidget *alignment;
@@ -1152,7 +1152,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   /* Create properties dialog */
   dialog = xfce_titled_dialog_new_with_buttons (_("Verve"),
                                                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
-                                                GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
+                                                GTK_DIALOG_DESTROY_WITH_PARENT,
                                                 GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
                                                 NULL);
 
@@ -1169,7 +1169,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   
   /* Notebook setup */
   notebook = gtk_notebook_new ();
-  gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), notebook, TRUE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), notebook, TRUE, TRUE, 0);
   gtk_widget_show (notebook);
   
   general_vbox = gtk_vbox_new (FALSE, 8);
