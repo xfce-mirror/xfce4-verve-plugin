@@ -6,3 +6,4 @@ _Comment=Command line interface with auto-completion and command history
 Icon=utilities-terminal
 X-XFCE-Internal=FALSE
 X-XFCE-Module=verve
+X-XFCE-API=2.0
