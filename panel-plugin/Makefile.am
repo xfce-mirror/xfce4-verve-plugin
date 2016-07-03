@@ -37,26 +37,6 @@ libverve_la_LDFLAGS = \
 	-export-symbols-regex '^xfce_panel_module_(preinit|init|construct)' \
 	$(PLATFORM_LDFLAGS)
 
-if HAVE_DBUS
-libverve_la_SOURCES += 							\
-	verve-dbus-service-infos.h					\
-	verve-dbus-service.h						\
-	verve-dbus-service.c						
-
-libverve_la_CFLAGS +=							\
-	-DDBUS_API_SUBJECT_TO_CHANGE					\
-	$(DBUS_CFLAGS)
-
-libverve_la_LIBADD += 							\
-	$(DBUS_LIBS)
-
-verve-dbus-service-infos.h: Makefile $(srcdir)/verve-dbus-service-infos.xml 
-	dbus-binding-tool --prefix=verve_dbus_service --mode=glib-server $(srcdir)/verve-dbus-service-infos.xml > verve-dbus-service-infos.h
-
-BUILT_SOURCES = 							\
-	verve-dbus-service-infos.h
-endif
-
 # .desktop file
 #
 # We need to let intltool merge the translated fields, so we add a
@@ -72,10 +52,5 @@ EXTRA_DIST = 								\
 	verve-dbus-service-infos.xml
  
 DISTCLEANFILES = $(desktop_DATA)
-
-if HAVE_DBUS
-DISTCLEANFILES +=							\
-	verve-dbus-service-infos.h
-endif
 
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:

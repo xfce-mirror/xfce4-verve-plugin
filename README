@@ -9,7 +9,6 @@ Required packages:
   * libpcre
 
 Optional packages:
-  * dbus (for the verve-focus command)
   * wordexp (for tilde and variable expansion in directory paths)
 
 Build tools required:
