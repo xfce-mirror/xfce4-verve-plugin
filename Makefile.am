@@ -2,7 +2,6 @@
 
 SUBDIRS =								\
 	panel-plugin							\
-	scripts								\
 	po
 
 AUTOMAKE_OPTIONS =							\
