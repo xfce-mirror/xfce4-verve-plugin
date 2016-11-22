@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2016-10-23 14:54+0000\n"
+"PO-Revision-Date: 2016-11-22 20:01+0000\n"
 "Last-Translator: Cédric Valmary <cvalmary@yahoo.fr>\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/xfce/xfce-panel-plugins/language/oc/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../panel-plugin/verve.c:98
 #, c-format
 msgid "Could not execute command (exit status %d)"
-msgstr ""
+msgstr "Impossible d’executar la comanda (estat de sortida %d)"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:409
@@ -51,7 +51,7 @@ msgstr "Largor (en caractèrs) :"
 #. Plugin label label
 #: ../panel-plugin/verve-plugin.c:1100
 msgid "Label:"
-msgstr ""
+msgstr "Etiqueta :"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:1117
@@ -71,7 +71,7 @@ msgstr "Comportament"
 #. Pattern types frame label
 #: ../panel-plugin/verve-plugin.c:1166
 msgid "Enable support for:"
-msgstr ""
+msgstr "Activar la presa en carga :"
 
 #. Command type: URL
 #: ../panel-plugin/verve-plugin.c:1172
@@ -86,42 +86,42 @@ msgstr "Adreças email"
 #. Command type: directory path
 #: ../panel-plugin/verve-plugin.c:1188
 msgid "Directory paths"
-msgstr ""
+msgstr "De camins de repertòri"
 
 #: ../panel-plugin/verve-plugin.c:1201
 msgid "Expand variables with wordexp"
-msgstr ""
+msgstr "Espandir las variablas amb wordexp"
 
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1211
 msgid "DuckDuckGo queries (starting with !)"
-msgstr ""
+msgstr "Requèstas DuckDuckGo (en començant per !)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1219
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr ""
+msgstr "Requèstas DuckDuckGo (en començant per \\)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1227
 msgid "If the above patterns don't match:"
-msgstr ""
+msgstr "Se los motius çaisús correspondon pas :"
 
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1233
 msgid "Use smart bookmark URL"
-msgstr ""
+msgstr "Utilizar de signets URL intelligents"
 
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1256
 msgid "Run as executable command"
-msgstr ""
+msgstr "Aviar coma una comanda executabla"
 
 #: ../panel-plugin/verve-plugin.c:1268
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr ""
+msgstr "Aviar la comanda amb $SHELL -i -c\n(permet l'aliàs e l'extension de variabla)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
