@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2016-12-08 23:31+0000\n"
+"PO-Revision-Date: 2016-12-08 23:34+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: ../panel-plugin/verve.c:98
 #, c-format
 msgid "Could not execute command (exit status %d)"
-msgstr ""
+msgstr "Kunne ikke eksekvere kommando (afslutningsstatus %d)"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:409
@@ -106,7 +106,7 @@ msgstr "DuckDuckGo-anmodninger (begynder med \\)"
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1227
 msgid "If the above patterns don't match:"
-msgstr ""
+msgstr "Hvis mønsteret ovenfor ikke matcher:"
 
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1233
@@ -116,13 +116,13 @@ msgstr "Bug smart bogmærke-URL"
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1256
 msgid "Run as executable command"
-msgstr ""
+msgstr "Kør som eksekverbar kommando"
 
 #: ../panel-plugin/verve-plugin.c:1268
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr ""
+msgstr "Kør kommando med $SHELL -i -c\n(aktiverer udvidelse af alias og variabel)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
