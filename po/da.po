@@ -5,13 +5,13 @@
 # Translators:
 # Jens Hyllegaard <jens.hyllegaard@gmail.com>, 2007
 # Per Kongstad <p_kongstad@op.pl>, 2008
-# scootergrisen, 2016
+# scootergrisen, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2016-12-08 23:34+0000\n"
+"PO-Revision-Date: 2017-01-16 13:03+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +91,7 @@ msgstr "Mappestier"
 
 #: ../panel-plugin/verve-plugin.c:1201
 msgid "Expand variables with wordexp"
-msgstr "Udivd variabler med wordexp"
+msgstr "Udvid variabler med wordexp"
 
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1211
