@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2017-01-16 13:03+0000\n"
+"PO-Revision-Date: 2017-02-15 20:10+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -82,7 +82,7 @@ msgstr "URL'er (http/https/ftp/ftps)"
 #. Command type: email address
 #: ../panel-plugin/verve-plugin.c:1180
 msgid "Email addresses"
-msgstr "E-mail-adresser"
+msgstr "E-mailadresser"
 
 #. Command type: directory path
 #: ../panel-plugin/verve-plugin.c:1188
