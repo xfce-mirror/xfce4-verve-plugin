@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Pjotr <pjotrvertaalt@gmail.com>, 2015
+# Pjotr <pjotrvertaalt@gmail.com>, 2015,2017
 # Stephan Arts <stephan@xfce.org>, 2006
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2015-10-07 14:00+0000\n"
+"PO-Revision-Date: 2017-06-10 16:19+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/xfce/xfce-panel-plugins/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -142,4 +142,4 @@ msgstr "Kan niet verbinden met de D-BUS sessie bus."
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr "Er schijnt geen Verve D-BUS leverancier te draaien (zoals de Verve werkbalk-invoegtoepassing)."
+msgstr "Er schijnt geen Verve D-BUS leverancier te draaien (zoals het Verve werkbalk-invoegsel)."
