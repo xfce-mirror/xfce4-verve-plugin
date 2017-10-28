@@ -200,7 +200,10 @@ verve_execute (const gchar *input,
   else if ((launch_params.use_bang && input[0] == '!') || (launch_params.use_backslash && input[0] == '\\'))
   {
     /* Launch DuckDuckGo */
-    gchar *esc_input = g_uri_escape_string(input, NULL, TRUE);
+    gchar *esc_input = input;
+    /* Remove leading ! or \ */
+    memmove(esc_input, esc_input+1, strlen(esc_input));
+    esc_input = g_uri_escape_string(esc_input, NULL, TRUE);
     command = g_strconcat ("exo-open https://duckduckgo.com/?q=", esc_input, NULL);
     g_free(esc_input);
   }
