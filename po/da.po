@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2017-11-01 16:45+0000\n"
+"PO-Revision-Date: 2017-11-01 17:56+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Kunne ikke eksekvere kommando (afslutningsstatus %d)"
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:409
 msgid "Could not execute command:"
-msgstr "Kunne ikke udføre kommandoen:"
+msgstr "Kunne ikke eksekvere kommandoen:"
 
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:1031
@@ -96,12 +96,12 @@ msgstr "Udvid variabler med wordexp"
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1211
 msgid "DuckDuckGo queries (starting with !)"
-msgstr "DuckDuckGo-anmodninger (begynder med !)"
+msgstr "DuckDuckGo-forespørgsler (begynder med !)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1219
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr "DuckDuckGo-anmodninger (begynder med \\)"
+msgstr "DuckDuckGo-forespørgsler (begynder med \\)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1227
@@ -136,7 +136,7 @@ msgstr "Kommandolinjegrænseflade med autofuldførelse og kommandohistorik"
 #. Print error message
 #: ../scripts/verve-focus.c:60
 msgid "Failed to connect to the D-BUS session bus."
-msgstr "Kunne ikke tilslutte til D-BUS-sessions-bussen."
+msgstr "Kunne ikke tilslutte til D-BUS-sessionsbussen."
 
 #. Print error message
 #: ../scripts/verve-focus.c:83
