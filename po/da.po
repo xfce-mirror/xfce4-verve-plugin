@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2017-11-03 11:13+0000\n"
+"PO-Revision-Date: 2017-11-03 18:08+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-panel-plugins/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -23,12 +23,12 @@ msgstr ""
 #: ../panel-plugin/verve.c:98
 #, c-format
 msgid "Could not execute command (exit status %d)"
-msgstr "Kunne ikke eksekvere kommando (afslutningsstatus %d)"
+msgstr "Kunne ikke udføre kommando (afslutningsstatus %d)"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:409
 msgid "Could not execute command:"
-msgstr "Kunne ikke eksekvere kommandoen:"
+msgstr "Kunne ikke udføre kommandoen:"
 
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:1031
@@ -116,7 +116,7 @@ msgstr "Bug smart bogmærke-URL"
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1256
 msgid "Run as executable command"
-msgstr "Kør som eksekverbar kommando"
+msgstr "Kør som eksekverbar-kommando"
 
 #: ../panel-plugin/verve-plugin.c:1268
 msgid ""
