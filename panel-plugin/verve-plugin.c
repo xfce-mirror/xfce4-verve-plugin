@@ -529,6 +529,11 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   verve->launch_params.use_backslash = FALSE;
   verve->launch_params.use_smartbookmark = FALSE;
   verve->launch_params.smartbookmark_url = g_strdup("");
+  
+  /* Initialize colors */
+  verve->fg_color_override = FALSE;
+  verve->bg_color_override = FALSE;
+  verve->base_color_override = FALSE;
 
   /* Initialize label */
   verve->label = gtk_label_new ("");
@@ -833,6 +838,7 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin,
 {
   XfceRc *rc;
   gchar *filename;
+  gchar *color_str;
 
   g_return_if_fail (plugin != NULL);
   g_return_if_fail (verve != NULL);
@@ -872,9 +878,17 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin,
       xfce_rc_write_entry (rc, "smartbookmark-url", verve->launch_params.smartbookmark_url);
 
       /* Write colors */
-      xfce_rc_write_entry (rc, "foreground-color", verve->fg_color_override ? "orange" : "");
-      xfce_rc_write_entry (rc, "background-color", verve->bg_color_override ? "green" : "");
-      xfce_rc_write_entry (rc, "base-color", verve->base_color_override ? "blue" : "");
+      color_str = gdk_color_to_string(&verve->fg_color);
+      xfce_rc_write_entry (rc, "foreground-color", verve->fg_color_override ? color_str : "");
+      g_free (color_str);
+      
+      color_str = gdk_color_to_string(&verve->bg_color);
+      xfce_rc_write_entry (rc, "background-color", verve->bg_color_override ? color_str : "");
+      g_free (color_str);
+      
+      color_str = gdk_color_to_string(&verve->base_color);
+      xfce_rc_write_entry (rc, "base-color", verve->base_color_override ? color_str : "");
+      g_free (color_str);
     
       /* Close handle */
       xfce_rc_close (rc);
