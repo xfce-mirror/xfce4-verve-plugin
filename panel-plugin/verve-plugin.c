@@ -54,12 +54,9 @@ typedef struct
   GtkWidget        *event_box;
   GtkWidget        *label;
   GtkWidget        *input;
-  gboolean          fg_color_override;
-  GdkColor          fg_color;
-  gboolean          bg_color_override;
-  GdkColor          bg_color;
-  gboolean          base_color_override;
-  GdkColor          base_color;
+  gchar            *fg_color_str;
+  gchar            *bg_color_str;
+  gchar            *base_color_str;
   
   /* Command history */
   GList            *history_current;
@@ -127,11 +124,26 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 }
 
 
+
+static GdkColor
+parse_color_or_default (const gchar *color_string,
+                        const GdkColor default_color)
+{
+  GdkColor color;
+  if (color_string && gdk_color_parse(color_string, &color)) {
+    return color;
+  } else {
+    return default_color;
+  }
+}
+
+
   
 static gboolean
 verve_plugin_focus_timeout (VervePlugin *verve)
 {
   GtkStyle *style;
+  GdkColor c;
   
   g_return_val_if_fail (verve != NULL, FALSE);
   g_return_val_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input), FALSE);
@@ -143,9 +155,12 @@ verve_plugin_focus_timeout (VervePlugin *verve)
   if (gdk_color_equal (&style->base[GTK_STATE_NORMAL], &style->base[GTK_STATE_SELECTED]))
     {
       /* Make it look normal again */
-      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, verve->base_color_override ? &verve->base_color : &verve->default_style->base[GTK_STATE_NORMAL]);
-      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, verve->bg_color_override ? &verve->bg_color : &verve->default_style->bg[GTK_STATE_NORMAL]);
-      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, verve->fg_color_override ? &verve->fg_color : &verve->default_style->text[GTK_STATE_NORMAL]);
+      c = parse_color_or_default(verve->base_color_str, verve->default_style->base[GTK_STATE_NORMAL]);
+      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &c);
+      c = parse_color_or_default(verve->bg_color_str, verve->default_style->bg[GTK_STATE_NORMAL]);
+      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &c);
+      c = parse_color_or_default(verve->fg_color_str, verve->default_style->text[GTK_STATE_NORMAL]);
+      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &c);
     }
   else
     {
@@ -164,6 +179,7 @@ static void
 verve_plugin_focus_timeout_reset (VervePlugin *verve)
 {
   GtkStyle *style;
+  GdkColor c;
 
   g_return_if_fail (verve != NULL);
   g_return_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input));
@@ -176,9 +192,12 @@ verve_plugin_focus_timeout_reset (VervePlugin *verve)
     }
   
   /* Reset entry background */
-  gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, verve->base_color_override ? &verve->base_color : &verve->default_style->base[GTK_STATE_NORMAL]);
-  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, verve->bg_color_override ? &verve->bg_color : &verve->default_style->bg[GTK_STATE_NORMAL]);
-  gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, verve->fg_color_override ? &verve->fg_color : &verve->default_style->text[GTK_STATE_NORMAL]);
+  c = parse_color_or_default(verve->base_color_str, verve->default_style->base[GTK_STATE_NORMAL]);
+  gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &c);
+  c = parse_color_or_default(verve->bg_color_str, verve->default_style->bg[GTK_STATE_NORMAL]);
+  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &c);
+  c = parse_color_or_default(verve->fg_color_str, verve->default_style->text[GTK_STATE_NORMAL]);
+  gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &c);
 }
 
 
@@ -528,12 +547,12 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   verve->launch_params.use_bang = FALSE;
   verve->launch_params.use_backslash = FALSE;
   verve->launch_params.use_smartbookmark = FALSE;
-  verve->launch_params.smartbookmark_url = g_strdup("");
+  verve->launch_params.smartbookmark_url = g_strdup ("");
   
   /* Initialize colors */
-  verve->fg_color_override = FALSE;
-  verve->bg_color_override = FALSE;
-  verve->base_color_override = FALSE;
+  verve->fg_color_str = g_strdup ("");
+  verve->bg_color_str = g_strdup ("");
+  verve->base_color_str = g_strdup ("");
 
   /* Initialize label */
   verve->label = gtk_label_new ("");
@@ -669,30 +688,30 @@ verve_plugin_update_colors (XfcePanelPlugin *plugin,
 {
   g_return_val_if_fail (verve != NULL, FALSE);
 
-  GdkColor color;
+  GdkColor c;
   if (fg_color_str) {
-    verve->fg_color_override = FALSE;
-    if (gdk_color_parse(fg_color_str, &color)) {
-      verve->fg_color_override = TRUE;
-      verve->fg_color = color;
+    if (verve->fg_color_str) {
+      g_free (verve->fg_color_str);
     }
-    gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, verve->fg_color_override ? &verve->fg_color : &verve->default_style->text[GTK_STATE_NORMAL]);
+    verve->fg_color_str = g_strdup (fg_color_str);
+    c = parse_color_or_default(verve->fg_color_str, verve->default_style->text[GTK_STATE_NORMAL]);
+    gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &c);
   }
   if (bg_color_str) {
-    verve->bg_color_override = FALSE;
-    if (gdk_color_parse(bg_color_str, &color)) {
-      verve->bg_color_override = TRUE;
-      verve->bg_color = color;
+    if (verve->bg_color_str) {
+      g_free (verve->bg_color_str);
     }
-    gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, verve->bg_color_override ? &verve->bg_color : &verve->default_style->bg[GTK_STATE_NORMAL]);
+    verve->bg_color_str = g_strdup (bg_color_str);
+    c = parse_color_or_default(verve->bg_color_str, verve->default_style->bg[GTK_STATE_NORMAL]);
+    gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &c);
   }
   if (base_color_str) {
-    verve->base_color_override = FALSE;
-    if (gdk_color_parse(base_color_str, &color)) {
-      verve->base_color_override = TRUE;
-      verve->base_color = color;
+    if (verve->base_color_str) {
+      g_free (verve->base_color_str);
     }
-    gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, verve->base_color_override ? &verve->base_color : &verve->default_style->base[GTK_STATE_NORMAL]);
+    verve->base_color_str = g_strdup (base_color_str);
+    c = parse_color_or_default(verve->base_color_str, verve->default_style->base[GTK_STATE_NORMAL]);
+    gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &c);
   }
 
   return TRUE;
@@ -842,7 +861,6 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin,
 {
   XfceRc *rc;
   gchar *filename;
-  gchar *color_str;
 
   g_return_if_fail (plugin != NULL);
   g_return_if_fail (verve != NULL);
@@ -882,17 +900,9 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin,
       xfce_rc_write_entry (rc, "smartbookmark-url", verve->launch_params.smartbookmark_url);
 
       /* Write colors */
-      color_str = gdk_color_to_string(&verve->fg_color);
-      xfce_rc_write_entry (rc, "foreground-color", verve->fg_color_override ? color_str : "");
-      g_free (color_str);
-      
-      color_str = gdk_color_to_string(&verve->bg_color);
-      xfce_rc_write_entry (rc, "background-color", verve->bg_color_override ? color_str : "");
-      g_free (color_str);
-      
-      color_str = gdk_color_to_string(&verve->base_color);
-      xfce_rc_write_entry (rc, "base-color", verve->base_color_override ? color_str : "");
-      g_free (color_str);
+      xfce_rc_write_entry (rc, "foreground-color", verve->fg_color_str ? verve->fg_color_str : "");
+      xfce_rc_write_entry (rc, "background-color", verve->bg_color_str ? verve->bg_color_str : "");
+      xfce_rc_write_entry (rc, "base-color", verve->base_color_str ? verve->base_color_str : "");
     
       /* Close handle */
       xfce_rc_close (rc);
@@ -1250,10 +1260,8 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   base_color_box = gtk_entry_new();
 
   /* Set text to current background color */
-  if (verve->base_color_override) {
-    color_str = gdk_color_to_string(&verve->base_color);
-    gtk_entry_set_text(GTK_ENTRY (base_color_box), color_str);
-    g_free (color_str);
+  if (verve->base_color_str) {
+    gtk_entry_set_text(GTK_ENTRY (base_color_box), verve->base_color_str);
   }
   gtk_widget_add_mnemonic_label (base_color_box, base_color_label);
   gtk_box_pack_start (GTK_BOX (hbox), base_color_box, FALSE, TRUE, 0);
@@ -1276,10 +1284,8 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   fg_color_box = gtk_entry_new();
 
   /* Set text to current foreground color */
-  if (verve->base_color_override) {
-    color_str = gdk_color_to_string(&verve->fg_color);
-    gtk_entry_set_text(GTK_ENTRY (fg_color_box), color_str);
-    g_free (color_str);
+  if (verve->fg_color_str) {
+    gtk_entry_set_text(GTK_ENTRY (fg_color_box), verve->fg_color_str);
   }
   gtk_widget_add_mnemonic_label (fg_color_box, fg_color_label);
   gtk_box_pack_start (GTK_BOX (hbox), fg_color_box, FALSE, TRUE, 0);
