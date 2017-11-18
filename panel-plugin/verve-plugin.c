@@ -54,9 +54,11 @@ typedef struct
   GtkWidget        *event_box;
   GtkWidget        *label;
   GtkWidget        *input;
+  
   gchar            *fg_color_str;
   gchar            *bg_color_str;
   gchar            *base_color_str;
+  GtkCssProvider   *input_css;
   
   /* Command history */
   GList            *history_current;
@@ -538,6 +540,10 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   gtk_widget_show (verve->input);
   gtk_container_add (GTK_CONTAINER (hbox), verve->input);
 
+  /* Set up a CSS provider for the entry */
+  verve->input_css = gtk_css_provider_new ();
+  gtk_style_context_add_provider (gtk_widget_get_style_context (verve->input), verve->input_css, GTK_STYLE_PROVIDER_PRIORITY_SETTINGS);
+
   /* Handle mouse button and key press events */
   g_signal_connect (verve->input, "key-press-event", G_CALLBACK (verve_plugin_keypress_cb), verve);
   g_signal_connect (verve->input, "button-press-event", G_CALLBACK (verve_plugin_buttonpress_cb), verve);
@@ -628,6 +634,18 @@ verve_plugin_update_label (XfcePanelPlugin *plugin,
 
 
 static gboolean
+write_string (GOutputStream *output_stream,
+              const gchar   *str1,
+              const gchar   *str2)
+{
+  gsize bytes_written;
+  const char* str = str1 && str1[0] ? str1 : str2;
+  return g_output_stream_write_all (output_stream, str, strlen (str), &bytes_written, NULL, NULL);
+}
+
+
+
+static gboolean
 verve_plugin_update_colors (XfcePanelPlugin *plugin,
                             const gchar     *fg_color_str,
                             const gchar     *bg_color_str,
@@ -636,25 +654,41 @@ verve_plugin_update_colors (XfcePanelPlugin *plugin,
 {
   g_return_val_if_fail (verve != NULL, FALSE);
 
-  GdkColor c;
+  GFileIOStream *tmp_file_stream;
+  GFile *tmp_file = g_file_new_tmp (NULL, &tmp_file_stream, NULL);
+  GOutputStream *output_stream = g_io_stream_get_output_stream (tmp_file_stream);
+
+  // Write CSS to temporary file
+  write_string (output_stream, "*{color:", "");
   if (fg_color_str) {
     if (verve->fg_color_str) {
       g_free (verve->fg_color_str);
     }
     verve->fg_color_str = g_strdup (fg_color_str);
   }
+  write_string (output_stream, verve->fg_color_str, "unset");
   if (bg_color_str) {
     if (verve->bg_color_str) {
       g_free (verve->bg_color_str);
     }
     verve->bg_color_str = g_strdup (bg_color_str);
   }
+  write_string (output_stream, ";background-color:", "");
   if (base_color_str) {
     if (verve->base_color_str) {
       g_free (verve->base_color_str);
     }
     verve->base_color_str = g_strdup (base_color_str);
   }
+  write_string (output_stream, verve->base_color_str, "unset");
+  write_string (output_stream, "}", "");
+
+  g_io_stream_close (tmp_file_stream, NULL, NULL);
+
+  gtk_css_provider_load_from_file (verve->input_css, tmp_file, NULL);
+  g_file_delete (tmp_file, NULL, NULL);
+
+  g_object_unref (tmp_file);
 
   return TRUE;
 }
