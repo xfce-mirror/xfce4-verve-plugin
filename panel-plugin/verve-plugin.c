@@ -73,9 +73,6 @@ typedef struct
   gint              history_length;
   VerveLaunchParams launch_params;
 
-  /* Default GTK style - to restore after blinking upon verve-focus */
-  GtkStyle         *default_style;
-
 #ifdef HAVE_DBUS
   VerveDBusService *dbus_service;
 #endif
@@ -124,20 +121,6 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 }
 
 
-
-static GdkColor
-parse_color_or_default (const gchar *color_string,
-                        const GdkColor default_color)
-{
-  GdkColor color;
-  if (color_string && gdk_color_parse(color_string, &color)) {
-    return color;
-  } else {
-    return default_color;
-  }
-}
-
-
   
 static gboolean
 verve_plugin_focus_timeout (VervePlugin *verve)
@@ -150,25 +133,6 @@ verve_plugin_focus_timeout (VervePlugin *verve)
   
   /* Determine current entry style */
   style = gtk_widget_get_style (verve->input);
-
-  /* Check whether the entry already is highlighted */
-  if (gdk_color_equal (&style->base[GTK_STATE_NORMAL], &style->base[GTK_STATE_SELECTED]))
-    {
-      /* Make it look normal again */
-      c = parse_color_or_default(verve->base_color_str, verve->default_style->base[GTK_STATE_NORMAL]);
-      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &c);
-      c = parse_color_or_default(verve->bg_color_str, verve->default_style->bg[GTK_STATE_NORMAL]);
-      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &c);
-      c = parse_color_or_default(verve->fg_color_str, verve->default_style->text[GTK_STATE_NORMAL]);
-      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &c);
-    }
-  else
-    {
-      /* Highlight the entry by changing base and background colors */
-      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &style->base[GTK_STATE_SELECTED]);
-      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style->bg[GTK_STATE_SELECTED]);
-      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &style->text[GTK_STATE_SELECTED]);
-    }
   
   return TRUE;
 }
@@ -190,14 +154,6 @@ verve_plugin_focus_timeout_reset (VervePlugin *verve)
       g_source_remove (verve->focus_timeout);
       verve->focus_timeout = 0;
     }
-  
-  /* Reset entry background */
-  c = parse_color_or_default(verve->base_color_str, verve->default_style->base[GTK_STATE_NORMAL]);
-  gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &c);
-  c = parse_color_or_default(verve->bg_color_str, verve->default_style->bg[GTK_STATE_NORMAL]);
-  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &c);
-  c = parse_color_or_default(verve->fg_color_str, verve->default_style->text[GTK_STATE_NORMAL]);
-  gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &c);
 }
 
 
@@ -587,11 +543,6 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   g_signal_connect (verve->input, "button-press-event", G_CALLBACK (verve_plugin_buttonpress_cb), verve);
   g_signal_connect (verve->input, "focus-out-event", G_CALLBACK (verve_plugin_focus_out), verve);
 
-  /* Copy the default GTK style into the plugin structure, for restoring after verve-focus */
-  GtkStyle *style = gtk_widget_get_style (verve->input);
-  verve->default_style = g_new (GtkStyle, 1);
-  memcpy(verve->default_style, style, sizeof (GtkStyle));
-
 #ifdef HAVE_DBUS
   /* Attach the D-BUS service */
   verve->dbus_service = g_object_new (VERVE_TYPE_DBUS_SERVICE, NULL);
@@ -619,9 +570,6 @@ verve_plugin_free (XfcePanelPlugin *plugin,
 
   /* Unload completion */
   g_completion_free (verve->completion);
-
-  /* Unload default GTK style */
-  g_free (verve->default_style);
 
   /* Free plugin data structure */
   g_free (verve);
@@ -694,24 +642,18 @@ verve_plugin_update_colors (XfcePanelPlugin *plugin,
       g_free (verve->fg_color_str);
     }
     verve->fg_color_str = g_strdup (fg_color_str);
-    c = parse_color_or_default(verve->fg_color_str, verve->default_style->text[GTK_STATE_NORMAL]);
-    gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &c);
   }
   if (bg_color_str) {
     if (verve->bg_color_str) {
       g_free (verve->bg_color_str);
     }
     verve->bg_color_str = g_strdup (bg_color_str);
-    c = parse_color_or_default(verve->bg_color_str, verve->default_style->bg[GTK_STATE_NORMAL]);
-    gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &c);
   }
   if (base_color_str) {
     if (verve->base_color_str) {
       g_free (verve->base_color_str);
     }
     verve->base_color_str = g_strdup (base_color_str);
-    c = parse_color_or_default(verve->base_color_str, verve->default_style->base[GTK_STATE_NORMAL]);
-    gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &c);
   }
 
   return TRUE;
