@@ -16,6 +16,8 @@ Build tools required:
   * autoconf
   * automake
 
+verve-focus is no longer supported in the GTK 3 version of xfce4-verve-plugin, due to changes in libraries related to dbus. (Let me know if you can contribute a patch to bring it back!)
+
 To compile, first run:
   ./configure
 Or, if compiling from the git repository:
