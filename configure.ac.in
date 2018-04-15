@@ -9,7 +9,7 @@ dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2006-2008 Jannis Pohlmann <jannis@xfce.org>
 Copyright (c) Florian Rivoal 2010 <frivoal@xfce.org>
 Copyright (c) Isaac Schemm 2015 <isaacschemm@gmail.com>])
-AC_INIT([xfce4-verve-plugin], [1.1.1], [isaacschemm@gmail.com], [xfce4-verve-plugin])
+AC_INIT([xfce4-verve-plugin], [2.0.0], [isaacschemm@gmail.com], [xfce4-verve-plugin])
 AC_PREREQ([2.50])
 
 dnl ***************************
