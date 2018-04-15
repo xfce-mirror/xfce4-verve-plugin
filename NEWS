@@ -1,3 +1,9 @@
+1.1.1 (2018/04/15):
+-------------------
+
+ * Update translations
+ * Add feature to override the background and foreground colors of the input area
+
 1.1.0 (2015/07/11):
 -------------------
  * Add the ability to use xfce4-verve-plugin as a smartbookmark plugin
