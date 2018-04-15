@@ -5,15 +5,16 @@
 # Translators:
 # Allan Nordhøy <epost@anotheragency.no>, 2015
 # Allan Nordhøy <epost@anotheragency.no>, 2015
+# Erlend Østlie <erlendandreas12368@gmail.com>, 2018
 # Harald H. <haarektrans@gmail.com>, 2015
 # Terje Uriansrud <ter@operamail.com>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2017-09-19 18:06+0000\n"
-"Last-Translator: Harald H. <haarektrans@gmail.com>\n"
+"POT-Creation-Date: 2017-11-23 00:32+0100\n"
+"PO-Revision-Date: 2018-03-10 13:44+0000\n"
+"Last-Translator: Erlend Østlie <erlendandreas12368@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,99 +28,114 @@ msgid "Could not execute command (exit status %d)"
 msgstr "Klarte ikke å kjøre kommando (avslutningsstatus %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:409
+#: ../panel-plugin/verve-plugin.c:434
 msgid "Could not execute command:"
 msgstr "Klarte ikke kjøre kommandoen:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1031
+#: ../panel-plugin/verve-plugin.c:1153
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:1054
+#: ../panel-plugin/verve-plugin.c:1176
 msgid "General"
 msgstr "Generelt"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1059
+#: ../panel-plugin/verve-plugin.c:1181
 msgid "Appearance"
 msgstr "Utseende"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1075
+#: ../panel-plugin/verve-plugin.c:1197
 msgid "Width (in chars):"
 msgstr "Bredde (antall tegn)"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1100
+#: ../panel-plugin/verve-plugin.c:1222
 msgid "Label:"
 msgstr "Etikett:"
 
+#. Frame for color settings
+#: ../panel-plugin/verve-plugin.c:1239
+msgid "Colors"
+msgstr ""
+
+#. Plugin background color label
+#: ../panel-plugin/verve-plugin.c:1255
+msgid "Background color:"
+msgstr "Bakgrunnsfarge:"
+
+#. Plugin foreground color label
+#: ../panel-plugin/verve-plugin.c:1279
+msgid "Foreground color:"
+msgstr ""
+
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1117
+#: ../panel-plugin/verve-plugin.c:1298
 msgid "History"
 msgstr "Historikk"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1133
+#: ../panel-plugin/verve-plugin.c:1314
 msgid "Number of saved history items:"
 msgstr "Antall elementer i historikken"
 
 #. Second tab
-#: ../panel-plugin/verve-plugin.c:1153 ../panel-plugin/verve-plugin.c:1157
+#: ../panel-plugin/verve-plugin.c:1334 ../panel-plugin/verve-plugin.c:1338
 msgid "Behaviour"
 msgstr "Oppførsel"
 
 #. Pattern types frame label
-#: ../panel-plugin/verve-plugin.c:1166
+#: ../panel-plugin/verve-plugin.c:1347
 msgid "Enable support for:"
 msgstr "Aktiver støtte for:"
 
 #. Command type: URL
-#: ../panel-plugin/verve-plugin.c:1172
+#: ../panel-plugin/verve-plugin.c:1353
 msgid "URLs (http/https/ftp/ftps)"
 msgstr "URL-er (http/https/ftp/ftps)"
 
 #. Command type: email address
-#: ../panel-plugin/verve-plugin.c:1180
+#: ../panel-plugin/verve-plugin.c:1361
 msgid "Email addresses"
 msgstr "E-postadresser"
 
 #. Command type: directory path
-#: ../panel-plugin/verve-plugin.c:1188
+#: ../panel-plugin/verve-plugin.c:1369
 msgid "Directory paths"
 msgstr "Målmapper"
 
-#: ../panel-plugin/verve-plugin.c:1201
+#: ../panel-plugin/verve-plugin.c:1382
 msgid "Expand variables with wordexp"
 msgstr "Utvid variabler med wordexp"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1211
+#: ../panel-plugin/verve-plugin.c:1392
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "DuckDuckGo spørringer (som starter med !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1219
+#: ../panel-plugin/verve-plugin.c:1400
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "DuckDuckGo spørringer (som starter med \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1227
+#: ../panel-plugin/verve-plugin.c:1408
 msgid "If the above patterns don't match:"
 msgstr "Hvis jamført mønster ikke stemmer:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1233
+#: ../panel-plugin/verve-plugin.c:1414
 msgid "Use smart bookmark URL"
 msgstr "Bruk smart bokmerke-nettadresse"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1256
+#: ../panel-plugin/verve-plugin.c:1437
 msgid "Run as executable command"
 msgstr "Start som kjørbar kommando"
 
-#: ../panel-plugin/verve-plugin.c:1268
+#: ../panel-plugin/verve-plugin.c:1449
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"

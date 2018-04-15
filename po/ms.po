@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# abuyop <abuyop@gmail.com>, 2014-2015
+# abuyop <abuyop@gmail.com>, 2014-2015,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-17 06:31+0200\n"
-"PO-Revision-Date: 2017-09-19 21:20+0000\n"
+"POT-Creation-Date: 2017-11-23 00:32+0100\n"
+"PO-Revision-Date: 2017-12-13 12:34+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>\n"
 "Language-Team: Malay (http://www.transifex.com/xfce/xfce-panel-plugins/language/ms/)\n"
 "MIME-Version: 1.0\n"
@@ -24,99 +24,114 @@ msgid "Could not execute command (exit status %d)"
 msgstr "Tidak dapat lakukan perintah (status keluar %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:409
+#: ../panel-plugin/verve-plugin.c:434
 msgid "Could not execute command:"
 msgstr "Tidak dapat lakukan perintah:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1031
+#: ../panel-plugin/verve-plugin.c:1153
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:1054
+#: ../panel-plugin/verve-plugin.c:1176
 msgid "General"
 msgstr "Am"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1059
+#: ../panel-plugin/verve-plugin.c:1181
 msgid "Appearance"
 msgstr "Penampilan"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1075
+#: ../panel-plugin/verve-plugin.c:1197
 msgid "Width (in chars):"
 msgstr "Lebar (dalam aksara):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1100
+#: ../panel-plugin/verve-plugin.c:1222
 msgid "Label:"
 msgstr "Label:"
 
+#. Frame for color settings
+#: ../panel-plugin/verve-plugin.c:1239
+msgid "Colors"
+msgstr "Warna"
+
+#. Plugin background color label
+#: ../panel-plugin/verve-plugin.c:1255
+msgid "Background color:"
+msgstr "Warna latar belakang:"
+
+#. Plugin foreground color label
+#: ../panel-plugin/verve-plugin.c:1279
+msgid "Foreground color:"
+msgstr "Warna latar hadapan:"
+
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1117
+#: ../panel-plugin/verve-plugin.c:1298
 msgid "History"
 msgstr "Sejarah"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1133
+#: ../panel-plugin/verve-plugin.c:1314
 msgid "Number of saved history items:"
 msgstr "Bilangan item sejarah disimpan:"
 
 #. Second tab
-#: ../panel-plugin/verve-plugin.c:1153 ../panel-plugin/verve-plugin.c:1157
+#: ../panel-plugin/verve-plugin.c:1334 ../panel-plugin/verve-plugin.c:1338
 msgid "Behaviour"
 msgstr "Kelakuan"
 
 #. Pattern types frame label
-#: ../panel-plugin/verve-plugin.c:1166
+#: ../panel-plugin/verve-plugin.c:1347
 msgid "Enable support for:"
 msgstr "Benarkan sokongan untuk:"
 
 #. Command type: URL
-#: ../panel-plugin/verve-plugin.c:1172
+#: ../panel-plugin/verve-plugin.c:1353
 msgid "URLs (http/https/ftp/ftps)"
 msgstr "URL (http/https/ftp/ftps)"
 
 #. Command type: email address
-#: ../panel-plugin/verve-plugin.c:1180
+#: ../panel-plugin/verve-plugin.c:1361
 msgid "Email addresses"
 msgstr "Alamat emel"
 
 #. Command type: directory path
-#: ../panel-plugin/verve-plugin.c:1188
+#: ../panel-plugin/verve-plugin.c:1369
 msgid "Directory paths"
 msgstr "Laluan direktori"
 
-#: ../panel-plugin/verve-plugin.c:1201
+#: ../panel-plugin/verve-plugin.c:1382
 msgid "Expand variables with wordexp"
 msgstr "Kembangkan pembolehubah dengan wordexp"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1211
+#: ../panel-plugin/verve-plugin.c:1392
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "Pertanyaan DuckDuckGo (mulakan dengan !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1219
+#: ../panel-plugin/verve-plugin.c:1400
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "Pertanyaan DuckDuckGo (mulakan dengan \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1227
+#: ../panel-plugin/verve-plugin.c:1408
 msgid "If the above patterns don't match:"
 msgstr "Jika pola diatas tidak sepadan:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1233
+#: ../panel-plugin/verve-plugin.c:1414
 msgid "Use smart bookmark URL"
 msgstr "Guna URL tanda buku pintar"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1256
+#: ../panel-plugin/verve-plugin.c:1437
 msgid "Run as executable command"
 msgstr "Jalankan perintah bolehlaku"
 
-#: ../panel-plugin/verve-plugin.c:1268
+#: ../panel-plugin/verve-plugin.c:1449
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
