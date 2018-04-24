@@ -2,7 +2,7 @@
  *            verve-plugin.c
  *
  *  Copyright © 2006-2007 Jannis Pohlmann <jannis@xfce.org>
- *  Copyright © 2015 Isaac Schemm <isaacschemm@gmail.com>
+ *  Copyright © 2015-2018 Isaac Schemm <isaacschemm@gmail.com>
  ****************************************************************************/
 
 /*
@@ -1252,7 +1252,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (hbox);
 
   /* Plugin foreground color label */
-  fg_color_label = gtk_label_new (_("Foreground color:"));
+  fg_color_label = gtk_label_new (_("Text color:"));
   gtk_box_pack_start (GTK_BOX (hbox), fg_color_label, FALSE, TRUE, 0);
   gtk_widget_show (fg_color_label);
 

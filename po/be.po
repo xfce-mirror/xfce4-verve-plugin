@@ -1,0 +1,158 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-23 00:32+0100\n"
+"PO-Revision-Date: 2018-04-23 18:29+0000\n"
+"Last-Translator: Zmicer Turok <zmicerturok@gmail.com>\n"
+"Language-Team: Belarusian (http://www.transifex.com/xfce/xfce-panel-plugins/language/be/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: be\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: ../panel-plugin/verve.c:98
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "Немагчыма запусціць загад (стан выхаду %d):"
+
+#. Generate error message
+#: ../panel-plugin/verve-plugin.c:434
+msgid "Could not execute command:"
+msgstr "Немагчыма запусціць загад:"
+
+#. Create properties dialog
+#: ../panel-plugin/verve-plugin.c:1153
+msgid "Verve"
+msgstr "Verve"
+
+#: ../panel-plugin/verve-plugin.c:1176
+msgid "General"
+msgstr "Агульнае"
+
+#. Frame for appearance settings
+#: ../panel-plugin/verve-plugin.c:1181
+msgid "Appearance"
+msgstr "Выгляд"
+
+#. Plugin size label
+#: ../panel-plugin/verve-plugin.c:1197
+msgid "Width (in chars):"
+msgstr "Шырыня (у сімвалах):"
+
+#. Plugin label label
+#: ../panel-plugin/verve-plugin.c:1222
+msgid "Label:"
+msgstr "Адмеціна:"
+
+#. Frame for color settings
+#: ../panel-plugin/verve-plugin.c:1239
+msgid "Colors"
+msgstr "Колеры"
+
+#. Plugin background color label
+#: ../panel-plugin/verve-plugin.c:1255
+msgid "Background color:"
+msgstr "Колер фону:"
+
+#. Plugin foreground color label
+#: ../panel-plugin/verve-plugin.c:1279
+msgid "Foreground color:"
+msgstr "Колер:"
+
+#. Frame for behaviour settings
+#: ../panel-plugin/verve-plugin.c:1298
+msgid "History"
+msgstr "Гісторыя"
+
+#. History length label
+#: ../panel-plugin/verve-plugin.c:1314
+msgid "Number of saved history items:"
+msgstr "Колькасць захоўваемых загадаў:"
+
+#. Second tab
+#: ../panel-plugin/verve-plugin.c:1334 ../panel-plugin/verve-plugin.c:1338
+msgid "Behaviour"
+msgstr "Паводзіны"
+
+#. Pattern types frame label
+#: ../panel-plugin/verve-plugin.c:1347
+msgid "Enable support for:"
+msgstr "Уключыць падтрымку:"
+
+#. Command type: URL
+#: ../panel-plugin/verve-plugin.c:1353
+msgid "URLs (http/https/ftp/ftps)"
+msgstr "URL-адрасы (http/https/ftp/ftps)"
+
+#. Command type: email address
+#: ../panel-plugin/verve-plugin.c:1361
+msgid "Email addresses"
+msgstr "Адрасы электроннай пошты"
+
+#. Command type: directory path
+#: ../panel-plugin/verve-plugin.c:1369
+msgid "Directory paths"
+msgstr "Шляхі да каталогаў"
+
+#: ../panel-plugin/verve-plugin.c:1382
+msgid "Expand variables with wordexp"
+msgstr "Пашыраць пераменныя з дапамогай wordexp"
+
+#. Command type: !bang
+#: ../panel-plugin/verve-plugin.c:1392
+msgid "DuckDuckGo queries (starting with !)"
+msgstr "Запыты DuckDuckGo (пачынаюцца з !)"
+
+#. Command type: I'm feeling ducky (\)
+#: ../panel-plugin/verve-plugin.c:1400
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr "Запыты DuckDuckGo (пачынаюцца з \\)"
+
+#. Fallback if the above don't match
+#: ../panel-plugin/verve-plugin.c:1408
+msgid "If the above patterns don't match:"
+msgstr "Калі папярэднія шаблоны не адпавядаюць:"
+
+#. Smart bookmark radio button
+#: ../panel-plugin/verve-plugin.c:1414
+msgid "Use smart bookmark URL"
+msgstr "Выкарыстоўваць разумныя закладкі URL"
+
+#. Executable command radio button (smart bookmark off)
+#: ../panel-plugin/verve-plugin.c:1437
+msgid "Run as executable command"
+msgstr "Запускаць як выконваемы загад"
+
+#: ../panel-plugin/verve-plugin.c:1449
+msgid ""
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr "Запускаць загад з дапамогай $SHELL -i -c\n(уключыць мянушкі і пашырэнне пераменных)"
+
+#. vim:set expandtab sts=2 ts=2 sw=2:
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
+msgid "Verve Command Line"
+msgstr "Загадны радок Verve"
+
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
+msgid "Command line interface with auto-completion and command history"
+msgstr "Загадны радок з аўтадапаўненнем і гісторыяй загадаў"
+
+#. Print error message
+#: ../scripts/verve-focus.c:60
+msgid "Failed to connect to the D-BUS session bus."
+msgstr "Не атрымалася злучыцца з шынаю сеансу D-BUS."
+
+#. Print error message
+#: ../scripts/verve-focus.c:83
+msgid ""
+"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
+"running."
+msgstr "Падобна на тое, што не запушчаны пастаўшчык Verve D-BUS (напрыклад, убудова панэлі Verve)."
