@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Georgi Georgiev <georgiev_1994@abv.bg>, 2014
-# Kiril Kirilov <cybercop_montana@abv.bg>, 2015,2017
+# Kiril Kirilov <cybercop_montana@abv.bg>, 2015,2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 00:32+0100\n"
-"PO-Revision-Date: 2017-11-23 06:58+0000\n"
+"POT-Creation-Date: 2018-04-25 06:31+0200\n"
+"PO-Revision-Date: 2018-04-25 13:05+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -65,7 +65,7 @@ msgstr "Цвят на фона:"
 
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1279
-msgid "Foreground color:"
+msgid "Text color:"
 msgstr "Цвят на текста:"
 
 #. Frame for behaviour settings
