@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Andre Miranda <andre42m@gmail.com>, 2017
+# Andre Miranda <andre42m@gmail.com>, 2017-2018
 # Andre Miranda <andre42m@gmail.com>, 2015
 # Tomas Acauan Schertel <tschertel@gmail.com>, 2006
 # Victor Gonçalves <hotcyv@gmail.com>, 2015
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 00:32+0100\n"
-"PO-Revision-Date: 2017-12-24 17:36+0000\n"
+"POT-Creation-Date: 2018-04-25 06:31+0200\n"
+"PO-Revision-Date: 2018-04-26 23:32+0000\n"
 "Last-Translator: Andre Miranda <andre42m@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -67,8 +67,8 @@ msgstr "Cor de fundo:"
 
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1279
-msgid "Foreground color:"
-msgstr "Cor da fonte:"
+msgid "Text color:"
+msgstr "Cor do texto:"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:1298
