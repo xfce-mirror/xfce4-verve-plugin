@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-25 06:31+0200\n"
-"PO-Revision-Date: 2018-04-28 20:55+0000\n"
+"PO-Revision-Date: 2018-04-29 10:50+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -106,27 +106,27 @@ msgstr "Könyvtárútvonalak"
 
 #: ../panel-plugin/verve-plugin.c:1382
 msgid "Expand variables with wordexp"
-msgstr ""
+msgstr "Változók kibővítése wordexppel"
 
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1392
 msgid "DuckDuckGo queries (starting with !)"
-msgstr ""
+msgstr "DuckDuckGo keresések (!-lel kezdve)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1400
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr ""
+msgstr "DuckDuckGo keresések (\\-lal kezdve)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1408
 msgid "If the above patterns don't match:"
-msgstr ""
+msgstr "Ha a fenti minták nem egyeznek:"
 
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1414
 msgid "Use smart bookmark URL"
-msgstr ""
+msgstr "Okos könyvjelző URL használata"
 
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1437
@@ -137,7 +137,7 @@ msgstr "Futtatás végrehajtható parancsként"
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr ""
+msgstr "Parancs futtatása így: $SHELL -i -c\n(álnév és változókibővítés engedélyezése)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
