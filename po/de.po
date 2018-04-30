@@ -5,13 +5,13 @@
 # Translators:
 # Jannis Pohlmann <jannis@xfce.org>, 2006
 # Tobias Bannert <tobannert@gmail.com>, 2014-2015
-# Vinzenz Vietzke <vinz@vinzv.de>, 2017
+# Vinzenz Vietzke <vinz@vinzv.de>, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 00:32+0100\n"
-"PO-Revision-Date: 2017-11-27 12:54+0000\n"
+"POT-Creation-Date: 2018-04-25 06:31+0200\n"
+"PO-Revision-Date: 2018-04-30 22:11+0000\n"
 "Last-Translator: Vinzenz Vietzke <vinz@vinzv.de>\n"
 "Language-Team: German (http://www.transifex.com/xfce/xfce-panel-plugins/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -66,8 +66,8 @@ msgstr "Hintergrundfarbe:"
 
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1279
-msgid "Foreground color:"
-msgstr "Vordergrundfarbe:"
+msgid "Text color:"
+msgstr "Schriftfarbe:"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:1298
