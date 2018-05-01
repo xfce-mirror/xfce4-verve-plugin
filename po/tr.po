@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Natavan Mirzayeva <mirzayevanatavan@gmail.com>, 2015
-# Necdet Yücel <necdetyucel@gmail.com>, 2017
+# Necdet Yücel <necdetyucel@gmail.com>, 2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 00:32+0100\n"
-"PO-Revision-Date: 2017-12-21 22:18+0000\n"
+"POT-Creation-Date: 2018-04-25 06:31+0200\n"
+"PO-Revision-Date: 2018-05-01 11:47+0000\n"
 "Last-Translator: Necdet Yücel <necdetyucel@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/xfce/xfce-panel-plugins/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -65,8 +65,8 @@ msgstr "Arkaplan rengi:"
 
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1279
-msgid "Foreground color:"
-msgstr "Önplan rengi:"
+msgid "Text color:"
+msgstr "Metin rengi:"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:1298
