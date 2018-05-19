@@ -6,6 +6,7 @@
 # Cristian Marchi <cri.penta@gmail.com>, 2013,2015
 # Emanuele Petriglia <inbox@emanuelepetriglia.me>, 2018
 # Enrico B. <enricobe@hotmail.com>, 2016
+# Enrico B. <enricobe@hotmail.com>, 2018
 # Fabio Riga <usul@aruba.it>, 2007
 # Francesco Galizzi <f.galizzi92@gmail.com>, 2015
 # oblo <oblomov78@hotmail.com>, 2015
@@ -14,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 00:32+0100\n"
-"PO-Revision-Date: 2018-03-18 16:25+0000\n"
-"Last-Translator: Emanuele Petriglia <inbox@emanuelepetriglia.me>\n"
+"POT-Creation-Date: 2018-04-25 06:31+0200\n"
+"PO-Revision-Date: 2018-05-19 11:45+0000\n"
+"Last-Translator: Enrico B. <enricobe@hotmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,8 +71,8 @@ msgstr "Colore di sfondo:"
 
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1279
-msgid "Foreground color:"
-msgstr "Colore in primo piano:"
+msgid "Text color:"
+msgstr "Colore testo:"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:1298
