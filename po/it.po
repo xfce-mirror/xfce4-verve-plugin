@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-25 06:31+0200\n"
-"PO-Revision-Date: 2018-07-11 15:10+0000\n"
+"PO-Revision-Date: 2018-07-17 12:20+0000\n"
 "Last-Translator: Emanuele Petriglia <inbox@emanuelepetriglia.me>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-panel-plugins/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr ""
 #: ../panel-plugin/verve.c:98
 #, c-format
 msgid "Could not execute command (exit status %d)"
-msgstr "Impossibile eseguire il comando (motivo %d)"
+msgstr "Impossibile eseguire il comando (stato di uscita %d)"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:434
@@ -72,7 +72,7 @@ msgstr "Colore di sfondo:"
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1279
 msgid "Text color:"
-msgstr "Colore testo:"
+msgstr "Colore del testo:"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:1298
@@ -126,7 +126,7 @@ msgstr "Interrogazioni DuckDuckGo (iniziano con \\)"
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1408
 msgid "If the above patterns don't match:"
-msgstr "Se il pattern precedente non combacia:"
+msgstr "Se lo schema precedente non combacia:"
 
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1414
@@ -156,11 +156,11 @@ msgstr "Interfaccia a riga di comando con completamento automatico e cronologia 
 #. Print error message
 #: ../scripts/verve-focus.c:60
 msgid "Failed to connect to the D-BUS session bus."
-msgstr "Connessione al bus di sessione D-BUS non riuscita."
+msgstr "Impossibile connettersi alla sessione bus D-BUS."
 
 #. Print error message
 #: ../scripts/verve-focus.c:83
 msgid ""
 "There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
 "running."
-msgstr "Sembra che non ci sia un fornitore D-BUS Verve (ossia l'estensione del pannello Verve) in esecuzione."
+msgstr "Sembra che non ci sia un fornitore D-BUS Verve (ossia il componente aggiuntivo del pannello Verve) in esecuzione."
