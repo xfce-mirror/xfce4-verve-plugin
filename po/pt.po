@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Nuno Miguel <nunis@netcabo.pt>, 2007
-# Nuno Miguel <nunomgue@gmail.com>, 2015,2017
+# Nuno Miguel <nunomgue@gmail.com>, 2015,2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 00:32+0100\n"
-"PO-Revision-Date: 2017-12-11 18:55+0000\n"
+"POT-Creation-Date: 2018-04-25 06:31+0200\n"
+"PO-Revision-Date: 2018-09-02 11:30+0000\n"
 "Last-Translator: Nuno Miguel <nunomgue@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/xfce/xfce-panel-plugins/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -65,8 +65,8 @@ msgstr "Cor de fundo:"
 
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1279
-msgid "Foreground color:"
-msgstr "Cor principal:"
+msgid "Text color:"
+msgstr "Cor do texto:"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:1298
