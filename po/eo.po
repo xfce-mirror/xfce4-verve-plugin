@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-23 00:32+0100\n"
-"PO-Revision-Date: 2017-11-25 01:35+0000\n"
-"Last-Translator: Iris Ilexiris <iris.ilexiris@gmail.com>\n"
+"POT-Creation-Date: 2018-04-25 06:31+0200\n"
+"PO-Revision-Date: 2018-04-25 04:32+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Esperanto (http://www.transifex.com/xfce/xfce-panel-plugins/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,7 +66,7 @@ msgstr ""
 
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1279
-msgid "Foreground color:"
+msgid "Text color:"
 msgstr ""
 
 #. Frame for behaviour settings
