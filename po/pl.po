@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Hoek <dawid.job@gmail.com>, 2015
+# Dawid Job <hoek@tuta.io>, 2015
 # No Ne, 2017-2018
 # Paweł Bandura <gawelx@gmail.com>, 2015
 # Piotr Maliński <admin@rk.edu.pl>, 2006
