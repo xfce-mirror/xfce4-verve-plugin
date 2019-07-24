@@ -7,14 +7,15 @@
 # Allan Nordhøy <epost@anotheragency.no>, 2015
 # Erlend Østlie <erlendandreas12368@gmail.com>, 2018
 # Harald H. <haarektrans@gmail.com>, 2015
+# Kjell Cato Heskjestad <cato@heskjestad.xyz>, 2019
 # Terje Uriansrud <ter@operamail.com>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-25 06:31+0200\n"
-"PO-Revision-Date: 2018-04-25 04:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2019-07-24 12:06+0000\n"
+"Last-Translator: Kjell Cato Heskjestad <cato@heskjestad.xyz>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-panel-plugins/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,7 +60,7 @@ msgstr "Etikett:"
 #. Frame for color settings
 #: ../panel-plugin/verve-plugin.c:1239
 msgid "Colors"
-msgstr ""
+msgstr "Farger"
 
 #. Plugin background color label
 #: ../panel-plugin/verve-plugin.c:1255
@@ -69,7 +70,7 @@ msgstr "Bakgrunnsfarge:"
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1279
 msgid "Text color:"
-msgstr ""
+msgstr "Tekstfarge:"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:1298
@@ -113,12 +114,12 @@ msgstr "Utvid variabler med wordexp"
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1392
 msgid "DuckDuckGo queries (starting with !)"
-msgstr "DuckDuckGo spørringer (som starter med !)"
+msgstr "DuckDuckGo-spørringer (som starter med !)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1400
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr "DuckDuckGo spørringer (som starter med \\)"
+msgstr "DuckDuckGo-spørringer (som starter med \\)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1408
