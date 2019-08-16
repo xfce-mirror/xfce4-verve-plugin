@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-25 06:31+0200\n"
-"PO-Revision-Date: 2019-08-05 04:50+0000\n"
+"PO-Revision-Date: 2019-08-16 06:08+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,7 @@ msgstr "Executar como orde executable"
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr "Executar a orde con «$SHELL -i -c»\n(activa o alias e a expansión variable)"
+msgstr "Executar a orde con «$SHELL -i -c»\n(activa o alias e a expansión variábel)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
@@ -150,7 +150,7 @@ msgstr "Interface de liña de ordes con completado automático e historial de or
 #. Print error message
 #: ../scripts/verve-focus.c:60
 msgid "Failed to connect to the D-BUS session bus."
-msgstr "Produciuse un erro ó conectar co bus de sesión de D-BUS"
+msgstr "Produciuse un fallo ao conectar co bus de sesión de D-BUS"
 
 #. Print error message
 #: ../scripts/verve-focus.c:83
