@@ -1,3 +1,8 @@
+xfce4-verve-plugin - a comfortable command line plugin for the Xfce panel
+===================
+https://docs.xfce.org/panel-plugins/xfce4-verve-plugin
+
+
 Required packages:
   * GTK 2
   * GLib
@@ -24,3 +29,13 @@ Or, if compiling from the git repository:
 You might need to add --prefix=/usr to the ./configure or ./autogen.sh command line, if your distribution doesn't look for Xfce panel plugins in /usr/local.
 If the output says "required file ./ltmain.sh not found", run libtoolize and then run the same autogen.sh command again.
 After that, use "make" to compile and "make install" to install.
+
+How to report bugs?
+===================
+
+You can report bugs and feature requests at http://bugzilla.xfce.org.
+Choose the product Panel Plugins and the component xfce4-verve-plugin.
+You will need to create an account for yourself.
+
+You can also join the Xfce development mailing-list:
+https://mail.xfce.org/mailman/listinfo/xfce4-dev
