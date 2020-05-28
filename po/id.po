@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2008
+# Triyan W. Nugroho <triyan.wn@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-25 06:31+0200\n"
-"PO-Revision-Date: 2018-04-25 04:32+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
+"PO-Revision-Date: 2020-05-28 14:34+0000\n"
+"Last-Translator: Triyan W. Nugroho <triyan.wn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/xfce/xfce-panel-plugins/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,17 +56,17 @@ msgstr "Label:"
 #. Frame for color settings
 #: ../panel-plugin/verve-plugin.c:1239
 msgid "Colors"
-msgstr ""
+msgstr "Warna"
 
 #. Plugin background color label
 #: ../panel-plugin/verve-plugin.c:1255
 msgid "Background color:"
-msgstr ""
+msgstr "Warna latar:"
 
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1279
 msgid "Text color:"
-msgstr ""
+msgstr "Warna teks:"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:1298
