@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Ammuu5, 2017-2018
-# Jari Rahkonen <inactive+jari@transifex.com>, 2006
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2019
+# 9e06e299e74d2541309887ba0f7d6eee_126c110 <673225c2b34f8d31a8e0b8e4dc2dd62e_1152>, 2006
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2019-2020
 # Pasi Lallinaho <pasi@shimmerproject.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-25 06:31+0200\n"
-"PO-Revision-Date: 2019-07-17 08:51+0000\n"
+"PO-Revision-Date: 2020-06-10 20:48+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish (http://www.transifex.com/xfce/xfce-panel-plugins/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -112,12 +112,12 @@ msgstr "Laajenna muuttujat wordexp:llä"
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1392
 msgid "DuckDuckGo queries (starting with !)"
-msgstr ""
+msgstr "DuckDuckGo-kyselyt (alkavat merkillä !)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1400
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr ""
+msgstr "DuckDuckGo-kyselyt (alkavat merkillä \\)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1408
@@ -132,7 +132,7 @@ msgstr ""
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1437
 msgid "Run as executable command"
-msgstr ""
+msgstr "Suorita suoritettavana komentona"
 
 #: ../panel-plugin/verve-plugin.c:1449
 msgid ""
