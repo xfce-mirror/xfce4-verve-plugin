@@ -14,13 +14,14 @@ Required packages:
   * libpcre
 
 Optional packages:
-  * dbus (for the verve-focus command)
   * wordexp (for tilde and variable expansion in directory paths)
 
 Build tools required:
   * xfce4-dev-tools
   * autoconf
   * automake
+
+verve-focus is no longer supported in the GTK 3 version of xfce4-verve-plugin, due to changes in libraries related to dbus. (Let me know if you can contribute a patch to bring it back!)
 
 To compile, first run:
   ./configure

@@ -15,18 +15,14 @@ libverve_la_CFLAGS =	 						\
 	-I$(top_builddir)						\
 	-I$(top_srcdir)							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
-	@LIBEXO_CFLAGS@							\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@LIBXFCE4UI_CFLAGS@						\
-	@LIBXFCE4UTIL_CFLAGS@						\
 	@LIBPCRE_CFLAGS@						\
 	@GTHREAD_CFLAGS@						
 
 libverve_la_LIBADD = 							\
-	@LIBEXO_LIBS@							\
 	@LIBXFCE4PANEL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
-	@LIBXFCE4UTIL_LIBS@						\
 	@LIBPCRE_LIBS@							\
 	@GTHREAD_LIBS@
 
@@ -36,26 +32,6 @@ libverve_la_LDFLAGS = \
 	-no-undefined \
 	-export-symbols-regex '^xfce_panel_module_(preinit|init|construct)' \
 	$(PLATFORM_LDFLAGS)
-
-if HAVE_DBUS
-libverve_la_SOURCES += 							\
-	verve-dbus-service-infos.h					\
-	verve-dbus-service.h						\
-	verve-dbus-service.c						
-
-libverve_la_CFLAGS +=							\
-	-DDBUS_API_SUBJECT_TO_CHANGE					\
-	$(DBUS_CFLAGS)
-
-libverve_la_LIBADD += 							\
-	$(DBUS_LIBS)
-
-verve-dbus-service-infos.h: Makefile $(srcdir)/verve-dbus-service-infos.xml 
-	dbus-binding-tool --prefix=verve_dbus_service --mode=glib-server $(srcdir)/verve-dbus-service-infos.xml > verve-dbus-service-infos.h
-
-BUILT_SOURCES = 							\
-	verve-dbus-service-infos.h
-endif
 
 # .desktop file
 #
@@ -72,10 +48,5 @@ EXTRA_DIST = 								\
 	verve-dbus-service-infos.xml
  
 DISTCLEANFILES = $(desktop_DATA)
-
-if HAVE_DBUS
-DISTCLEANFILES +=							\
-	verve-dbus-service-infos.h
-endif
 
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:

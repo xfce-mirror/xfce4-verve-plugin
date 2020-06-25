@@ -54,9 +54,11 @@ typedef struct
   GtkWidget        *event_box;
   GtkWidget        *label;
   GtkWidget        *input;
+  
   gchar            *fg_color_str;
   gchar            *bg_color_str;
   gchar            *base_color_str;
+  GtkCssProvider   *input_css;
   
   /* Command history */
   GList            *history_current;
@@ -72,9 +74,6 @@ typedef struct
   gint              size;
   gint              history_length;
   VerveLaunchParams launch_params;
-
-  /* Default GTK style - to restore after blinking upon verve-focus */
-  GtkStyle         *default_style;
 
 #ifdef HAVE_DBUS
   VerveDBusService *dbus_service;
@@ -124,20 +123,6 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 }
 
 
-
-static GdkColor
-parse_color_or_default (const gchar *color_string,
-                        const GdkColor default_color)
-{
-  GdkColor color;
-  if (color_string && gdk_color_parse(color_string, &color)) {
-    return color;
-  } else {
-    return default_color;
-  }
-}
-
-
   
 static gboolean
 verve_plugin_focus_timeout (VervePlugin *verve)
@@ -150,25 +135,6 @@ verve_plugin_focus_timeout (VervePlugin *verve)
   
   /* Determine current entry style */
   style = gtk_widget_get_style (verve->input);
-
-  /* Check whether the entry already is highlighted */
-  if (gdk_color_equal (&style->base[GTK_STATE_NORMAL], &style->base[GTK_STATE_SELECTED]))
-    {
-      /* Make it look normal again */
-      c = parse_color_or_default(verve->base_color_str, verve->default_style->base[GTK_STATE_NORMAL]);
-      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &c);
-      c = parse_color_or_default(verve->bg_color_str, verve->default_style->bg[GTK_STATE_NORMAL]);
-      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &c);
-      c = parse_color_or_default(verve->fg_color_str, verve->default_style->text[GTK_STATE_NORMAL]);
-      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &c);
-    }
-  else
-    {
-      /* Highlight the entry by changing base and background colors */
-      gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &style->base[GTK_STATE_SELECTED]);
-      gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &style->bg[GTK_STATE_SELECTED]);
-      gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &style->text[GTK_STATE_SELECTED]);
-    }
   
   return TRUE;
 }
@@ -190,14 +156,6 @@ verve_plugin_focus_timeout_reset (VervePlugin *verve)
       g_source_remove (verve->focus_timeout);
       verve->focus_timeout = 0;
     }
-  
-  /* Reset entry background */
-  c = parse_color_or_default(verve->base_color_str, verve->default_style->base[GTK_STATE_NORMAL]);
-  gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &c);
-  c = parse_color_or_default(verve->bg_color_str, verve->default_style->bg[GTK_STATE_NORMAL]);
-  gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &c);
-  c = parse_color_or_default(verve->fg_color_str, verve->default_style->text[GTK_STATE_NORMAL]);
-  gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &c);
 }
 
 
@@ -236,7 +194,7 @@ verve_plugin_buttonpress_cb (GtkWidget *entry,
     verve_plugin_focus_timeout_reset (verve);
 
   /* Grab entry focus if possible */
-  if (event->button != 3 && toplevel && toplevel->window && !GTK_WIDGET_HAS_FOCUS(entry))
+  if (event->button != 3 && toplevel && gtk_widget_get_window(toplevel) && !gtk_widget_has_focus(entry))
     xfce_panel_plugin_focus_widget (verve->plugin, entry);
 
   return FALSE;
@@ -301,12 +259,12 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
   switch (event->keyval)
     {
       /* Reset entry value when ESC is pressed */
-      case GDK_Escape:
+      case GDK_KEY_Escape:
          gtk_entry_set_text (GTK_ENTRY (entry), "");
          return TRUE;
 
       /* Browse backwards through the command history */
-      case GDK_Down:
+      case GDK_KEY_Down:
         /* Do nothing if history is empty */
         if (verve_history_is_empty ())
           return TRUE;
@@ -347,7 +305,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         return TRUE;
 
       /* Browse forwards through the command history */
-      case GDK_Up:
+      case GDK_KEY_Up:
         /* Do nothing if the history is empty */
         if (verve_history_is_empty ())
           return TRUE;
@@ -388,8 +346,8 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         return TRUE;
 
       /* Execute command entered by the user */
-      case GDK_Return:
-      case GDK_KP_Enter:
+      case GDK_KEY_Return:
+      case GDK_KEY_KP_Enter:
         /* Retrieve a copy of the entry text */
         command = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
 
@@ -446,7 +404,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         return TRUE;
 
       /* Cycle through completion results */
-      case GDK_Tab:
+      case GDK_KEY_Tab:
         /* Retrieve a copy of the entry text */
         command = g_strdup (gtk_entry_get_text (GTK_ENTRY (entry)));
 
@@ -582,15 +540,14 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   gtk_widget_show (verve->input);
   gtk_container_add (GTK_CONTAINER (hbox), verve->input);
 
+  /* Set up a CSS provider for the entry */
+  verve->input_css = gtk_css_provider_new ();
+  gtk_style_context_add_provider (gtk_widget_get_style_context (verve->input), verve->input_css, GTK_STYLE_PROVIDER_PRIORITY_SETTINGS);
+
   /* Handle mouse button and key press events */
   g_signal_connect (verve->input, "key-press-event", G_CALLBACK (verve_plugin_keypress_cb), verve);
   g_signal_connect (verve->input, "button-press-event", G_CALLBACK (verve_plugin_buttonpress_cb), verve);
   g_signal_connect (verve->input, "focus-out-event", G_CALLBACK (verve_plugin_focus_out), verve);
-
-  /* Copy the default GTK style into the plugin structure, for restoring after verve-focus */
-  GtkStyle *style = gtk_widget_get_style (verve->input);
-  verve->default_style = g_new (GtkStyle, 1);
-  memcpy(verve->default_style, style, sizeof (GtkStyle));
 
 #ifdef HAVE_DBUS
   /* Attach the D-BUS service */
@@ -619,9 +576,6 @@ verve_plugin_free (XfcePanelPlugin *plugin,
 
   /* Unload completion */
   g_completion_free (verve->completion);
-
-  /* Unload default GTK style */
-  g_free (verve->default_style);
 
   /* Free plugin data structure */
   g_free (verve);
@@ -680,6 +634,18 @@ verve_plugin_update_label (XfcePanelPlugin *plugin,
 
 
 static gboolean
+write_string (GOutputStream *output_stream,
+              const gchar   *str1,
+              const gchar   *str2)
+{
+  gsize bytes_written;
+  const char* str = str1 && str1[0] ? str1 : str2;
+  return g_output_stream_write_all (output_stream, str, strlen (str), &bytes_written, NULL, NULL);
+}
+
+
+
+static gboolean
 verve_plugin_update_colors (XfcePanelPlugin *plugin,
                             const gchar     *fg_color_str,
                             const gchar     *bg_color_str,
@@ -688,31 +654,41 @@ verve_plugin_update_colors (XfcePanelPlugin *plugin,
 {
   g_return_val_if_fail (verve != NULL, FALSE);
 
-  GdkColor c;
+  GFileIOStream *tmp_file_stream;
+  GFile *tmp_file = g_file_new_tmp (NULL, &tmp_file_stream, NULL);
+  GOutputStream *output_stream = g_io_stream_get_output_stream (tmp_file_stream);
+
+  // Write CSS to temporary file
+  write_string (output_stream, "*{color:", "");
   if (fg_color_str) {
     if (verve->fg_color_str) {
       g_free (verve->fg_color_str);
     }
     verve->fg_color_str = g_strdup (fg_color_str);
-    c = parse_color_or_default(verve->fg_color_str, verve->default_style->text[GTK_STATE_NORMAL]);
-    gtk_widget_modify_text (verve->input, GTK_STATE_NORMAL, &c);
   }
+  write_string (output_stream, verve->fg_color_str, "unset");
   if (bg_color_str) {
     if (verve->bg_color_str) {
       g_free (verve->bg_color_str);
     }
     verve->bg_color_str = g_strdup (bg_color_str);
-    c = parse_color_or_default(verve->bg_color_str, verve->default_style->bg[GTK_STATE_NORMAL]);
-    gtk_widget_modify_bg (verve->input, GTK_STATE_NORMAL, &c);
   }
+  write_string (output_stream, ";background-color:", "");
   if (base_color_str) {
     if (verve->base_color_str) {
       g_free (verve->base_color_str);
     }
     verve->base_color_str = g_strdup (base_color_str);
-    c = parse_color_or_default(verve->base_color_str, verve->default_style->base[GTK_STATE_NORMAL]);
-    gtk_widget_modify_base (verve->input, GTK_STATE_NORMAL, &c);
   }
+  write_string (output_stream, verve->base_color_str, "unset");
+  write_string (output_stream, "}", "");
+
+  g_io_stream_close (tmp_file_stream, NULL, NULL);
+
+  gtk_css_provider_load_from_file (verve->input_css, tmp_file, NULL);
+  g_file_delete (tmp_file, NULL, NULL);
+
+  g_object_unref (tmp_file);
 
   return TRUE;
 }
@@ -927,29 +903,37 @@ verve_plugin_size_changed (GtkSpinButton *spin,
 
 
 static void
-verve_plugin_fg_color_changed (GtkEntry *box, 
+verve_plugin_fg_color_changed (GtkColorButton *color_button, 
                                VervePlugin *verve)
 {
   g_return_if_fail (verve != NULL);
 
   /* Get the entered color */
-  const gchar *color_str = gtk_entry_get_text (box);
+  GdkRGBA color;
+  gtk_color_chooser_get_rgba (color_button, &color);
+  const gchar *color_str = gdk_rgba_to_string (&color);
 
   verve_plugin_update_colors (NULL, color_str, NULL, NULL, verve);
+
+  g_free (color_str);
 }
 
 
 
 static void
-verve_plugin_base_color_changed (GtkEntry *box, 
+verve_plugin_base_color_changed (GtkColorButton *color_button, 
                                  VervePlugin *verve)
 {
   g_return_if_fail (verve != NULL);
 
   /* Get the entered color */
-  const gchar *color_str = gtk_entry_get_text (box);
+  GdkRGBA color;
+  gtk_color_chooser_get_rgba (color_button, &color);
+  const gchar *color_str = gdk_rgba_to_string (&color);
 
   verve_plugin_update_colors (NULL, NULL, NULL, color_str, verve);
+
+  g_free (color_str);
 }
 
 
@@ -1123,7 +1107,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   GtkWidget *label_box;
   GtkWidget *history_length_label;
   GtkWidget *history_length_spin;
-  GtkObject *adjustment;
+  GObject *adjustment;
 
   GtkWidget *bin3;
   GtkWidget *alignment;
@@ -1152,7 +1136,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   /* Create properties dialog */
   dialog = xfce_titled_dialog_new_with_buttons (_("Verve"),
                                                 GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
-                                                GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_NO_SEPARATOR,
+                                                GTK_DIALOG_DESTROY_WITH_PARENT,
                                                 GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
                                                 NULL);
 
@@ -1169,7 +1153,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   
   /* Notebook setup */
   notebook = gtk_notebook_new ();
-  gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), notebook, TRUE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), notebook, TRUE, TRUE, 0);
   gtk_widget_show (notebook);
   
   general_vbox = gtk_vbox_new (FALSE, 8);
@@ -1257,18 +1241,20 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (base_color_label);
 
   /* Plugin background color entry field */
-  base_color_box = gtk_entry_new();
+  base_color_box = gtk_color_button_new();
 
   /* Set text to current background color */
   if (verve->base_color_str) {
-    gtk_entry_set_text(GTK_ENTRY (base_color_box), verve->base_color_str);
+    GdkRGBA color;
+    gdk_rgba_parse(&color, verve->base_color_str);
+    gtk_color_button_set_rgba(GTK_COLOR_BUTTON (base_color_box), &color);
   }
   gtk_widget_add_mnemonic_label (base_color_box, base_color_label);
   gtk_box_pack_start (GTK_BOX (hbox), base_color_box, FALSE, TRUE, 0);
   gtk_widget_show (base_color_box);
 
   /* Be notified when the user requests a different background color setting */
-  g_signal_connect (base_color_box, "changed", G_CALLBACK (verve_plugin_base_color_changed), verve);
+  g_signal_connect (base_color_box, "color-set", G_CALLBACK (verve_plugin_base_color_changed), verve);
 
   /* Plugin foreground color container */
   hbox = gtk_hbox_new (FALSE, 8);
@@ -1281,18 +1267,20 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (fg_color_label);
 
   /* Plugin foreground color entry field */
-  fg_color_box = gtk_entry_new();
+  fg_color_box = gtk_color_button_new();
 
-  /* Set text to current foreground color */
+  /* Set color to current foreground color */
   if (verve->fg_color_str) {
-    gtk_entry_set_text(GTK_ENTRY (fg_color_box), verve->fg_color_str);
+    GdkRGBA color;
+    gdk_rgba_parse(&color, verve->fg_color_str);
+    gtk_color_button_set_rgba(GTK_COLOR_BUTTON (fg_color_box), &color);
   }
   gtk_widget_add_mnemonic_label (fg_color_box, fg_color_label);
   gtk_box_pack_start (GTK_BOX (hbox), fg_color_box, FALSE, TRUE, 0);
   gtk_widget_show (fg_color_box);
 
   /* Be notified when the user requests a different foreground color setting */
-  g_signal_connect (fg_color_box, "changed", G_CALLBACK (verve_plugin_fg_color_changed), verve);
+  g_signal_connect (fg_color_box, "color-set", G_CALLBACK (verve_plugin_fg_color_changed), verve);
 
   /* Frame for behaviour settings */
   frame = xfce_gtk_frame_box_new (_("History"), &bin2);

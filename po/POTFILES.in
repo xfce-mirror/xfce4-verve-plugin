@@ -6,4 +6,3 @@ panel-plugin/verve-history.h
 panel-plugin/verve-history.c
 panel-plugin/verve-plugin.c
 panel-plugin/xfce4-verve-plugin.desktop.in
-scripts/verve-focus.c
