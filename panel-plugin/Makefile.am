@@ -33,6 +33,7 @@ libverve_la_LDFLAGS = \
 	-export-symbols-regex '^xfce_panel_module_(preinit|init|construct)' \
 	$(PLATFORM_LDFLAGS)
 
+
 # .desktop file
 #
 # We need to let intltool merge the translated fields, so we add a
