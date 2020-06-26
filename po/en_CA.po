@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Steve Harris <steve@cultureofweb.com>, 2020
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-26 01:05+0200\n"
+"PO-Revision-Date: 2020-06-26 01:53+0000\n"
+"Last-Translator: Steve Harris <steve@cultureofweb.com>\n"
+"Language-Team: English (Canada) (http://www.transifex.com/xfce/xfce-panel-plugins/language/en_CA/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_CA\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/verve.c:98
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "Could not execute command (exit status %d)"
+
+#. Generate error message
+#: ../panel-plugin/verve-plugin.c:392
+msgid "Could not execute command:"
+msgstr "Could not execute command:"
+
+#. Create properties dialog
+#: ../panel-plugin/verve-plugin.c:1137
+msgid "Verve"
+msgstr "Verve"
+
+#: ../panel-plugin/verve-plugin.c:1160
+msgid "General"
+msgstr "General"
+
+#. Frame for appearance settings
+#: ../panel-plugin/verve-plugin.c:1165
+msgid "Appearance"
+msgstr "Appearance"
+
+#. Plugin size label
+#: ../panel-plugin/verve-plugin.c:1181
+msgid "Width (in chars):"
+msgstr "Width (in chars):"
+
+#. Plugin label label
+#: ../panel-plugin/verve-plugin.c:1206
+msgid "Label:"
+msgstr "Label:"
+
+#. Frame for color settings
+#: ../panel-plugin/verve-plugin.c:1223
+msgid "Colors"
+msgstr "Colours"
+
+#. Plugin background color label
+#: ../panel-plugin/verve-plugin.c:1239
+msgid "Background color:"
+msgstr "Background colour:"
+
+#. Plugin foreground color label
+#: ../panel-plugin/verve-plugin.c:1265
+msgid "Text color:"
+msgstr "Text colour:"
+
+#. Frame for behaviour settings
+#: ../panel-plugin/verve-plugin.c:1286
+msgid "History"
+msgstr "History"
+
+#. History length label
+#: ../panel-plugin/verve-plugin.c:1302
+msgid "Number of saved history items:"
+msgstr "Number of saved history items:"
+
+#. Second tab
+#: ../panel-plugin/verve-plugin.c:1322 ../panel-plugin/verve-plugin.c:1326
+msgid "Behaviour"
+msgstr "Behaviour"
+
+#. Pattern types frame label
+#: ../panel-plugin/verve-plugin.c:1335
+msgid "Enable support for:"
+msgstr "Enable support for:"
+
+#. Command type: URL
+#: ../panel-plugin/verve-plugin.c:1341
+msgid "URLs (http/https/ftp/ftps)"
+msgstr "URLs (http/https/ftp/ftps)"
+
+#. Command type: email address
+#: ../panel-plugin/verve-plugin.c:1349
+msgid "Email addresses"
+msgstr "Email addresses"
+
+#. Command type: directory path
+#: ../panel-plugin/verve-plugin.c:1357
+msgid "Directory paths"
+msgstr "Directory paths"
+
+#: ../panel-plugin/verve-plugin.c:1370
+msgid "Expand variables with wordexp"
+msgstr "Expand variables with wordexp"
+
+#. Command type: !bang
+#: ../panel-plugin/verve-plugin.c:1380
+msgid "DuckDuckGo queries (starting with !)"
+msgstr "DuckDuckGo queries (starting with !)"
+
+#. Command type: I'm feeling ducky (\)
+#: ../panel-plugin/verve-plugin.c:1388
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr "DuckDuckGo queries (starting with \\)"
+
+#. Fallback if the above don't match
+#: ../panel-plugin/verve-plugin.c:1396
+msgid "If the above patterns don't match:"
+msgstr "If the above patterns don't match:"
+
+#. Smart bookmark radio button
+#: ../panel-plugin/verve-plugin.c:1402
+msgid "Use smart bookmark URL"
+msgstr "Use smart bookmark URL"
+
+#. Executable command radio button (smart bookmark off)
+#: ../panel-plugin/verve-plugin.c:1425
+msgid "Run as executable command"
+msgstr "Run as executable command"
+
+#: ../panel-plugin/verve-plugin.c:1437
+msgid ""
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr "Run command with $SHELL -i -c\n(enables alias and variable expansion)"
+
+#. vim:set expandtab sts=2 ts=2 sw=2:
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
+msgid "Verve Command Line"
+msgstr "Verve Command Line"
+
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
+msgid "Command line interface with auto-completion and command history"
+msgstr "Command line interface with auto-completion and command history"
