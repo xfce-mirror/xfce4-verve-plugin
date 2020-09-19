@@ -26,7 +26,7 @@ ChangeLog: Makefile
 dist-hook: ChangeLog
 
 EXTRA_DIST =								\
-	README								\
+	README.md								\
 	THANKS								\
 	AUTHORS								\
 	COPYING								\
