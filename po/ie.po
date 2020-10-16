@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-25 06:31+0200\n"
-"PO-Revision-Date: 2019-05-28 01:42+0000\n"
-"Last-Translator: Caarmi\n"
+"POT-Creation-Date: 2020-06-26 01:05+0200\n"
+"PO-Revision-Date: 2020-06-25 23:05+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Interlingue (http://www.transifex.com/xfce/xfce-panel-plugins/language/ie/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,114 +23,114 @@ msgid "Could not execute command (exit status %d)"
 msgstr "Ne successar executer li comande (surtit con code %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:434
+#: ../panel-plugin/verve-plugin.c:392
 msgid "Could not execute command:"
 msgstr "Ne successat executer li comande:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1153
+#: ../panel-plugin/verve-plugin.c:1137
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:1176
+#: ../panel-plugin/verve-plugin.c:1160
 msgid "General"
 msgstr "General"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1181
+#: ../panel-plugin/verve-plugin.c:1165
 msgid "Appearance"
 msgstr "Aspecte"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1197
+#: ../panel-plugin/verve-plugin.c:1181
 msgid "Width (in chars):"
 msgstr "Largore (in caracters):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1222
+#: ../panel-plugin/verve-plugin.c:1206
 msgid "Label:"
 msgstr "Etiquette:"
 
 #. Frame for color settings
-#: ../panel-plugin/verve-plugin.c:1239
+#: ../panel-plugin/verve-plugin.c:1223
 msgid "Colors"
 msgstr "Colores"
 
 #. Plugin background color label
-#: ../panel-plugin/verve-plugin.c:1255
+#: ../panel-plugin/verve-plugin.c:1239
 msgid "Background color:"
 msgstr "Color del funde:"
 
 #. Plugin foreground color label
-#: ../panel-plugin/verve-plugin.c:1279
+#: ../panel-plugin/verve-plugin.c:1265
 msgid "Text color:"
 msgstr "Color del textu:"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1298
+#: ../panel-plugin/verve-plugin.c:1286
 msgid "History"
 msgstr "Diarium"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1314
+#: ../panel-plugin/verve-plugin.c:1302
 msgid "Number of saved history items:"
 msgstr "Númere de elementes in li diarium:"
 
 #. Second tab
-#: ../panel-plugin/verve-plugin.c:1334 ../panel-plugin/verve-plugin.c:1338
+#: ../panel-plugin/verve-plugin.c:1322 ../panel-plugin/verve-plugin.c:1326
 msgid "Behaviour"
 msgstr "Conduida"
 
 #. Pattern types frame label
-#: ../panel-plugin/verve-plugin.c:1347
+#: ../panel-plugin/verve-plugin.c:1335
 msgid "Enable support for:"
 msgstr "Activar supporte por:"
 
 #. Command type: URL
-#: ../panel-plugin/verve-plugin.c:1353
+#: ../panel-plugin/verve-plugin.c:1341
 msgid "URLs (http/https/ftp/ftps)"
 msgstr "URLs (http/https/ftp/ftps)"
 
 #. Command type: email address
-#: ../panel-plugin/verve-plugin.c:1361
+#: ../panel-plugin/verve-plugin.c:1349
 msgid "Email addresses"
 msgstr "Adresses de e-post"
 
 #. Command type: directory path
-#: ../panel-plugin/verve-plugin.c:1369
+#: ../panel-plugin/verve-plugin.c:1357
 msgid "Directory paths"
 msgstr "Rutes de directorias"
 
-#: ../panel-plugin/verve-plugin.c:1382
+#: ../panel-plugin/verve-plugin.c:1370
 msgid "Expand variables with wordexp"
 msgstr "Expander variabiles per wordexp"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1392
+#: ../panel-plugin/verve-plugin.c:1380
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "Serchas DuckDuckGo (prefix: !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1400
+#: ../panel-plugin/verve-plugin.c:1388
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "Serchas DuckDuckGo (prefix: \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1408
+#: ../panel-plugin/verve-plugin.c:1396
 msgid "If the above patterns don't match:"
 msgstr "Si li mustres supra ne corresponde:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1414
+#: ../panel-plugin/verve-plugin.c:1402
 msgid "Use smart bookmark URL"
 msgstr ""
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1437
+#: ../panel-plugin/verve-plugin.c:1425
 msgid "Run as executable command"
 msgstr "Lansar quam un executabile"
 
-#: ../panel-plugin/verve-plugin.c:1449
+#: ../panel-plugin/verve-plugin.c:1437
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
@@ -144,15 +144,3 @@ msgstr "Linea de comandes Verve"
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
 msgid "Command line interface with auto-completion and command history"
 msgstr "Un linea de comandes con auto-completion e diarium de comandes"
-
-#. Print error message
-#: ../scripts/verve-focus.c:60
-msgid "Failed to connect to the D-BUS session bus."
-msgstr "Ne successat conexer al bus de session D-Bus."
-
-#. Print error message
-#: ../scripts/verve-focus.c:83
-msgid ""
-"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
-"running."
-msgstr ""
