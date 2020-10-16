@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Besnik <besnik@programeshqip.org>, 2007,2018,2020
-# Besnik <besnik@programeshqip.org>, 2007
-# Besnik <besnik@programeshqip.org>, 2018
+# Besnik Bleta <besnik@programeshqip.org>, 2007,2018,2020
+# Besnik Bleta <besnik@programeshqip.org>, 2007
+# Besnik Bleta <besnik@programeshqip.org>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-25 06:31+0200\n"
-"PO-Revision-Date: 2020-01-29 10:51+0000\n"
-"Last-Translator: Besnik <besnik@programeshqip.org>\n"
+"POT-Creation-Date: 2020-06-26 01:05+0200\n"
+"PO-Revision-Date: 2020-06-25 23:05+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Albanian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sq/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,114 +26,114 @@ msgid "Could not execute command (exit status %d)"
 msgstr "S’u përmbush dot urdhri (gjendje daljeje %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:434
+#: ../panel-plugin/verve-plugin.c:392
 msgid "Could not execute command:"
 msgstr "S’u përmbush dot urdhri:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1153
+#: ../panel-plugin/verve-plugin.c:1137
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:1176
+#: ../panel-plugin/verve-plugin.c:1160
 msgid "General"
 msgstr "Të përgjithshme"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1181
+#: ../panel-plugin/verve-plugin.c:1165
 msgid "Appearance"
 msgstr "Dukje"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1197
+#: ../panel-plugin/verve-plugin.c:1181
 msgid "Width (in chars):"
 msgstr "Gjerësi (në shenja):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1222
+#: ../panel-plugin/verve-plugin.c:1206
 msgid "Label:"
 msgstr "Etiketë:"
 
 #. Frame for color settings
-#: ../panel-plugin/verve-plugin.c:1239
+#: ../panel-plugin/verve-plugin.c:1223
 msgid "Colors"
 msgstr "Ngjyra"
 
 #. Plugin background color label
-#: ../panel-plugin/verve-plugin.c:1255
+#: ../panel-plugin/verve-plugin.c:1239
 msgid "Background color:"
 msgstr "Ngjyrë sfondi:"
 
 #. Plugin foreground color label
-#: ../panel-plugin/verve-plugin.c:1279
+#: ../panel-plugin/verve-plugin.c:1265
 msgid "Text color:"
 msgstr "Ngjyrë teksti:"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1298
+#: ../panel-plugin/verve-plugin.c:1286
 msgid "History"
 msgstr "Historik"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1314
+#: ../panel-plugin/verve-plugin.c:1302
 msgid "Number of saved history items:"
 msgstr "Numër zërash historiku të ruajtur:"
 
 #. Second tab
-#: ../panel-plugin/verve-plugin.c:1334 ../panel-plugin/verve-plugin.c:1338
+#: ../panel-plugin/verve-plugin.c:1322 ../panel-plugin/verve-plugin.c:1326
 msgid "Behaviour"
 msgstr "Sjellje"
 
 #. Pattern types frame label
-#: ../panel-plugin/verve-plugin.c:1347
+#: ../panel-plugin/verve-plugin.c:1335
 msgid "Enable support for:"
 msgstr "Aktivizo mbulim për:"
 
 #. Command type: URL
-#: ../panel-plugin/verve-plugin.c:1353
+#: ../panel-plugin/verve-plugin.c:1341
 msgid "URLs (http/https/ftp/ftps)"
 msgstr "URL-ra (http/https/ftp/ftps)"
 
 #. Command type: email address
-#: ../panel-plugin/verve-plugin.c:1361
+#: ../panel-plugin/verve-plugin.c:1349
 msgid "Email addresses"
 msgstr "Adresa email"
 
 #. Command type: directory path
-#: ../panel-plugin/verve-plugin.c:1369
+#: ../panel-plugin/verve-plugin.c:1357
 msgid "Directory paths"
 msgstr "Shtigje drejtorish"
 
-#: ../panel-plugin/verve-plugin.c:1382
+#: ../panel-plugin/verve-plugin.c:1370
 msgid "Expand variables with wordexp"
 msgstr "Zgjeroji ndryshoret me wordexp"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1392
+#: ../panel-plugin/verve-plugin.c:1380
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "Kërkime DuckDuckGo (fillojnë me !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1400
+#: ../panel-plugin/verve-plugin.c:1388
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "Kërkime DuckDuckGo (fillojnë me \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1408
+#: ../panel-plugin/verve-plugin.c:1396
 msgid "If the above patterns don't match:"
 msgstr "Nëse s’ka përputhje për rregullsitë më sipër:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1414
+#: ../panel-plugin/verve-plugin.c:1402
 msgid "Use smart bookmark URL"
 msgstr "Përdor URL faqeruajtje të mençur"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1437
+#: ../panel-plugin/verve-plugin.c:1425
 msgid "Run as executable command"
 msgstr "Xhiroje si urdhër të ekzekutueshëm"
 
-#: ../panel-plugin/verve-plugin.c:1449
+#: ../panel-plugin/verve-plugin.c:1437
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
@@ -147,15 +147,3 @@ msgstr "Rresht Urdhrash Verve"
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
 msgid "Command line interface with auto-completion and command history"
 msgstr "Ndërfaqe rreshti urdhrash me vetëplotësim dhe historik urdhrash"
-
-#. Print error message
-#: ../scripts/verve-focus.c:60
-msgid "Failed to connect to the D-BUS session bus."
-msgstr "S’u arrit të lidhej me busin e sesionit D-BUS."
-
-#. Print error message
-#: ../scripts/verve-focus.c:83
-msgid ""
-"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
-"running."
-msgstr "Duket se s’ka furnizues Verve D-BUS (p.sh., shtojcë paneli për Verve) në xhirim e sipër."
