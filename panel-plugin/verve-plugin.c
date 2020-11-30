@@ -125,12 +125,12 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 
   
 static gboolean
-verve_plugin_focus_timeout (VervePlugin *verve)
+verve_plugin_focus_timeout (gpointer user_data)
 {
+  VervePlugin *verve = user_data;
   GtkStyle *style;
   GdkColor c;
   
-  g_return_val_if_fail (verve != NULL, FALSE);
   g_return_val_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input), FALSE);
   
   /* Determine current entry style */
@@ -225,7 +225,7 @@ verve_plugin_grab_focus (VerveDBusService *dbus_service,
       
       /* Make it flashy so chances are higher that the user notices the focus */
       if (verve->focus_timeout == 0) 
-        verve->focus_timeout = g_timeout_add_full (G_PRIORITY_DEFAULT_IDLE, 250, (GSourceFunc)verve_plugin_focus_timeout, verve, NULL);
+        verve->focus_timeout = g_timeout_add_full (G_PRIORITY_DEFAULT_IDLE, 250, verve_plugin_focus_timeout, verve, NULL);
     }
 }
 #endif
