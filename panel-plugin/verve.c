@@ -334,7 +334,7 @@ verve_is_email (const gchar *str)
 
 
 
-gchar *
+static gchar *
 verve_is_directory (const gchar *str,
                     gboolean use_wordexp)
 {
@@ -352,7 +352,7 @@ verve_is_directory (const gchar *str,
 
     /* Only use result if it expanded successfully to exactly one "word" and the result is a directory */
     if (result == 0) {
-      const char* to_return;
+      char* to_return;
       if (w.we_wordc != 1)
         to_return = NULL;
       else if (g_file_test (w.we_wordv[0], G_FILE_TEST_IS_DIR))
