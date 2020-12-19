@@ -542,7 +542,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
 
   /* Set up a CSS provider for the entry */
   verve->input_css = gtk_css_provider_new ();
-  gtk_style_context_add_provider (gtk_widget_get_style_context (verve->input), verve->input_css, GTK_STYLE_PROVIDER_PRIORITY_SETTINGS);
+  gtk_style_context_add_provider (gtk_widget_get_style_context (verve->input), GTK_STYLE_PROVIDER(verve->input_css), GTK_STYLE_PROVIDER_PRIORITY_SETTINGS);
 
   /* Handle mouse button and key press events */
   g_signal_connect (verve->input, "key-press-event", G_CALLBACK (verve_plugin_keypress_cb), verve);
