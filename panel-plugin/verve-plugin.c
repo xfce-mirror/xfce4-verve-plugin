@@ -911,7 +911,7 @@ verve_plugin_fg_color_changed (GtkColorButton *color_button,
 
   /* Get the entered color */
   GdkRGBA color;
-  gtk_color_chooser_get_rgba (color_button, &color);
+  gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER(color_button), &color);
   const gchar *color_str = gdk_rgba_to_string (&color);
 
   verve_plugin_update_colors (NULL, color_str, NULL, NULL, verve);
