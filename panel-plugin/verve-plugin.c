@@ -626,7 +626,7 @@ verve_plugin_update_label (XfcePanelPlugin *plugin,
   g_return_val_if_fail (verve != NULL, FALSE);
 
   /* Set text in internal label object */
-  gtk_label_set_text(verve->label, label);
+  gtk_label_set_text(GTK_LABEL(verve->label), label);
 
   return TRUE;
 }
