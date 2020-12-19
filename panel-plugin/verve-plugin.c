@@ -88,7 +88,7 @@ typedef struct
 G_LOCK_DEFINE_STATIC (plugin_completion_mutex);
 
 
-void
+static void
 verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 {
   VervePlugin *verve = (VervePlugin*) user_data;

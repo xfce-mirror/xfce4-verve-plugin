@@ -87,7 +87,7 @@ verve_shutdown (void)
 
 
 
-void
+static void
 verve_command_callback (GPid pid,
                         gint status,
                         gpointer data)
@@ -158,7 +158,7 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
   /* Free command line arguments */
   g_strfreev (argv);
 
-  g_child_watch_add(child_pid, (GChildWatchFunc)verve_command_callback, NULL);
+  g_child_watch_add(child_pid, verve_command_callback, NULL);
 
   /* Return whether process was spawned successfully */
   return success;
