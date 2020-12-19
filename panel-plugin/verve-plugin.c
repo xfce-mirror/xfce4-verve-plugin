@@ -1108,7 +1108,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   GtkWidget *label_box;
   GtkWidget *history_length_label;
   GtkWidget *history_length_spin;
-  GObject *adjustment;
+  GtkAdjustment *adjustment;
 
   GtkWidget *bin3;
   GtkWidget *alignment;
