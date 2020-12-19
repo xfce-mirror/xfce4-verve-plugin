@@ -741,12 +741,12 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
   gint    size = 20;
 
   /* Default label */
-  gchar  *label = "";
+  const gchar  *label = "";
   
   /* Default foreground and background colors */
-  gchar  *fg_color_str = "";
-  gchar  *bg_color_str = "";
-  gchar  *base_color_str = "";
+  const gchar *fg_color_str = "";
+  const gchar *bg_color_str = "";
+  const gchar *base_color_str = "";
 
   /* Default number of saved history entries */
   gint    history_length = 25;
@@ -762,7 +762,7 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
   verve->launch_params.use_shell = TRUE;
 
   /* Default search engine URL */
-  gchar *smartbookmark_url = "";
+  const gchar *smartbookmark_url = "";
 
   g_return_if_fail (plugin != NULL);
   g_return_if_fail (verve != NULL);
