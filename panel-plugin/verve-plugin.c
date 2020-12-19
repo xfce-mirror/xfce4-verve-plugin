@@ -858,7 +858,7 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin,
       xfce_rc_write_int_entry (rc, "size", verve->size);
 
       /* Write label value */
-      xfce_rc_write_entry (rc, "label", gtk_label_get_text(verve->label));
+      xfce_rc_write_entry (rc, "label", gtk_label_get_text(GTK_LABEL(verve->label)));
 
       /* Write number of saved history entries */
       xfce_rc_write_int_entry (rc, "history-length", verve->history_length);
