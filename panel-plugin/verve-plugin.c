@@ -88,7 +88,7 @@ typedef struct
 G_LOCK_DEFINE_STATIC (plugin_completion_mutex);
 
 
-void
+static void
 verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 {
   VervePlugin *verve = (VervePlugin*) user_data;
@@ -542,7 +542,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
 
   /* Set up a CSS provider for the entry */
   verve->input_css = gtk_css_provider_new ();
-  gtk_style_context_add_provider (gtk_widget_get_style_context (verve->input), verve->input_css, GTK_STYLE_PROVIDER_PRIORITY_SETTINGS);
+  gtk_style_context_add_provider (gtk_widget_get_style_context (verve->input), GTK_STYLE_PROVIDER(verve->input_css), GTK_STYLE_PROVIDER_PRIORITY_SETTINGS);
 
   /* Handle mouse button and key press events */
   g_signal_connect (verve->input, "key-press-event", G_CALLBACK (verve_plugin_keypress_cb), verve);
@@ -626,7 +626,7 @@ verve_plugin_update_label (XfcePanelPlugin *plugin,
   g_return_val_if_fail (verve != NULL, FALSE);
 
   /* Set text in internal label object */
-  gtk_label_set_text(verve->label, label);
+  gtk_label_set_text(GTK_LABEL(verve->label), label);
 
   return TRUE;
 }
@@ -656,7 +656,8 @@ verve_plugin_update_colors (XfcePanelPlugin *plugin,
 
   GFileIOStream *tmp_file_stream;
   GFile *tmp_file = g_file_new_tmp (NULL, &tmp_file_stream, NULL);
-  GOutputStream *output_stream = g_io_stream_get_output_stream (tmp_file_stream);
+  GIOStream *iostream = G_IO_STREAM (tmp_file_stream);
+  GOutputStream *output_stream = g_io_stream_get_output_stream (iostream);
 
   // Write CSS to temporary file
   write_string (output_stream, "*{color:", "");
@@ -683,7 +684,7 @@ verve_plugin_update_colors (XfcePanelPlugin *plugin,
   write_string (output_stream, verve->base_color_str, "unset");
   write_string (output_stream, "}", "");
 
-  g_io_stream_close (tmp_file_stream, NULL, NULL);
+  g_io_stream_close (iostream, NULL, NULL);
 
   gtk_css_provider_load_from_file (verve->input_css, tmp_file, NULL);
   g_file_delete (tmp_file, NULL, NULL);
@@ -740,12 +741,12 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
   gint    size = 20;
 
   /* Default label */
-  gchar  *label = "";
+  const gchar  *label = "";
   
   /* Default foreground and background colors */
-  gchar  *fg_color_str = "";
-  gchar  *bg_color_str = "";
-  gchar  *base_color_str = "";
+  const gchar *fg_color_str = "";
+  const gchar *bg_color_str = "";
+  const gchar *base_color_str = "";
 
   /* Default number of saved history entries */
   gint    history_length = 25;
@@ -761,7 +762,7 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
   verve->launch_params.use_shell = TRUE;
 
   /* Default search engine URL */
-  gchar *smartbookmark_url = "";
+  const gchar *smartbookmark_url = "";
 
   g_return_if_fail (plugin != NULL);
   g_return_if_fail (verve != NULL);
@@ -857,7 +858,7 @@ verve_plugin_write_rc_file (XfcePanelPlugin *plugin,
       xfce_rc_write_int_entry (rc, "size", verve->size);
 
       /* Write label value */
-      xfce_rc_write_entry (rc, "label", gtk_label_get_text(verve->label));
+      xfce_rc_write_entry (rc, "label", gtk_label_get_text(GTK_LABEL(verve->label)));
 
       /* Write number of saved history entries */
       xfce_rc_write_int_entry (rc, "history-length", verve->history_length);
@@ -910,8 +911,8 @@ verve_plugin_fg_color_changed (GtkColorButton *color_button,
 
   /* Get the entered color */
   GdkRGBA color;
-  gtk_color_chooser_get_rgba (color_button, &color);
-  const gchar *color_str = gdk_rgba_to_string (&color);
+  gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER(color_button), &color);
+  gchar *color_str = gdk_rgba_to_string (&color);
 
   verve_plugin_update_colors (NULL, color_str, NULL, NULL, verve);
 
@@ -928,8 +929,8 @@ verve_plugin_base_color_changed (GtkColorButton *color_button,
 
   /* Get the entered color */
   GdkRGBA color;
-  gtk_color_chooser_get_rgba (color_button, &color);
-  const gchar *color_str = gdk_rgba_to_string (&color);
+  gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER(color_button), &color);
+  gchar *color_str = gdk_rgba_to_string (&color);
 
   verve_plugin_update_colors (NULL, NULL, NULL, color_str, verve);
 
@@ -1107,7 +1108,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   GtkWidget *label_box;
   GtkWidget *history_length_label;
   GtkWidget *history_length_spin;
-  GObject *adjustment;
+  GtkAdjustment *adjustment;
 
   GtkWidget *bin3;
   GtkWidget *alignment;
