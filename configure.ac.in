@@ -9,8 +9,8 @@ dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2006-2008 Jannis Pohlmann <jannis@xfce.org>
 Copyright (c) Florian Rivoal 2010 <frivoal@xfce.org>
 Copyright (c) Isaac Schemm 2015 <isaacschemm@gmail.com>])
-AC_INIT([xfce4-verve-plugin], [2.0.0git], [isaacschemm@gmail.com], [xfce4-verve-plugin])
-AC_PREREQ([2.50])
+AC_INIT([xfce4-verve-plugin], [2.0.0git], [https://gitlab.xfce.org/panel-plugins/xfce4-verve-plugin], [xfce4-verve-plugin])
+AC_PREREQ([2.69])
 
 dnl ***************************
 dnl *** Initialize automake ***
@@ -22,15 +22,13 @@ AM_MAINTAINER_MODE()
 dnl *******************************
 dnl *** Check for UNIX variants ***
 dnl *******************************
-AC_AIX()
-AC_ISC_POSIX()
-AC_MINIX()
+AC_USE_SYSTEM_EXTENSIONS
 
 dnl ********************************
 dnl *** Check for basic programs ***
 dnl ********************************
 AC_PROG_CC()
-AC_PROG_LD()
+LT_PATH_LD([])
 AC_PROG_INSTALL()
 AC_CONFIG_MACRO_DIRS([m4])
 IT_PROG_INTLTOOL([0.35.0])
@@ -70,8 +68,9 @@ dnl *** Check for debugging support ***
 dnl ***********************************
 XDT_FEATURE_DEBUG()
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 panel-plugin/Makefile
 po/Makefile.in
 ])
+AC_OUTPUT
