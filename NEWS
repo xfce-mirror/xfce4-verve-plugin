@@ -1,3 +1,31 @@
+2.0.1
+======
+- Modernize configure.ac.in
+- Fix xfce_rc_read_entry usage
+- Fix gdk_rgba_to_string usage
+- Fix GtkAdjustment usage
+- Fix GtkColorChooser usage
+- Fix GtkColorChooser usage
+- Fix GtkLabel usage
+- Fix GIOStream usage
+- Fix gtk_label_set_text call
+- Fix gtk_style_context_add_provider call
+- Fix discarded-qualifiers
+- Fix missing-prototypes
+- Remove GSourceFunc casts
+- Create README.md. Update configure.ac.in
+- Fix build with panel 4.15
+- Use GtkColorButton to pick foreground and background colors
+- Translation Updates:
+  Albanian, Armenian (Armenia), Asturian, Belarusian, Bulgarian,
+  Catalan, Chinese (China), Chinese (Taiwan), Croatian, Czech, Danish,
+  Dutch, Eastern Armenian, English (Australia), English (Canada),
+  Esperanto, Finnish, French, Galician, German, Greek, Hebrew,
+  Hungarian, Icelandic, Indonesian, Interlingue, Italian, Japanese,
+  Korean, Lithuanian, Malay, Norwegian Bokmål, Occitan (post 1500),
+  Polish, Portuguese, Portuguese (Brazil), Russian, Serbian, Slovak,
+  Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian
+
 2.0.0 (2018/04/15):
 -------------------
 
