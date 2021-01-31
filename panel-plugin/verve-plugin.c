@@ -68,7 +68,7 @@ typedef struct
   
   /* Autocompletion */
   GCompletion      *completion;
-  gint              n_complete;
+  guint             n_complete;
 
   /* Properties */ 
   gint              size;
@@ -123,19 +123,14 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
 }
 
 
-  
-static gboolean
+
+G_GNUC_UNUSED static gboolean
 verve_plugin_focus_timeout (gpointer user_data)
 {
   VervePlugin *verve = user_data;
-  GtkStyle *style;
-  GdkColor c;
-  
+
   g_return_val_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input), FALSE);
-  
-  /* Determine current entry style */
-  style = gtk_widget_get_style (verve->input);
-  
+
   return TRUE;
 }
 
@@ -144,9 +139,6 @@ verve_plugin_focus_timeout (gpointer user_data)
 static void
 verve_plugin_focus_timeout_reset (VervePlugin *verve)
 {
-  GtkStyle *style;
-  GdkColor c;
-
   g_return_if_fail (verve != NULL);
   g_return_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input));
 
@@ -243,9 +235,8 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
   const gchar *prefix;
   GList       *similar = NULL;
   gboolean     selected = FALSE;
-  gint         selstart;
-  gint         i;
-  gint         len;
+  gint         selstart, len;
+  guint        i;
 
   g_return_val_if_fail (verve != NULL, FALSE);
 
@@ -451,7 +442,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
                   verve->n_complete = 0;
 
                 /* Search the next result */
-                for (i=0; i<verve->n_complete; i++)
+                for (i = 0; i < verve->n_complete; i++)
                   if (similar->next != NULL)
                     similar = similar->next;
               }
@@ -479,6 +470,9 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
 static VervePlugin*
 verve_plugin_new (XfcePanelPlugin *plugin)
 {
+  VervePlugin *verve;
+  GtkWidget   *hbox;
+
   /* Set application name */
   g_set_application_name ("Verve");
 
@@ -491,7 +485,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   verve_init ();
   
   /* Create the plugin object */
-  VervePlugin *verve = g_new (VervePlugin, 1);
+  verve = g_new (VervePlugin, 1);
 
   /* Assign the panel plugin to the plugin member */
   verve->plugin = plugin;
@@ -526,7 +520,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   gtk_widget_show (verve->event_box);
   
   /* Create a container for the label and input */
-  GtkWidget *hbox = gtk_hbox_new (FALSE, 0);
+  hbox = gtk_hbox_new (FALSE, 0);
   gtk_container_add (GTK_CONTAINER (verve->event_box), hbox);
   gtk_widget_show (hbox);
 
@@ -652,12 +646,16 @@ verve_plugin_update_colors (XfcePanelPlugin *plugin,
                             const gchar     *base_color_str,
                             VervePlugin     *verve)
 {
+  GFileIOStream *tmp_file_stream;
+  GFile *tmp_file;
+  GIOStream *iostream;
+  GOutputStream *output_stream;
+
   g_return_val_if_fail (verve != NULL, FALSE);
 
-  GFileIOStream *tmp_file_stream;
-  GFile *tmp_file = g_file_new_tmp (NULL, &tmp_file_stream, NULL);
-  GIOStream *iostream = G_IO_STREAM (tmp_file_stream);
-  GOutputStream *output_stream = g_io_stream_get_output_stream (iostream);
+  tmp_file = g_file_new_tmp (NULL, &tmp_file_stream, NULL);
+  iostream = G_IO_STREAM (tmp_file_stream);
+  output_stream = g_io_stream_get_output_stream (iostream);
 
   // Write CSS to temporary file
   write_string (output_stream, "*{color:", "");
@@ -748,6 +746,9 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
   const gchar *bg_color_str = "";
   const gchar *base_color_str = "";
 
+  /* Default search engine URL */
+  const gchar *smartbookmark_url = "";
+
   /* Default number of saved history entries */
   gint    history_length = 25;
 
@@ -760,9 +761,6 @@ verve_plugin_read_rc_file (XfcePanelPlugin *plugin,
   verve->launch_params.use_backslash = FALSE;
   verve->launch_params.use_smartbookmark = FALSE;
   verve->launch_params.use_shell = TRUE;
-
-  /* Default search engine URL */
-  const gchar *smartbookmark_url = "";
 
   g_return_if_fail (plugin != NULL);
   g_return_if_fail (verve != NULL);
@@ -907,12 +905,14 @@ static void
 verve_plugin_fg_color_changed (GtkColorButton *color_button, 
                                VervePlugin *verve)
 {
+  GdkRGBA  color;
+  gchar   *color_str;
+
   g_return_if_fail (verve != NULL);
 
   /* Get the entered color */
-  GdkRGBA color;
   gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER(color_button), &color);
-  gchar *color_str = gdk_rgba_to_string (&color);
+  color_str = gdk_rgba_to_string (&color);
 
   verve_plugin_update_colors (NULL, color_str, NULL, NULL, verve);
 
@@ -925,12 +925,14 @@ static void
 verve_plugin_base_color_changed (GtkColorButton *color_button, 
                                  VervePlugin *verve)
 {
+  GdkRGBA  color;
+  gchar   *color_str;
+
   g_return_if_fail (verve != NULL);
 
   /* Get the entered color */
-  GdkRGBA color;
   gtk_color_chooser_get_rgba (GTK_COLOR_CHOOSER(color_button), &color);
-  gchar *color_str = gdk_rgba_to_string (&color);
+  color_str = gdk_rgba_to_string (&color);
 
   verve_plugin_update_colors (NULL, NULL, NULL, color_str, verve);
 
@@ -945,11 +947,8 @@ verve_plugin_label_changed (GtkEntry *box,
 {
   g_return_if_fail (verve != NULL);
 
-  /* Get the entered URL */
-  const gchar *label = gtk_entry_get_text (box);
-
   /* Update search engine ID */
-  verve_plugin_update_label (NULL, label, verve);
+  verve_plugin_update_label (NULL, gtk_entry_get_text (box), verve);
 }
 
 
@@ -1052,11 +1051,8 @@ verve_plugin_smartbookmark_url_changed (GtkEntry    *box,
 {
   g_return_if_fail (verve != NULL);
 
-  /* Get the entered URL */
-  const gchar *smartbookmark_url = gtk_entry_get_text(box);
-
   /* Update search engine ID */
-  verve_plugin_update_smartbookmark_url (NULL, smartbookmark_url, verve);
+  verve_plugin_update_smartbookmark_url (NULL, gtk_entry_get_text (box), verve);
 }
 
 
@@ -1125,8 +1121,6 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   GtkWidget *engine_box;
   GtkWidget *command_type_executable;
   GtkWidget *command_type_use_shell;
-
-  gchar     *color_str;
 
   g_return_if_fail (plugin != NULL);
   g_return_if_fail (verve != NULL);
@@ -1452,11 +1446,13 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
 static void
 verve_plugin_construct (XfcePanelPlugin *plugin)
 {
+  VervePlugin *verve;
+
   /* Set gettext text domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
   
   /* Create Verve plugin */
-  VervePlugin *verve = verve_plugin_new (plugin);
+  verve = verve_plugin_new (plugin);
 
   /* Read config file */
   verve_plugin_read_rc_file (plugin, verve);
