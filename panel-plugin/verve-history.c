@@ -255,14 +255,16 @@ verve_history_cache_load (void)
 static void
 verve_history_cache_write (void)
 {
+  gchar *filename;
+
   /* Do not write history if it is empty */
   if (verve_history_is_empty ())
     return;
 
-  const gchar *basename = verve_history_cache_get_filename ();
-
   /* Search for history file, create if it does not exist yet */
-  gchar *filename = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, basename, TRUE);
+  filename = xfce_resource_save_location (XFCE_RESOURCE_CONFIG,
+                                          verve_history_cache_get_filename (),
+                                          TRUE);
 
   if (G_LIKELY (filename != NULL))
     {

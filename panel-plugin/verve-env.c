@@ -29,8 +29,10 @@
 
 
 
-static void     verve_env_class_init             (VerveEnvClass *klass);
-static void     verve_env_init                   (VerveEnv      *env);
+static void     verve_env_class_init             (gpointer       g_class,
+                                                  gpointer       class_data);
+static void     verve_env_init                   (GTypeInstance *instance,
+                                                  gpointer       g_class);
 static void     verve_env_finalize               (GObject       *object);
 static void     verve_env_load_binaries          (VerveEnv      *env);
 static gpointer verve_env_load_thread            (gpointer       user_data);
@@ -82,12 +84,12 @@ verve_env_get_type (void)
         sizeof (VerveEnvClass),
         NULL,
         NULL,
-        (GClassInitFunc) verve_env_class_init,
+        verve_env_class_init,
         NULL,
         NULL,
         sizeof (VerveEnv),
         0,
-        (GInstanceInitFunc) verve_env_init,
+        verve_env_init,
         NULL,
       };
       
@@ -100,14 +102,15 @@ verve_env_get_type (void)
 
 
 void
-verve_env_class_init (VerveEnvClass *klass)
+verve_env_class_init (gpointer g_class,
+                      gpointer class_data)
 {
-  GObjectClass *gobject_class;
-  
+  GObjectClass  *gobject_class = g_class;
+  VerveEnvClass *klass = g_class;
+
   /* Determine parent class */
   verve_env_parent_class = g_type_class_peek_parent (klass);
-  
-  gobject_class = G_OBJECT_CLASS (klass);
+
   gobject_class->finalize = verve_env_finalize;
 
   klass->load_binaries = verve_env_load_binaries;
@@ -126,8 +129,11 @@ verve_env_class_init (VerveEnvClass *klass)
 
 
 void 
-verve_env_init (VerveEnv *env)
+verve_env_init (GTypeInstance *instance,
+                gpointer       g_class)
 {
+  VerveEnv *env = VERVE_ENV (instance);
+
   env->paths = NULL;
   env->binaries = NULL;
 
@@ -137,22 +143,22 @@ verve_env_init (VerveEnv *env)
 
 
 
-static VerveEnv *env = NULL;  
+static VerveEnv *global_env = NULL;
 
 
 
 VerveEnv*
 verve_env_get (void)
 {
-  if (G_UNLIKELY (env == NULL))
+  if (G_UNLIKELY (global_env == NULL))
     {
-      env = g_object_new (VERVE_TYPE_ENV, NULL);
-      g_object_add_weak_pointer (G_OBJECT (env), (gpointer) &env);
+      global_env = g_object_new (VERVE_TYPE_ENV, NULL);
+      g_object_add_weak_pointer (G_OBJECT (global_env), (gpointer) &global_env);
     }
   else
-    g_object_ref (G_OBJECT (env));
+    g_object_ref (G_OBJECT (global_env));
   
-  return env;
+  return global_env;
 }
 
 
@@ -160,8 +166,8 @@ verve_env_get (void)
 void 
 verve_env_shutdown (void)
 {
-  if (G_LIKELY (env != NULL))
-    g_object_unref (G_OBJECT (env));
+  if (G_LIKELY (global_env != NULL))
+    g_object_unref (G_OBJECT (global_env));
 }
 
 
@@ -182,16 +188,7 @@ verve_env_finalize (GObject *object)
   /* Free binaries list */
   if (G_LIKELY (env->binaries != NULL))
     {
-      g_list_foreach (env->binaries, (GFunc) g_free, NULL);
-#if 0
-      GList *iter = g_list_first (env->binaries);
-      while (iter != NULL)
-        {
-          g_free ((gchar *)iter->data);
-          iter = g_list_next (iter);
-        }
-#endif
-      g_list_free (env->binaries);
+      g_list_free_full (env->binaries, g_free);
       env->binaries = NULL;
     }
 }
@@ -228,13 +225,13 @@ verve_env_load_thread (gpointer user_data)
 {
   VerveEnv *env = VERVE_ENV (user_data);
   gchar   **paths;
-  int       i;
+  guint       i;
   
   /* Get $PATH directories */
   paths = verve_env_get_path (env);
   
   /* Iterate over paths list */
-  for (i=0; !env->load_thread_cancelled && i<g_strv_length (paths); i++)
+  for (i = 0; !env->load_thread_cancelled && i < g_strv_length (paths); i++)
   {
     const gchar *current;
     gchar       *filename;

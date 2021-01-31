@@ -215,11 +215,13 @@ verve_execute (const gchar *input,
   {
     if (launch_params.use_shell)
     {
+      gchar *shell, *quoted_input;
+
       /* Find current shell */
-      char *shell = getenv("SHELL");
+      shell = getenv("SHELL");
       if (shell == NULL) shell = "/bin/sh";
-      
-      gchar *quoted_input = g_shell_quote (input);
+
+      quoted_input = g_shell_quote (input);
       command = g_strconcat (shell, " -i -c ", quoted_input, NULL);
       g_free (quoted_input);
     }
