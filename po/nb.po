@@ -7,7 +7,7 @@
 # Allan Nordhøy <epost@anotheragency.no>, 2015
 # Erlend Østlie <erlendandreas12368@gmail.com>, 2018
 # Harald H. <haarektrans@gmail.com>, 2015
-# Kjell Cato Heskjestad <cato@heskjestad.xyz>, 2019
+# heskjestad <cato@heskjestad.xyz>, 2019
 # Terje Uriansrud <ter@operamail.com>, 2007
 msgid ""
 msgstr ""
