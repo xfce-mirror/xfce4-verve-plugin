@@ -16,7 +16,7 @@ dnl ***************************
 dnl *** Initialize automake ***
 dnl ***************************
 AM_INIT_AUTOMAKE([1.8 dist-bzip2 no-dist-gzip tar-ustar foreign])
-AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
 AM_MAINTAINER_MODE()
 
 dnl *******************************
@@ -38,11 +38,6 @@ dnl *** Initialize libtool ***
 dnl **************************
 LT_PREREQ([2.2.6])
 LT_INIT([disable-static])
-
-dnl **********************************
-dnl *** Check for standard headers ***
-dnl **********************************
-AC_HEADER_STDC()
 
 dnl ******************************
 dnl *** Check for i18n support ***
