@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-26 01:05+0200\n"
-"PO-Revision-Date: 2021-03-13 10:29+0000\n"
+"PO-Revision-Date: 2021-05-07 21:39+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr ""
 #: ../panel-plugin/verve.c:98
 #, c-format
 msgid "Could not execute command (exit status %d)"
-msgstr "No se ha podido ejecutar la operación (estado de salida %d)"
+msgstr "No se ha podido ejecutar la orden (estado de salida %d)"
 
 #. Generate error message
 #: ../panel-plugin/verve-plugin.c:392
@@ -66,7 +66,7 @@ msgstr "Colores"
 #. Plugin background color label
 #: ../panel-plugin/verve-plugin.c:1239
 msgid "Background color:"
-msgstr "Color de fondo:"
+msgstr "Color del fondo:"
 
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1265
@@ -91,12 +91,12 @@ msgstr "Comportamiento"
 #. Pattern types frame label
 #: ../panel-plugin/verve-plugin.c:1335
 msgid "Enable support for:"
-msgstr "Activar soporte para:"
+msgstr "Activar la compatibilidad con:"
 
 #. Command type: URL
 #: ../panel-plugin/verve-plugin.c:1341
 msgid "URLs (http/https/ftp/ftps)"
-msgstr "URLs (http/https/ftp/ftps)"
+msgstr "URL (http/https/ftp/ftps)"
 
 #. Command type: email address
 #: ../panel-plugin/verve-plugin.c:1349
@@ -115,33 +115,33 @@ msgstr "Expandir variables con «wordexp»"
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1380
 msgid "DuckDuckGo queries (starting with !)"
-msgstr "Búsquedas con «DuckDuckGo» (comenzando con !)"
+msgstr "Búsquedas en DuckDuckGo (comienzan con !)"
 
 #. Command type: I'm feeling ducky (\)
 #: ../panel-plugin/verve-plugin.c:1388
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr "Búsquedas con «DuckDuckGo» (comenzando con \\)"
+msgstr "Búsquedas en DuckDuckGo (comienzan con \\)"
 
 #. Fallback if the above don't match
 #: ../panel-plugin/verve-plugin.c:1396
 msgid "If the above patterns don't match:"
-msgstr "Si no coincide con los patrones mostrados arriba:"
+msgstr "Si los patrones anteriores no coinciden:"
 
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1402
 msgid "Use smart bookmark URL"
-msgstr "Usar marcadores de URL inteligentes"
+msgstr "Usar el URL del marcador inteligente"
 
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1425
 msgid "Run as executable command"
-msgstr "Lanzar como orden ejecutable"
+msgstr "Iniciar como una orden ejecutable"
 
 #: ../panel-plugin/verve-plugin.c:1437
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr "Ejecutar orden con $SHELL -i -c\n(activa alias y expansión de variable)"
+msgstr "Ejecutar la orden con $SHELL -i -c\n(activa la expansión del alias y de las variables)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
