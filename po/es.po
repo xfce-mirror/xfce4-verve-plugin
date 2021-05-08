@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-26 01:05+0200\n"
-"PO-Revision-Date: 2021-05-07 21:39+0000\n"
+"PO-Revision-Date: 2021-05-08 07:48+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "No se ha podido ejecutar la orden:"
 #. Create properties dialog
 #: ../panel-plugin/verve-plugin.c:1137
 msgid "Verve"
-msgstr "Brío"
+msgstr "Verve"
 
 #: ../panel-plugin/verve-plugin.c:1160
 msgid "General"
@@ -106,11 +106,11 @@ msgstr "Direcciones de correo electrónico"
 #. Command type: directory path
 #: ../panel-plugin/verve-plugin.c:1357
 msgid "Directory paths"
-msgstr "Rutas de carpetas"
+msgstr "Rutas de carpeta"
 
 #: ../panel-plugin/verve-plugin.c:1370
 msgid "Expand variables with wordexp"
-msgstr "Expandir variables con «wordexp»"
+msgstr "Expandir las variables con wordexp"
 
 #. Command type: !bang
 #: ../panel-plugin/verve-plugin.c:1380
@@ -146,7 +146,7 @@ msgstr "Ejecutar la orden con $SHELL -i -c\n(activa la expansión del alias y de
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
 msgid "Verve Command Line"
-msgstr "Línea de órdenes Brío"
+msgstr "Línea de órdenes Verve"
 
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
 msgid "Command line interface with auto-completion and command history"
