@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-26 01:05+0200\n"
-"PO-Revision-Date: 2021-05-08 07:48+0000\n"
+"PO-Revision-Date: 2021-05-15 16:25+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -81,7 +81,7 @@ msgstr "Historial"
 #. History length label
 #: ../panel-plugin/verve-plugin.c:1302
 msgid "Number of saved history items:"
-msgstr "Número de elementos guardados en el historial:"
+msgstr "Número de elementos del historial:"
 
 #. Second tab
 #: ../panel-plugin/verve-plugin.c:1322 ../panel-plugin/verve-plugin.c:1326
@@ -130,18 +130,18 @@ msgstr "Si los patrones anteriores no coinciden:"
 #. Smart bookmark radio button
 #: ../panel-plugin/verve-plugin.c:1402
 msgid "Use smart bookmark URL"
-msgstr "Usar el URL del marcador inteligente"
+msgstr "Usar un marcador de URL inteligente"
 
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1425
 msgid "Run as executable command"
-msgstr "Iniciar como una orden ejecutable"
+msgstr "Ejecutar como una orden ejecutable"
 
 #: ../panel-plugin/verve-plugin.c:1437
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
-msgstr "Ejecutar la orden con $SHELL -i -c\n(activa la expansión del alias y de las variables)"
+msgstr "Ejecutar la orden con $SHELL -i -c\n(activa los alias y la expansión de variables)"
 
 #. vim:set expandtab sts=2 ts=2 sw=2:
 #: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
