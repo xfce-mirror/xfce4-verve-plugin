@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-26 01:05+0200\n"
-"PO-Revision-Date: 2021-05-15 16:25+0000\n"
+"PO-Revision-Date: 2021-05-22 08:32+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-panel-plugins/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +135,7 @@ msgstr "Usar un marcador de URL inteligente"
 #. Executable command radio button (smart bookmark off)
 #: ../panel-plugin/verve-plugin.c:1425
 msgid "Run as executable command"
-msgstr "Ejecutar como una orden ejecutable"
+msgstr "Iniciar como una orden ejecutable"
 
 #: ../panel-plugin/verve-plugin.c:1437
 msgid ""
