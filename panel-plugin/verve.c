@@ -23,7 +23,8 @@
 
 #include "config.h"
 
-#include <pcre.h>
+#define PCRE2_CODE_UNIT_WIDTH 8
+#include <pcre2.h>
 
 #include <glib-object.h>
 
@@ -39,22 +40,22 @@
 
 
 
-static gboolean verve_is_url       (const gchar *str);
-static gboolean verve_is_email     (const gchar *str);
+static gboolean verve_is_url       (PCRE2_SPTR str);
+static gboolean verve_is_email     (PCRE2_SPTR str);
 static gchar *verve_is_directory   (const gchar *str, gboolean use_wordexp);
 
 
 
-/* URL/eMail matching patterns */
+/* URL/email matching patterns */
 #define USERCHARS   "-A-Za-z0-9"
 #define PASSCHARS   "-A-Za-z0-9,?;.:/!%$^*&~\"#'"
 #define HOSTCHARS   "-A-Za-z0-9"
-#define USER        "[" USERCHARS "]+(:["PASSCHARS "]+)?"
-#define MATCH_URL1  "^((file|https?|ftps?)://(" USER "@)?)[" HOSTCHARS ".]+(:[0-9]+)?" \
-                    "(/[-A-Za-z0-9_$.+!*(),;:@&=?/~#%]*[^]'.}>) \t\r\n,\\\"])?/?$"
-#define MATCH_URL2  "^(www|ftp)[" HOSTCHARS "]*\\.[" HOSTCHARS ".]+(:[0-9]+)?" \
-                    "(/[-A-Za-z0-9_$.+!*(),;:@&=?/~#%]*[^]'.}>) \t\r\n,\\\"])?/?$"
-#define MATCH_EMAIL "^(mailto:)?[a-z0-9][a-z0-9.-]*@[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+#define USER        "[" USERCHARS "]+(?::["PASSCHARS "]+)?"
+#define MATCH_URL1  "^(?:(?:file|https?|ftps?)://(?:" USER "@)?)[" HOSTCHARS ".]+(?::[0-9]+)?" \
+                    "(?:/[-A-Za-z0-9_$.+!*(),;:@&=?/~#%]*[^]'.}>) \t\r\n,\\\"])?/?$"
+#define MATCH_URL2  "^(?:www|ftp)[" HOSTCHARS "]*\\.[" HOSTCHARS ".]+(?::[0-9]+)?" \
+                    "(?:/[-A-Za-z0-9_$.+!*(),;:@&=?/~#%]*[^]'.}>) \t\r\n,\\\"])?/?$"
+#define MATCH_EMAIL "^(?:mailto:)?[a-z0-9][a-z0-9.-]*@[a-z0-9][a-z0-9-]*(?:\\.[a-z0-9][a-z0-9-]*)+$"
 
 /*********************************************************************
  *
@@ -172,7 +173,7 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
  * ---------------------------
  *
  * This method should be used whenever you want to run command line 
- * input, be it a URL, an eMail address or a custom command.
+ * input, be it a URL, an email address or a custom command.
  *
  *********************************************************************/
 
@@ -185,8 +186,8 @@ verve_execute (const gchar *input,
   gchar   *directory_exp;
   gboolean result = FALSE;
     
-  /* Open URLs, eMail addresses and directories using exo-open */
-  if ((launch_params.use_email && verve_is_email (input)) || (launch_params.use_url && verve_is_url (input)))
+  /* Open URLs, email addresses and directories using exo-open */
+  if ((launch_params.use_email && verve_is_email ((PCRE2_SPTR) input)) || (launch_params.use_url && verve_is_url ((PCRE2_SPTR) input)))
   {
     /* Build exo-open command */
     command = g_strconcat ("exo-open ", input, NULL);
@@ -262,45 +263,43 @@ verve_execute (const gchar *input,
  *********************************************************************/
 
 gboolean
-verve_is_url (const gchar *str)
+verve_is_url (PCRE2_SPTR str)
 {
-  GString     *string = g_string_new (str);
-  pcre        *pattern;
-  const gchar *error;
-  int          error_offset;
-  int          ovector[30];
-  gboolean     success = FALSE;
+  pcre2_code       *re;
+  int               errorcode;
+  PCRE2_SIZE        erroroffset;
+  pcre2_match_data *match_data;
+  gboolean          success = FALSE;
 
   /* Compile first pattern */
-  pattern = pcre_compile (MATCH_URL1, 0, &error, &error_offset, NULL);
-  
-  /* Test whether the string matches this pattern */
-  if (pcre_exec (pattern, NULL, string->str, string->len, 0, 0, ovector, 30) >= 0)
-    success = TRUE;
-
-  /* Free pattern */
-  pcre_free (pattern);
-
-  /* Free data and return true if string matched the first pattern */
-  if (success)
+  if ((re = pcre2_compile ((PCRE2_SPTR)MATCH_URL1, PCRE2_ZERO_TERMINATED, 0, &errorcode, &erroroffset, NULL)))
+  {
+    /* Test whether the string matches this pattern */
+    if ((match_data = pcre2_match_data_create_from_pattern (re, NULL)) &&
+        (pcre2_match (re, str, PCRE2_ZERO_TERMINATED, 0, 0, match_data, NULL) >= 0))
     {
-      g_string_free (string, TRUE);
-      return TRUE;
+      success = TRUE;
+      /* Free match_data and compiled pattern */
+      pcre2_match_data_free (match_data);
+      pcre2_code_free (re);
+      return success;
     }
+  }
 
   /* Compile second pattern */
-  pattern = pcre_compile (MATCH_URL2, 0, &error, &error_offset, NULL);
-
-  /* Test whether the string matches this pattern */
-  if (pcre_exec (pattern, NULL, string->str, string->len, 0, 0, ovector, 30) >= 0)
-    success = TRUE;
-
-  /* Free pattern */
-  pcre_free (pattern);
-
-  /* Free string */
-  g_string_free (string, TRUE);
-
+  if ((re = pcre2_compile ((PCRE2_SPTR)MATCH_URL2, PCRE2_ZERO_TERMINATED, 0, &errorcode, &erroroffset, NULL)))
+  {
+    /* Test whether the string matches this pattern */
+    if ((match_data = pcre2_match_data_create_from_pattern (re, NULL)) &&
+        (pcre2_match (re, str, PCRE2_ZERO_TERMINATED, 0, 0, match_data, NULL) >= 0))
+    {
+      success = TRUE;
+      /* Free match_data and compiled pattern */
+      pcre2_match_data_free (match_data);
+      pcre2_code_free (re);
+      return success;
+    }
+  }
   /* Return whether the string matched any of the URL patterns */
   return success;
 }
@@ -308,29 +307,28 @@ verve_is_url (const gchar *str)
 
 
 gboolean
-verve_is_email (const gchar *str)
+verve_is_email (PCRE2_SPTR str)
 {
-  GString     *string = g_string_new (str);
-  const gchar *error;
-  pcre        *pattern;
-  int          error_offset;
-  int          ovector[30];
-  gboolean     success = FALSE;
+  pcre2_code       *re;
+  int               errorcode;
+  PCRE2_SIZE        erroroffset;
+  pcre2_match_data *match_data;
+  gboolean          success = FALSE;
 
   /* Compile the pattern */
-  pattern = pcre_compile (MATCH_EMAIL, 0, &error, &error_offset, NULL);
-
-  /* Test whether the string matches this pattern */
-  if (pcre_exec (pattern, NULL, string->str, string->len, 0, 0, ovector, 30) >= 0)
-    success = TRUE;
-
-  /* Free pattern */
-  pcre_free (pattern);
-
-  /* Free string data */
-  g_string_free (string, TRUE);
-
-  /* Return whether the string matched any of the eMail patterns */
+  if ((re = pcre2_compile ((PCRE2_SPTR)MATCH_EMAIL, PCRE2_ZERO_TERMINATED, 0, &errorcode, &erroroffset, NULL)))
+  {
+    /* Test whether the string matches this pattern */
+    if ((match_data = pcre2_match_data_create_from_pattern (re, NULL)) &&
+        (pcre2_match (re, str, PCRE2_ZERO_TERMINATED, 0, 0, match_data, NULL) >= 0))
+    {
+      success = TRUE;
+      /* Free match_data and compiled pattern */
+      pcre2_match_data_free (match_data);
+      pcre2_code_free (re);
+    }
+  }
+  /* Return whether the string matched any of the email patterns */
   return success;
 }
 
