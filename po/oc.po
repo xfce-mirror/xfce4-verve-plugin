@@ -62,12 +62,12 @@ msgstr "Colors"
 #. Plugin background color label
 #: ../panel-plugin/verve-plugin.c:1239
 msgid "Background color:"
-msgstr ""
+msgstr "Color de rèireplan :"
 
 #. Plugin foreground color label
 #: ../panel-plugin/verve-plugin.c:1265
 msgid "Text color:"
-msgstr ""
+msgstr "Color de tèxte :"
 
 #. Frame for behaviour settings
 #: ../panel-plugin/verve-plugin.c:1286
