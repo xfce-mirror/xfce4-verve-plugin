@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Priit Jõerüüt <transifex@joeruut.com>, 2020,2023
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-30 00:54+0200\n"
+"PO-Revision-Date: 2013-07-03 19:26+0000\n"
+"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2020,2023\n"
+"Language-Team: Estonian (http://app.transifex.com/xfce/xfce-panel-plugins/language/et/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/verve.c:100
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "Käsu käivitamine ei õnnestunud (veakood %d)"
+
+#. Generate error message
+#: ../panel-plugin/verve-plugin.c:383
+msgid "Could not execute command:"
+msgstr "Käsu käivitamine ei õnnestunud:"
+
+#. Create properties dialog
+#: ../panel-plugin/verve-plugin.c:1132
+msgid "Verve"
+msgstr "Verve"
+
+#: ../panel-plugin/verve-plugin.c:1155
+msgid "General"
+msgstr "Üldine"
+
+#. Frame for appearance settings
+#: ../panel-plugin/verve-plugin.c:1160
+msgid "Appearance"
+msgstr "Välimus"
+
+#. Plugin size label
+#: ../panel-plugin/verve-plugin.c:1176
+msgid "Width (in chars):"
+msgstr "Laius (tähemärkides)"
+
+#. Plugin label label
+#: ../panel-plugin/verve-plugin.c:1201
+msgid "Label:"
+msgstr "Silt:"
+
+#. Frame for color settings
+#: ../panel-plugin/verve-plugin.c:1218
+msgid "Colors"
+msgstr "Värvid"
+
+#. Plugin background color label
+#: ../panel-plugin/verve-plugin.c:1234
+msgid "Background color:"
+msgstr "Taustavärv:"
+
+#. Plugin foreground color label
+#: ../panel-plugin/verve-plugin.c:1260
+msgid "Text color:"
+msgstr "Teksti värv:"
+
+#. Frame for behaviour settings
+#: ../panel-plugin/verve-plugin.c:1281
+msgid "History"
+msgstr "Ajalugu"
+
+#. History length label
+#: ../panel-plugin/verve-plugin.c:1297
+msgid "Number of saved history items:"
+msgstr "Kirjete arv käskude ajaloos:"
+
+#. Second tab
+#: ../panel-plugin/verve-plugin.c:1317 ../panel-plugin/verve-plugin.c:1321
+msgid "Behaviour"
+msgstr "Käitumine"
+
+#. Pattern types frame label
+#: ../panel-plugin/verve-plugin.c:1330
+msgid "Enable support for:"
+msgstr "Lisa tugi:"
+
+#. Command type: URL
+#: ../panel-plugin/verve-plugin.c:1336
+msgid "URLs (http/https/ftp/ftps)"
+msgstr "URLidele (http/https/ftp/ftps)"
+
+#. Command type: email address
+#: ../panel-plugin/verve-plugin.c:1344
+msgid "Email addresses"
+msgstr "E-posti aadressidele"
+
+#. Command type: directory path
+#: ../panel-plugin/verve-plugin.c:1352
+msgid "Directory paths"
+msgstr "Kaustade asukohtadele"
+
+#: ../panel-plugin/verve-plugin.c:1365
+msgid "Expand variables with wordexp"
+msgstr "Kasuta muutujate töötlemisel wordexp'i"
+
+#. Command type: !bang
+#: ../panel-plugin/verve-plugin.c:1375
+msgid "DuckDuckGo queries (starting with !)"
+msgstr "DuckDuckGo päringud (algusvõtmeks !)"
+
+#. Command type: I'm feeling ducky (\)
+#: ../panel-plugin/verve-plugin.c:1383
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr "DuckDuckGo päringud (algusvõtmeks \\)"
+
+#. Fallback if the above don't match
+#: ../panel-plugin/verve-plugin.c:1391
+msgid "If the above patterns don't match:"
+msgstr "Kui eelnevate valikute alusel mitte midagi käivitatavat ei leidu, siis:"
+
+#. Smart bookmark radio button
+#: ../panel-plugin/verve-plugin.c:1397
+msgid "Use smart bookmark URL"
+msgstr "Kasuta nutikate järjehoidjate urli'i"
+
+#. Executable command radio button (smart bookmark off)
+#: ../panel-plugin/verve-plugin.c:1420
+msgid "Run as executable command"
+msgstr "Käivita käsuna või rakendusena"
+
+#: ../panel-plugin/verve-plugin.c:1432
+msgid ""
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr "Käsu käivitamisel kasuta: $SHELL -i -c\n(võimaldab alias'e ja muutujate kasutamist)"
+
+#. vim:set expandtab sts=2 ts=2 sw=2:
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
+msgid "Verve Command Line"
+msgstr "Verve käsureavidin"
+
+#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
+msgid "Command line interface with auto-completion and command history"
+msgstr "Käsurea liides ajaloo salvestamise ja käskude ennustamisega"
