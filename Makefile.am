@@ -33,10 +33,10 @@ EXTRA_DIST =								\
 	NEWS								\
 	intltool-extract.in						\
 	intltool-merge.in						\
-	intltool-update.in \
-	po/.intltool-merge-cache.lock
+	intltool-update.in
 
 DISTCLEANFILES =							\
 	intltool-extract						\
 	intltool-merge							\
-	intltool-update
+	intltool-update \
+	po/.intltool-merge-cache.lock
