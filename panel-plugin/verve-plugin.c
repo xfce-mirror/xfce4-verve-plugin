@@ -1135,11 +1135,11 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   xfce_panel_plugin_block_menu (plugin);
 
   /* Create properties dialog */
-  dialog = xfce_titled_dialog_new_with_buttons (_("Verve"),
-                                                GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
-                                                GTK_DIALOG_DESTROY_WITH_PARENT,
-                                                GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
-                                                NULL);
+  dialog = xfce_titled_dialog_new_with_mixed_buttons (_("Verve"),
+                                                      GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
+                                                      GTK_DIALOG_DESTROY_WITH_PARENT,
+                                                      "window-close", _("_Close"), GTK_RESPONSE_OK,
+                                                      NULL);
 
   /* Set dialog property */
   g_object_set_data (G_OBJECT (plugin), "dialog", dialog);
