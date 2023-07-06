@@ -25,6 +25,7 @@
 #include <config.h>
 #endif
 
+/* allows using generic function names instead of suffixing them with _8 */
 #define PCRE2_CODE_UNIT_WIDTH 8
 #include <pcre2.h>
 
