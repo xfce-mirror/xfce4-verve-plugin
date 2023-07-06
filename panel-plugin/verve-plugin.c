@@ -526,7 +526,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   gtk_widget_show (verve->event_box);
   
   /* Create a container for the label and input */
-  hbox = gtk_hbox_new (FALSE, 0);
+  hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
   gtk_container_add (GTK_CONTAINER (verve->event_box), hbox);
   gtk_widget_show (hbox);
 
@@ -1157,7 +1157,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), notebook, TRUE, TRUE, 0);
   gtk_widget_show (notebook);
   
-  general_vbox = gtk_vbox_new (FALSE, 8);
+  general_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 8);
   notebook_tab_label_current = gtk_label_new (_("General"));
   gtk_notebook_append_page (GTK_NOTEBOOK (notebook), general_vbox, notebook_tab_label_current);
   gtk_widget_show(general_vbox);
@@ -1169,12 +1169,12 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (frame);
 
   /* Appearance settings vertical container */
-  vbox = gtk_vbox_new (FALSE, 8);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 8);
   gtk_container_add (GTK_CONTAINER(bin1), vbox);
   gtk_widget_show(vbox);
 
   /* Plugin size container */
-  hbox = gtk_hbox_new (FALSE, 8);
+  hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 8);
   gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
   gtk_widget_show (hbox);
 
@@ -1199,7 +1199,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   g_signal_connect (size_spin, "value-changed", G_CALLBACK (verve_plugin_size_changed), verve);
 
   /* Plugin label container */
-  hbox = gtk_hbox_new (FALSE, 8);
+  hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 8);
   gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
   gtk_widget_show (hbox);
 
@@ -1227,12 +1227,12 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (frame);
 
   /* Color settings vertical container */
-  vbox = gtk_vbox_new (FALSE, 8);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 8);
   gtk_container_add (GTK_CONTAINER(bin1), vbox);
   gtk_widget_show(vbox);
 
   /* Plugin background color container */
-  hbox = gtk_hbox_new (FALSE, 8);
+  hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 8);
   gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
   gtk_widget_show (hbox);
 
@@ -1258,7 +1258,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   g_signal_connect (base_color_box, "color-set", G_CALLBACK (verve_plugin_base_color_changed), verve);
 
   /* Plugin foreground color container */
-  hbox = gtk_hbox_new (FALSE, 8);
+  hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 8);
   gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
   gtk_widget_show (hbox);
 
@@ -1290,12 +1290,12 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_widget_show (frame);
   
   /* Behaviour settings vertical container */
-  vbox = gtk_vbox_new (FALSE, 8);
+  vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 8);
   gtk_container_add (GTK_CONTAINER(bin2), vbox);
   gtk_widget_show(vbox);
 
   /* Plugin history length container */
-  hbox = gtk_hbox_new (FALSE, 8);
+  hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 8);
   gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
   gtk_widget_show (hbox);
 
@@ -1328,7 +1328,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_notebook_append_page (GTK_NOTEBOOK (notebook), frame, notebook_tab_label_current);
   gtk_widget_show (frame);
   
-  command_types_vbox = gtk_vbox_new (FALSE, 0);
+  command_types_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
   gtk_container_add (GTK_CONTAINER (bin3), command_types_vbox);
   gtk_widget_show (command_types_vbox);
 
