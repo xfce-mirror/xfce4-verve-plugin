@@ -264,8 +264,9 @@ verve_execute (const gchar *input,
  *
  *********************************************************************/
 
-gboolean
-verve_is_url (PCRE2_SPTR str)
+static gboolean
+verve_is_pattern (PCRE2_SPTR str,
+                  PCRE2_SPTR pattern)
 {
   pcre2_code       *re;
   int               errorcode;
@@ -273,37 +274,32 @@ verve_is_url (PCRE2_SPTR str)
   pcre2_match_data *match_data;
   gboolean          success = FALSE;
 
-  /* Compile first pattern */
-  if (re = pcre2_compile ((PCRE2_SPTR)MATCH_URL1, PCRE2_ZERO_TERMINATED, 0, &errorcode, &erroroffset, NULL))
+  /* Compile pattern */
+  re = pcre2_compile (pattern, PCRE2_ZERO_TERMINATED, 0, &errorcode, &erroroffset, NULL);
+  if (re != NULL)
   {
-    /* Test whether the string matches this pattern */
-    if ((match_data = pcre2_match_data_create_from_pattern (re, NULL)) &&
-        (pcre2_match (re, str, PCRE2_ZERO_TERMINATED, 0, 0, match_data, NULL) >= 0))
+    match_data = pcre2_match_data_create_from_pattern (re, NULL);
+    if (match_data != NULL)
     {
-      success = TRUE;
-      /* Free match_data and compiled pattern */
+      /* Test whether the string matches this pattern */
+      success = (pcre2_match (re, str, PCRE2_ZERO_TERMINATED, 0, 0, match_data, NULL) >= 0);
       pcre2_match_data_free (match_data);
-      pcre2_code_free (re);
-      return success;
     }
+    pcre2_code_free (re);
   }
 
-  /* Compile second pattern */
-  if (re = pcre2_compile ((PCRE2_SPTR)MATCH_URL2, PCRE2_ZERO_TERMINATED, 0, &errorcode, &erroroffset, NULL))
-  {
-    /* Test whether the string matches this pattern */
-    if ((match_data = pcre2_match_data_create_from_pattern (re, NULL)) &&
-        (pcre2_match (re, str, PCRE2_ZERO_TERMINATED, 0, 0, match_data, NULL) >= 0))
-    {
-      success = TRUE;
-      /* Free match_data and compiled pattern */
-      pcre2_match_data_free (match_data);
-      pcre2_code_free (re);
-      return success;
-    }
-  }
-  /* Return whether the string matched any of the URL patterns */
   return success;
+}
+
+gboolean
+verve_is_url (PCRE2_SPTR str)
+{
+  if (verve_is_pattern (str, (PCRE2_SPTR) MATCH_URL1))
+    return TRUE;
+  if (verve_is_pattern (str, (PCRE2_SPTR) MATCH_URL2))
+    return TRUE;
+
+  return FALSE;
 }
 
 
@@ -311,27 +307,7 @@ verve_is_url (PCRE2_SPTR str)
 gboolean
 verve_is_email (PCRE2_SPTR str)
 {
-  pcre2_code       *re;
-  int               errorcode;
-  PCRE2_SIZE        erroroffset;
-  pcre2_match_data *match_data;
-  gboolean          success = FALSE;
-
-  /* Compile the pattern */
-  if (re = pcre2_compile ((PCRE2_SPTR)MATCH_EMAIL, PCRE2_ZERO_TERMINATED, 0, &errorcode, &erroroffset, NULL))
-  {
-    /* Test whether the string matches this pattern */
-    if ((match_data = pcre2_match_data_create_from_pattern (re, NULL)) &&
-        (pcre2_match (re, str, PCRE2_ZERO_TERMINATED, 0, 0, match_data, NULL) >= 0))
-    {
-      success = TRUE;
-      /* Free match_data and compiled pattern */
-      pcre2_match_data_free (match_data);
-      pcre2_code_free (re);
-    }
-  }
-  /* Return whether the string matched any of the email patterns */
-  return success;
+  return verve_is_pattern (str, (PCRE2_SPTR) MATCH_EMAIL);
 }
 
 
