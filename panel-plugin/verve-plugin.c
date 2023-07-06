@@ -78,6 +78,7 @@ typedef struct
 #ifdef HAVE_DBUS
   VerveDBusService *dbus_service;
 #endif
+  gboolean          autohide_blocked;
 
 } VervePlugin;
 
@@ -211,6 +212,7 @@ verve_plugin_grab_focus (VerveDBusService *dbus_service,
     {
       /* Unhide the panel */
       xfce_panel_plugin_block_autohide (verve->plugin, TRUE);
+      verve->autohide_blocked = TRUE;
 
       /* Focus the command entry */
       xfce_panel_plugin_focus_widget (verve->plugin, verve->input);
@@ -355,7 +357,11 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         if (G_LIKELY (verve_execute (command, terminal, verve->launch_params)))
           {
             /* Hide the panel again */
-            xfce_panel_plugin_block_autohide (verve->plugin, FALSE);
+            if (verve->autohide_blocked)
+              {
+                xfce_panel_plugin_block_autohide (verve->plugin, FALSE);
+                verve->autohide_blocked = FALSE;
+              }
 
             /* Do not add command to history if it is the same as the one before */
             if (verve_history_is_empty () || g_utf8_collate (verve_history_get_last_command (), command) != 0)
