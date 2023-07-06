@@ -1113,7 +1113,6 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   GtkAdjustment *adjustment;
 
   GtkWidget *bin3;
-  GtkWidget *alignment;
   GtkWidget *command_types_vbox;
   GtkWidget *command_types_label1;
   GtkWidget *command_types_label2;
@@ -1363,13 +1362,9 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   g_signal_connect (command_type_dir, "toggled", G_CALLBACK (verve_plugin_use_dir_changed), verve);
 
   /* wordexp checkbox */
-  alignment = gtk_alignment_new (1, 1, 1, 1);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 24, 0);
-  gtk_box_pack_start (GTK_BOX (command_types_vbox), alignment, FALSE, TRUE, 0);
-  gtk_widget_show (alignment);
-  
   command_type_use_wordexp = gtk_check_button_new_with_label(_("Expand variables with wordexp"));
-  gtk_container_add (GTK_CONTAINER (alignment), command_type_use_wordexp);
+  gtk_widget_set_margin_start (command_type_use_wordexp, 24);
+  gtk_box_pack_start (GTK_BOX (command_types_vbox), command_type_use_wordexp, FALSE, TRUE, 0);
 #ifdef HAVE_WORDEXP
   gtk_widget_show (command_type_use_wordexp);
 #endif
@@ -1409,11 +1404,10 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
 
   /* Smart bookmark entry box */
   engine_box = gtk_entry_new();
-  alignment = gtk_alignment_new (1, 1, 1, 1);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 8, 8, 24, 0);
-  gtk_box_pack_start (GTK_BOX (command_types_vbox), alignment, FALSE, TRUE, 0);
-  gtk_widget_show (alignment);
-  gtk_container_add (GTK_CONTAINER (alignment), engine_box);
+  gtk_widget_set_margin_start (engine_box, 24);
+  gtk_widget_set_margin_top (engine_box, 8);
+  gtk_widget_set_margin_bottom (engine_box, 8);
+  gtk_box_pack_start (GTK_BOX (command_types_vbox), engine_box, FALSE, TRUE, 0);
   gtk_widget_show (engine_box);
 
   /* Set text to search engine URL */
@@ -1430,13 +1424,9 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (command_type_executable), !verve->launch_params.use_smartbookmark);
 
   /* Use shell checkbox */
-  alignment = gtk_alignment_new (1, 1, 1, 1);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 0, 24, 0);
-  gtk_box_pack_start (GTK_BOX (command_types_vbox), alignment, FALSE, TRUE, 0);
-  gtk_widget_show (alignment);
-  
   command_type_use_shell = gtk_check_button_new_with_label(_("Run command with $SHELL -i -c\n(enables alias and variable expansion)"));
-  gtk_container_add (GTK_CONTAINER (alignment), command_type_use_shell);
+  gtk_widget_set_margin_start (command_type_use_shell, 24);
+  gtk_box_pack_start (GTK_BOX (command_types_vbox), command_type_use_shell, FALSE, TRUE, 0);
   gtk_widget_show (command_type_use_shell);
   
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (command_type_use_shell), verve->launch_params.use_shell);
