@@ -1248,7 +1248,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   if (verve->base_color_str) {
     GdkRGBA color;
     gdk_rgba_parse(&color, verve->base_color_str);
-    gtk_color_button_set_rgba(GTK_COLOR_BUTTON (base_color_box), &color);
+    gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER (base_color_box), &color);
   }
   gtk_widget_add_mnemonic_label (base_color_box, base_color_label);
   gtk_box_pack_start (GTK_BOX (hbox), base_color_box, FALSE, TRUE, 0);
@@ -1274,7 +1274,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   if (verve->fg_color_str) {
     GdkRGBA color;
     gdk_rgba_parse(&color, verve->fg_color_str);
-    gtk_color_button_set_rgba(GTK_COLOR_BUTTON (fg_color_box), &color);
+    gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER (fg_color_box), &color);
   }
   gtk_widget_add_mnemonic_label (fg_color_box, fg_color_label);
   gtk_box_pack_start (GTK_BOX (hbox), fg_color_box, FALSE, TRUE, 0);
