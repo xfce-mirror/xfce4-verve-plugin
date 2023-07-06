@@ -1334,7 +1334,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
 
   /* Pattern types frame label */
   command_types_label1 = gtk_label_new(_("Enable support for:"));
-  gtk_misc_set_alignment (GTK_MISC (command_types_label1), 0, 0.5);
+  gtk_label_set_xalign (GTK_LABEL (command_types_label1), 0);
   gtk_box_pack_start (GTK_BOX (command_types_vbox), command_types_label1, FALSE, TRUE, 8);
   gtk_widget_show (command_types_label1);
   
@@ -1395,7 +1395,7 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   
   /* Fallback if the above don't match */
   command_types_label2 = gtk_label_new(_("If the above patterns don't match:"));
-  gtk_misc_set_alignment (GTK_MISC (command_types_label2), 0, 0.5);
+  gtk_label_set_xalign (GTK_LABEL (command_types_label2), 0);
   gtk_box_pack_start (GTK_BOX (command_types_vbox), command_types_label2, FALSE, TRUE, 8);
   gtk_widget_show (command_types_label2);
   
