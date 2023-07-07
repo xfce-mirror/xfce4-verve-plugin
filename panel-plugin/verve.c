@@ -126,19 +126,12 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
   gchar      **argv;
   gboolean     success;
   GPid         child_pid;
-  GError      *error = NULL;
   const gchar *home_dir;
   GSpawnFlags  flags;
-  
-  /* Parse command line arguments */
-  success = g_shell_parse_argv (cmdline, &argc, &argv, &error);
 
-  /* Return false if command line arguments failed to be arsed */
-  if (G_UNLIKELY (error != NULL))
-    {
-      g_error_free (error);
-      return FALSE;
-    }
+  /* Return false if command line arguments failed to be parsed */
+  if (G_UNLIKELY (!g_shell_parse_argv (cmdline, &argc, &argv, NULL)))
+    return FALSE;
 
   /* Get user's home directory */
   home_dir = xfce_get_homedir ();
@@ -150,19 +143,10 @@ gboolean verve_spawn_command_line (const gchar *cmdline)
   flags |= G_SPAWN_DO_NOT_REAP_CHILD;
   
   /* Spawn subprocess */
-  success = g_spawn_async (home_dir, argv, NULL, flags, verve_setsid, NULL, &child_pid, &error);
-
-  /* Return false if subprocess could not be spawned */
-  if (G_UNLIKELY (error != NULL)) 
-    {
-      g_error_free (error);
-      return FALSE;
-    }
-
-  /* Free command line arguments */
+  success = g_spawn_async (home_dir, argv, NULL, flags, verve_setsid, NULL, &child_pid, NULL);
   g_strfreev (argv);
-
-  g_child_watch_add(child_pid, verve_command_callback, NULL);
+  if (G_LIKELY (success))
+    g_child_watch_add (child_pid, verve_command_callback, NULL);
 
   /* Return whether process was spawned successfully */
   return success;
