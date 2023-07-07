@@ -138,7 +138,7 @@ verve_env_init (GTypeInstance *instance,
   env->binaries = NULL;
 
   /* Spawn the thread used to load the command completion data */
-  env->load_thread = g_thread_create_full (verve_env_load_thread, env, 0, TRUE, FALSE, G_THREAD_PRIORITY_LOW, NULL);
+  env->load_thread = g_thread_new (NULL, verve_env_load_thread, env);
 }
 
 
