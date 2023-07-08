@@ -153,6 +153,24 @@ verve_plugin_focus_timeout_reset (VervePlugin *verve)
 
 
 static gboolean
+verve_plugin_focus_in (GtkWidget *entry,
+                       GdkEventFocus *event,
+                       VervePlugin *verve)
+{
+  g_return_val_if_fail (verve != NULL, FALSE);
+  g_return_val_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input), FALSE);
+
+#if !LIBXFCE4PANEL_CHECK_VERSION (4, 18, 5)
+  /* Unhide the panel */
+  xfce_panel_plugin_block_autohide (verve->plugin, TRUE);
+#endif
+
+  return FALSE;
+}
+
+
+
+static gboolean
 verve_plugin_focus_out (GtkWidget *entry,
                         GdkEventFocus *event,
                         VervePlugin *verve)
@@ -162,6 +180,11 @@ verve_plugin_focus_out (GtkWidget *entry,
 
   /* Stop blinking */
   verve_plugin_focus_timeout_reset (verve);
+
+#if !LIBXFCE4PANEL_CHECK_VERSION (4, 18, 5)
+  /* Hide the panel again */
+  xfce_panel_plugin_block_autohide (verve->plugin, FALSE);
+#endif
 
   return FALSE;
 }
@@ -209,9 +232,6 @@ verve_plugin_grab_focus (VerveDBusService *dbus_service,
 
   if (toplevel && toplevel->window)
     {
-      /* Unhide the panel */
-      xfce_panel_plugin_block_autohide (verve->plugin, TRUE);
-
       /* Focus the command entry */
       xfce_panel_plugin_focus_widget (verve->plugin, verve->input);
       
@@ -354,9 +374,6 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         /* Try executing the command */
         if (G_LIKELY (verve_execute (command, terminal, verve->launch_params)))
           {
-            /* Hide the panel again */
-            xfce_panel_plugin_block_autohide (verve->plugin, FALSE);
-
             /* Do not add command to history if it is the same as the one before */
             if (verve_history_is_empty () || g_utf8_collate (verve_history_get_last_command (), command) != 0)
               {
@@ -541,6 +558,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   /* Handle mouse button and key press events */
   g_signal_connect (verve->input, "key-press-event", G_CALLBACK (verve_plugin_keypress_cb), verve);
   g_signal_connect (verve->input, "button-press-event", G_CALLBACK (verve_plugin_buttonpress_cb), verve);
+  g_signal_connect (verve->input, "focus-in-event", G_CALLBACK (verve_plugin_focus_in), verve);
   g_signal_connect (verve->input, "focus-out-event", G_CALLBACK (verve_plugin_focus_out), verve);
 
 #ifdef HAVE_DBUS
