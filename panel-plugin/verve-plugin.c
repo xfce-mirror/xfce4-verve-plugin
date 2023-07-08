@@ -164,7 +164,7 @@ verve_plugin_focus_out (GtkWidget *entry,
   /* Stop blinking */
   verve_plugin_focus_timeout_reset (verve);
 
-  return TRUE;
+  return FALSE;
 }
 
 
