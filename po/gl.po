@@ -3,29 +3,29 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Daniel Muñiz Fontoira <dani@damufo.com>, 2018-2019
+# Daniel Muñiz Fontoira <dani@damufo.eu>, 2018-2019
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2008-2009
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-26 01:05+0200\n"
-"PO-Revision-Date: 2020-06-25 23:05+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
-"Language-Team: Galician (http://www.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
+"POT-Creation-Date: 2023-07-08 00:52+0200\n"
+"PO-Revision-Date: 2013-07-03 19:26+0000\n"
+"Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2018-2019\n"
+"Language-Team: Galician (http://app.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/verve.c:98
+#: ../panel-plugin/verve.c:102
 #, c-format
 msgid "Could not execute command (exit status %d)"
 msgstr "Non se puido executar a orde (estado de saída %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:392
+#: ../panel-plugin/verve-plugin.c:389
 msgid "Could not execute command:"
 msgstr "Non se puido executar a orde:"
 
@@ -33,6 +33,10 @@ msgstr "Non se puido executar a orde:"
 #: ../panel-plugin/verve-plugin.c:1137
 msgid "Verve"
 msgstr "Verve"
+
+#: ../panel-plugin/verve-plugin.c:1140
+msgid "_Close"
+msgstr "_Pechar"
 
 #: ../panel-plugin/verve-plugin.c:1160
 msgid "General"
@@ -103,36 +107,38 @@ msgstr "Enderezo de correo electrónico"
 msgid "Directory paths"
 msgstr "Rutas de cartafol"
 
-#: ../panel-plugin/verve-plugin.c:1370
+#. wordexp checkbox
+#: ../panel-plugin/verve-plugin.c:1365
 msgid "Expand variables with wordexp"
 msgstr "Ampliar as variábeis con «wordexp»"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1380
+#: ../panel-plugin/verve-plugin.c:1376
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "As buscas con DuckDuckGo (comezan con !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1388
+#: ../panel-plugin/verve-plugin.c:1384
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "Buscas con DuckDuckGo (comezan con \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1396
+#: ../panel-plugin/verve-plugin.c:1392
 msgid "If the above patterns don't match:"
 msgstr "Se os patróns se arriba non coinciden:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1402
+#: ../panel-plugin/verve-plugin.c:1398
 msgid "Use smart bookmark URL"
 msgstr "Usar marcadores de URL intelixentes"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1425
+#: ../panel-plugin/verve-plugin.c:1420
 msgid "Run as executable command"
 msgstr "Executar como orde executable"
 
-#: ../panel-plugin/verve-plugin.c:1437
+#. Use shell checkbox
+#: ../panel-plugin/verve-plugin.c:1427
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
