@@ -9,23 +9,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-26 01:05+0200\n"
-"PO-Revision-Date: 2020-06-25 23:05+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
-"Language-Team: Serbian (http://www.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
+"POT-Creation-Date: 2023-07-08 00:52+0200\n"
+"PO-Revision-Date: 2013-07-03 19:26+0000\n"
+"Last-Translator: Nikola Radovanović <cobisimo@gmail.com>, 2018\n"
+"Language-Team: Serbian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../panel-plugin/verve.c:98
+#: ../panel-plugin/verve.c:102
 #, c-format
 msgid "Could not execute command (exit status %d)"
 msgstr "Нисам успео да извршим наредбу (излазно стање је %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:392
+#: ../panel-plugin/verve-plugin.c:389
 msgid "Could not execute command:"
 msgstr "Нисам успео да извршим наредбу:"
 
@@ -33,6 +33,10 @@ msgstr "Нисам успео да извршим наредбу:"
 #: ../panel-plugin/verve-plugin.c:1137
 msgid "Verve"
 msgstr "Полет"
+
+#: ../panel-plugin/verve-plugin.c:1140
+msgid "_Close"
+msgstr "_Затвори"
 
 #: ../panel-plugin/verve-plugin.c:1160
 msgid "General"
@@ -103,36 +107,38 @@ msgstr "Адресе електронске поште"
 msgid "Directory paths"
 msgstr "Путања фасцикли"
 
-#: ../panel-plugin/verve-plugin.c:1370
+#. wordexp checkbox
+#: ../panel-plugin/verve-plugin.c:1365
 msgid "Expand variables with wordexp"
 msgstr "Прошири променљиве изразима"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1380
+#: ../panel-plugin/verve-plugin.c:1376
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "Упите Дакдакгоа (почињу знаком !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1388
+#: ../panel-plugin/verve-plugin.c:1384
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "Упите Дакдакгоа (почињу знаком \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1396
+#: ../panel-plugin/verve-plugin.c:1392
 msgid "If the above patterns don't match:"
 msgstr "Ако се обрасци изнад не слажу:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1402
+#: ../panel-plugin/verve-plugin.c:1398
 msgid "Use smart bookmark URL"
 msgstr "Користи паметне забелешке УРЛ-а"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1425
+#: ../panel-plugin/verve-plugin.c:1420
 msgid "Run as executable command"
 msgstr "Покрени као извршну наредбу"
 
-#: ../panel-plugin/verve-plugin.c:1437
+#. Use shell checkbox
+#: ../panel-plugin/verve-plugin.c:1427
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
