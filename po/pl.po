@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Dawid Job <hoek@tuta.io>, 2015
-# No Ne, 2017-2018,2020
+# hoek <hoek@tuta.io>, 2015
+# Marek Adamski, 2017-2018,2020
 # Paweł Bandura <gawelx@gmail.com>, 2015
 # Piotr Maliński <admin@rk.edu.pl>, 2006
 # Piotr Sokół <psokol.l10n@gmail.com>, 2011
@@ -13,23 +13,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-26 01:05+0200\n"
-"PO-Revision-Date: 2020-06-26 05:18+0000\n"
-"Last-Translator: No Ne\n"
-"Language-Team: Polish (http://www.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
+"POT-Creation-Date: 2023-07-08 00:52+0200\n"
+"PO-Revision-Date: 2013-07-03 19:26+0000\n"
+"Last-Translator: Marek Adamski, 2017-2018,2020\n"
+"Language-Team: Polish (http://app.transifex.com/xfce/xfce-panel-plugins/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: ../panel-plugin/verve.c:98
+#: ../panel-plugin/verve.c:102
 #, c-format
 msgid "Could not execute command (exit status %d)"
 msgstr "Nie można wykonań polecenia (status %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:392
+#: ../panel-plugin/verve-plugin.c:389
 msgid "Could not execute command:"
 msgstr "Nie można wykonać polecenia:"
 
@@ -37,6 +37,10 @@ msgstr "Nie można wykonać polecenia:"
 #: ../panel-plugin/verve-plugin.c:1137
 msgid "Verve"
 msgstr "Wiersz poleceń Verve"
+
+#: ../panel-plugin/verve-plugin.c:1140
+msgid "_Close"
+msgstr "Za_mknij"
 
 #: ../panel-plugin/verve-plugin.c:1160
 msgid "General"
@@ -107,36 +111,38 @@ msgstr "Adresy e-mail"
 msgid "Directory paths"
 msgstr "Ścieżki katalogów"
 
-#: ../panel-plugin/verve-plugin.c:1370
+#. wordexp checkbox
+#: ../panel-plugin/verve-plugin.c:1365
 msgid "Expand variables with wordexp"
 msgstr "Rozwiń listę zmiennych z wordexp"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1380
+#: ../panel-plugin/verve-plugin.c:1376
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "Zapytania do DuckDuckGo (rozpoczynane z !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1388
+#: ../panel-plugin/verve-plugin.c:1384
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "Zapytania do DuckDuckGo (rozpoczynane z \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1396
+#: ../panel-plugin/verve-plugin.c:1392
 msgid "If the above patterns don't match:"
 msgstr "Jeśli powyższe wzorce nie pasują:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1402
+#: ../panel-plugin/verve-plugin.c:1398
 msgid "Use smart bookmark URL"
 msgstr "Użyj URL sprytnych zakładek"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1425
+#: ../panel-plugin/verve-plugin.c:1420
 msgid "Run as executable command"
 msgstr "Uruchom jako polecenie wykonalne"
 
-#: ../panel-plugin/verve-plugin.c:1437
+#. Use shell checkbox
+#: ../panel-plugin/verve-plugin.c:1427
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
