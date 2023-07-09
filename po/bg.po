@@ -9,23 +9,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-26 01:05+0200\n"
-"PO-Revision-Date: 2020-06-25 23:05+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
-"Language-Team: Bulgarian (http://www.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
+"POT-Creation-Date: 2023-07-08 00:52+0200\n"
+"PO-Revision-Date: 2013-07-03 19:26+0000\n"
+"Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2015,2017-2018\n"
+"Language-Team: Bulgarian (http://app.transifex.com/xfce/xfce-panel-plugins/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/verve.c:98
+#: ../panel-plugin/verve.c:102
 #, c-format
 msgid "Could not execute command (exit status %d)"
 msgstr "Не може да се изпълни командата (състояние на изхода %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:392
+#: ../panel-plugin/verve-plugin.c:389
 msgid "Could not execute command:"
 msgstr "Не може да се изпълни команда:"
 
@@ -33,6 +33,10 @@ msgstr "Не може да се изпълни команда:"
 #: ../panel-plugin/verve-plugin.c:1137
 msgid "Verve"
 msgstr "Verve"
+
+#: ../panel-plugin/verve-plugin.c:1140
+msgid "_Close"
+msgstr "Затваряне"
 
 #: ../panel-plugin/verve-plugin.c:1160
 msgid "General"
@@ -103,36 +107,38 @@ msgstr "Email адреси"
 msgid "Directory paths"
 msgstr "Пътища до директория"
 
-#: ../panel-plugin/verve-plugin.c:1370
+#. wordexp checkbox
+#: ../panel-plugin/verve-plugin.c:1365
 msgid "Expand variables with wordexp"
 msgstr "Разширяване на променливите с wordexp"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1380
+#: ../panel-plugin/verve-plugin.c:1376
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "DuckDuckGo въпроси (стартиране с !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1388
+#: ../panel-plugin/verve-plugin.c:1384
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "DuckDuckGo въпроси (стартиране с \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1396
+#: ../panel-plugin/verve-plugin.c:1392
 msgid "If the above patterns don't match:"
 msgstr "Ако горните модели не съвпадат:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1402
+#: ../panel-plugin/verve-plugin.c:1398
 msgid "Use smart bookmark URL"
 msgstr "Използвай интелигентно отмятане на адрес"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1425
+#: ../panel-plugin/verve-plugin.c:1420
 msgid "Run as executable command"
 msgstr "Изпълни като команда"
 
-#: ../panel-plugin/verve-plugin.c:1437
+#. Use shell checkbox
+#: ../panel-plugin/verve-plugin.c:1427
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
