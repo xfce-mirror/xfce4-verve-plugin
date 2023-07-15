@@ -1,3 +1,37 @@
+2.0.2 (2023-07-15)
+=====
+- Update copyright year
+- Fix critical when unblocking autohide
+- Revert "Fix critical when unblocking autohide"
+- Propagate the focus-out GtkEntry event
+- Refactor verve_spawn_command_line()
+- Fix g_thread_create_full deprecation
+- Fix GtkAlignment deprecations
+- Fix GtkMisc deprecations
+- Fix GtkColorButton deprecations
+- Fix XfceTitledDialog and GtkStock deprecations
+- Fix Gtk[HV]Box deprecations
+- Fix critical when unblocking autohide
+- Port to PCRE2 (#11)
+- Update `.gitignore`
+- Fix previous commit
+- build: Fix intltool lock file problem during make distcheck
+- build: Decrease make log level
+- build: Add GLib requirement
+- Update COPYING
+- Fix compilation warnings
+- autoconf: Some updates
+- Update `.gitignore`
+- Translation Updates:
+  Albanian, Armenian (Armenia), Basque, Belarusian, Bulgarian, Catalan,
+  Chinese (China), Chinese (Taiwan), Croatian, Czech, Danish, Dutch,
+  Eastern Armenian, English (Australia), English (Canada), English
+  (United Kingdom), Estonian, Finnish, French, Galician, German, Greek,
+  Hebrew, Hungarian, Icelandic, Indonesian, Interlingue, Italian,
+  Japanese, Korean, Lithuanian, Malay, Norwegian Bokmål, Occitan (post
+  1500), Polish, Portuguese, Portuguese (Brazil), Russian, Serbian,
+  Slovak, Slovenian, Spanish, Swedish, Thai, Turkish, Ukrainian
+
 2.0.1
 ======
 - Modernize configure.ac.in
