@@ -36,13 +36,11 @@ libverve_la_LDFLAGS = \
 
 # .desktop file
 #
-# We need to let intltool merge the translated fields, so we add a
-# level of indirection: a <name>.desktop.in file.
-# 
 desktop_in_files = xfce4-verve-plugin.desktop.in
 desktopdir = $(datadir)/xfce4/panel/plugins
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+$(desktop_DATA): $(desktop_in_files) Makefile
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST = 								\
 	$(desktop_in_files)						\
