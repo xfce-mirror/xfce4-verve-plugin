@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-08 00:52+0200\n"
+"POT-Creation-Date: 2024-04-06 12:55+0200\n"
 "PO-Revision-Date: 2013-07-03 19:26+0000\n"
 "Last-Translator: Christos Arvanitis <arvchristos@gmail.com>, 2019\n"
 "Language-Team: Greek (http://app.transifex.com/xfce/xfce-panel-plugins/language/el/)\n"
@@ -27,130 +27,121 @@ msgid "Could not execute command (exit status %d)"
 msgstr "Αδυναμία εκτέλεσης της εντολής (exit status %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:389
+#: ../panel-plugin/verve-plugin.c:400
 msgid "Could not execute command:"
 msgstr "Αδυναμία εκτέλεσης της εντολής:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1137
+#: ../panel-plugin/verve-plugin.c:1149
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:1140
+#: ../panel-plugin/verve-plugin.c:1152
 msgid "_Close"
 msgstr "_Κλείσιμο"
 
-#: ../panel-plugin/verve-plugin.c:1160
+#: ../panel-plugin/verve-plugin.c:1172
 msgid "General"
 msgstr "Γενικά"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1165
+#: ../panel-plugin/verve-plugin.c:1177
 msgid "Appearance"
 msgstr "Εμφάνιση"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1181
+#: ../panel-plugin/verve-plugin.c:1193
 msgid "Width (in chars):"
 msgstr "Πλάτος (χαρακτήρες):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1206
+#: ../panel-plugin/verve-plugin.c:1218
 msgid "Label:"
 msgstr "Ετικέτα:"
 
 #. Frame for color settings
-#: ../panel-plugin/verve-plugin.c:1223
+#: ../panel-plugin/verve-plugin.c:1235
 msgid "Colors"
 msgstr "Χρώματα"
 
 #. Plugin background color label
-#: ../panel-plugin/verve-plugin.c:1239
+#: ../panel-plugin/verve-plugin.c:1251
 msgid "Background color:"
 msgstr "Χρώμα φόντου:"
 
 #. Plugin foreground color label
-#: ../panel-plugin/verve-plugin.c:1265
+#: ../panel-plugin/verve-plugin.c:1277
 msgid "Text color:"
 msgstr "Χρώμα κειμένου:"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1286
+#: ../panel-plugin/verve-plugin.c:1298
 msgid "History"
 msgstr "Ιστορικό"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1302
+#: ../panel-plugin/verve-plugin.c:1314
 msgid "Number of saved history items:"
 msgstr "Μέγεθος λίστας ιστορικού:"
 
 #. Second tab
-#: ../panel-plugin/verve-plugin.c:1322 ../panel-plugin/verve-plugin.c:1326
+#: ../panel-plugin/verve-plugin.c:1334 ../panel-plugin/verve-plugin.c:1338
 msgid "Behaviour"
 msgstr "Συμπεριφορά"
 
 #. Pattern types frame label
-#: ../panel-plugin/verve-plugin.c:1335
+#: ../panel-plugin/verve-plugin.c:1347
 msgid "Enable support for:"
 msgstr "Ενεργοποίηση υποστήριξης για:"
 
 #. Command type: URL
-#: ../panel-plugin/verve-plugin.c:1341
+#: ../panel-plugin/verve-plugin.c:1353
 msgid "URLs (http/https/ftp/ftps)"
 msgstr "URLs (http/https/ftp/ftps)"
 
 #. Command type: email address
-#: ../panel-plugin/verve-plugin.c:1349
+#: ../panel-plugin/verve-plugin.c:1361
 msgid "Email addresses"
 msgstr "Διευθύνσεις ηλεκτρονικής αλληλογραφίας"
 
 #. Command type: directory path
-#: ../panel-plugin/verve-plugin.c:1357
+#: ../panel-plugin/verve-plugin.c:1369
 msgid "Directory paths"
 msgstr "Διαδρομές καταλόγων"
 
 #. wordexp checkbox
-#: ../panel-plugin/verve-plugin.c:1365
+#: ../panel-plugin/verve-plugin.c:1377
 msgid "Expand variables with wordexp"
 msgstr "Επέκταση μεταβλητών με το wordexp"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1376
+#: ../panel-plugin/verve-plugin.c:1388
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "Ερωτήματα DuckDuckGo (ξεκινούν με !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1384
+#: ../panel-plugin/verve-plugin.c:1396
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "Ερωτήματα DuckDuckGo (ξεκινούν με \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1392
+#: ../panel-plugin/verve-plugin.c:1404
 msgid "If the above patterns don't match:"
 msgstr "Εάν δεν ταιριάζουν τα παραπάνω μοτίβα:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1398
+#: ../panel-plugin/verve-plugin.c:1410
 msgid "Use smart bookmark URL"
 msgstr "Χρήση έξυπνων σελιδοδεικτών URL"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1420
+#: ../panel-plugin/verve-plugin.c:1432
 msgid "Run as executable command"
 msgstr "Εκτέλεση ως εκτελέσιμης εντολής"
 
 #. Use shell checkbox
-#: ../panel-plugin/verve-plugin.c:1427
+#: ../panel-plugin/verve-plugin.c:1439
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
 msgstr "Εκτέλεση εντολής με $SHELL -i -c\n(ενεργοποίηση alias και μεταβλητής επέκτασης)"
-
-#. vim:set expandtab sts=2 ts=2 sw=2:
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:1
-msgid "Verve Command Line"
-msgstr "Γραμμή Εντολών Verve"
-
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.h:2
-msgid "Command line interface with auto-completion and command history"
-msgstr "Γραμμή εντολών με αυτόματη συμπλήρωση και ιστορικό"
