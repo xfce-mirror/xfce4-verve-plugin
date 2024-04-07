@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-verve-plugin package.
 # 
 # Translators:
 # Theppitak Karoonboonyanan <theppitak@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 12:55+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:57+0200\n"
 "PO-Revision-Date: 2013-07-03 19:26+0000\n"
 "Last-Translator: Theppitak Karoonboonyanan <theppitak@gmail.com>, 2014-2015\n"
 "Language-Team: Thai (http://app.transifex.com/xfce/xfce-panel-plugins/language/th/)\n"
@@ -18,127 +18,135 @@ msgstr ""
 "Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../panel-plugin/verve.c:102
+#: panel-plugin/verve.c:102
 #, c-format
 msgid "Could not execute command (exit status %d)"
 msgstr "ไม่สามารถเรียกทำงานคำสั่งได้ (จบด้วยสถานะ %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:400
+#: panel-plugin/verve-plugin.c:400
 msgid "Could not execute command:"
 msgstr "ไม่สามารถเรียกคำสั่ง:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1149
+#: panel-plugin/verve-plugin.c:1149
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:1152
+#: panel-plugin/verve-plugin.c:1152
 msgid "_Close"
 msgstr "ปิ_ด"
 
-#: ../panel-plugin/verve-plugin.c:1172
+#: panel-plugin/verve-plugin.c:1172
 msgid "General"
 msgstr "ทั่วไป"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1177
+#: panel-plugin/verve-plugin.c:1177
 msgid "Appearance"
 msgstr "รูปปรากฏ"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1193
+#: panel-plugin/verve-plugin.c:1193
 msgid "Width (in chars):"
 msgstr "ความกว้าง (เป็นจำนวนอักขระ):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1218
+#: panel-plugin/verve-plugin.c:1218
 msgid "Label:"
 msgstr "ฉลาก:"
 
 #. Frame for color settings
-#: ../panel-plugin/verve-plugin.c:1235
+#: panel-plugin/verve-plugin.c:1235
 msgid "Colors"
 msgstr "สี"
 
 #. Plugin background color label
-#: ../panel-plugin/verve-plugin.c:1251
+#: panel-plugin/verve-plugin.c:1251
 msgid "Background color:"
 msgstr "สีพื้นหลัง:"
 
 #. Plugin foreground color label
-#: ../panel-plugin/verve-plugin.c:1277
+#: panel-plugin/verve-plugin.c:1277
 msgid "Text color:"
 msgstr "สีตัวอักษร:"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1298
+#: panel-plugin/verve-plugin.c:1298
 msgid "History"
 msgstr "ประวัติ"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1314
+#: panel-plugin/verve-plugin.c:1314
 msgid "Number of saved history items:"
 msgstr "จำนวนรายการประวัติที่เก็บบันทึก:"
 
 #. Second tab
-#: ../panel-plugin/verve-plugin.c:1334 ../panel-plugin/verve-plugin.c:1338
+#: panel-plugin/verve-plugin.c:1334 panel-plugin/verve-plugin.c:1338
 msgid "Behaviour"
 msgstr "พฤติกรรม"
 
 #. Pattern types frame label
-#: ../panel-plugin/verve-plugin.c:1347
+#: panel-plugin/verve-plugin.c:1347
 msgid "Enable support for:"
 msgstr "เปิดใช้การรองรับ:"
 
 #. Command type: URL
-#: ../panel-plugin/verve-plugin.c:1353
+#: panel-plugin/verve-plugin.c:1353
 msgid "URLs (http/https/ftp/ftps)"
 msgstr "URL ต่างๆ (http/https/ftp/ftps)"
 
 #. Command type: email address
-#: ../panel-plugin/verve-plugin.c:1361
+#: panel-plugin/verve-plugin.c:1361
 msgid "Email addresses"
 msgstr "ที่อยู่อีเมล"
 
 #. Command type: directory path
-#: ../panel-plugin/verve-plugin.c:1369
+#: panel-plugin/verve-plugin.c:1369
 msgid "Directory paths"
 msgstr "พาธของไดเรกทอรี"
 
 #. wordexp checkbox
-#: ../panel-plugin/verve-plugin.c:1377
+#: panel-plugin/verve-plugin.c:1377
 msgid "Expand variables with wordexp"
 msgstr "แทนค่าตัวแปรด้วย wordexp"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1388
+#: panel-plugin/verve-plugin.c:1388
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "คำค้น DuckDuckGo (ขึ้นต้นด้วย !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1396
+#: panel-plugin/verve-plugin.c:1396
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "คำค้น DuckDuckGo (ขึ้นต้นด้วย \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1404
+#: panel-plugin/verve-plugin.c:1404
 msgid "If the above patterns don't match:"
 msgstr "ถ้าไม่เข้ากับแพตเทิร์นทั้งหมดข้างต้น:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1410
+#: panel-plugin/verve-plugin.c:1410
 msgid "Use smart bookmark URL"
 msgstr "ใช้ URL ของที่คั่นหน้าอัจฉริยะ"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1432
+#: panel-plugin/verve-plugin.c:1432
 msgid "Run as executable command"
 msgstr "เรียกทำงานในแบบคำสั่งเชลล์"
 
 #. Use shell checkbox
-#: ../panel-plugin/verve-plugin.c:1439
+#: panel-plugin/verve-plugin.c:1439
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
 msgstr "เรียกคำสั่งโดยใช้ $SHELL -i -c\n(เปิดใช้ alias และการแทนค่าตัวแปร)"
+
+#: panel-plugin/xfce4-verve-plugin.desktop.in:5
+msgid "Verve Command Line"
+msgstr "บรรทัดคำสั่ง Verve"
+
+#: panel-plugin/xfce4-verve-plugin.desktop.in:6
+msgid "Command line interface with auto-completion and command history"
+msgstr "การติดต่อแบบบรรทัดคำสั่ง โดยมีการเติมเต็มคำอัตโนมัติ และเก็บประวัติคำสั่ง"
