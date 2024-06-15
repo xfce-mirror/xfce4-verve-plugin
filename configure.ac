@@ -3,6 +3,8 @@ dnl Copyright (c) 2010 - Florian Rivoal <frivoal@xfce.org>
 dnl Copyright (c) 2015 - Isaac Schemm <isaacschemm@gmail.com>
 dnl
 
+XDT_VERSION_INIT([2.0.3], [git])
+
 dnl ***************************
 dnl *** Initialize autoconf ***
 dnl ***************************
@@ -10,7 +12,8 @@ AC_COPYRIGHT([Copyright (c) 2006-2008 Jannis Pohlmann <jannis@xfce.org>
 Copyright (c) Florian Rivoal 2010 <frivoal@xfce.org>
 Copyright (c) Isaac Schemm 2015 <isaacschemm@gmail.com>
 Copyright (c) 2006-2023 The Xfce development team. All rights reserved.])
-AC_INIT([xfce4-verve-plugin], [2.0.3], [https://gitlab.xfce.org/panel-plugins/xfce4-verve-plugin], [xfce4-verve-plugin])
+AC_INIT([xfce4-verve-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-verve-plugin], [xfce4-verve-plugin])
+AC_REVISION([xdt_version_build])
 AC_PREREQ([2.69])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
@@ -68,7 +71,7 @@ AC_CHECK_FUNCS(wordexp)
 dnl ***********************************
 dnl *** Check for debugging support ***
 dnl ***********************************
-XDT_FEATURE_DEBUG()
+XDT_FEATURE_DEBUG([xdt_debug_default])
 
 AC_CONFIG_FILES([
 Makefile
