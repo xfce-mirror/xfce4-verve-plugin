@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-verve-plugin package.
 # 
 # Translators:
-# Michal Várady <miko.vaji@gmail.com>, 2015,2017-2018,2020
+# Michal Várady <miko.vaji@gmail.com>, 2015,2017-2018,2020,2024
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-07 00:57+0200\n"
 "PO-Revision-Date: 2013-07-03 19:26+0000\n"
-"Last-Translator: Michal Várady <miko.vaji@gmail.com>, 2015,2017-2018,2020\n"
+"Last-Translator: Michal Várady <miko.vaji@gmail.com>, 2015,2017-2018,2020,2024\n"
 "Language-Team: Czech (http://app.transifex.com/xfce/xfce-panel-plugins/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -114,12 +114,12 @@ msgstr "Rozšířit proměnné výrazem wordexp"
 #. Command type: !bang
 #: panel-plugin/verve-plugin.c:1388
 msgid "DuckDuckGo queries (starting with !)"
-msgstr "Dotazy DuckDuckGo (začínající výkřičníkem)"
+msgstr "Dotazy na DuckDuckGo (začínající výkřičníkem)"
 
 #. Command type: I'm feeling ducky (\)
 #: panel-plugin/verve-plugin.c:1396
 msgid "DuckDuckGo queries (starting with \\)"
-msgstr "Dotazy DuckDuckGo (začínající zpětným lomítkem)"
+msgstr "Dotazy na DuckDuckGo (začínající zpětným lomítkem)"
 
 #. Fallback if the above don't match
 #: panel-plugin/verve-plugin.c:1404
