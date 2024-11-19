@@ -1,71 +1,152 @@
-# محمد الحرقان <malham1@gmail.com>, 2012.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-verve-plugin package.
+# 
+# Translators:
+# محمد الحرقان <malham1@gmail.com>, 2012
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-verve-plugin\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 01:21+0000\n"
-"PO-Revision-Date: 2012-11-19 06:39+0300\n"
-"Last-Translator: محمد الحرقان <malham1@gmail.com>\n"
-"Language-Team: http://www.vertaal.com.ar/files/factory/ar/list/\n"
-"Language: ar\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:57+0200\n"
+"PO-Revision-Date: 2013-07-03 19:26+0000\n"
+"Last-Translator: محمد الحرقان <malham1@gmail.com>, 2012\n"
+"Language-Team: Arabic (http://app.transifex.com/xfce/xfce-panel-plugins/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.7.1\n"
-"X-Poedit-Language: Arabic\n"
-"X-Poedit-Country: Morocco\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: panel-plugin/verve.c:102
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr ""
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:411
+#: panel-plugin/verve-plugin.c:400
 msgid "Could not execute command:"
 msgstr "تعذر تنفيذ الأمر:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:789
+#: panel-plugin/verve-plugin.c:1149
 msgid "Verve"
 msgstr "Verve"
 
+#: panel-plugin/verve-plugin.c:1152
+msgid "_Close"
+msgstr "_إغلاق"
+
+#: panel-plugin/verve-plugin.c:1172
+msgid "General"
+msgstr "عام"
+
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:807
+#: panel-plugin/verve-plugin.c:1177
 msgid "Appearance"
 msgstr "المظهر"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:818
+#: panel-plugin/verve-plugin.c:1193
 msgid "Width (in chars):"
 msgstr "العرض (بالمحارف):"
 
+#. Plugin label label
+#: panel-plugin/verve-plugin.c:1218
+msgid "Label:"
+msgstr "التسمية:"
+
+#. Frame for color settings
+#: panel-plugin/verve-plugin.c:1235
+msgid "Colors"
+msgstr ""
+
+#. Plugin background color label
+#: panel-plugin/verve-plugin.c:1251
+msgid "Background color:"
+msgstr ""
+
+#. Plugin foreground color label
+#: panel-plugin/verve-plugin.c:1277
+msgid "Text color:"
+msgstr ""
+
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:838
-msgid "Behaviour"
-msgstr "السلوك"
+#: panel-plugin/verve-plugin.c:1298
+msgid "History"
+msgstr ""
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:849
+#: panel-plugin/verve-plugin.c:1314
 msgid "Number of saved history items:"
 msgstr "عدد عناصر التاريخ المحفوظ:"
 
-#. vim:set expandtab sts=2 ts=2 sw=2:
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
-msgid "Command line interface with auto-completion and command history"
-msgstr "واجهة سطر أوامر تدعم الاستكمال التلقائي وتاريخ أوامر"
+#. Second tab
+#: panel-plugin/verve-plugin.c:1334 panel-plugin/verve-plugin.c:1338
+msgid "Behaviour"
+msgstr "السلوك"
 
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
+#. Pattern types frame label
+#: panel-plugin/verve-plugin.c:1347
+msgid "Enable support for:"
+msgstr ""
+
+#. Command type: URL
+#: panel-plugin/verve-plugin.c:1353
+msgid "URLs (http/https/ftp/ftps)"
+msgstr ""
+
+#. Command type: email address
+#: panel-plugin/verve-plugin.c:1361
+msgid "Email addresses"
+msgstr ""
+
+#. Command type: directory path
+#: panel-plugin/verve-plugin.c:1369
+msgid "Directory paths"
+msgstr ""
+
+#. wordexp checkbox
+#: panel-plugin/verve-plugin.c:1377
+msgid "Expand variables with wordexp"
+msgstr ""
+
+#. Command type: !bang
+#: panel-plugin/verve-plugin.c:1388
+msgid "DuckDuckGo queries (starting with !)"
+msgstr ""
+
+#. Command type: I'm feeling ducky (\)
+#: panel-plugin/verve-plugin.c:1396
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr ""
+
+#. Fallback if the above don't match
+#: panel-plugin/verve-plugin.c:1404
+msgid "If the above patterns don't match:"
+msgstr ""
+
+#. Smart bookmark radio button
+#: panel-plugin/verve-plugin.c:1410
+msgid "Use smart bookmark URL"
+msgstr ""
+
+#. Executable command radio button (smart bookmark off)
+#: panel-plugin/verve-plugin.c:1432
+msgid "Run as executable command"
+msgstr ""
+
+#. Use shell checkbox
+#: panel-plugin/verve-plugin.c:1439
+msgid ""
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr ""
+
+#: panel-plugin/xfce4-verve-plugin.desktop.in:5
 msgid "Verve Command Line"
 msgstr "سطر أوامر Verve"
 
-#. Print error message
-#: ../scripts/verve-focus.c:60
-msgid "Failed to connect to the D-BUS session bus."
-msgstr "فشل في الاتصال ب D-BUS session bus. "
-
-#. Print error message
-#: ../scripts/verve-focus.c:83
-msgid ""
-"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
-"running."
-msgstr ""
-"لا يوجد هناك، على ما يبدو موفر Verve D-BUS (مثلاً لوحة مساعد Verve) قيد "
-"التشغيل."
+#: panel-plugin/xfce4-verve-plugin.desktop.in:6
+msgid "Command line interface with auto-completion and command history"
+msgstr "واجهة سطر أوامر تدعم الاستكمال التلقائي وتاريخ أوامر"
