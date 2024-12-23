@@ -497,11 +497,6 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   /* Set application name */
   g_set_application_name ("Verve");
 
-#if !GLIB_CHECK_VERSION (2, 30, 0)
-  /* Init thread system */
-  g_thread_init (NULL);
-#endif
-
   /* Init Verve mini-framework */
   verve_init ();
   
