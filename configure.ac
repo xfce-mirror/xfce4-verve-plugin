@@ -11,7 +11,7 @@ dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2006-2008 Jannis Pohlmann <jannis@xfce.org>
 Copyright (c) Florian Rivoal 2010 <frivoal@xfce.org>
 Copyright (c) Isaac Schemm 2015 <isaacschemm@gmail.com>
-Copyright (c) 2006-2023 The Xfce development team. All rights reserved.])
+Copyright (c) 2006-2024 The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-verve-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-verve-plugin], [xfce4-verve-plugin])
 AC_REVISION([xdt_version_build])
 AC_PREREQ([2.69])
