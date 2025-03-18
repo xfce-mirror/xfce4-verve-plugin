@@ -172,31 +172,36 @@ verve_execute (const gchar *input,
   gchar   *command;
   gchar   *directory_exp;
   gboolean result = FALSE;
-    
-  /* Open URLs, email addresses and directories using exo-open */
+#if LIBXFCE4UI_CHECK_VERSION(4, 21, 0)
+  const gchar *open_cmd = "xfce-open ";
+#else
+  const gchar *open_cmd = "exo-open ";
+#endif
+
+  /* Open URLs, email addresses and directories using xfce-open */
   if ((launch_params.use_email && verve_is_email ((PCRE2_SPTR) input)) || (launch_params.use_url && verve_is_url ((PCRE2_SPTR) input)))
   {
-    /* Build exo-open command */
-    command = g_strconcat ("exo-open ", input, NULL);
+    /* Build xfce-open command */
+    command = g_strconcat (open_cmd, input, NULL);
   }
   else if (launch_params.use_dir && (directory_exp = verve_is_directory (input, launch_params.use_wordexp)))
   {
-    /* Build exo-open command */
-    command = g_strconcat ("exo-open ", directory_exp, NULL);
+    /* Build xfce-open command */
+    command = g_strconcat (open_cmd, directory_exp, NULL);
     g_free (directory_exp);
   }
   else if ((launch_params.use_bang && input[0] == '!') || (launch_params.use_backslash && input[0] == '\\'))
   {
     /* Launch DuckDuckGo */
     gchar *esc_input = g_uri_escape_string(input, NULL, TRUE);
-    command = g_strconcat ("exo-open https://duckduckgo.com/?q=", esc_input, NULL);
+    command = g_strconcat (open_cmd, "https://duckduckgo.com/?q=", esc_input, NULL);
     g_free(esc_input);
   }
   else if (launch_params.use_smartbookmark)
   {
     /* Launch user-defined search engine */
     gchar *esc_input = g_uri_escape_string(input, NULL, TRUE);
-    command = g_strconcat ("exo-open ", launch_params.smartbookmark_url, esc_input, NULL);
+    command = g_strconcat (open_cmd, launch_params.smartbookmark_url, esc_input, NULL);
     g_free(esc_input);
   }
   else
@@ -224,13 +229,13 @@ verve_execute (const gchar *input,
       gchar *quoted_command = g_shell_quote (command);
       
       g_free (command);
-      command = g_strconcat ("exo-open --launch TerminalEmulator ", quoted_command, NULL);
+      command = g_strconcat (open_cmd, "--launch TerminalEmulator ", quoted_command, NULL);
       
       g_free (quoted_command);
     }
   }
     
-  /* Try to execute the exo-open command */
+  /* Try to execute the xfce-open command */
   if (verve_spawn_command_line (command))
     result = TRUE;
     
