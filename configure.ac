@@ -16,6 +16,7 @@ AC_INIT([xfce4-verve-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plug
 AC_REVISION([xdt_version_build])
 AC_PREREQ([2.69])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+AC_DEFINE([VERSION_FULL], [PACKAGE_VERSION], [Alias for VERSION and PACKAGE_VERSION for meson compatibility])
 
 dnl ***************************
 dnl *** Initialize automake ***

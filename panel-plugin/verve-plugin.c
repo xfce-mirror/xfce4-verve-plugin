@@ -24,6 +24,9 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif 
+#ifdef HAVE_XFCE_REVISION_H
+#include "xfce-revision.h"
+#endif
 
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
@@ -1418,7 +1421,7 @@ verve_plugin_show_about (XfcePanelPlugin *plugin,
     gtk_show_about_dialog (NULL,
         "logo-icon-name", "utilities-terminal",
         "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
-        "version", PACKAGE_VERSION,
+        "version", VERSION_FULL,
         "program-name", PACKAGE_NAME,
         "comments", _("Command line interface with auto-completion and command history"),
         "website", PACKAGE_URL,

@@ -46,6 +46,7 @@ $(desktop_DATA): $(desktop_in_files) Makefile
 
 EXTRA_DIST = 								\
 	$(desktop_in_files)						\
+	meson.build							\
 	$(NULL)
  
 DISTCLEANFILES = $(desktop_DATA)
