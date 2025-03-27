@@ -1406,6 +1406,29 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
 
 
 static void
+verve_plugin_show_about (XfcePanelPlugin *plugin, 
+                         VervePlugin *verve)
+{
+    const gchar *auth[] = {
+        "Jannis Pohlmann <jannis@xfce.org>",
+        "Isaac Schemm <isaacschemm@gmail.com>",
+        NULL
+    };
+
+    gtk_show_about_dialog (NULL,
+        "logo-icon-name", "utilities-terminal",
+        "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
+        "version", PACKAGE_VERSION,
+        "program-name", PACKAGE_NAME,
+        "comments", _("Command line interface with auto-completion and command history"),
+        "website", PACKAGE_URL,
+        "copyright", "Copyright \302\251 2006-2025 The Xfce development team",
+        "authors", auth, NULL);
+}
+
+
+
+static void
 verve_plugin_construct (XfcePanelPlugin *plugin)
 {
   VervePlugin *verve;
@@ -1425,12 +1448,16 @@ verve_plugin_construct (XfcePanelPlugin *plugin)
 
   /* Make the plugin configurable from the context menu */
   xfce_panel_plugin_menu_show_configure (plugin);
- 
+
+  /* Show the "About" item in the menu */
+  xfce_panel_plugin_menu_show_about (plugin);
+
   /* Connect to panel plugin signals */
   g_signal_connect (plugin, "save", G_CALLBACK (verve_plugin_write_rc_file), verve);
   g_signal_connect (plugin, "free-data", G_CALLBACK (verve_plugin_free), verve);
   g_signal_connect (plugin, "configure-plugin", G_CALLBACK (verve_plugin_properties), verve);
   g_signal_connect (plugin, "size-changed", G_CALLBACK (verve_plugin_size_changed_request), verve);
+  g_signal_connect (plugin, "about", G_CALLBACK (verve_plugin_show_about), verve);
 }
  
 

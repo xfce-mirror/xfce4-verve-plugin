@@ -17,12 +17,14 @@ libverve_la_CFLAGS =	 						\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	@LIBXFCE4PANEL_CFLAGS@						\
 	@LIBXFCE4UI_CFLAGS@						\
+	@LIBXFCE4UTIL_CFLAGS@						\
 	@PCRE2_CFLAGS@							\
 	@GTHREAD_CFLAGS@						
 
 libverve_la_LIBADD = 							\
 	@LIBXFCE4PANEL_LIBS@						\
 	@LIBXFCE4UI_LIBS@						\
+	@LIBXFCE4UTIL_LIBS@						\
 	@PCRE2_LIBS@							\
 	@GTHREAD_LIBS@
 
