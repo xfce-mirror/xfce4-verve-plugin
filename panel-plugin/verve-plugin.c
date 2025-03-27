@@ -40,10 +40,6 @@
 #include "verve-env.h"
 #include "verve-history.h"
 
-#ifdef HAVE_DBUS
-#include "verve-dbus-service.h"
-#endif
-
 
 
 typedef struct
@@ -74,11 +70,6 @@ typedef struct
   gint              size;
   gint              history_length;
   VerveLaunchParams launch_params;
-
-#ifdef HAVE_DBUS
-  VerveDBusService *dbus_service;
-#endif
-
 } VervePlugin;
 
 
@@ -216,33 +207,6 @@ verve_plugin_buttonpress_cb (GtkWidget *entry,
 
   return FALSE;
 }
-
-
-
-#ifdef HAVE_DBUS
-static void
-verve_plugin_grab_focus (VerveDBusService *dbus_service, 
-                         VervePlugin *verve)
-{
-  GtkWidget *toplevel;
- 
-  g_return_if_fail (verve != NULL);
-  g_return_if_fail (verve->input != NULL || GTK_IS_ENTRY (verve->input));
- 
-  /* Determine toplevel widget */
-  toplevel = gtk_widget_get_toplevel (verve->input);
-
-  if (toplevel && toplevel->window)
-    {
-      /* Focus the command entry */
-      xfce_panel_plugin_focus_widget (verve->plugin, verve->input);
-      
-      /* Make it flashy so chances are higher that the user notices the focus */
-      if (verve->focus_timeout == 0) 
-        verve->focus_timeout = g_timeout_add_full (G_PRIORITY_DEFAULT_IDLE, 250, verve_plugin_focus_timeout, verve, NULL);
-    }
-}
-#endif
 
 
 
@@ -561,15 +525,6 @@ G_GNUC_END_IGNORE_DEPRECATIONS
   g_signal_connect (verve->input, "button-press-event", G_CALLBACK (verve_plugin_buttonpress_cb), verve);
   g_signal_connect (verve->input, "focus-in-event", G_CALLBACK (verve_plugin_focus_in), verve);
   g_signal_connect (verve->input, "focus-out-event", G_CALLBACK (verve_plugin_focus_out), verve);
-
-#ifdef HAVE_DBUS
-  /* Attach the D-BUS service */
-  verve->dbus_service = g_object_new (VERVE_TYPE_DBUS_SERVICE, NULL);
-
-  /* Connect to D-BUS service signals */
-  g_signal_connect (G_OBJECT (verve->dbus_service), "open-dialog", G_CALLBACK (verve_plugin_grab_focus), verve);
-  g_signal_connect (G_OBJECT (verve->dbus_service), "grab-focus", G_CALLBACK (verve_plugin_grab_focus), verve);
-#endif
   
   return verve;
 }
@@ -580,10 +535,6 @@ static void
 verve_plugin_free (XfcePanelPlugin *plugin, 
                    VervePlugin *verve)
 {
-#ifdef HAVE_DBUS
-  g_object_unref (G_OBJECT (verve->dbus_service));
-#endif
-
   /* Unregister focus timeout */
   verve_plugin_focus_timeout_reset (verve);
 

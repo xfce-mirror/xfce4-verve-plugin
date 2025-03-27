@@ -44,7 +44,7 @@ $(desktop_DATA): $(desktop_in_files) Makefile
 
 EXTRA_DIST = 								\
 	$(desktop_in_files)						\
-	verve-dbus-service-infos.xml
+	$(NULL)
  
 DISTCLEANFILES = $(desktop_DATA)
 
