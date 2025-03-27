@@ -1425,7 +1425,7 @@ verve_plugin_show_about (XfcePanelPlugin *plugin,
         "program-name", PACKAGE_NAME,
         "comments", _("Command line interface with auto-completion and command history"),
         "website", PACKAGE_URL,
-        "copyright", "Copyright \302\251 2006-2025 The Xfce development team",
+        "copyright", "Copyright \302\251 2006-" COPYRIGHT_YEAR " The Xfce development team",
         "authors", auth, NULL);
 }
 

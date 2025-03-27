@@ -3,6 +3,7 @@ dnl Copyright (c) 2010 - Florian Rivoal <frivoal@xfce.org>
 dnl Copyright (c) 2015 - Isaac Schemm <isaacschemm@gmail.com>
 dnl
 
+m4_define([copyright_year], [2025])
 XDT_VERSION_INIT([2.0.4], [git])
 
 dnl ***************************
@@ -11,12 +12,15 @@ dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2006-2008 Jannis Pohlmann <jannis@xfce.org>
 Copyright (c) Florian Rivoal 2010 <frivoal@xfce.org>
 Copyright (c) Isaac Schemm 2015 <isaacschemm@gmail.com>
-Copyright (c) 2006-2024 The Xfce development team. All rights reserved.])
+Copyright (c) 2006-copyright_year() The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-verve-plugin], [xdt_version], [https://gitlab.xfce.org/panel-plugins/xfce4-verve-plugin], [xfce4-verve-plugin])
 AC_REVISION([xdt_version_build])
 AC_PREREQ([2.69])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AC_DEFINE([VERSION_FULL], [PACKAGE_VERSION], [Alias for VERSION and PACKAGE_VERSION for meson compatibility])
+COPYRIGHT_YEAR=copyright_year()
+AC_DEFINE_UNQUOTED([COPYRIGHT_YEAR], ["$COPYRIGHT_YEAR"], [Copyright year])
+AC_SUBST([COPYRIGHT_YEAR])
 
 dnl ***************************
 dnl *** Initialize automake ***
