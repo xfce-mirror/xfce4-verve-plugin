@@ -4,7 +4,7 @@ dnl Copyright (c) 2015 - Isaac Schemm <isaacschemm@gmail.com>
 dnl
 
 m4_define([copyright_year], [2025])
-XDT_VERSION_INIT([2.1.0])
+XDT_VERSION_INIT([2.1.0], [git])
 
 dnl ***************************
 dnl *** Initialize autoconf ***
