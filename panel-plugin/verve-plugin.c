@@ -67,6 +67,7 @@ typedef struct
   guint             n_complete;
 
   /* Properties */ 
+  GtkWidget        *settings_dialog;
   gint              size;
   gint              history_length;
   VerveLaunchParams launch_params;
@@ -465,7 +466,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   verve_init ();
   
   /* Create the plugin object */
-  verve = g_new (VervePlugin, 1);
+  verve = g_new0 (VervePlugin, 1);
 
   /* Assign the panel plugin to the plugin member */
   verve->plugin = plugin;
@@ -1043,9 +1044,6 @@ verve_plugin_response (GtkWidget *dialog,
   /* Destroy dialog object */
   gtk_widget_destroy (dialog);
   
-  /* Unblock plugin context menu */
-  xfce_panel_plugin_unblock_menu (verve->plugin);
-
   /* Save changes to config file */
   verve_plugin_write_rc_file (verve->plugin, verve);
 }
@@ -1096,15 +1094,18 @@ verve_plugin_properties (XfcePanelPlugin *plugin,
   g_return_if_fail (plugin != NULL);
   g_return_if_fail (verve != NULL);
 
-  /* Block plugin context menu */
-  xfce_panel_plugin_block_menu (plugin);
+  if (verve->settings_dialog != NULL) {
+    gtk_window_present (GTK_WINDOW (verve->settings_dialog));
+    return;
+  }
 
   /* Create properties dialog */
-  dialog = xfce_titled_dialog_new_with_mixed_buttons (_("Verve"),
+  verve->settings_dialog = dialog = xfce_titled_dialog_new_with_mixed_buttons (_("Verve"),
                                                       GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (plugin))),
                                                       GTK_DIALOG_DESTROY_WITH_PARENT,
                                                       "window-close", _("_Close"), GTK_RESPONSE_OK,
                                                       NULL);
+  g_object_add_weak_pointer (G_OBJECT (verve->settings_dialog), (gpointer *) &verve->settings_dialog);
 
   /* Set dialog property */
   g_object_set_data (G_OBJECT (plugin), "dialog", dialog);
