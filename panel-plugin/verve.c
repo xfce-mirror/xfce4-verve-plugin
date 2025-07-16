@@ -21,10 +21,6 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 /* allows using generic function names instead of suffixing them with _8 */
 #define PCRE2_CODE_UNIT_WIDTH 8
 #include <pcre2.h>
