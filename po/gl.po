@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-verve-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Daniel Muñiz Fontoira <dani@damufo.eu>, 2018-2019
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:57+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-17 12:57+0200\n"
 "PO-Revision-Date: 2013-07-03 19:26+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2018-2019\n"
 "Language-Team: Galician (http://app.transifex.com/xfce/xfce-panel-plugins/language/gl/)\n"
@@ -19,135 +19,131 @@ msgstr ""
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: panel-plugin/verve.c:102
+#: ../panel-plugin/verve.c:98
 #, c-format
 msgid "Could not execute command (exit status %d)"
 msgstr "Non se puido executar a orde (estado de saída %d)"
 
 #. Generate error message
-#: panel-plugin/verve-plugin.c:400
+#: ../panel-plugin/verve-plugin.c:367
 msgid "Could not execute command:"
 msgstr "Non se puido executar a orde:"
 
 #. Create properties dialog
-#: panel-plugin/verve-plugin.c:1149
+#: ../panel-plugin/verve-plugin.c:1103
 msgid "Verve"
 msgstr "Verve"
 
-#: panel-plugin/verve-plugin.c:1152
+#: ../panel-plugin/verve-plugin.c:1106
 msgid "_Close"
 msgstr "_Pechar"
 
-#: panel-plugin/verve-plugin.c:1172
+#: ../panel-plugin/verve-plugin.c:1127
 msgid "General"
 msgstr "Xeral"
 
 #. Frame for appearance settings
-#: panel-plugin/verve-plugin.c:1177
+#: ../panel-plugin/verve-plugin.c:1132
 msgid "Appearance"
 msgstr "Aparencia"
 
 #. Plugin size label
-#: panel-plugin/verve-plugin.c:1193
+#: ../panel-plugin/verve-plugin.c:1148
 msgid "Width (in chars):"
 msgstr "Ancho (en caracteres):"
 
 #. Plugin label label
-#: panel-plugin/verve-plugin.c:1218
+#: ../panel-plugin/verve-plugin.c:1173
 msgid "Label:"
 msgstr "Etiqueta:"
 
 #. Frame for color settings
-#: panel-plugin/verve-plugin.c:1235
+#: ../panel-plugin/verve-plugin.c:1190
 msgid "Colors"
 msgstr "Cores"
 
 #. Plugin background color label
-#: panel-plugin/verve-plugin.c:1251
+#: ../panel-plugin/verve-plugin.c:1206
 msgid "Background color:"
 msgstr "Cor do fondo:"
 
 #. Plugin foreground color label
-#: panel-plugin/verve-plugin.c:1277
+#: ../panel-plugin/verve-plugin.c:1232
 msgid "Text color:"
 msgstr "Cor do texto:"
 
 #. Frame for behaviour settings
-#: panel-plugin/verve-plugin.c:1298
+#: ../panel-plugin/verve-plugin.c:1253
 msgid "History"
 msgstr "Historial"
 
 #. History length label
-#: panel-plugin/verve-plugin.c:1314
+#: ../panel-plugin/verve-plugin.c:1269
 msgid "Number of saved history items:"
 msgstr "Número de elementos gardados no historial:"
 
 #. Second tab
-#: panel-plugin/verve-plugin.c:1334 panel-plugin/verve-plugin.c:1338
+#: ../panel-plugin/verve-plugin.c:1289 ../panel-plugin/verve-plugin.c:1293
 msgid "Behaviour"
 msgstr "Comportamento"
 
 #. Pattern types frame label
-#: panel-plugin/verve-plugin.c:1347
+#: ../panel-plugin/verve-plugin.c:1302
 msgid "Enable support for:"
 msgstr "Activar a compatibilidade para:"
 
 #. Command type: URL
-#: panel-plugin/verve-plugin.c:1353
+#: ../panel-plugin/verve-plugin.c:1308
 msgid "URLs (http/https/ftp/ftps)"
 msgstr "URLs (http/https/ftp/ftps)"
 
 #. Command type: email address
-#: panel-plugin/verve-plugin.c:1361
+#: ../panel-plugin/verve-plugin.c:1316
 msgid "Email addresses"
 msgstr "Enderezo de correo electrónico"
 
 #. Command type: directory path
-#: panel-plugin/verve-plugin.c:1369
+#: ../panel-plugin/verve-plugin.c:1324
 msgid "Directory paths"
 msgstr "Rutas de cartafol"
 
 #. wordexp checkbox
-#: panel-plugin/verve-plugin.c:1377
+#: ../panel-plugin/verve-plugin.c:1332
 msgid "Expand variables with wordexp"
 msgstr "Ampliar as variábeis con «wordexp»"
 
 #. Command type: !bang
-#: panel-plugin/verve-plugin.c:1388
+#: ../panel-plugin/verve-plugin.c:1343
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "As buscas con DuckDuckGo (comezan con !)"
 
 #. Command type: I'm feeling ducky (\)
-#: panel-plugin/verve-plugin.c:1396
+#: ../panel-plugin/verve-plugin.c:1351
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "Buscas con DuckDuckGo (comezan con \\)"
 
 #. Fallback if the above don't match
-#: panel-plugin/verve-plugin.c:1404
+#: ../panel-plugin/verve-plugin.c:1359
 msgid "If the above patterns don't match:"
 msgstr "Se os patróns se arriba non coinciden:"
 
 #. Smart bookmark radio button
-#: panel-plugin/verve-plugin.c:1410
+#: ../panel-plugin/verve-plugin.c:1365
 msgid "Use smart bookmark URL"
 msgstr "Usar marcadores de URL intelixentes"
 
 #. Executable command radio button (smart bookmark off)
-#: panel-plugin/verve-plugin.c:1432
+#: ../panel-plugin/verve-plugin.c:1387
 msgid "Run as executable command"
 msgstr "Executar como orde executable"
 
 #. Use shell checkbox
-#: panel-plugin/verve-plugin.c:1439
+#: ../panel-plugin/verve-plugin.c:1394
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
 msgstr "Executar a orde con «$SHELL -i -c»\n(activa o alias e a expansión variábel)"
 
-#: panel-plugin/xfce4-verve-plugin.desktop.in:5
-msgid "Verve Command Line"
-msgstr "Liña de ordes Verve"
-
-#: panel-plugin/xfce4-verve-plugin.desktop.in:6
+#: ../panel-plugin/verve-plugin.c:1424
 msgid "Command line interface with auto-completion and command history"
 msgstr "Interface de liña de ordes con completado automático e historial de ordes"
