@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Xfce
-# This file is distributed under the same license as the xfce-panel-plugins.xfce4-verve-plugin package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2006
@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:57+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-17 12:57+0200\n"
 "PO-Revision-Date: 2013-07-03 19:26+0000\n"
 "Last-Translator: 黃柏諺 <s8321414@gmail.com>, 2015,2017-2018\n"
 "Language-Team: Chinese (Taiwan) (http://app.transifex.com/xfce/xfce-panel-plugins/language/zh_TW/)\n"
@@ -20,135 +20,131 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: panel-plugin/verve.c:102
+#: ../panel-plugin/verve.c:98
 #, c-format
 msgid "Could not execute command (exit status %d)"
 msgstr "無法執行指令（離開狀態 %d）"
 
 #. Generate error message
-#: panel-plugin/verve-plugin.c:400
+#: ../panel-plugin/verve-plugin.c:367
 msgid "Could not execute command:"
 msgstr "無法執行指令:"
 
 #. Create properties dialog
-#: panel-plugin/verve-plugin.c:1149
+#: ../panel-plugin/verve-plugin.c:1103
 msgid "Verve"
 msgstr "Verve"
 
-#: panel-plugin/verve-plugin.c:1152
+#: ../panel-plugin/verve-plugin.c:1106
 msgid "_Close"
 msgstr "關閉(_C)"
 
-#: panel-plugin/verve-plugin.c:1172
+#: ../panel-plugin/verve-plugin.c:1127
 msgid "General"
 msgstr "一般"
 
 #. Frame for appearance settings
-#: panel-plugin/verve-plugin.c:1177
+#: ../panel-plugin/verve-plugin.c:1132
 msgid "Appearance"
 msgstr "外觀"
 
 #. Plugin size label
-#: panel-plugin/verve-plugin.c:1193
+#: ../panel-plugin/verve-plugin.c:1148
 msgid "Width (in chars):"
 msgstr "寬度 (多少字元):"
 
 #. Plugin label label
-#: panel-plugin/verve-plugin.c:1218
+#: ../panel-plugin/verve-plugin.c:1173
 msgid "Label:"
 msgstr "標籤："
 
 #. Frame for color settings
-#: panel-plugin/verve-plugin.c:1235
+#: ../panel-plugin/verve-plugin.c:1190
 msgid "Colors"
 msgstr "色彩"
 
 #. Plugin background color label
-#: panel-plugin/verve-plugin.c:1251
+#: ../panel-plugin/verve-plugin.c:1206
 msgid "Background color:"
 msgstr "背景色彩："
 
 #. Plugin foreground color label
-#: panel-plugin/verve-plugin.c:1277
+#: ../panel-plugin/verve-plugin.c:1232
 msgid "Text color:"
 msgstr "文字色彩："
 
 #. Frame for behaviour settings
-#: panel-plugin/verve-plugin.c:1298
+#: ../panel-plugin/verve-plugin.c:1253
 msgid "History"
 msgstr "歷史"
 
 #. History length label
-#: panel-plugin/verve-plugin.c:1314
+#: ../panel-plugin/verve-plugin.c:1269
 msgid "Number of saved history items:"
 msgstr "歷史條目的儲存數量:"
 
 #. Second tab
-#: panel-plugin/verve-plugin.c:1334 panel-plugin/verve-plugin.c:1338
+#: ../panel-plugin/verve-plugin.c:1289 ../panel-plugin/verve-plugin.c:1293
 msgid "Behaviour"
 msgstr "行為"
 
 #. Pattern types frame label
-#: panel-plugin/verve-plugin.c:1347
+#: ../panel-plugin/verve-plugin.c:1302
 msgid "Enable support for:"
 msgstr "啟用支援："
 
 #. Command type: URL
-#: panel-plugin/verve-plugin.c:1353
+#: ../panel-plugin/verve-plugin.c:1308
 msgid "URLs (http/https/ftp/ftps)"
 msgstr "URL (http/https/ftp/ftps)"
 
 #. Command type: email address
-#: panel-plugin/verve-plugin.c:1361
+#: ../panel-plugin/verve-plugin.c:1316
 msgid "Email addresses"
 msgstr "電子郵件地址"
 
 #. Command type: directory path
-#: panel-plugin/verve-plugin.c:1369
+#: ../panel-plugin/verve-plugin.c:1324
 msgid "Directory paths"
 msgstr "字典路徑"
 
 #. wordexp checkbox
-#: panel-plugin/verve-plugin.c:1377
+#: ../panel-plugin/verve-plugin.c:1332
 msgid "Expand variables with wordexp"
 msgstr "以 wordexp 展開變數"
 
 #. Command type: !bang
-#: panel-plugin/verve-plugin.c:1388
+#: ../panel-plugin/verve-plugin.c:1343
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "DuckDuckGo 查詢（以 ! 開頭）"
 
 #. Command type: I'm feeling ducky (\)
-#: panel-plugin/verve-plugin.c:1396
+#: ../panel-plugin/verve-plugin.c:1351
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "DuckDuckGo 查詢（以 \\ 開頭）"
 
 #. Fallback if the above don't match
-#: panel-plugin/verve-plugin.c:1404
+#: ../panel-plugin/verve-plugin.c:1359
 msgid "If the above patterns don't match:"
 msgstr "若以上的模式均不符合："
 
 #. Smart bookmark radio button
-#: panel-plugin/verve-plugin.c:1410
+#: ../panel-plugin/verve-plugin.c:1365
 msgid "Use smart bookmark URL"
 msgstr "使用智慧型書籤 URL"
 
 #. Executable command radio button (smart bookmark off)
-#: panel-plugin/verve-plugin.c:1432
+#: ../panel-plugin/verve-plugin.c:1387
 msgid "Run as executable command"
 msgstr "執行指令"
 
 #. Use shell checkbox
-#: panel-plugin/verve-plugin.c:1439
+#: ../panel-plugin/verve-plugin.c:1394
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
 msgstr "以 $SHELL -i -c 執行指令\n（啟用 alias 及變量擴充）"
 
-#: panel-plugin/xfce4-verve-plugin.desktop.in:5
-msgid "Verve Command Line"
-msgstr "Verve 指令列"
-
-#: panel-plugin/xfce4-verve-plugin.desktop.in:6
+#: ../panel-plugin/verve-plugin.c:1424
 msgid "Command line interface with auto-completion and command history"
 msgstr "具有自動補齊和指令歷史紀錄的指令列介面"
