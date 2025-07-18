@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-verve-plugin package.
 # 
 # Translators:
 # Nikola Radovanović <cobisimo@gmail.com>, 2018
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 12:57+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:08+0200\n"
 "PO-Revision-Date: 2013-07-03 19:26+0000\n"
 "Last-Translator: Nikola Radovanović <cobisimo@gmail.com>, 2018\n"
 "Language-Team: Serbian (http://app.transifex.com/xfce/xfce-panel-plugins/language/sr/)\n"
@@ -19,131 +19,136 @@ msgstr ""
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../panel-plugin/verve.c:98
+#: panel-plugin/verve.c:98
 #, c-format
 msgid "Could not execute command (exit status %d)"
 msgstr "Нисам успео да извршим наредбу (излазно стање је %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:367
+#: panel-plugin/verve-plugin.c:367
 msgid "Could not execute command:"
 msgstr "Нисам успео да извршим наредбу:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1103
+#: panel-plugin/verve-plugin.c:1103
 msgid "Verve"
 msgstr "Полет"
 
-#: ../panel-plugin/verve-plugin.c:1106
+#: panel-plugin/verve-plugin.c:1106
 msgid "_Close"
 msgstr "_Затвори"
 
-#: ../panel-plugin/verve-plugin.c:1127
+#: panel-plugin/verve-plugin.c:1127
 msgid "General"
 msgstr "Опште"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1132
+#: panel-plugin/verve-plugin.c:1132
 msgid "Appearance"
 msgstr "Изглед"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1148
+#: panel-plugin/verve-plugin.c:1148
 msgid "Width (in chars):"
 msgstr "Ширина (у знацима)"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1173
+#: panel-plugin/verve-plugin.c:1173
 msgid "Label:"
 msgstr "Натпис:"
 
 #. Frame for color settings
-#: ../panel-plugin/verve-plugin.c:1190
+#: panel-plugin/verve-plugin.c:1190
 msgid "Colors"
 msgstr "Боје"
 
 #. Plugin background color label
-#: ../panel-plugin/verve-plugin.c:1206
+#: panel-plugin/verve-plugin.c:1206
 msgid "Background color:"
 msgstr "Боја позадине:"
 
 #. Plugin foreground color label
-#: ../panel-plugin/verve-plugin.c:1232
+#: panel-plugin/verve-plugin.c:1232
 msgid "Text color:"
 msgstr "Боја текста:"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1253
+#: panel-plugin/verve-plugin.c:1253
 msgid "History"
 msgstr "Историја"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1269
+#: panel-plugin/verve-plugin.c:1269
 msgid "Number of saved history items:"
 msgstr "Број ставки које се чувају у историји:"
 
 #. Second tab
-#: ../panel-plugin/verve-plugin.c:1289 ../panel-plugin/verve-plugin.c:1293
+#: panel-plugin/verve-plugin.c:1289 panel-plugin/verve-plugin.c:1293
 msgid "Behaviour"
 msgstr "Понашање"
 
 #. Pattern types frame label
-#: ../panel-plugin/verve-plugin.c:1302
+#: panel-plugin/verve-plugin.c:1302
 msgid "Enable support for:"
 msgstr "Омогући подршку за:"
 
 #. Command type: URL
-#: ../panel-plugin/verve-plugin.c:1308
+#: panel-plugin/verve-plugin.c:1308
 msgid "URLs (http/https/ftp/ftps)"
 msgstr "УРЛ адресе (http/https/ftp/ftps)"
 
 #. Command type: email address
-#: ../panel-plugin/verve-plugin.c:1316
+#: panel-plugin/verve-plugin.c:1316
 msgid "Email addresses"
 msgstr "Адресе електронске поште"
 
 #. Command type: directory path
-#: ../panel-plugin/verve-plugin.c:1324
+#: panel-plugin/verve-plugin.c:1324
 msgid "Directory paths"
 msgstr "Путања фасцикли"
 
 #. wordexp checkbox
-#: ../panel-plugin/verve-plugin.c:1332
+#: panel-plugin/verve-plugin.c:1332
 msgid "Expand variables with wordexp"
 msgstr "Прошири променљиве изразима"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1343
+#: panel-plugin/verve-plugin.c:1343
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "Упите Дакдакгоа (почињу знаком !)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1351
+#: panel-plugin/verve-plugin.c:1351
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "Упите Дакдакгоа (почињу знаком \\)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1359
+#: panel-plugin/verve-plugin.c:1359
 msgid "If the above patterns don't match:"
 msgstr "Ако се обрасци изнад не слажу:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1365
+#: panel-plugin/verve-plugin.c:1365
 msgid "Use smart bookmark URL"
 msgstr "Користи паметне забелешке УРЛ-а"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1387
+#: panel-plugin/verve-plugin.c:1387
 msgid "Run as executable command"
 msgstr "Покрени као извршну наредбу"
 
 #. Use shell checkbox
-#: ../panel-plugin/verve-plugin.c:1394
+#: panel-plugin/verve-plugin.c:1394
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
 msgstr "Покрени наредбу помоћу $SHELL -i -c\n(омогућава проширење променљиве и другачије име)"
 
-#: ../panel-plugin/verve-plugin.c:1424
+#: panel-plugin/verve-plugin.c:1424
+#: panel-plugin/xfce4-verve-plugin.desktop.in:6
 msgid "Command line interface with auto-completion and command history"
 msgstr "Сучеље наредбене линије са самосталном допуном и историјом наредби"
+
+#: panel-plugin/xfce4-verve-plugin.desktop.in:5
+msgid "Verve Command Line"
+msgstr "Полетна наредбена линија"
