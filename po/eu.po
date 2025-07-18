@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-verve-plugin package.
 # 
 # Translators:
 # beriain, 2021
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Panel Plugins\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 12:57+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:08+0200\n"
 "PO-Revision-Date: 2013-07-03 19:26+0000\n"
 "Last-Translator: beriain, 2021\n"
 "Language-Team: Basque (http://app.transifex.com/xfce/xfce-panel-plugins/language/eu/)\n"
@@ -19,131 +19,136 @@ msgstr ""
 "Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../panel-plugin/verve.c:98
+#: panel-plugin/verve.c:98
 #, c-format
 msgid "Could not execute command (exit status %d)"
 msgstr "Ezin izan da komandoa exekutatu (irteera egoera %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:367
+#: panel-plugin/verve-plugin.c:367
 msgid "Could not execute command:"
 msgstr "Ezin da komandoa exekutatu:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:1103
+#: panel-plugin/verve-plugin.c:1103
 msgid "Verve"
 msgstr "Verve"
 
-#: ../panel-plugin/verve-plugin.c:1106
+#: panel-plugin/verve-plugin.c:1106
 msgid "_Close"
 msgstr "_Itxi"
 
-#: ../panel-plugin/verve-plugin.c:1127
+#: panel-plugin/verve-plugin.c:1127
 msgid "General"
 msgstr "Orokorra"
 
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:1132
+#: panel-plugin/verve-plugin.c:1132
 msgid "Appearance"
 msgstr "Itxura"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:1148
+#: panel-plugin/verve-plugin.c:1148
 msgid "Width (in chars):"
 msgstr "Zabalera (karaktereak):"
 
 #. Plugin label label
-#: ../panel-plugin/verve-plugin.c:1173
+#: panel-plugin/verve-plugin.c:1173
 msgid "Label:"
 msgstr "Etiketa:"
 
 #. Frame for color settings
-#: ../panel-plugin/verve-plugin.c:1190
+#: panel-plugin/verve-plugin.c:1190
 msgid "Colors"
 msgstr "Koloreak"
 
 #. Plugin background color label
-#: ../panel-plugin/verve-plugin.c:1206
+#: panel-plugin/verve-plugin.c:1206
 msgid "Background color:"
 msgstr "Atzealdeko kolorea:"
 
 #. Plugin foreground color label
-#: ../panel-plugin/verve-plugin.c:1232
+#: panel-plugin/verve-plugin.c:1232
 msgid "Text color:"
 msgstr "Testuaren kolorea"
 
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:1253
+#: panel-plugin/verve-plugin.c:1253
 msgid "History"
 msgstr "Historia"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:1269
+#: panel-plugin/verve-plugin.c:1269
 msgid "Number of saved history items:"
 msgstr "Gordeko diren historia elementuen kopurua:"
 
 #. Second tab
-#: ../panel-plugin/verve-plugin.c:1289 ../panel-plugin/verve-plugin.c:1293
+#: panel-plugin/verve-plugin.c:1289 panel-plugin/verve-plugin.c:1293
 msgid "Behaviour"
 msgstr "Portaera"
 
 #. Pattern types frame label
-#: ../panel-plugin/verve-plugin.c:1302
+#: panel-plugin/verve-plugin.c:1302
 msgid "Enable support for:"
 msgstr "Hurrengoak onartu:"
 
 #. Command type: URL
-#: ../panel-plugin/verve-plugin.c:1308
+#: panel-plugin/verve-plugin.c:1308
 msgid "URLs (http/https/ftp/ftps)"
 msgstr "URLak (http/https/ftp/ftps)"
 
 #. Command type: email address
-#: ../panel-plugin/verve-plugin.c:1316
+#: panel-plugin/verve-plugin.c:1316
 msgid "Email addresses"
 msgstr "E-mail helbideak"
 
 #. Command type: directory path
-#: ../panel-plugin/verve-plugin.c:1324
+#: panel-plugin/verve-plugin.c:1324
 msgid "Directory paths"
 msgstr "Direktorio bideak"
 
 #. wordexp checkbox
-#: ../panel-plugin/verve-plugin.c:1332
+#: panel-plugin/verve-plugin.c:1332
 msgid "Expand variables with wordexp"
 msgstr "Aldagarriak wordexp-ekin zabaldu"
 
 #. Command type: !bang
-#: ../panel-plugin/verve-plugin.c:1343
+#: panel-plugin/verve-plugin.c:1343
 msgid "DuckDuckGo queries (starting with !)"
 msgstr "DuckDuckGo kontsultak (!-rekin hasitakoak)"
 
 #. Command type: I'm feeling ducky (\)
-#: ../panel-plugin/verve-plugin.c:1351
+#: panel-plugin/verve-plugin.c:1351
 msgid "DuckDuckGo queries (starting with \\)"
 msgstr "DuckDuckGo kontsultak (\\-rekin hasitakoak)"
 
 #. Fallback if the above don't match
-#: ../panel-plugin/verve-plugin.c:1359
+#: panel-plugin/verve-plugin.c:1359
 msgid "If the above patterns don't match:"
 msgstr "Goiko patroiak bat ez badatoz:"
 
 #. Smart bookmark radio button
-#: ../panel-plugin/verve-plugin.c:1365
+#: panel-plugin/verve-plugin.c:1365
 msgid "Use smart bookmark URL"
 msgstr "URL laster-marka adimentsu bat erabili"
 
 #. Executable command radio button (smart bookmark off)
-#: ../panel-plugin/verve-plugin.c:1387
+#: panel-plugin/verve-plugin.c:1387
 msgid "Run as executable command"
 msgstr "Komando exekutagarri bezala exekutatu"
 
 #. Use shell checkbox
-#: ../panel-plugin/verve-plugin.c:1394
+#: panel-plugin/verve-plugin.c:1394
 msgid ""
 "Run command with $SHELL -i -c\n"
 "(enables alias and variable expansion)"
 msgstr "Komandoa exekutatu honekin: $SHELL -i -c\n(aliasak eta aldagarriak zabaltzea gaitzen du)"
 
-#: ../panel-plugin/verve-plugin.c:1424
+#: panel-plugin/verve-plugin.c:1424
+#: panel-plugin/xfce4-verve-plugin.desktop.in:6
 msgid "Command line interface with auto-completion and command history"
 msgstr "Komando lerro interfazea auto-betetze eta komando historiarekin"
+
+#: panel-plugin/xfce4-verve-plugin.desktop.in:5
+msgid "Verve Command Line"
+msgstr "Verve komando lerroa"
