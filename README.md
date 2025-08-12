@@ -44,6 +44,10 @@ From release tarball:
 
 Note: If the output says "required file ./ltmain.sh not found", run libtoolize and then run the same autogen.sh command again.
 
+### Uninstallation
+
+    % ninja uninstall -C build
+
 ### Reporting Bugs
 
 Visit the [reporting bugs](https://docs.xfce.org/panel-plugins/xfce4-verve-plugin/bugs) page to view currently open bug reports and instructions on reporting new bugs or submitting bugfixes.
