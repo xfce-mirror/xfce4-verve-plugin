@@ -1,68 +1,152 @@
-# Uyghur translation for xfce4-verve-plugin.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Gheyret Kenji <gheyret@gmail.com>, YEAR.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-verve-plugin package.
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-verve-plugin\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-24 04:45+0000\n"
-"PO-Revision-Date: 2011-11-09 16:10+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
-"Language: \n"
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:08+0200\n"
+"PO-Revision-Date: 2013-07-03 19:26+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Uyghur (http://app.transifex.com/xfce/xfce-panel-plugins/language/ug/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ug\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: panel-plugin/verve.c:98
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "بۇيرۇقنى ئىجرا قىلالمىدى (چېكىنىش ھالىتى %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:411
+#: panel-plugin/verve-plugin.c:367
 msgid "Could not execute command:"
-msgstr "بۇيرۇقنى ئىجرا قىلغىلى بولمىدى:"
+msgstr "بۇيرۇقنى ئىجرا قىلالمىدى:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:789
+#: panel-plugin/verve-plugin.c:1103
 msgid "Verve"
 msgstr "Verve"
 
+#: panel-plugin/verve-plugin.c:1106
+msgid "_Close"
+msgstr "ياپ(_C)"
+
+#: panel-plugin/verve-plugin.c:1127
+msgid "General"
+msgstr "ئادەتتىكى"
+
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:807
+#: panel-plugin/verve-plugin.c:1132
 msgid "Appearance"
 msgstr "كۆرۈنۈشى"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:818
+#: panel-plugin/verve-plugin.c:1148
 msgid "Width (in chars):"
 msgstr "كەڭلىك (ھەرپ):"
 
+#. Plugin label label
+#: panel-plugin/verve-plugin.c:1173
+msgid "Label:"
+msgstr "ئەن:"
+
+#. Frame for color settings
+#: panel-plugin/verve-plugin.c:1190
+msgid "Colors"
+msgstr "رەڭ"
+
+#. Plugin background color label
+#: panel-plugin/verve-plugin.c:1206
+msgid "Background color:"
+msgstr "تەگلىك  رەڭگى:"
+
+#. Plugin foreground color label
+#: panel-plugin/verve-plugin.c:1232
+msgid "Text color:"
+msgstr "تېكىست رەڭگى:"
+
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:838
+#: panel-plugin/verve-plugin.c:1253
+msgid "History"
+msgstr "ئىز"
+
+#. History length label
+#: panel-plugin/verve-plugin.c:1269
+msgid "Number of saved history items:"
+msgstr "ئىزدا ساقلانغان تۈرنىڭ سانى:"
+
+#. Second tab
+#: panel-plugin/verve-plugin.c:1289 panel-plugin/verve-plugin.c:1293
 msgid "Behaviour"
 msgstr "قىلمىش"
 
-#. History length label
-#: ../panel-plugin/verve-plugin.c:849
-msgid "Number of saved history items:"
-msgstr "ئىزدا ساقلانغان تۇرنىڭ سانى:"
+#. Pattern types frame label
+#: panel-plugin/verve-plugin.c:1302
+msgid "Enable support for:"
+msgstr "قوللاشنى قوزغىتىدۇ:"
 
-#. vim:set expandtab sts=2 ts=2 sw=2:
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
+#. Command type: URL
+#: panel-plugin/verve-plugin.c:1308
+msgid "URLs (http/https/ftp/ftps)"
+msgstr "URLs (http/https/ftp/ftps)"
+
+#. Command type: email address
+#: panel-plugin/verve-plugin.c:1316
+msgid "Email addresses"
+msgstr "ئېلخەت ئادرېس"
+
+#. Command type: directory path
+#: panel-plugin/verve-plugin.c:1324
+msgid "Directory paths"
+msgstr "مۇندەرىجە يولى"
+
+#. wordexp checkbox
+#: panel-plugin/verve-plugin.c:1332
+msgid "Expand variables with wordexp"
+msgstr "wordexp دە ئۆزگەرگۈچىنى ياي"
+
+#. Command type: !bang
+#: panel-plugin/verve-plugin.c:1343
+msgid "DuckDuckGo queries (starting with !)"
+msgstr "DuckDuckGo سۈرۈشتۈرۈش (! بىلەن باشلىنىدۇ)"
+
+#. Command type: I'm feeling ducky (\)
+#: panel-plugin/verve-plugin.c:1351
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr "DuckDuckGo سۈرۈشتۈرۈش (\\ بىلەن باشلىنىدۇ)"
+
+#. Fallback if the above don't match
+#: panel-plugin/verve-plugin.c:1359
+msgid "If the above patterns don't match:"
+msgstr "ئەگەر يۇقىرى ئەندىزە ماس كەلمىسە:"
+
+#. Smart bookmark radio button
+#: panel-plugin/verve-plugin.c:1365
+msgid "Use smart bookmark URL"
+msgstr "ئىدراكلىق خەتكۈش تور ئادرېسنى ئىشلىتىدۇ"
+
+#. Executable command radio button (smart bookmark off)
+#: panel-plugin/verve-plugin.c:1387
+msgid "Run as executable command"
+msgstr "ئىجراچان بۇيرۇق سۈپىتىدە ئىجرا قىلىدۇ"
+
+#. Use shell checkbox
+#: panel-plugin/verve-plugin.c:1394
+msgid ""
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr "«‪$SHELL -i -c‬» بۇيرۇقىدا ئىجرا قىلىدۇ\n(باشقا ئات ۋە ئۆزگەرگۈچى كېڭەيتىشنى قوزغىتىدۇ)"
+
+#: panel-plugin/verve-plugin.c:1424
+#: panel-plugin/xfce4-verve-plugin.desktop.in:6
 msgid "Command line interface with auto-completion and command history"
 msgstr "ئاپتوماتىك تولۇقلاش ۋە بۇيرۇق ئىزى ئىقتىدارى بار بولغان بۇيرۇق قۇرى ئارايۈزى"
 
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
+#: panel-plugin/xfce4-verve-plugin.desktop.in:5
 msgid "Verve Command Line"
 msgstr "Verve بۇيرۇق قۇرى"
-
-#. Print error message
-#: ../scripts/verve-focus.c:60
-msgid "Failed to connect to the D-BUS session bus."
-msgstr "D-BUS ئەڭگىمە لىنىيىسىگە باغلىنىش مەغلۇپ بولدى"
-
-#. Print error message
-#: ../scripts/verve-focus.c:83
-msgid ""
-"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
-"running."
-msgstr "Verve D-BUSprovider يوقتەك قىلىدۇ (مەسىلەن: Verve تاختا قىستۇرمىسى) ئىجرا قىلىنمىغاندەك قىلىدۇ."
