@@ -3,8 +3,9 @@
 # This file is distributed under the same license as the xfce-panel-plugins.xfce4-verve-plugin package.
 # 
 # Translators:
-# Cédric Valmary <cvalmary@yahoo.fr>, 2016
+# Cédric Valmary <cvalmary@yahoo.fr>, 2013,2016
 # Cédric Valmary <cvalmary@yahoo.fr>, 2013
+# Quentin PAGÈS, 2022
 # Quentin PAGÈS, 2022
 msgid ""
 msgstr ""
@@ -86,7 +87,7 @@ msgstr "Nombre d'elements salvats dins l'istoric :"
 #. Second tab
 #: panel-plugin/verve-plugin.c:1289 panel-plugin/verve-plugin.c:1293
 msgid "Behaviour"
-msgstr "Comportament"
+msgstr "Compòrtament"
 
 #. Pattern types frame label
 #: panel-plugin/verve-plugin.c:1302
