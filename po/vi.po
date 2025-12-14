@@ -1,73 +1,154 @@
-# Vietnamese translation of the verve-plugin package.
-# Copyright (C) 2006-2007 Jannis Pohlmann.
-# This file is distributed under the same license as the verve-plugin package.
-# Phan Vĩnh Thịnh <teppi@vnlinux.org>, 2006.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-panel-plugins.xfce4-verve-plugin package.
+# 
+# Translators:
+# Loc Huynh <https://github.com/hthienloc>, 2025
+# Phan Vĩnh Thịnh <teppi@vnlinux.org>, 2006
 msgid ""
 msgstr ""
-"Project-Id-Version: verve-plugin 0.3.5\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-23 16:23+0100\n"
-"PO-Revision-Date: 2006-02-19 22:50+0300\n"
-"Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
-"Language-Team: Vietnamese <xfce-i18n@xfce.org>\n"
+"Project-Id-Version: Xfce Panel Plugins\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-07-18 11:08+0200\n"
+"PO-Revision-Date: 2013-07-03 19:26+0000\n"
+"Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>, 2006\n"
+"Language-Team: Vietnamese (http://app.transifex.com/xfce/xfce-panel-plugins/language/vi/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: panel-plugin/verve.c:98
+#, c-format
+msgid "Could not execute command (exit status %d)"
+msgstr "Không thể thực thi lệnh (thoát trạng thái %d)"
 
 #. Generate error message
-#: ../panel-plugin/verve-plugin.c:412
+#: panel-plugin/verve-plugin.c:367
 msgid "Could not execute command:"
 msgstr "Không thực hiện được câu lệnh:"
 
 #. Create properties dialog
-#: ../panel-plugin/verve-plugin.c:790
+#: panel-plugin/verve-plugin.c:1103
 msgid "Verve"
 msgstr "Verve"
 
+#: panel-plugin/verve-plugin.c:1106
+msgid "_Close"
+msgstr "Đó_ng"
+
+#: panel-plugin/verve-plugin.c:1127
+msgid "General"
+msgstr "Tổng quát"
+
 #. Frame for appearance settings
-#: ../panel-plugin/verve-plugin.c:808
+#: panel-plugin/verve-plugin.c:1132
 msgid "Appearance"
-msgstr "Vẻ ngoài"
+msgstr "Giao diện"
 
 #. Plugin size label
-#: ../panel-plugin/verve-plugin.c:819
+#: panel-plugin/verve-plugin.c:1148
 msgid "Width (in chars):"
 msgstr "Rộng (theo ký tự):"
 
+#. Plugin label label
+#: panel-plugin/verve-plugin.c:1173
+msgid "Label:"
+msgstr "Nhãn:"
+
+#. Frame for color settings
+#: panel-plugin/verve-plugin.c:1190
+msgid "Colors"
+msgstr "Màu sắc"
+
+#. Plugin background color label
+#: panel-plugin/verve-plugin.c:1206
+msgid "Background color:"
+msgstr "Màu nền:"
+
+#. Plugin foreground color label
+#: panel-plugin/verve-plugin.c:1232
+msgid "Text color:"
+msgstr "Màu văn bản:"
+
 #. Frame for behaviour settings
-#: ../panel-plugin/verve-plugin.c:839
-msgid "Behaviour"
-msgstr ""
+#: panel-plugin/verve-plugin.c:1253
+msgid "History"
+msgstr "Lịch sử"
 
 #. History length label
-#: ../panel-plugin/verve-plugin.c:850
+#: panel-plugin/verve-plugin.c:1269
 msgid "Number of saved history items:"
-msgstr ""
+msgstr "Số mục lịch sử đã lưu:"
 
-#. vim:set expandtab sts=2 ts=2 sw=2:
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:1
-#, fuzzy
+#. Second tab
+#: panel-plugin/verve-plugin.c:1289 panel-plugin/verve-plugin.c:1293
+msgid "Behaviour"
+msgstr "Hành vi"
+
+#. Pattern types frame label
+#: panel-plugin/verve-plugin.c:1302
+msgid "Enable support for:"
+msgstr "Bật hỗ trợ cho:"
+
+#. Command type: URL
+#: panel-plugin/verve-plugin.c:1308
+msgid "URLs (http/https/ftp/ftps)"
+msgstr "URL (http/https/ftp/ftps)"
+
+#. Command type: email address
+#: panel-plugin/verve-plugin.c:1316
+msgid "Email addresses"
+msgstr "Địa chỉ email"
+
+#. Command type: directory path
+#: panel-plugin/verve-plugin.c:1324
+msgid "Directory paths"
+msgstr "Đường dẫn Thư mục"
+
+#. wordexp checkbox
+#: panel-plugin/verve-plugin.c:1332
+msgid "Expand variables with wordexp"
+msgstr "Mở rộng biến bằng wordexp"
+
+#. Command type: !bang
+#: panel-plugin/verve-plugin.c:1343
+msgid "DuckDuckGo queries (starting with !)"
+msgstr "Truy vấn DuckDuckGo (bắt đầu bằng!)"
+
+#. Command type: I'm feeling ducky (\)
+#: panel-plugin/verve-plugin.c:1351
+msgid "DuckDuckGo queries (starting with \\)"
+msgstr "Truy vấn DuckDuckGo (bắt đầu bằng \\)"
+
+#. Fallback if the above don't match
+#: panel-plugin/verve-plugin.c:1359
+msgid "If the above patterns don't match:"
+msgstr "Nếu các mẫu trên không khớp:"
+
+#. Smart bookmark radio button
+#: panel-plugin/verve-plugin.c:1365
+msgid "Use smart bookmark URL"
+msgstr "Sử dụng URL đánh dấu thông minh"
+
+#. Executable command radio button (smart bookmark off)
+#: panel-plugin/verve-plugin.c:1387
+msgid "Run as executable command"
+msgstr "Chạy dưới dạng lệnh thực thi"
+
+#. Use shell checkbox
+#: panel-plugin/verve-plugin.c:1394
+msgid ""
+"Run command with $SHELL -i -c\n"
+"(enables alias and variable expansion)"
+msgstr "Chạy lệnh với $SHELL -i -c\n(cho phép bí danh và mở rộng biến)"
+
+#: panel-plugin/verve-plugin.c:1424
+#: panel-plugin/xfce4-verve-plugin.desktop.in:6
 msgid "Command line interface with auto-completion and command history"
-msgstr ""
-"Giao diện dòng lệnh với khả năng tự động kết thúc dòng lệnh và duyệt lịch sử"
+msgstr "Giao diện dòng lệnh với tính năng tự động hoàn thành và lịch sử lệnh"
 
-#: ../panel-plugin/xfce4-verve-plugin.desktop.in.in.h:2
+#: panel-plugin/xfce4-verve-plugin.desktop.in:5
 msgid "Verve Command Line"
 msgstr "Dòng lệnh Verve"
-
-#. Print error message
-#: ../scripts/verve-focus.c:61
-msgid "Failed to connect to the D-BUS session bus."
-msgstr ""
-
-#. Print error message
-#: ../scripts/verve-focus.c:84
-msgid ""
-"There seems to be no Verve D-BUS provider (e.g. the Verve panel plugin) "
-"running."
-msgstr ""
-
-#~ msgid "Verve Properties"
-#~ msgstr "Thuộc tính Verve"
