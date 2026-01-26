@@ -459,9 +459,6 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   VervePlugin *verve;
   GtkWidget   *hbox;
 
-  /* Set application name */
-  g_set_application_name ("Verve");
-
   /* Init Verve mini-framework */
   verve_init ();
   
