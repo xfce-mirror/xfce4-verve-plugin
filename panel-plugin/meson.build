@@ -4,6 +4,8 @@ plugin_sources = [
   'verve-history.c',
   'verve-history.h',
   'verve-plugin.c',
+  'verve-completion.c',
+  'verve-completion.h',
   'verve.c',
   'verve.h',
   xfce_revision_h,
