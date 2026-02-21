@@ -39,6 +39,7 @@
 #include "verve.h"
 #include "verve-env.h"
 #include "verve-history.h"
+#include "verve-completion.h"
 
 
 
@@ -63,7 +64,7 @@ typedef struct
   guint             focus_timeout;
   
   /* Autocompletion */
-  GCompletion      *completion;
+  VerveCompletion  *completion;
   guint             n_complete;
 
   /* Properties */ 
@@ -105,10 +106,8 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
     items = g_list_insert_sorted (items, iter->data, (GCompareFunc) g_utf8_collate);
 
   /* Add merged items to completion */
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
   if (G_LIKELY (history != NULL)) 
-    g_completion_add_items (verve->completion, items);
-G_GNUC_END_IGNORE_DEPRECATIONS
+    verve_completion_add_items (verve->completion, items);
 
   /* Free merged list */
   g_list_free (items);
@@ -216,14 +215,14 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
                           GdkEventKey *event, 
                           VervePlugin *verve)
 {
-  GCompletion *completion;
-  gchar       *command;
-  gboolean     terminal;
-  const gchar *prefix;
-  GList       *similar = NULL;
-  gboolean     selected = FALSE;
-  gint         selstart, len;
-  guint        i;
+  VerveCompletion *completion;
+  gchar           *command;
+  gboolean         terminal;
+  const gchar     *prefix;
+  GList           *similar = NULL;
+  gboolean         selected = FALSE;
+  gint             selstart, len;
+  guint            i;
 
   g_return_val_if_fail (verve != NULL, FALSE);
 
@@ -411,9 +410,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         G_LOCK (plugin_completion_mutex);
 
         /* Get all completion results */
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-        similar = g_completion_complete (completion, prefix, NULL);
-G_GNUC_END_IGNORE_DEPRECATIONS
+        similar = verve_completion_complete (completion, prefix, NULL);
 
         G_UNLOCK (plugin_completion_mutex);
 
@@ -470,9 +467,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   
   /* Initialize completion variables */
   verve->history_current = NULL;
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  verve->completion = g_completion_new (NULL);
-G_GNUC_END_IGNORE_DEPRECATIONS
+  verve->completion = verve_completion_new (NULL);
   verve->n_complete = 0;
   verve->size = 20;
   verve->history_length = 25;
@@ -537,9 +532,7 @@ verve_plugin_free (XfcePanelPlugin *plugin,
   verve_plugin_focus_timeout_reset (verve);
 
   /* Unload completion */
-G_GNUC_BEGIN_IGNORE_DEPRECATIONS
-  g_completion_free (verve->completion);
-G_GNUC_END_IGNORE_DEPRECATIONS
+  verve_completion_free (verve->completion);
 
   /* Free plugin data structure */
   g_free (verve);
