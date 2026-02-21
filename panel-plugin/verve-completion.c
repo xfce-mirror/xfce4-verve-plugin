@@ -20,9 +20,6 @@
 
 #include <string.h>
 
-static void
-verve_completion_check_cache (VerveCompletion *cmp,
-                              gchar **new_prefix);
 
 VerveCompletion *
 verve_completion_new (VerveCompletionFunc func)
@@ -83,54 +80,10 @@ verve_completion_clear_items (VerveCompletion *cmp)
   cmp->prefix = NULL;
 }
 
-static void
-verve_completion_check_cache (VerveCompletion *cmp,
-                              gchar **new_prefix)
-{
-  GList *list;
-  gsize len;
-  gsize i;
-  gsize plen;
-  gchar *postfix;
-  gchar *s;
-
-  if (!new_prefix)
-    return;
-  if (!cmp->cache)
-    {
-      *new_prefix = NULL;
-      return;
-    }
-
-  len = strlen (cmp->prefix);
-  list = cmp->cache;
-  s = cmp->func ? cmp->func (list->data) : (gchar *) list->data;
-  postfix = s + len;
-  plen = strlen (postfix);
-  list = list->next;
-
-  while (list && plen)
-    {
-      s = cmp->func ? cmp->func (list->data) : (gchar *) list->data;
-      s += len;
-      for (i = 0; i < plen; ++i)
-        {
-          if (postfix[i] != s[i])
-            break;
-        }
-      plen = i;
-      list = list->next;
-    }
-
-  *new_prefix = g_new0 (gchar, len + plen + 1);
-  strncpy (*new_prefix, cmp->prefix, len);
-  strncpy (*new_prefix + len, postfix, plen);
-}
 
 GList *
 verve_completion_complete (VerveCompletion *cmp,
-                           const gchar *prefix,
-                           gchar **new_prefix)
+                           const gchar *prefix)
 {
   gsize plen, len;
   gboolean done = FALSE;
@@ -184,7 +137,6 @@ verve_completion_complete (VerveCompletion *cmp,
     }
   if (cmp->cache)
     cmp->prefix = g_strdup (prefix);
-  verve_completion_check_cache (cmp, new_prefix);
 
   return *prefix ? cmp->cache : cmp->items;
 }
