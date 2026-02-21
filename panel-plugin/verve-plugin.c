@@ -410,7 +410,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         G_LOCK (plugin_completion_mutex);
 
         /* Get all completion results */
-        similar = verve_completion_complete (completion, prefix, NULL);
+        similar = verve_completion_complete (completion, prefix);
 
         G_UNLOCK (plugin_completion_mutex);
 

@@ -50,8 +50,7 @@ void
 verve_completion_clear_items (VerveCompletion *cmp);
 GList *
 verve_completion_complete (VerveCompletion *cmp,
-                           const gchar *prefix,
-                           gchar **new_prefix);
+                           const gchar *prefix);
 void
 verve_completion_free (VerveCompletion *cmp);
 G_END_DECLS
