@@ -16,7 +16,6 @@
  * License along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #ifndef __VERVE_COMPLETION_H__
 #define __VERVE_COMPLETION_H__
 
@@ -24,32 +23,37 @@
 
 G_BEGIN_DECLS
 
-typedef struct _VerveCompletion     VerveCompletion;
+typedef struct _VerveCompletion VerveCompletion;
 
-typedef gchar*          (*VerveCompletionFunc)      (gpointer item);
+typedef gchar *(*VerveCompletionFunc) (gpointer item);
 
 typedef gint (*VerveCompletionStrncmpFunc) (const gchar *s1,
-                                        const gchar *s2,
-                                        gsize        n);
+                                            const gchar *s2,
+                                            gsize n);
 
 struct _VerveCompletion
 {
-  GList* items;
+  GList *items;
   VerveCompletionFunc func;
- 
-  gchar* prefix;
-  GList* cache;
+
+  gchar *prefix;
+  GList *cache;
   VerveCompletionStrncmpFunc strncmp_func;
 };
 
-VerveCompletion* verve_completion_new           (VerveCompletionFunc func);
-void         verve_completion_add_items     (VerveCompletion*    cmp,
-                                         GList*          items);
-void         verve_completion_clear_items   (VerveCompletion*    cmp);
-GList*       verve_completion_complete      (VerveCompletion*    cmp,
-                                         const gchar*    prefix,
-                                         gchar**         new_prefix);
-void         verve_completion_free          (VerveCompletion*    cmp);
+VerveCompletion *
+verve_completion_new (VerveCompletionFunc func);
+void
+verve_completion_add_items (VerveCompletion *cmp,
+                            GList *items);
+void
+verve_completion_clear_items (VerveCompletion *cmp);
+GList *
+verve_completion_complete (VerveCompletion *cmp,
+                           const gchar *prefix,
+                           gchar **new_prefix);
+void
+verve_completion_free (VerveCompletion *cmp);
 G_END_DECLS
 
 #endif /* __VERVE_COMPLETION_H__ */
