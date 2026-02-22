@@ -100,9 +100,13 @@ verve_plugin_load_completion (VerveEnv* env, gpointer user_data)
   G_LOCK (plugin_completion_mutex);
 
   /* Build merged list */
+  /* The list of binaries is already deduplicated */
   items = g_list_copy (binaries);
   for (iter = g_list_first (history); iter != NULL; iter = g_list_next (iter))
-    items = g_list_insert_sorted (items, iter->data, (GCompareFunc) g_utf8_collate);
+    {
+      if (!g_list_find_custom (items, iter->data, (GCompareFunc) g_utf8_collate))
+        items = g_list_insert_sorted (items, iter->data, (GCompareFunc) g_utf8_collate);
+    }
 
   /* Add merged items to completion */
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
