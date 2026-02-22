@@ -66,6 +66,7 @@ typedef struct
   /* Autocompletion */
   VerveCompletion  *completion;
   guint             n_complete;
+  gchar            *last_prompt;
 
   /* Properties */ 
   GtkWidget        *settings_dialog;
@@ -221,6 +222,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
   const gchar     *prefix;
   GList           *similar = NULL;
   gboolean         selected = FALSE;
+  gboolean         browsing_mode = FALSE;
   gint             selstart, len;
   guint            i;
 
@@ -388,9 +390,11 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
 
         /* Determine currently selected chars */
         selected = gtk_editable_get_selection_bounds (GTK_EDITABLE (entry), &selstart, NULL);
-       
+
         /* Check if we are in auto-completion browsing mode */
-        if (selected && selstart != 0)
+        browsing_mode = ((selstart != 0 && selected) || (g_strcmp0 (verve->last_prompt, command) == 0 && !selected));
+
+        if (browsing_mode)
           {
             /* Switch over to the next completion result */
             verve->n_complete++;
@@ -418,7 +422,7 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
         if (G_LIKELY (similar != NULL))
           {
             /* Check if we are in browsing mode already */
-            if (selected && selstart != 0)
+            if (browsing_mode)
               {
                 /* Go back to the first entry if we reached the end of the result list */
                 if (verve->n_complete >= g_list_length (similar))
@@ -432,6 +436,9 @@ verve_plugin_keypress_cb (GtkWidget   *entry,
 
             /* Put result text into input entry */
             gtk_entry_set_text (GTK_ENTRY (entry), similar->data);
+
+            g_free (verve->last_prompt);
+            verve->last_prompt = g_strdup (similar->data);
 
             /* Select chars after the prefix entered by the user */
             gtk_editable_select_region (GTK_EDITABLE (entry), (selstart == 0 ? len : selstart), -1);
@@ -469,6 +476,7 @@ verve_plugin_new (XfcePanelPlugin *plugin)
   verve->history_current = NULL;
   verve->completion = verve_completion_new (NULL);
   verve->n_complete = 0;
+  verve->last_prompt = g_strdup ("");
   verve->size = 20;
   verve->history_length = 25;
   verve->launch_params.use_bang = FALSE;
