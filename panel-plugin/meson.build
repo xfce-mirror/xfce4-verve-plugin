@@ -1,4 +1,6 @@
 plugin_sources = [
+  'verve-completion.c',
+  'verve-completion.h',
   'verve-env.c',
   'verve-env.h',
   'verve-history.c',
