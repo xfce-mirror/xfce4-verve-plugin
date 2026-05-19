@@ -187,6 +187,8 @@ verve_env_finalize (GObject *object)
       g_list_free_full (env->binaries, g_free);
       env->binaries = NULL;
     }
+
+  G_OBJECT_CLASS (verve_env_parent_class)->finalize (object);
 }
 
 
